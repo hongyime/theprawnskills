@@ -10,6 +10,7 @@ packages/
 # Archive graveyard (placeholder-broken under OneDrive)
 _removed/
 
+
 # AI / editor dot directories (managed via sourcerepo)
 .*
 !.github/
