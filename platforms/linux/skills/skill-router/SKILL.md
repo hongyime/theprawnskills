@@ -27,6 +27,7 @@ following relative references. Never install the full library just to search it.
 |---|---|
 | Create, add, update, audit, remove skills | Standalone variants of skill-create, skill-add, skill-update, skill-cleanup, skill-remove, skill-authoring |
 | Coding, review, debugging | build, check, refactor, requesting-code-review, systematic-debugging |
+| Visual explanations, diagrams, UML/C4, flows, comparisons, HTML reports | visual-explainer; postplan-upload for hosted delivery |
 | Documents, spreadsheets, presentations | pdf, docx, xlsx, pptx |
 | Frontend design | frontend-design, web-design-guidelines, shadcn |
 | Cloudflare | cloudflare, wrangler, workers-best-practices |
@@ -37,3 +38,8 @@ following relative references. Never install the full library just to search it.
 Verify candidate availability and tool prerequisites from the actual files.
 Keep source skills and installed links/copies separate. Use the Python installer
 for local exposure, and do not run OneDrive propagation or `dotagents sync`.
+
+Keep `visual-explainer` in the daily profile with `postplan-upload`. Use its
+shared dark/cyan template whenever a visual helps, including short answers.
+The document order is visual overview, details, next steps. Hosting is a
+separate delivery step governed by the user's authorization.

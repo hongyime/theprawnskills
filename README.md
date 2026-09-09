@@ -1,8 +1,31 @@
 # The Prawn Skills
 
 A full skill library plus the daily profile in `default-profile.toml`.
-The recovered snapshot contains 206 top-level skills (216 `SKILL.md` files
-including nested skills), with 64 selected for daily use.
+The library contains 207 top-level skills (217 `SKILL.md` files including
+nested skills), with 65 selected for daily use. The recovered originals remain
+available alongside the new daily `visual-explainer` skill.
+
+## Your daily visual standard
+
+[`visual-explainer`](skills/visual-explainer/SKILL.md) stores the standing HTML
+preferences: restrained dark styling, one cyan accent, and **visual overview ->
+details -> next steps**. Use it for most answers where a visual helps, including
+short explanations. Choose useful flows, UML sequence/class diagrams, C4 views,
+comparisons, charts, and small interactions instead of defaulting to text/tables.
+
+- [Reusable HTML template and example](skills/visual-explainer/templates/explainer.html)
+- [Design tokens and accessibility rules](skills/visual-explainer/references/design-system.md)
+- [Mermaid rendering and diagram guidance](skills/visual-explainer/references/diagrams.md)
+
+Download/open the template locally to see the design; GitHub's file view displays
+its source. `postplan-upload` reads this skill before preparing hosted documents.
+The template needs no network at viewing time. Node/npm is only needed for the
+optional Mermaid authoring CLI or Postplan upload, not for reading the HTML.
+Task-specific generated reports stay in the task's output directory, outside
+the shared skill library. Change the shared assets to change the default style.
+
+The skill is included in `default-profile.toml`, so every new standalone install
+receives its instructions, template, diagram examples, configuration, and checker.
 
 ## Install on any machine
 
@@ -155,8 +178,9 @@ copies on Windows, symlinks on macOS/Linux. No administrator rights are needed
 for the default copy installation. Do not change symlink privileges or require OneDrive.
 Run --dry-run first. If it reports conflicts, inspect and report them while
 preserving all existing files. If the preview succeeds, run --apply and
---check. Confirm that the 64 daily skills resolve, including the standalone
-skill-router, and that the router can locate an on-demand skill such as pdf.
+--check. Confirm that the 65 daily skills resolve, including the standalone
+skill-router and visual-explainer with its template, and that the router can
+locate an on-demand skill such as pdf.
 Keep the full library in the clone and use only the profile in agent discovery.
 Do not delete any skills, run dotagents sync, copy Windows authentication or
 plugin caches, or alter the Windows/OneDrive machine registry. Report any
@@ -176,6 +200,33 @@ Standalone machines pull from GitHub. Changes made in the repository do not auto
 flow back into OneDrive: review and integrate them there separately. Keep one
 machine responsible for shared-library edits at a time. Never run the Windows
 propagation script on a standalone machine or blindly copy one checkout over another.
+
+For a targeted daily-skill update on the existing OneDrive machines, use
+PowerShell 7 from the library checkout after OneDrive has finished syncing.
+Invoke the script directly so PowerShell preserves the skill-name array:
+
+```powershell
+& ./scripts/Sync-SelectedSkills.ps1 -SkillNames visual-explainer,postplan-upload,skill-router,skill-cleanup
+& ./scripts/Sync-SelectedSkills.ps1 -SkillNames visual-explainer,postplan-upload,skill-router,skill-cleanup -Apply
+```
+
+Preview is the default. The script reads enabled machines and their installed
+agent roots from `machines.toml`, checks each machine's shared source against
+the initiating checkout, and updates only the named daily skills. Already
+matching copies are skipped. Replaced copies are backed up under that machine's
+user home at `Backups/<date>/skills/<run>/...`, outside OneDrive. Review those
+backups before merging any local customization. Unreachable machines or source
+mismatches are reported; they are not marked synchronized. Use `-LocalOnly`
+to operate only on the current registered machine. No remote canonical files
+are written by this script. The older full-profile installer remains available
+for existing workflows; targeted updates avoid rewriting unrelated skills.
+
+OneDrive transports the shared files; this script refreshes the separate agent
+copies. Standalone Kali/macOS/Windows machines use Git and the Python installer
+from the update section above. Pulling Git alone refreshes existing symlinks,
+but adding a newly selected skill or refreshing Windows copies needs `--apply`.
+Neither method silently sets up a scheduled background sync. Restart the agent
+after installation if the new daily skill is not visible yet.
 
 ## Repository transfer to hongyime
 

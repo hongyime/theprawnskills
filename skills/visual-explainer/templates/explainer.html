@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="visual-explainer-version" content="1.0.0">
+<title>A clearer way to explain — Visual Explainer</title>
+<style>
+:root{--background:#101418;--surface:#171D23;--raised:#202830;--border:#36434F;--text:#E8EDF2;--muted:#A8B5C2;--accent:#67D4E8;--accent-soft:#182D34;--radius:12px;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--background);color:var(--text);font-size:17px;line-height:1.65}a{color:var(--accent);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}button,summary,a{-webkit-tap-highlight-color:transparent}button:focus-visible,summary:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:5px}button{font:inherit}svg{display:block;max-width:100%;height:auto}svg text{font-family:"Segoe UI",system-ui,sans-serif}p{margin:0 0 16px}h1,h2,h3{line-height:1.15;letter-spacing:-.025em}h1{font-size:clamp(32px,5vw,52px);font-weight:650;max-width:780px;margin:20px 0}h2{font-size:27px;font-weight:600;margin:0 0 12px}h3{font-size:19px;font-weight:600;margin:0 0 10px}code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}code{font-size:.88em;color:var(--accent)}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.7;margin:0}small,.muted{color:var(--muted)}[hidden]{display:none!important}
+.page{width:min(1080px,calc(100% - 80px));margin:auto}.masthead{padding:28px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);gap:16px}.brand{font-size:14px;font-weight:650;letter-spacing:.035em}.brand::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:10px}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}.intro{padding:52px 0 32px}.lead{font-size:19px;color:var(--muted);max-width:750px}.toc{display:flex;gap:26px;padding:0 0 28px;border-bottom:1px solid var(--border);flex-wrap:wrap}.toc a{font-size:14px;color:var(--muted);text-decoration:none}.toc a:hover{color:var(--accent)}.toc span{color:var(--accent);margin-right:7px}.section{padding:40px 0;border-bottom:1px solid var(--border)}.section-heading{display:flex;gap:18px;align-items:baseline;margin-bottom:20px}.number{font-size:13px;color:var(--accent);font-family:ui-monospace,Consolas,monospace}.section-description{max-width:760px;color:var(--muted)}.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px}.flow{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px}.flow li{position:relative;padding:8px 0}.flow li:not(:last-child)::after{content:"→";position:absolute;right:-25px;top:37px;color:var(--accent);font-size:23px}.step-kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.09em;display:block;margin-bottom:12px}.flow p{font-size:15px;color:var(--muted);margin-bottom:0}.caption{font-size:14px;color:var(--muted);margin:16px 0 0;max-width:850px}.diagram-tabs{display:flex;gap:8px;margin:24px 0 14px;flex-wrap:wrap}.diagram-tabs button{border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--muted);font-size:13px;padding:8px 14px;cursor:pointer}.diagram-tabs button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}.diagram{margin:0}.diagram+.diagram{margin-top:24px}.diagram-frame{overflow:auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}.diagram-frame svg{min-width:680px;width:100%}.diagram-label{font-size:13px;color:var(--muted);margin-bottom:16px}.reading-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px}.reading-grid p{color:var(--muted);font-size:16px}.rule{border-left:2px solid var(--accent);padding-left:20px;margin:28px 0}.rule p{color:var(--text)}details{border-top:1px solid var(--border);padding:16px 0}details:last-child{border-bottom:1px solid var(--border)}summary{cursor:pointer;font-size:15px;font-weight:600}details>p,details>pre{margin:14px 0 0;color:var(--muted)}.next{list-style:none;counter-reset:actions;padding:0;margin:0}.next li{counter-increment:actions;display:grid;grid-template-columns:32px 1fr;gap:14px;padding:18px 0;border-top:1px solid var(--border)}.next li:first-child{border-top:0;padding-top:0}.next li::before{content:counter(actions,decimal-leading-zero);font-size:13px;color:var(--accent);padding-top:3px;font-family:ui-monospace,Consolas,monospace}.next strong{font-weight:600}.next p{color:var(--muted);font-size:15px;margin:4px 0 0}.footer{padding:24px 0 40px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:20px}.node{fill:var(--raised);stroke:var(--border);stroke-width:1.5}.node-accent{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}.edge{fill:none;stroke:var(--muted);stroke-width:1.5}.edge-accent{fill:none;stroke:var(--accent);stroke-width:1.5}.svg-text{fill:var(--text);font-size:17px}.svg-sub{fill:var(--muted);font-size:13px}.boundary{fill:none;stroke:var(--border);stroke-width:1.5;stroke-dasharray:6 5}
+@media(max-width:700px){.page{width:calc(100% - 40px)}.masthead{padding:20px 0}.intro{padding:34px 0 24px}.lead{font-size:17px}.section{padding:30px 0}.section-heading{gap:12px}.reading-grid{grid-template-columns:1fr;gap:24px}.panel{padding:22px}.flow{grid-template-columns:1fr;gap:28px}.flow li:not(:last-child)::after{content:"↓";left:0;right:auto;top:auto;bottom:-29px}.diagram-frame{padding:18px}.footer{flex-direction:column;gap:6px}.toc{gap:18px}.masthead .eyebrow{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{:root{--background:#FFFFFF;--surface:#FFFFFF;--raised:#F2F4F5;--border:#67727D;--text:#111820;--muted:#344350;--accent:#075A6B;--accent-soft:#E8F0F2;color-scheme:light}body{font-size:11pt}.page{width:100%}.intro,.section{padding:20px 0}.toc,.diagram-tabs{display:none!important}.diagram[hidden]{display:block!important}.diagram-frame{overflow:visible;break-inside:avoid}.diagram-frame svg{min-width:0}.reading-grid{display:block}details>*{display:block}h1{font-size:30pt}a{color:var(--accent)}.footer{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead"><div class="brand">Visual Explainer</div><div class="eyebrow">Shared style · v1.0</div></header>
+  <main>
+    <div class="intro">
+      <div class="eyebrow">A reusable example</div>
+      <h1>A clearer way to explain.</h1>
+      <p class="lead">One familiar design, with the right visual for the question. See the idea first, explore the detail, then know what to do next.</p>
+    </div>
+    <nav class="toc" aria-label="Document sections"><a href="#overview"><span>01</span>Visual overview</a><a href="#details"><span>02</span>Details</a><a href="#next-steps"><span>03</span>Next steps</a></nav>
+
+    <section class="section" id="overview" aria-labelledby="overview-title">
+      <div class="section-heading"><span class="number">01</span><h2 id="overview-title">Visual overview</h2></div>
+      <p class="section-description">The same three moves work for a short explanation, an architecture decision, or a longer review.</p>
+      <div class="panel">
+        <ol class="flow" aria-label="Explanation workflow">
+          <li><span class="step-kicker">Understand</span><h3>Find the question.</h3><p>What relationship, choice, or behavior needs to become clear?</p></li>
+          <li><span class="step-kicker">Make visible</span><h3>Draw the explanation.</h3><p>Choose a flow, sequence, architecture view, or evidence-based chart.</p></li>
+          <li><span class="step-kicker">Make useful</span><h3>Give the next step.</h3><p>Connect the visual to a decision, an action, or a useful check.</p></li>
+        </ol>
+      </div>
+      <p class="caption">A small question gets a small document. The structure stays familiar; the subject determines the visual.</p>
+
+      <div class="diagram-tabs" id="diagram-controls" role="group" aria-label="Choose an explanatory view" hidden>
+        <button type="button" data-view="context-view" aria-controls="context-view" aria-pressed="true">System context</button>
+        <button type="button" data-view="sequence-view" aria-controls="sequence-view" aria-pressed="false">Message sequence</button>
+      </div>
+      <figure class="diagram" id="context-view">
+        <p class="caption">On a narrow screen, scroll the diagram sideways to see the full context.</p>
+        <div class="diagram-frame" tabindex="0" role="region" aria-label="System context diagram; scroll horizontally on narrow screens">
+          <div class="diagram-label">C4-style context · where the responsibilities live</div>
+          <svg viewBox="0 0 940 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ctx-title ctx-desc">
+            <title id="ctx-title">The visual explanation workflow in context</title><desc id="ctx-desc">A reader asks an agent for an explanation. The agent reads the shared visual skill, returns local HTML, and can upload an authorized document to the external Postplan service.</desc>
+            <defs><marker id="ctx-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#A8B5C2"/></marker></defs>
+            <rect x="285" y="18" width="330" height="274" rx="12" class="boundary"/><text x="305" y="45" class="svg-sub">LOCAL EXPLANATION WORKFLOW</text>
+            <rect x="20" y="112" width="166" height="82" rx="8" class="node"/><text x="103" y="145" text-anchor="middle" class="svg-text">Reader</text><text x="103" y="169" text-anchor="middle" class="svg-sub">Person</text>
+            <rect x="325" y="81" width="250" height="72" rx="8" class="node-accent"/><text x="450" y="112" text-anchor="middle" class="svg-text">Coding agent</text><text x="450" y="136" text-anchor="middle" class="svg-sub">Creates the explanation</text>
+            <rect x="325" y="204" width="250" height="62" rx="8" class="node"/><text x="450" y="231" text-anchor="middle" class="svg-text">Visual Explainer</text><text x="450" y="251" text-anchor="middle" class="svg-sub">Shared skill + template</text>
+            <rect x="742" y="105" width="176" height="92" rx="8" class="node"/><text x="830" y="139" text-anchor="middle" class="svg-text">Postplan</text><text x="830" y="164" text-anchor="middle" class="svg-sub">External host</text><text x="830" y="182" text-anchor="middle" class="svg-sub">Public draft URL</text>
+            <path d="M186 126 H245 V107 H325" class="edge" marker-end="url(#ctx-arrow)"/><text x="226" y="91" text-anchor="middle" class="svg-sub">asks</text>
+            <path d="M325 137 H260 V178 H186" class="edge" marker-end="url(#ctx-arrow)"/><text x="246" y="202" text-anchor="middle" class="svg-sub">local HTML</text>
+            <path d="M450 153 V204" class="edge" marker-end="url(#ctx-arrow)"/><text x="462" y="184" class="svg-sub">reads</text>
+            <path d="M575 117 H675 V139 H742" class="edge" marker-end="url(#ctx-arrow)"/><text x="666" y="89" text-anchor="middle" class="svg-sub">uploads when</text><text x="666" y="105" text-anchor="middle" class="svg-sub">authorized</text>
+          </svg>
+        </div>
+        <figcaption class="caption">Separate responsibilities: the skill defines presentation, the agent builds the document, and Postplan hosts an authorized copy.</figcaption>
+      </figure>
+      <figure class="diagram" id="sequence-view">
+        <p class="caption">On a narrow screen, scroll the diagram sideways to follow all participants.</p>
+        <div class="diagram-frame" tabindex="0" role="region" aria-label="Message sequence diagram; scroll horizontally on narrow screens">
+          <div class="diagram-label">UML-style sequence · what happens in order</div>
+          <svg viewBox="0 0 940 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="seq-title seq-desc">
+            <title id="seq-title">Messages in a visual explanation</title><desc id="seq-desc">The reader requests an explanation. The agent reads the shared style, writes and checks HTML, then returns the local artifact. An optional authorized upload returns a public URL.</desc>
+            <defs><marker id="seq-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#A8B5C2"/></marker></defs>
+            <rect x="25" y="8" width="150" height="42" rx="6" class="node"/><text x="100" y="35" text-anchor="middle" class="svg-text">Reader</text><rect x="340" y="8" width="190" height="42" rx="6" class="node-accent"/><text x="435" y="35" text-anchor="middle" class="svg-text">Agent + skill</text><rect x="730" y="8" width="170" height="42" rx="6" class="node"/><text x="815" y="35" text-anchor="middle" class="svg-text">Postplan</text>
+            <path d="M100 50 V300 M435 50 V300 M815 50 V300" class="boundary"/>
+            <path d="M100 92 H435" class="edge" marker-end="url(#seq-arrow)"/><text x="265" y="79" text-anchor="middle" class="svg-sub">Explain this workflow</text>
+            <path d="M435 120 H485 V155 H435" class="edge" marker-end="url(#seq-arrow)"/><text x="505" y="142" class="svg-sub">Create + check HTML</text>
+            <path d="M435 185 H100" class="edge" stroke-dasharray="5 4" marker-end="url(#seq-arrow)"/><text x="265" y="173" text-anchor="middle" class="svg-sub">Local visual explanation</text>
+            <rect x="370" y="207" width="500" height="91" rx="5" class="boundary"/><text x="384" y="225" class="svg-sub">OPTIONAL: HOSTING AUTHORIZED</text>
+            <path d="M435 245 H815" class="edge" marker-end="url(#seq-arrow)"/><text x="625" y="238" text-anchor="middle" class="svg-sub">Upload reviewed HTML</text><path d="M815 278 H435" class="edge" stroke-dasharray="5 4" marker-end="url(#seq-arrow)"/><text x="625" y="271" text-anchor="middle" class="svg-sub">Public draft URL</text>
+          </svg>
+        </div>
+        <figcaption class="caption">Use a sequence view when order matters. Keep an architecture view for boundaries and ownership.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="details" aria-labelledby="details-title">
+      <div class="section-heading"><span class="number">02</span><h2 id="details-title">Details</h2></div>
+      <div class="reading-grid">
+        <div><h3>Consistency makes room for the idea.</h3><p>The palette, type, spacing, and document order stay stable. A user flow explains choices. A sequence explains messages. A C4 view explains system boundaries. The right diagram depends on the question.</p><div class="rule"><p>Use a visual when it removes work for the reader—even when the answer is short.</p></div><p>Tables still belong here when comparing properties. They should support the explanation instead of becoming the only way every subject is presented.</p></div>
+        <div>
+          <details open><summary>What stays the same?</summary><p>A restrained dark background, one cyan accent, readable system fonts, and the overview → details → next steps structure.</p></details>
+          <details><summary>What changes with the subject?</summary><p>The diagram type, depth, evidence, and useful interaction. A brief explanation can fit in one screen; a larger report can reveal supporting detail progressively.</p></details>
+          <details><summary>Does this need a connection to display?</summary><p>No. The CSS, diagrams, and small view switcher are inline. With JavaScript disabled, both diagram views remain available. Hosting is a separate delivery choice.</p></details>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="next-steps" aria-labelledby="next-title">
+      <div class="section-heading"><span class="number">03</span><h2 id="next-title">Next steps</h2></div>
+      <ol class="next"><li><div><strong>Start with this design.</strong><p>Reuse the shared template and replace the example with the actual question, evidence, and diagram.</p></div></li><li><div><strong>Check the explanation.</strong><p>Confirm that labels are readable, relationships are accurate, and the page works on a narrow screen.</p></div></li><li><div><strong>Deliver a useful artifact.</strong><p>Return the local HTML. Use Postplan when a public hosted link is requested or authorized.</p></div></li></ol>
+    </section>
+  </main>
+  <footer class="footer"><span>Visual Explainer · Shared presentation standard</span><span>Standalone HTML · No runtime dependencies</span></footer>
+</div>
+<script>
+(() => {
+  const controls = document.getElementById('diagram-controls');
+  const buttons = [...controls.querySelectorAll('button[data-view]')];
+  function show(id) {
+    for (const button of buttons) {
+      const selected = button.dataset.view === id;
+      button.setAttribute('aria-pressed', String(selected));
+      document.getElementById(button.dataset.view).hidden = !selected;
+    }
+  }
+  controls.hidden = false;
+  for (const button of buttons) button.addEventListener('click', () => show(button.dataset.view));
+  show('context-view');
+})();
+</script>
+</body>
+</html>

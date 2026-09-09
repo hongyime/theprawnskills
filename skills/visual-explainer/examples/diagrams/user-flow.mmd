@@ -1,0 +1,9 @@
+flowchart LR
+  accTitle: From a question to a visual explanation
+  accDescr: The agent decides whether a visual helps, then creates local HTML and optionally publishes an authorized document.
+  A[User asks a question] --> B{Would a visual help?}
+  B -->|Yes| C[Create themed HTML]
+  B -->|No| D[Answer in chat]
+  C --> E[Review diagram and content]
+  E --> F[Deliver local HTML]
+  F -->|Hosting authorized| G[Upload through Postplan]

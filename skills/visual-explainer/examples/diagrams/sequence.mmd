@@ -1,0 +1,17 @@
+sequenceDiagram
+  accTitle: Creating and sharing an explanation
+  accDescr: The agent reads the visual skill, creates local HTML, and uploads only when hosting is authorized.
+  actor Reader
+  participant Agent
+  participant Skill as Visual Explainer
+  participant Host as Postplan
+  Reader->>Agent: Explain a workflow
+  Agent->>Skill: Read template and diagram guidance
+  Skill-->>Agent: Shared style and visual conventions
+  Agent->>Agent: Write HTML and render diagrams
+  Agent-->>Reader: Local HTML and concise answer
+  opt Hosting authorized
+    Agent->>Host: Upload reviewed HTML
+    Host-->>Agent: Public draft URL
+    Agent-->>Reader: Verified draft URL
+  end

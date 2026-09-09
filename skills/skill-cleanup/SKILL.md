@@ -93,6 +93,7 @@ Default-installed skills should stay small and high-signal:
 - `skill-cleanup`
 - `skill-remove`
 - `postplan-upload`
+- `visual-explainer`
 - core coding/debug/review skills
 - core Cloudflare/local platform skills the user repeatedly uses
 

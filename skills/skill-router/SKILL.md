@@ -86,6 +86,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Merge conflicts and git surgery | `merge-conflict-resolution`, `commit-work`, `git-commit` |
 | Spec writing (one clear feature) | `to-spec`, `spec`, `build`, `check` |
 | Ticket breakdown / work planning | `to-tickets`, `to-spec`, `postplan-upload` |
+| Explain visually, diagrams, flows, UML/C4, comparisons, HTML reports | `visual-explainer`; `postplan-upload` for hosted delivery |
 | Prototypes / feasibility spikes | `prototype`, `wayfinder` |
 | Large ambiguous initiatives | `wayfinder`, `domain-modeling`, `codebase-design` |
 | Guided step-by-step setup | `wizard`, `azure-prepare`, `wrangler` |
@@ -136,8 +137,9 @@ Keep default-installed skills lean:
 - Always install this `skill-router`.
 - Always install `skill-create`, `skill-add`, `skill-update`, `skill-cleanup`,
   and `skill-remove`.
-- Always install `postplan-upload` so substantial plans become clickable HTML
-  drafts.
+- Always install `visual-explainer` and `postplan-upload`: use consistent
+  dark/cyan HTML whenever a visual helps, even for short explanations. Use
+  visual overview -> details -> next steps; publish when hosting is authorized.
 - Keep essential coding, review, debugging, Cloudflare, and local setup skills
   installed when the user wants automatic discovery.
 - Leave media, writing, document, presentation, Azure, Supabase, and Vercel

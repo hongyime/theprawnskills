@@ -18,3 +18,13 @@
 - 2026-09-09: Published standalone installer/docs in 6d6b0d9. Fresh-checkout
   Windows, macOS, and Linux CI passed; original skills tree and profile match
   the preserved baseline. Actual remote machine installation remains user-run.
+- 2026-09-09: Audited Postplan references across canonical, installed, and plugin
+  skills. Found seven direct mentions and repo-standardization as a reverse
+  handoff source. Reported broader planning routes without treating ordinary
+  related-skill links as mandatory uploads; no skills changed or content uploaded.
+- 2026-09-09: User approved visual-explainer as a daily skill: dark/cyan styling,
+  proactive visual explanations including short answers, and overview/details/
+  next steps. Store preferences in reusable skill assets; Postplan uses them.
+- 2026-09-09: Add targeted Windows propagation with source hashes and local
+  backups outside OneDrive. Standalone machines continue using Git plus the
+  Python installer. Preserve originals and avoid rewriting unrelated skills.
