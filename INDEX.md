@@ -1,6 +1,6 @@
 # Skills Index
 
-Generated: 2026-09-09 08:50:56 +08:00
+Generated: 2026-09-09 11:03:57 +08:00
 Canonical skill root: `skills/` relative to this checkout (the OneDrive library on Windows).
 
 This library keeps the full skill set in the existing OneDrive library or a standalone Git clone on Windows, macOS, or Linux. Installed agent roots expose the profile from `default-profile.toml`. Use `skill-router` for on-demand discovery. Never run `dotagents sync`.
@@ -11,8 +11,8 @@ For Windows/macOS/Linux setup without OneDrive and a Codex handoff prompt, read 
 
 | Root | Count | Notes |
 |---|---:|---|
-| canonical library | 206 | Full OneDrive source library |
-| default profile | 64 | Desired baseline from default-profile.toml |
+| canonical library | 207 | Full OneDrive source library |
+| default profile | 65 | Desired baseline from default-profile.toml |
 | codex | 64 | Lean profile; Codex runtime/system folders excluded from count |
 | claude | 64 | Lean installed profile |
 | cursor | 64 | Lean installed profile |
@@ -214,6 +214,7 @@ For Windows/macOS/Linux setup without OneDrive and a Codex handoff prompt, read 
 | `vercel-react-view-transitions` | Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-ele... | - | ON-DEMAND |
 | `video-ad-specs` | "Video ad creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, LinkedIn. Covers dimensions, duration limits, AIDA framework, and caption require... | - | ON-DEMAND |
 | `video-prompting-guide` | "Best practices and techniques for writing effective AI video generation prompts. Covers: Veo, Seedance, Wan, Grok, Kling, Runway, Pika, Sora prompting strategies. Learn: shot t... | - | ON-DEMAND |
+| `visual-explainer` | Explain ideas, plans, architecture, code changes, comparisons, audits, and workflows with consistent standalone HTML and useful diagrams. Use proactively for most answers where ... | - | INSTALLED |
 | `wayfinder` | Navigate large, ambiguous initiatives where the destination or path is unclear. Use when the user says figure out how to approach this, this is too vague to spec, help me find a... | - | ON-DEMAND |
 | `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifact... | - | ON-DEMAND |
 | `web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best prac... | - | ON-DEMAND |

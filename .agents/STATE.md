@@ -1,4 +1,19 @@
-# Standalone installation and transfer documentation
+# Daily visual explanations rollout
+
+- User approved a new daily skill: restrained dark theme with one accent;
+  use HTML for most explanations where a visual helps, even short answers;
+  predictable visual overview -> details -> next steps.
+- Created visual-explainer with a dark/cyan template, accessible context and
+  sequence views, diagram guidance, Mermaid examples/config, and an HTML checker.
+- Connected Postplan and both routers; daily profile is now 65 skills. Existing
+  Windows installation copies will be backed up before the selected updates.
+- Native Windows standalone installation tests pass with the new skill assets.
+  Browser/diagram checks, publication, OneDrive delivery, and remote installs
+  are in progress. Both registered remote Windows machines are reachable.
+- Added a targeted Windows sync script: default preview, source hash checks,
+  dated backups outside OneDrive, no remote canonical writes, no skill pruning.
+
+## Earlier migration and audit context
 
 Standalone Windows, macOS, and Linux setup is published without requiring
 OneDrive. The original skill library and daily profile are preserved.
@@ -47,3 +62,18 @@ OneDrive. The original skill library and daily profile are preserved.
   physical machine was configured during this work.
 - Optional next step only if the owner chooses: private visibility plus a
   matching override in sourcerepo's repos.yml. Do not run org-wide sync.
+
+## Postplan reference audit
+
+- Searched all 216 canonical skill definitions, matching repo sources,
+  installed Codex/Claude/Cursor skills, and 106 cached plugin definitions.
+- Seven skills name Postplan: postplan-upload, to-spec, to-tickets, wayfinder,
+  competitive-upgrade, skill-router, and skill-cleanup. The uploader additionally
+  names repo-standardization as a source of compliance reports.
+- The uploader creates standalone HTML and invokes npx postplan upload; its
+  broad planning/audit/review triggers can match without an explicit handoff.
+  Router/default-profile/cleanup rules keep it in the daily installation.
+- Followed indirect planning references; distinguish workflow handoffs from
+  related-skill lists and unrelated HTML generators. Installed routers have
+  older non-Postplan entries, but their Postplan guidance matches canonical.
+- Audit only: no skill changes, installations, or uploads were performed.

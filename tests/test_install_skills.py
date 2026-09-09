@@ -248,11 +248,15 @@ class ProfileIntegrationTests(Fixture):
             result = subprocess.run([*command, mode], capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
         links = list((self.home / ".agents/skills").iterdir())
-        self.assertEqual(len(links), 64)
+        self.assertEqual(len(links), 65)
         self.assertTrue(all((link / "SKILL.md").is_file() for link in links))
         self.assertTrue(all(link.is_symlink() == (os.name != "nt") for link in links))
         metadata = json.loads((self.home / ".config/theprawnskills/library.json").read_text())
         self.assertTrue((Path(metadata["library"]) / "skills/pdf/SKILL.md").is_file())
+        visual = self.home / ".agents/skills/visual-explainer"
+        self.assertTrue((visual / "templates/explainer.html").is_file())
+        checked = subprocess.run([sys.executable, str(visual / "scripts/check_html.py"), str(visual / "templates/explainer.html")], capture_output=True, text=True)
+        self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,28 @@
+classDiagram
+  accTitle: Example document model
+  accDescr: An illustrative document contains an overview, detail sections, and next steps, all using one theme.
+  class Document {
+    title
+    summary
+  }
+  class Theme {
+    background
+    accent
+    typography
+  }
+  class Overview {
+    diagram
+    caption
+  }
+  class Detail {
+    evidence
+    explanation
+  }
+  class NextStep {
+    action
+    prerequisite
+  }
+  Document --> Theme : uses
+  Document *-- Overview : contains
+  Document *-- "1..*" Detail : contains
+  Document *-- "1..*" NextStep : contains

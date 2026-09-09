@@ -16,7 +16,8 @@ skills = [
   "skill-cleanup",
   "skill-remove",
 
-  # Planning output
+  # Everyday visual explanations and hosted output
+  "visual-explainer",
   "postplan-upload",
 
   # Core coding workflow

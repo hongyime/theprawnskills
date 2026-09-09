@@ -1,0 +1,14 @@
+flowchart LR
+  accTitle: Visual explanation system context
+  accDescr: A reader uses an agent that reads the shared skill library and can publish authorized documents to an external Postplan service.
+  Reader["Reader / Person"]
+  subgraph Local[Local explanation workflow / System boundary]
+    Agent["Coding agent / Software system"]
+    Library["Skill library / Instruction store"]
+  end
+  Postplan["Postplan / External software system"]
+  Reader -->|Requests an explanation| Agent
+  Agent -->|Reads presentation rules| Library
+  Agent -->|Returns local HTML| Reader
+  Agent -->|Uploads when authorized| Postplan
+  Postplan -->|Serves a public draft| Reader
