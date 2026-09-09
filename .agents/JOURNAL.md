@@ -28,3 +28,11 @@
 - 2026-09-09: Add targeted Windows propagation with source hashes and local
   backups outside OneDrive. Standalone machines continue using Git plus the
   Python installer. Preserve originals and avoid rewriting unrelated skills.
+- 2026-09-09: Published daily visual-explainer in 254f727; three-OS installation
+  CI passed. Verified 65 daily skills on the current Windows machine and all
+  2,165 original skill files preserved. Shared source was fast-forwarded through
+  Git; replaced agent copies have dated backups outside OneDrive.
+- 2026-09-09: Windows SSH stdin hung, so targeted sync now transfers and hashes
+  a helper file. Real remote execution confirms missing OneDrive source stops
+  before agent updates. The other registered target timed out. Report these
+  pending machines honestly; retry after OneDrive and connectivity recover.

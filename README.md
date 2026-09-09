@@ -228,6 +228,14 @@ but adding a newly selected skill or refreshing Windows copies needs `--apply`.
 Neither method silently sets up a scheduled background sync. Restart the agent
 after installation if the new daily skill is not visible yet.
 
+Remote Windows updates use a hash-verified helper transferred into the machine's
+dated local backup folder. This avoids Windows SSH stdin hangs and keeps helper
+files available for inspection. If a machine lacks the new shared skill folder,
+finish OneDrive synchronization there and rerun the command; the script stops
+before modifying that machine's agent copies. An offline SSH target is reported
+separately. Availability in the GitHub repo does not mean every machine has
+already received or installed an update.
+
 ## Repository transfer to hongyime
 
 The current repository is `hongyime/theprawnskills`. It was transferred from
