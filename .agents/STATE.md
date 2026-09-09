@@ -1,6 +1,6 @@
-# Current work
+# Completed migration support
 
-Preparing Linux installation while preserving the original Windows library.
+Linux installation support is published while preserving the original Windows library.
 
 - Base library: commit `0c6ba7f`, 206 top-level skills, 64 profile entries.
 - Upstream `ae84bdb` removed all 2,165 tracked files in `skills/` during
@@ -18,6 +18,13 @@ Preparing Linux installation while preserving the original Windows library.
   OneDrive content; 445 differ only in line endings. The default profile is
   unchanged. A bounded token/private-key pattern scan found no matches; this
   is not a full historical security audit.
-- Next: commit and publish the recovery, then verify GitHub's main branch and
-  provide the setup commands. No Windows installation or OneDrive files have
-  been changed. Visibility remains public pending an explicit owner choice.
+- Recovery and installer published as `62cbd1f` on main. GitHub's recursive
+  tree confirms 2,165 original skill files and 216 skill definitions.
+- Fresh-checkout Linux CI passed:
+  https://github.com/hongyime/theprawnskills/actions/runs/34293975375
+- `README.md` contains clone/install/update commands and the Codex prompt.
+  Actual installation on the user's target VM is performed with those commands;
+  validation here used Linux containers and GitHub CI.
+- No Windows installation or OneDrive files were changed. Visibility remains
+  public. Optional owner decision: make private and add a matching private
+  override in sourcerepo's repos.yml; no-config-sync alone does not control it.
