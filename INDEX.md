@@ -1,9 +1,11 @@
 # Skills Index
 
-Generated: 2026-08-24 20:48:23 +08:00
-Canonical skill root: `C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills`
+Generated: 2026-09-09 08:04:08 +08:00
+Canonical skill root: `skills/` relative to this checkout (the OneDrive library on Windows).
 
-This library keeps the full canonical skill set in OneDrive, while installed agent roots expose the lean profile from `default-profile.toml`. Use `skill-router` to discover and load on-demand skills from `skills/<kebab-name>/SKILL.md`. Use `dotagents install`, not `dotagents sync`.
+This library keeps the full skill set in OneDrive on Windows and a Git clone on Linux. Installed agent roots expose the profile from `default-profile.toml`. Use `skill-router` for on-demand discovery. Never run `dotagents sync`.
+
+For Kali/Linux setup and a Codex handoff prompt, read [README.md](README.md). Linux maintenance variants live under `platforms/linux/skills/` and preserve the original skills below. The installer prefers a variant when available. The installed-root counts below describe the Windows machine where this index was generated, not the Linux target.
 
 ## Installed Root Counts
 
