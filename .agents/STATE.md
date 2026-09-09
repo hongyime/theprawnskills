@@ -1,7 +1,7 @@
 # Standalone installation and transfer documentation
 
-Extending the published Linux setup to standalone Windows and macOS, without
-OneDrive. Preserve the original skill library and daily profile.
+Standalone Windows, macOS, and Linux setup is published without requiring
+OneDrive. The original skill library and daily profile are preserved.
 
 - Base library: commit `0c6ba7f`, 206 top-level skills, 64 profile entries.
 - Upstream `ae84bdb` removed all 2,165 tracked files in `skills/` during
@@ -37,6 +37,13 @@ OneDrive. Preserve the original skill library and daily profile.
 - README now includes Windows/macOS/Linux setup and updates without OneDrive,
   an any-machine Codex prompt, transfer remediation, and an optional private
   visibility procedure. The repo remains public; no visibility change was made.
-- Native Windows tests passed: 9 executed, 13 POSIX symlink cases skipped.
-  CI now covers Windows, macOS, and Linux; fresh-checkout results pending.
-- Next: publish this extension, verify the three CI jobs, and record the result.
+- Published the standalone extension as `6d6b0d9`. Fresh-checkout CI passed on
+  Windows, macOS, and Linux:
+  https://github.com/hongyime/theprawnskills/actions/runs/34296940092
+  Windows executes 9 tests and skips 13 POSIX symlink cases; macOS/Linux run
+  all 22 cases. Native Windows verification also passed in an isolated home.
+- Original skills tree still matches 0c6ba7f exactly; the daily profile is
+  unchanged. Target machines can now follow README.md; no target VM or other
+  physical machine was configured during this work.
+- Optional next step only if the owner chooses: private visibility plus a
+  matching override in sourcerepo's repos.yml. Do not run org-wide sync.
