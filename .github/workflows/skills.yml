@@ -1,0 +1,37 @@
+name: Skill library
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'platforms/linux/**'
+      - 'scripts/install_skills.py'
+      - 'tests/**'
+      - 'default-profile.toml'
+      - '.github/workflows/skills.yml'
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'platforms/linux/**'
+      - 'scripts/install_skills.py'
+      - 'tests/**'
+      - 'default-profile.toml'
+      - '.github/workflows/skills.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skills-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux-installation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: python3 -m unittest discover -s tests -v

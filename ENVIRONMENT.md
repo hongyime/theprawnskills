@@ -1,4 +1,7 @@
-# Environment: Windows 11 (PowerShell)
+# Windows environment: PowerShell
+
+This document describes the existing Windows machines. For Kali/Linux, use
+`README.md` and `platforms/linux/README.md`; the commands below do not apply.
 
 **This machine runs Windows 11. Bash is broken (fork errors). Always use PowerShell.**
 
@@ -47,7 +50,7 @@ Always use Windows-style paths or forward-slash equivalents:
 
 The canonical skill library is a git repo backed up offsite:
 
-- Remote: the private remote `theprawnskills` (see `git remote -v`)
+- Remote: `hongyime/theprawnskills` (verify current visibility on GitHub).
 - Repo root = this folder (.agents). Branch: main.
 - After ANY meaningful change to skills/, registry files, or scripts:
 
@@ -57,9 +60,12 @@ git -C "C:\Users\bryan\OneDrive\01 SKILLS\.agents" commit -m "chore(library): <w
 git -C "C:\Users\bryan\OneDrive\01 SKILLS\.agents" push
 ```
 
-- Disaster recovery: git clone the private repo, copy contents over .agents,
-  excluding nothing; installed roots re-propagate via
-  scripts/Install-DefaultSkillProfile.ps1.
+- Disaster recovery: clone the repo into a separate directory and compare it
+  with the local library before integrating changes. Preserve local edits and
+  credentials. Installed Windows roots can then re-propagate via
+  scripts/Install-DefaultSkillProfile.ps1 after the normal preview and sync checks.
+- Keep the `no-config-sync` GitHub topic on this repo. The org config cleanup
+  previously deleted skills/; the opt-out protects the recovered library.
 - Ignored: node_modules/, packages/, _removed/ (re-fetchable artifacts).
 
 ## Machine-local backups convention
