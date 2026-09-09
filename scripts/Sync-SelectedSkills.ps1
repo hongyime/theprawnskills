@@ -30,6 +30,7 @@ $worker = {
   param($Request)
   $ErrorActionPreference = 'Stop'
   function Get-SkillManifest([string]$Folder) {
+    if (-not (Test-Path -LiteralPath (Join-Path $Folder 'SKILL.md'))) { throw "Skill source is not ready: $Folder. Check OneDrive sync or preserve/review this installed directory." }
     $source = (Resolve-Path -LiteralPath $Folder).Path.TrimEnd('\')
     if (-not (Test-Path -LiteralPath (Join-Path $source 'SKILL.md'))) { throw "Missing skill: $source" }
     $items = @(Get-ChildItem -LiteralPath $source -Recurse -Force)
@@ -127,12 +128,28 @@ foreach ($machine in @($registry.machines)) {
       if (-not $machine.ssh) { throw 'Missing SSH alias.' }
       $payload = $request | ConvertTo-Json -Depth 10 -Compress
       $payload64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($payload))
-      $remoteScript = '$request = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(''' + $payload64 + ''')) | ConvertFrom-Json' + "`n" + '& {' + $worker.ToString() + '} $request | ConvertTo-Json -Depth 5 -Compress'
-      $bootstrap = '$code = [Console]::In.ReadToEnd(); & ([scriptblock]::Create($code))'
+      $remoteScript = '$ProgressPreference = ''SilentlyContinue''; $request = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(''' + $payload64 + ''')) | ConvertFrom-Json' + "`n" + 'try { & {' + $worker.ToString() + '} $request | ConvertTo-Json -Depth 5 -Compress } catch { [pscustomobject]@{Machine=$request.Machine;Skill="-";Root="-";Status="FAILED";Backup="";Detail=$_.Exception.Message} | ConvertTo-Json -Compress; exit 1 }'
+      # Windows SSH can keep stdin open indefinitely. Transfer a small, auditable
+      # helper file instead of waiting for Console.In.ReadToEnd on the target.
+      $relativeFolder = 'Backups/' + (Get-Date -Format 'yyyy-MM-dd') + '/skills'
+      $relativeFile = $relativeFolder + '/sync-helper-' + [guid]::NewGuid().ToString('N') + '.ps1'
+      $localHelper = Join-Path $env:USERPROFILE $relativeFile
+      New-Item -ItemType Directory -Force -Path (Split-Path -Parent $localHelper) | Out-Null
+      [IO.File]::WriteAllText($localHelper, $remoteScript, [Text.UTF8Encoding]::new($false))
+      $helperHash = (Get-FileHash -LiteralPath $localHelper -Algorithm SHA256).Hash
+      $prepare = '$ProgressPreference = ''SilentlyContinue''; $ErrorActionPreference = ''Stop''; $p = Join-Path $env:USERPROFILE ''' + $relativeFolder + '''; $c = $p; while ($c.Length -gt $env:USERPROFILE.Length) { $i = Get-Item -LiteralPath $c -Force -ErrorAction SilentlyContinue; if ($i -and $i.LinkType -in @(''SymbolicLink'',''Junction'')) { throw ''Backup directory is redirected'' }; $c = Split-Path -Parent $c }; New-Item -ItemType Directory -Force -Path $p | Out-Null'
+      $encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($prepare))
+      & ssh -o BatchMode=yes -o ConnectTimeout=10 $machine.ssh "powershell -NoProfile -NonInteractive -EncodedCommand $encoded"
+      if ($LASTEXITCODE -ne 0) { throw 'Cannot prepare remote helper directory.' }
+      & scp -q -o BatchMode=yes -o ConnectTimeout=10 $localHelper ($machine.ssh + ':' + $relativeFile)
+      if ($LASTEXITCODE -ne 0) { throw 'Cannot transfer remote helper.' }
+      $bootstrap = '$ProgressPreference = ''SilentlyContinue''; $ErrorActionPreference = ''Stop''; $p = Join-Path $env:USERPROFILE ''' + $relativeFile + '''; if ((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash -ne ''' + $helperHash + ''') { throw ''Helper hash mismatch'' }; & ([scriptblock]::Create([IO.File]::ReadAllText($p)))'
       $encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($bootstrap))
-      $output = $remoteScript | & ssh -o BatchMode=yes -o ConnectTimeout=10 $machine.ssh "powershell -NoProfile -NonInteractive -EncodedCommand $encoded"
-      if ($LASTEXITCODE -ne 0) { throw 'SSH/source verification failed; no success claimed. Inspect the error and any printed backup path.' }
+      $output = & ssh -o BatchMode=yes -o ConnectTimeout=10 $machine.ssh "powershell -NoProfile -NonInteractive -EncodedCommand $encoded"
+      $remoteExit = $LASTEXITCODE
+      if (-not $output) { throw 'No result from SSH; inspect connection/helper errors.' }
       $rows = ($output -join "`n") | ConvertFrom-Json
+      if ($remoteExit -ne 0 -and -not @($rows | Where-Object Status -eq 'FAILED').Count) { throw 'SSH/helper failed without a structured error.' }
     }
     foreach ($row in @($rows)) { $results.Add($row) }
   } catch {
