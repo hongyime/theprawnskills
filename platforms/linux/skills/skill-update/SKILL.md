@@ -1,24 +1,26 @@
 ---
 name: skill-update
 description: >-
-  Update or improve existing Prawn Skills in a Linux Git clone using observed
+  Update or improve existing Prawn Skills in a standalone Git clone using observed
   workflow evidence. Use when asked to refresh a skill or change its behavior.
 license: MIT
 metadata:
-  platform: Linux
+  platform: Windows, macOS, Linux
 ---
 
-# Skill Update for Linux
+# Skill Update for Standalone Installs
 
 Locate the clone from `~/.config/theprawnskills/library.json` (`library` key).
-Read `<root>/platforms/linux/README.md` and the Linux `skill-authoring` variant.
+Read `<root>/platforms/linux/README.md` and the standalone `skill-authoring` variant.
 
 Identify the requested skill or related set, then read each existing definition
 fully. Gather evidence only from task-authorized paths. Make focused edits to
-shared content or a Linux variant as appropriate; preserve Windows behavior,
+shared content or a standalone variant as appropriate; preserve OneDrive behavior,
 attribution, and references. Do not turn a single observation into a universal rule.
 
 Validate changed instructions/scripts, update index and routing when needed,
-and preview/check the Linux installer if profile membership changes. Existing
-symlinks already follow source edits. Review the Git diff and report the actual
+and preview/apply/check the Python installer after content or profile changes.
+Existing symlinks follow source edits. Managed copies require `--apply` to
+refresh; unchanged copies are backed up first, and local edits cause a conflict.
+Review the Git diff and report the actual
 changes and tests. Do not automatically propagate through `machines.toml`.

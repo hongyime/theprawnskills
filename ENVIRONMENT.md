@@ -1,7 +1,8 @@
 # Windows environment: PowerShell
 
-This document describes the existing Windows machines. For Kali/Linux, use
-`README.md` and `platforms/linux/README.md`; the commands below do not apply.
+This document describes the existing Windows/OneDrive machines. For standalone
+Windows, macOS, or Linux (including Kali), use `README.md` and
+`platforms/linux/README.md`; the machine-specific commands below do not apply.
 
 **This machine runs Windows 11. Bash is broken (fork errors). Always use PowerShell.**
 

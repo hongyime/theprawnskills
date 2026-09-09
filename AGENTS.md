@@ -113,11 +113,13 @@ opts this repo out of the organisation's downstream configuration cleanup,
 which previously removed the library. Do not remove this topic or run that
 cleanup here. Visibility is managed separately by sourcerepo's `repos.yml`.
 
-Windows uses the existing OneDrive library and PowerShell installer. Linux
-uses an ordinary Git clone plus `scripts/install_skills.py`; see `README.md`
-and `platforms/linux/README.md`. The profile in `default-profile.toml` is
-shared. Linux skill-management variants live under `platforms/linux/skills/`.
-Do not propagate Linux installation changes to the Windows machine registry.
+The existing Windows machines may keep their OneDrive library and PowerShell
+installer. Standalone Windows, macOS, and Linux machines use a Git clone plus
+`scripts/install_skills.py`; see `README.md` and `platforms/linux/README.md`.
+Auto mode uses managed copies on Windows and symlinks on macOS/Linux.
+The shared profile is `default-profile.toml`. Portable management variants
+retain their original `platforms/linux/skills/` paths for existing symlinks.
+Do not propagate standalone installation changes through the Windows registry.
 
 Shared repo instructions live in `AGENTS.md`; shared handoff state lives under
 `.agents/`. Never put authentication files, tokens, or machine-local install
@@ -131,23 +133,20 @@ not assume one shared MCP config is read by every agent.
 ## Syncing Strategy
 
 ### Source of Truth
-- **Primary**: sourcerepo 仓库作为唯一真源（Skills、MCP、通用配置、仓库设置）
-- **Secondary**: 目标仓库保留仓库特定覆盖（需在 sync 后自行维护）
 
-### Sync Workflows
-- **仓库设置与通用配置**：[`sync-repo-settings.yml`](<kfile name="sync-repo-settings.yml" path=".github/workflows/sync-repo-settings.yml">.github/workflows/sync-repo-settings.yml</kfile>) 负责传播 GitHub Actions、Dependabot、labels、`AGENTS.md` 等
+This repository owns the skill library and standalone installers. Review and
+integrate changes from the existing OneDrive library through Git. The separate
+`hongyime/sourcerepo` controls organisation settings, but this repository opts
+out of its file cleanup and configuration replacement using `no-config-sync`.
 
-### Sync Process
-1. 在 sourcerepo 中修改通用配置
-2. 推送到 `main` 分支自动触发相应 workflow
-3. workflow 会遍历所有非 archive/fork 仓库，复制变更并提交/开 PR
-4. 定时任务每日/每日执行，覆盖未来新仓库
+The organisation settings workflow runs on its configured schedule or manual
+dispatch. Its visibility settings apply independently of the content opt-out.
+If the owner chooses private visibility, also set this repo's visibility to
+private in sourcerepo's `repos.yml`. Never re-enable destructive config cleanup
+for this library or dispatch an organisation-wide sync as an installation step.
 
-### New Repository Setup
-当创建新仓库时：
-1. 将 sourcerepo 中的配置同步过去（由定时任务或手动触发完成）
-2. 如需仓库特定覆盖，同步后手动维护
-3. Read `AGENTS.md`, then read `.agents/STATE.md` if present
+For a new machine, follow README.md using the organisation Git URL and that
+machine's own GitHub authentication. No OneDrive access is required.
 
 ## Maintenance
 
@@ -168,10 +167,10 @@ not assume one shared MCP config is read by every agent.
 1. 检查仓库特定覆盖在 AGENTS.md 中
 2. 检查 `.agents/STATE.md` 中是否有最新任务上下文
 3. 审阅近期约定变更
-4. 从源重新同步配置
+4. Review this repository's own instructions; do not run source config cleanup here.
 
 ### Sync Failures
-1. 使用相应 workflow 的 `workflow_dispatch` 手动触发以观察日志
+1. Inspect the existing workflow logs; do not dispatch organisation-wide sync for this library.
 2. 检查目标仓库中的 git 冲突
 3. 验证文件权限
 4. 查看同步日志中的具体错误

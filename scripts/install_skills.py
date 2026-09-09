@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
-"""Expose a selected skill profile without overwriting or removing user files."""
+"""Install a profile using links or managed copies, preserving existing user files."""
 
 from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+from datetime import datetime, timezone
+import hashlib
 import json
+import os
 from pathlib import Path
 import re
+import shutil
 import sys
 import tomllib
+import uuid
 
 
 AGENT_ROOTS = {
@@ -18,6 +23,32 @@ AGENT_ROOTS = {
     "claude": Path(".claude/skills"),
     "cursor": Path(".agents/skills"),
 }
+COPY_MARKER = ".prawn-install.json"
+
+
+def is_redirect(path: Path) -> bool:
+    """Include Windows directory junctions, also on Python 3.11."""
+    if path.is_symlink():
+        return True
+    try:
+        return getattr(path.lstat(), "st_reparse_tag", 0) == 0xA0000003
+    except FileNotFoundError:
+        return False
+
+
+def tree_digest(folder: Path) -> str:
+    """Hash content and relative paths; the root ownership marker is excluded."""
+    digest = hashlib.sha256()
+    for path in sorted(folder.rglob("*")):
+        if path == folder / COPY_MARKER:
+            continue
+        if is_redirect(path):
+            raise ValueError(f"Copy mode does not follow linked content: {path}")
+        relative = path.relative_to(folder).as_posix().encode("utf-8")
+        digest.update((b"D" if path.is_dir() else b"F") + relative + b"\0")
+        if path.is_file():
+            digest.update(hashlib.sha256(path.read_bytes()).digest())
+    return digest.hexdigest()
 
 
 @dataclass(frozen=True)
@@ -25,6 +56,10 @@ class Link:
     source: Path
     destination: Path
     exists: bool
+    mode: str = "symlink"
+    digest: str | None = None
+    previous_digest: str | None = None
+    backup: Path | None = None
 
 
 @dataclass(frozen=True)
@@ -47,14 +82,18 @@ def validate_parent(path: Path, home: Path) -> None:
     for parent in (path, *path.parents):
         if parent == home:
             break
-        if parent.is_symlink():
-            raise ValueError(f"Parent is a symlink; inspect it before installing: {parent}")
+        if is_redirect(parent):
+            raise ValueError(f"Parent is a symlink or junction; inspect it before installing: {parent}")
         if parent.exists() and not parent.is_dir():
             raise ValueError(f"Parent is not a directory: {parent}")
 
 
-def make_plan(library: Path, home: Path, agents: list[str], profile: Path | None = None) -> Plan:
+def make_plan(library: Path, home: Path, agents: list[str], profile: Path | None = None, mode: str = "auto") -> Plan:
     library, home = library.resolve(), home.resolve()
+    if mode not in {"auto", "copy", "symlink"}:
+        raise ValueError("Installation mode must be auto, copy, or symlink.")
+    selected_mode = ("copy" if os.name == "nt" else "symlink") if mode == "auto" else mode
+    backup_root = home / "Backups" / datetime.now(timezone.utc).strftime("%Y-%m-%d") / "theprawnskills" / uuid.uuid4().hex
     profile = profile or library / "default-profile.toml"
     with profile.open("rb") as stream:
         # Existing Windows profile files may have a UTF-8 BOM.
@@ -84,12 +123,41 @@ def make_plan(library: Path, home: Path, agents: list[str], profile: Path | None
         source = (variant if (variant / "SKILL.md").is_file() else canonical).resolve()
         if not source.is_relative_to(library):
             raise ValueError(f"Skill source escapes the library: {source}")
+        source_digest = None
         for root in roots:
             destination = root / name
             exists = destination.is_symlink() and destination.resolve() == source
-            if not exists and (destination.exists() or destination.is_symlink()):
+            if exists:
+                links.append(Link(source, destination, True))
+                continue
+            present = destination.exists() or is_redirect(destination)
+            marker = destination / COPY_MARKER
+            managed_copy = present and not is_redirect(destination) and destination.is_dir() and marker.is_file()
+            if present and not managed_copy:
                 raise ValueError(f"Existing skill preserved; resolve this conflict first: {destination}")
-            links.append(Link(source, destination, exists))
+            item_mode = "copy" if managed_copy else selected_mode
+            if item_mode == "symlink":
+                links.append(Link(source, destination, False))
+                continue
+            if (source / COPY_MARKER).exists():
+                raise ValueError(f"Source contains local installation metadata: {source}")
+            source_digest = source_digest or tree_digest(source)
+            previous_digest = None
+            backup = None
+            if managed_copy:
+                if is_redirect(marker):
+                    raise ValueError(f"Installation marker is a link: {marker}")
+                saved = json.loads(marker.read_text(encoding="utf-8"))
+                if not isinstance(saved, dict) or saved.get("version") != 1 or saved.get("source") != str(source):
+                    raise ValueError(f"Existing skill preserved; ownership does not match: {destination}")
+                previous_digest = tree_digest(destination)
+                if previous_digest != saved.get("digest"):
+                    raise ValueError(f"Local edits preserved; review before updating: {destination}")
+                exists = previous_digest == source_digest
+                if not exists:
+                    backup = backup_root / destination.relative_to(home)
+                    validate_parent(backup.parent, home)
+            links.append(Link(source, destination, exists, "copy", source_digest, previous_digest, backup))
 
     # Codex can also see legacy user installs. Avoid adding another copy.
     if "codex" in agents:
@@ -101,7 +169,7 @@ def make_plan(library: Path, home: Path, agents: list[str], profile: Path | None
     pointer = home / ".config/theprawnskills/library.json"
     validate_parent(pointer.parent, home)
     plan = Plan(library, home, tuple(links), pointer, pointer.exists())
-    if pointer.is_symlink():
+    if is_redirect(pointer):
         raise ValueError(f"Library pointer is a symlink; inspect it first: {pointer}")
     if pointer.exists():
         if not pointer.is_file() or json.loads(pointer.read_text(encoding="utf-8")) != plan.metadata:
@@ -110,9 +178,35 @@ def make_plan(library: Path, home: Path, agents: list[str], profile: Path | None
 
 
 def apply_plan(plan: Plan) -> None:
-    """Only create new entries. Exclusive creation also preserves racing writes."""
+    """Keep user edits; archive managed copies before replacing their content."""
     for link in plan.links:
         validate_parent(link.destination.parent, plan.home)
+        if link.mode == "copy":
+            if tree_digest(link.source) != link.digest:
+                raise ValueError(f"Source changed since preview: {link.source}")
+            if link.previous_digest is not None:
+                if is_redirect(link.destination) or tree_digest(link.destination) != link.previous_digest:
+                    raise ValueError(f"Local edits preserved; skill changed since preview: {link.destination}")
+                if link.exists:
+                    continue
+                if link.backup is None:
+                    raise ValueError(f"Managed copy update requires a backup: {link.destination}")
+                validate_parent(link.backup.parent, plan.home)
+                # Both resolved targets must stay in the chosen home before moving.
+                if not link.destination.resolve().is_relative_to(plan.home) or not link.backup.resolve().is_relative_to(plan.home):
+                    raise ValueError("Backup move would escape the selected home.")
+                link.backup.parent.mkdir(parents=True, exist_ok=True)
+                link.destination.rename(link.backup)
+                print(f"BACKUP {link.backup}")
+            link.destination.parent.mkdir(parents=True, exist_ok=True)
+            # copytree creates the destination exclusively and refuses racing files.
+            shutil.copytree(link.source, link.destination)
+            if tree_digest(link.destination) != link.digest:
+                raise ValueError(f"Source changed during copying; inspect this preserved copy: {link.destination}")
+            with (link.destination / COPY_MARKER).open("x", encoding="utf-8") as stream:
+                json.dump({"version": 1, "source": str(link.source), "digest": link.digest}, stream, indent=2)
+                stream.write("\n")
+            continue
         if link.exists:
             if not link.destination.is_symlink() or link.destination.resolve() != link.source:
                 raise ValueError(f"Skill changed since preview: {link.destination}")
@@ -132,17 +226,21 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--agents", nargs="+", choices=AGENT_ROOTS, default=["codex"])
     parser.add_argument("--home", type=Path, default=Path.home(), help="Target home; useful for isolated verification")
     parser.add_argument("--profile", type=Path, help="Alternate TOML profile; default is default-profile.toml")
+    parser.add_argument("--mode", choices=["auto", "copy", "symlink"], default="auto", help="New installs: auto uses copies on Windows and symlinks on macOS/Linux")
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument("--apply", action="store_true", help="Create missing links after validating the entire plan")
+    mode.add_argument("--apply", action="store_true", help="Install/update after validating the entire plan; managed copy updates are backed up")
     mode.add_argument("--check", action="store_true", help="Check that every selected skill and the library pointer are installed")
     mode.add_argument("--dry-run", action="store_true", help="Preview only (the default)")
     args = parser.parse_args(argv)
     try:
-        plan = make_plan(Path(__file__).resolve().parents[1], args.home, args.agents, args.profile)
+        plan = make_plan(Path(__file__).resolve().parents[1], args.home, args.agents, args.profile, args.mode)
         missing = sum(not link.exists for link in plan.links)
         for link in plan.links:
-            print(f"{'KEEP' if link.exists else 'LINK'} {link.destination} -> {link.source}")
-        print(f"{len(plan.links)} selected links; {missing} new; existing unrelated skills are preserved.")
+            action = "KEEP" if link.exists else "COPY" if link.mode == "copy" else "LINK"
+            print(f"{action} {link.destination} <- {link.source}")
+            if link.backup:
+                print(f"  Existing managed copy will be backed up to: {link.backup}")
+        print(f"{len(plan.links)} selected skills; {missing} installations/updates; existing unrelated skills are preserved.")
         if args.check:
             if missing or not plan.pointer_exists:
                 print("Installation is incomplete. Run the preview, then --apply.", file=sys.stderr)
@@ -152,7 +250,7 @@ def main(argv: list[str] | None = None) -> int:
             apply_plan(plan)
             print("Installed. Restart your agent if the skills are not visible yet.")
         else:
-            print("Preview only. Use --apply to create these links.")
+            print("Preview only. Use --apply to install these skills.")
         return 0
     except (OSError, ValueError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
