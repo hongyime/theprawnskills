@@ -3,20 +3,25 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import install_skills as installer
 
 
-class InstallerTests(unittest.TestCase):
+class Fixture(unittest.TestCase):
+    install_mode = "symlink"
+
     def setUp(self) -> None:
-        self.scratch = tempfile.TemporaryDirectory(prefix="prawn-skills-test-")
+        self.temp_parent = Path(os.environ.get("PRAWN_TEST_TMP", tempfile.gettempdir())).resolve()
+        self.scratch = tempfile.TemporaryDirectory(prefix="prawn-skills-test-", dir=self.temp_parent)
         self.base = Path(self.scratch.name).resolve()
         self.repo = self.base / "repo with spaces"
         self.home = self.base / "isolated home"
@@ -35,12 +40,16 @@ class InstallerTests(unittest.TestCase):
 
     def tearDown(self) -> None:
         # Only the exact test-owned temporary directory may be recursively cleaned.
-        if self.base != Path(self.scratch.name).resolve() or not self.base.name.startswith("prawn-skills-test-"):
+        if self.base != Path(self.scratch.name).resolve() or self.base.parent != self.temp_parent or not self.base.name.startswith("prawn-skills-test-"):
             raise RuntimeError("Unexpected cleanup target")
         self.scratch.cleanup()
 
     def plan(self, agents: list[str] | None = None) -> installer.Plan:
-        return installer.make_plan(self.repo, self.home, agents or ["codex"])
+        return installer.make_plan(self.repo, self.home, agents or ["codex"], mode=self.install_mode)
+
+
+@unittest.skipIf(os.name == "nt", "Windows uses copies without symlink privileges; symlink behavior is tested on macOS/Linux")
+class InstallerTests(Fixture):
 
     def test_preview_writes_nothing(self) -> None:
         plan = self.plan()
@@ -146,6 +155,88 @@ class InstallerTests(unittest.TestCase):
         self.assertTrue(destination.is_dir())
         self.assertFalse(destination.is_symlink())
 
+
+class CopyInstallerTests(Fixture):
+    install_mode = "copy"
+
+    def test_copy_install_needs_no_symlink_privileges_and_is_repeatable(self) -> None:
+        with mock.patch.object(Path, "symlink_to", side_effect=AssertionError("Copy mode must not create symlinks")):
+            plan = self.plan()
+            self.assertEqual(list(self.home.iterdir()), [])
+            installer.apply_plan(plan)
+            repeated = self.plan()
+            self.assertTrue(all(item.exists and item.mode == "copy" for item in repeated.links))
+            installer.apply_plan(repeated)
+        skill = self.home / ".agents/skills/alpha"
+        self.assertFalse(skill.is_symlink())
+        self.assertEqual((skill / "reference.txt").read_text(), "supporting content")
+        self.assertFalse((self.home / ".agents/skills/on-demand").exists())
+        self.assertEqual((self.home / ".agents/skills/skill-router/SKILL.md").read_text(), "Linux router")
+
+    def test_update_backs_up_old_copy_before_installing_new_content(self) -> None:
+        installer.apply_plan(self.plan())
+        (self.repo / "skills/alpha/reference.txt").write_text("new content", encoding="utf-8")
+        plan = self.plan()
+        update = next(item for item in plan.links if item.destination.name == "alpha")
+        self.assertFalse(update.exists)
+        self.assertIsNotNone(update.backup)
+        self.assertEqual((update.destination / "reference.txt").read_text(), "supporting content")
+        installer.apply_plan(plan)
+        self.assertEqual((update.destination / "reference.txt").read_text(), "new content")
+        self.assertEqual((update.backup / "reference.txt").read_text(), "supporting content")
+        self.assertTrue(all(item.exists for item in self.plan().links))
+
+    def test_local_edits_are_never_replaced(self) -> None:
+        installer.apply_plan(self.plan())
+        target = self.home / ".agents/skills/alpha/reference.txt"
+        target.write_text("my local changes", encoding="utf-8")
+        (self.repo / "skills/alpha/reference.txt").write_text("upstream changes", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "Local edits preserved"):
+            self.plan()
+        self.assertEqual(target.read_text(), "my local changes")
+        self.assertFalse((self.home / "Backups").exists())
+
+    def test_unmanaged_copy_is_preserved(self) -> None:
+        existing = self.home / ".agents/skills/alpha"
+        existing.mkdir(parents=True)
+        (existing / "SKILL.md").write_text("my skill", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "Existing skill preserved"):
+            self.plan()
+        self.assertEqual((existing / "SKILL.md").read_text(), "my skill")
+        self.assertFalse((self.home / ".agents/skills/skill-router").exists())
+
+    def test_racing_copy_destination_is_preserved(self) -> None:
+        plan = self.plan()
+        existing = self.home / ".agents/skills/alpha"
+        existing.mkdir(parents=True)
+        with self.assertRaises(FileExistsError):
+            installer.apply_plan(plan)
+        self.assertEqual(list(existing.iterdir()), [])
+
+    def test_interrupted_update_leaves_old_content_in_backup(self) -> None:
+        installer.apply_plan(self.plan())
+        (self.repo / "skills/alpha/reference.txt").write_text("new content", encoding="utf-8")
+        plan = self.plan()
+        update = next(item for item in plan.links if item.backup)
+        with mock.patch.object(installer.shutil, "copytree", side_effect=OSError("Simulated disk error")):
+            with self.assertRaisesRegex(OSError, "Simulated disk error"):
+                installer.apply_plan(plan)
+        self.assertEqual((update.backup / "reference.txt").read_text(), "supporting content")
+
+    def test_source_change_after_preview_stops_before_writing(self) -> None:
+        plan = self.plan()
+        (self.repo / "skills/alpha/reference.txt").write_text("new content", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "Source changed since preview"):
+            installer.apply_plan(plan)
+        self.assertEqual(list(self.home.iterdir()), [])
+
+    def test_auto_mode_matches_operating_system(self) -> None:
+        plan = installer.make_plan(self.repo, self.home, ["codex"])
+        expected = "copy" if os.name == "nt" else "symlink"
+        self.assertTrue(all(item.mode == expected for item in plan.links))
+
+
+class ProfileIntegrationTests(Fixture):
     def test_actual_profile_cli_preview_apply_check_and_repeat(self) -> None:
         command = [sys.executable, str(ROOT / "scripts/install_skills.py"), "--home", str(self.home), "--agents", "codex"]
         preview = subprocess.run([*command, "--dry-run"], capture_output=True, text=True)
@@ -158,7 +249,8 @@ class InstallerTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
         links = list((self.home / ".agents/skills").iterdir())
         self.assertEqual(len(links), 64)
-        self.assertTrue(all(link.is_symlink() and (link / "SKILL.md").is_file() for link in links))
+        self.assertTrue(all((link / "SKILL.md").is_file() for link in links))
+        self.assertTrue(all(link.is_symlink() == (os.name != "nt") for link in links))
         metadata = json.loads((self.home / ".config/theprawnskills/library.json").read_text())
         self.assertTrue((Path(metadata["library"]) / "skills/pdf/SKILL.md").is_file())
 

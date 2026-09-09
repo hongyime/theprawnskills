@@ -1,6 +1,7 @@
-# Completed migration support
+# Standalone installation and transfer documentation
 
-Linux installation support is published while preserving the original Windows library.
+Extending the published Linux setup to standalone Windows and macOS, without
+OneDrive. Preserve the original skill library and daily profile.
 
 - Base library: commit `0c6ba7f`, 206 top-level skills, 64 profile entries.
 - Upstream `ae84bdb` removed all 2,165 tracked files in `skills/` during
@@ -25,6 +26,17 @@ Linux installation support is published while preserving the original Windows li
 - `README.md` contains clone/install/update commands and the Codex prompt.
   Actual installation on the user's target VM is performed with those commands;
   validation here used Linux containers and GitHub CI.
-- No Windows installation or OneDrive files were changed. Visibility remains
-  public. Optional owner decision: make private and add a matching private
-  override in sourcerepo's repos.yml; no-config-sync alone does not control it.
+- Existing installed skills and OneDrive skill contents remain unchanged.
+  Both local checkout remotes now point directly to hongyime/theprawnskills;
+  the OneDrive checkout's origin was corrected and verified after the transfer.
+- Added Windows managed copies, preserving unmanaged skills and local edits.
+  Copy updates move the old copy to a dated backup before replacement.
+  macOS/Linux keep symlinks; existing installation types remain supported.
+- Generalized the seven maintenance variants to standalone use on all three
+  OSes, retaining their platforms/linux paths for existing symlink compatibility.
+- README now includes Windows/macOS/Linux setup and updates without OneDrive,
+  an any-machine Codex prompt, transfer remediation, and an optional private
+  visibility procedure. The repo remains public; no visibility change was made.
+- Native Windows tests passed: 9 executed, 13 POSIX symlink cases skipped.
+  CI now covers Windows, macOS, and Linux; fresh-checkout results pending.
+- Next: publish this extension, verify the three CI jobs, and record the result.

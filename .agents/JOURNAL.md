@@ -9,3 +9,9 @@
 - 2026-09-09: Published recovery and Linux setup in `62cbd1f`. GitHub's fresh
   checkout passed the Linux installation suite, and the remote tree contains
   all 2,165 original skill files. Setup and handoff are documented in README.md.
+- 2026-09-09: Added standalone Windows/macOS instructions at the user's request.
+  Windows uses managed copies without symlink privileges; preserve local edits
+  and back up old copies during updates. Keep existing variant paths compatible.
+- 2026-09-09: Corrected the local OneDrive checkout's origin to the organisation
+  URL and verified reachability. Document transfer, content-sync opt-out, and
+  optional private visibility procedure; visibility remains unchanged.
