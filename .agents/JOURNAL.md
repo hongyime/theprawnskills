@@ -15,3 +15,6 @@
 - 2026-09-09: Corrected the local OneDrive checkout's origin to the organisation
   URL and verified reachability. Document transfer, content-sync opt-out, and
   optional private visibility procedure; visibility remains unchanged.
+- 2026-09-09: Published standalone installer/docs in 6d6b0d9. Fresh-checkout
+  Windows, macOS, and Linux CI passed; original skills tree and profile match
+  the preserved baseline. Actual remote machine installation remains user-run.
