@@ -1,3 +1,9 @@
+# Portfolio review — 2026-09-10
+
+Installer/profile source review and both core Python syntax checks passed. The current Windows suite ran 22 tests: nine passed and thirteen Unix symlink cases were skipped. Verification used temporary homes, including install/update/repeat checks for the actual 65-skill profile; installed agent directories were not changed. The repository still has the `no-config-sync` topic. Keep its library and current opt-out intact.
+
+The older remote-machine rollout notes below remain unresolved; this portfolio check did not retry remote installation or validate every referenced provider tool. Current source is a local skill library/installer, not a Supabase or Vercel application.
+
 # Daily visual explanations
 
 - Published `visual-explainer` in commit `254f727`: restrained dark/cyan style,
