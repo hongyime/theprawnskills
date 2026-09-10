@@ -36,3 +36,5 @@
   a helper file. Real remote execution confirms missing OneDrive source stops
   before agent updates. The other registered target timed out. Report these
   pending machines honestly; retry after OneDrive and connectivity recover.
+
+- 2026-09-10: Portfolio installer review passed nine applicable Windows tests with thirteen Unix skips and isolated temporary homes. Preserve the library and verified no-config-sync topic; remote rollout was not retried.
