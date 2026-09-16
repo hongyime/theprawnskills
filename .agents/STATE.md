@@ -45,3 +45,12 @@ The older remote-machine rollout notes below remain unresolved; this portfolio c
 - Earlier Postplan audit found seven direct skill references and a reverse
   reference to repo-standardization. This task adds visual-explainer integration.
 - JOURNAL.md and Git history retain the earlier migration and audit decisions.
+
+---
+## 2026-09-16 - baseline review batch-a
+- Health: main HEAD 08f16d5 after fast-forward. git status clean.
+- Open PRs: #5 (Dependabot: trufflehog action bump). Open issues: 0.
+- pnpm audit: 26 vulns (1 critical vitest <3.2.6, 15 high, 9 moderate, 1 low) - ALL in dev-only paths (vitest tree, esbuild). Runtime deps (graphology*) clean. Critical vitest advisory GHSA-5xrq-8626-4rwp requires UI server exposed to attacker; not applicable in CI/local test runs.
+- Semver ranges (^3.1.0) already permit patched vitest >=3.2.6; lockfile is stale. Deferred: lockfile is sourcerepo-managed (last touched by post-recovery snapshot 5c8ef90). Update should flow through sourcerepo, not this target.
+- Free-tier surface: none. Skill library, no Vercel/Supabase.
+- Next safe steps: file issue in sourcerepo to refresh pnpm-lock.yaml (bumps vitest, postcss/nanoid, esbuild transitives).
