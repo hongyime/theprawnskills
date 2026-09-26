@@ -1,6 +1,6 @@
 # Skill resource repair — 2026-09-26
 
-Current task: publish the reviewed skill resource repairs to main and verify CI.
+Current task: verify CI after publishing the reviewed repairs to main (`b2d1a70`).
 
 - Audited 224 skill definitions and 1,631 baseline bundled Markdown files (plus
   the platform overview in independent review). Addressed 60
@@ -10,12 +10,14 @@ Current task: publish the reviewed skill resource repairs to main and verify CI.
   copies, and three portable Cavecrew prompts. Restored 12 MIT-licensed upstream
   resources and authored four local review guides. External Caveman/OpenCode setup
   remains a documented prerequisite rather than an implied installed capability.
-- Verification: 52 local tests, 37 passed and 15 platform-specific skips, zero
+- Verification: 53 local tests, 37 passed and 16 platform-specific skips, zero
   failures. Native PowerShell and Git Bash wrappers use fake CLIs; handoff tests
   use real disposable Git projects. Independent reviewers cleared the repairs;
-  the handoff reviewer passed 14 extra assertions. POSIX tests require CI.
+  the handoff reviewer passed 14 extra assertions. Initial CI passed Linux and
+  found a temporary-directory alias bug on macOS/Windows. Helper entry points
+  now normalize project paths; the follow-up CI matrix remains to be checked.
 - Report: `docs/audits/2026-09-26-skill-resources.md`; all baseline findings have
-  dispositions in the adjacent JSON register. Publication and CI verification remain.
+  dispositions in the adjacent JSON register. Repairs are published; CI verification remains.
   Existing X-drive and OneDrive checkouts and machine installations are preserved.
 
 # Portfolio review — 2026-09-10

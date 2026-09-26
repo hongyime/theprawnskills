@@ -213,6 +213,15 @@ class HandoffTests(unittest.TestCase):
         link.write_text("README.md", encoding="utf-8")
         self.assertEqual(self.cli("check_staleness.py", relative, expected=1)["level"], "STALE")
 
+    @unittest.skipIf(os.name == "nt", "Directory symlink regression runs on Linux/macOS without extra privileges.")
+    def test_project_directory_alias_is_normalized_by_helper_entrypoints(self):
+        alias = Path(self.temp.name) / "project-alias"
+        alias.symlink_to(self.project, target_is_directory=True)
+        document = handoff.create(alias, "alias", None)
+        self.assertTrue(document.is_relative_to(self.project.resolve()))
+        self.assertFalse(handoff.validate(document, alias)["passed"])
+        self.assertEqual(handoff.staleness(document, alias)["level"], "FRESH")
+
 
 if __name__ == "__main__":
     unittest.main()
