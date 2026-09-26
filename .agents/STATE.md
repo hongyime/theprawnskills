@@ -1,6 +1,6 @@
 # Skill resource repair — 2026-09-26
 
-Current task: verify CI after publishing the reviewed repairs to main (`b2d1a70`).
+Current task: complete. Repairs are published to main (`b2d1a70`, `8fde37a`).
 
 - Audited 224 skill definitions and 1,631 baseline bundled Markdown files (plus
   the platform overview in independent review). Addressed 60
@@ -13,11 +13,12 @@ Current task: verify CI after publishing the reviewed repairs to main (`b2d1a70`
 - Verification: 53 local tests, 37 passed and 16 platform-specific skips, zero
   failures. Native PowerShell and Git Bash wrappers use fake CLIs; handoff tests
   use real disposable Git projects. Independent reviewers cleared the repairs;
-  the handoff reviewer passed 14 extra assertions. Initial CI passed Linux and
-  found a temporary-directory alias bug on macOS/Windows. Helper entry points
-  now normalize project paths; the follow-up CI matrix remains to be checked.
+  the handoff reviewer passed 14 extra assertions and eight alias-fix checks.
+  CI found a temporary-directory alias bug on macOS/Windows, now fixed.
+  Final CI passed all 53 tests on Linux/macOS and 37 with 16 POSIX skips on Windows:
+  https://github.com/hongyime/theprawnskills/actions/runs/36224710255
 - Report: `docs/audits/2026-09-26-skill-resources.md`; all baseline findings have
-  dispositions in the adjacent JSON register. Repairs are published; CI verification remains.
+  dispositions in the adjacent JSON register. Resource audit and three-OS CI pass.
   Existing X-drive and OneDrive checkouts and machine installations are preserved.
 
 # Portfolio review — 2026-09-10

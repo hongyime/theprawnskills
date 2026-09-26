@@ -100,10 +100,26 @@ Final local run: **53 tests, 37 passed, 16 platform-specific skips, zero failure
 Independent handoff review passed 14 additional disposable-fixture assertions,
 including the previously reported freshness and redaction defects. Independent
 resource review passed all ten checker tests and four fake-CLI helper tests and
-found no remaining blockers in scope. Publication-time CI results are recorded
-separately from these local results.
+found no remaining blockers in scope.
 
 Initial CI found that direct helper calls with an aliased temporary directory
 could fail project containment checks on macOS and Windows. The helpers now
 normalize the project path at their entry points, with an explicit POSIX alias
 regression test in addition to the existing non-Git-project test on every OS.
+Independent review reproduced the prior failure through a Windows directory
+alias and passed eight additional checks against the fix.
+
+## Published verification
+
+Repairs were published to main as `b2d1a70`, followed by the path-alias fix in
+`8fde37a`. The [final Skill library CI run](https://github.com/hongyime/theprawnskills/actions/runs/36224710255)
+verified that exact code revision from fresh checkouts:
+
+| Runner | Test results | Resource audit |
+|---|---|---|
+| Linux | 53 passed, zero skips or failures | Passed |
+| macOS | 53 passed, zero skips or failures | Passed |
+| Windows | 37 passed, 16 POSIX skips, zero failures | Passed |
+
+The repaired source is published. Existing X-drive/OneDrive checkouts and installed
+machine copies were preserved; refreshing those installations is a separate task.

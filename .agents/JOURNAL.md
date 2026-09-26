@@ -1,5 +1,11 @@
 # Decisions
 
+- 2026-09-26: Published resource repairs in `b2d1a70` and project-path alias fix
+  in `8fde37a`. CI run 36224710255 passed the resource gate and 53-test suite on
+  Linux/macOS; Windows passed 37 with 16 POSIX skips. Independent review reproduced
+  the alias defect and confirmed the fix. Machine installation copies were not
+  refreshed; preserve the existing X-drive branch and damaged OneDrive checkout.
+
 - 2026-09-26: Recreated portable handoff helpers and audited all 224 skill
   definitions after the owner requested repairs and publication to main. Added
   a static resource gate, exact contextual exceptions, and isolated runtime tests.
