@@ -13,6 +13,15 @@ description: >
 
 Cavecrew = three subagent presets that emit caveman output. Same job as Anthropic defaults (`Explore`, edit-style agents, reviewer); difference is the tool-result they return is compressed, so main context shrinks per delegation.
 
+## Portable dispatch
+
+The prompt files are bundled; named agent types are not automatically registered.
+Use the host's available subagent tool with the appropriate prompt:
+[investigator](agents/cavecrew-investigator.md),
+[builder](agents/cavecrew-builder.md), or [reviewer](agents/cavecrew-reviewer.md).
+If the host has no subagent tool, perform the same bounded task inline and say so.
+Delegation inherits the user's scope and authorization; a prompt adds no access.
+
 ## When to use cavecrew vs alternatives
 
 | Task | Use |
@@ -52,10 +61,11 @@ Or one of: `too-big.` / `needs-confirm.` / `ambiguous.` / `regressed.` (terminal
 
 **`cavecrew-reviewer`**
 ```
-path:line: <emoji> <severity>: <problem>. <fix>.
-totals: N🔴 N🟡 N🔵 N❓
+path:line: <severity>: <problem and consequence>. <fix>.
+totals: N critical, N important, N minor, N uncertain.
 ```
-Or `No issues.` Findings sorted file → line ascending.
+Or `No issues found in the reviewed scope.` Findings sorted by severity, then
+file and line. Include the limits of the review.
 
 ## Chaining patterns
 

@@ -18,6 +18,17 @@ metadata:
 
 House conventions for every SKILL.md in the canonical library.
 
+## Resolve the full library first
+
+Repository scripts and registry files belong to the full library checkout, not
+the installed copy of this skill. Use `skill-router` to locate that library:
+standalone installations record it in `~/.config/theprawnskills/library.json`;
+the existing Windows setup uses the OneDrive root below. Resolve the repository
+links in this document against that source checkout. Never look for maintenance
+scripts under the host's `.codex/scripts` or `.claude/scripts` directories.
+If the source checkout is unavailable, report the missing prerequisite and do
+not invent a path or overwrite an installed skill to compensate.
+
 ## Layout & Registry
 
 - Canonical root: `C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills`
@@ -66,9 +77,9 @@ triggers). Write the trigger phrases users will actually type.
 ## Change Protocol
 
 1. New skill: create folder + SKILL.md, then update INDEX.md
-   (`scripts/Update-SkillIndex.ps1`) and router table if routing changes.
+   ([repository index script](../../scripts/Update-SkillIndex.ps1)) and router table if routing changes.
 2. Default-profile membership changes: edit `default-profile.toml`, then run
-   `scripts/Install-DefaultSkillProfile.ps1` (WhatIf first).
+   the [repository profile installer](../../scripts/Install-DefaultSkillProfile.ps1) (WhatIf first).
 3. Deprecate: move folder to `_removed/<date>/`, remove router/profile entries,
    regen INDEX.
 4. Never `dotagents sync`; `dotagents install` only when agents.toml is known-good.

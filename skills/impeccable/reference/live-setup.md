@@ -78,7 +78,7 @@ const __impeccableLiveDev =
   process.env.NODE_ENV === "development" ? ["http://localhost:8400"] : [];
 ```
 
-Per-framework: Next.js + monorepo helper: edit the *app's* `next.config.*` (not the shared helper), appending to `additionalScriptSrc` / `additionalConnectSrc`. SvelteKit: `svelte.config.js`, `kit.csp.directives['script-src']` and `['connect-src']`. Nuxt + nuxt-security: `nuxt.config.*`, `security.headers.contentSecurityPolicy['script-src']` and `['connect-src']`. Reference outputs: `tests/framework-fixtures/nextjs-turborepo/expected-after-patch.ts`, `tests/framework-fixtures/sveltekit-csp/expected-after-patch.js`. Idempotency: if `__impeccableLiveDev` already exists in the file, the patch is applied; just mark `cspChecked: true`.
+Per-framework: Next.js + monorepo helper: edit the *app's* `next.config.*` (not the shared helper), appending to `additionalScriptSrc` / `additionalConnectSrc`. SvelteKit: `svelte.config.js`, `kit.csp.directives['script-src']` and `['connect-src']`. Nuxt + nuxt-security: `nuxt.config.*`, `security.headers.contentSecurityPolicy['script-src']` and `['connect-src']`. The upstream framework regression fixtures are not distributed with this skill; use the complete patch expression above and inspect the project's actual configuration. Idempotency: if `__impeccableLiveDev` already exists in the file, verify that both directives include it before marking `cspChecked: true`.
 
 ### append-string
 
@@ -93,7 +93,7 @@ const __impeccableLiveDev =
 - `script-src 'self' 'unsafe-inline'` becomes `` `script-src 'self' 'unsafe-inline'${__impeccableLiveDev}` ``
 - `connect-src 'self'` becomes `` `connect-src 'self'${__impeccableLiveDev}` ``
 
-Per-framework: Next.js inline `headers()` in `next.config.*`; Nuxt `routeRules['/**'].headers['Content-Security-Policy']` in `nuxt.config.*`. Reference outputs: `tests/framework-fixtures/nextjs-inline-csp/expected-after-patch.js`, `tests/framework-fixtures/nuxt-csp/expected-after-patch.ts`.
+Per-framework: Next.js inline `headers()` in `next.config.*`; Nuxt `routeRules['/**'].headers['Content-Security-Policy']` in `nuxt.config.*`. Use the two complete interpolation examples above; the upstream framework regression fixtures are not bundled here. Verify the effective development and production policies after the edit.
 
 ## Troubleshooting
 

@@ -46,14 +46,13 @@ Summarize what OpenCode found or changed, flag any errors, and offer follow-up.
 
 ## Authentication
 
-OpenCode uses the Bedrock auth library from `hermes-opencode-setup`. Setup on each machine:
-
-```powershell
-# Run the interactive setup
-& "C:\Users\bryan\.agents\skills\hermes-opencode-setup\Setup.ps1"
-# Choose option 6 (LOGIN) for AWS SSO login
-# Choose option 2 (FIX) to auto-fix config issues
-```
+Use the provider authentication configured on the current machine. The older
+`hermes-opencode-setup` integration is an optional external tool and is not
+bundled in this library. Do not assume its setup script or menu exists. If the
+user has installed that integration, locate and inspect its current instructions;
+otherwise follow the installed OpenCode provider's authentication workflow.
+Report missing authentication as a prerequisite, without copying credentials
+from another machine or printing authentication files.
 
 Or if using ABSK static keys, these are configured in the OpenCode config at:
 `%USERPROFILE%\.config\opencode\opencode.jsonc`
@@ -67,8 +66,8 @@ Or if using ABSK static keys, these are configured in the OpenCode config at:
 ## Critical Rules
 
 1. OpenCode may start an interactive TUI — for automated delegation, prefer piping the prompt
-2. Check that Bedrock auth is valid before spawning (`Setup.ps1` option 1 — CHECK)
-3. Bearer tokens expire (~50 min effective). If OpenCode fails with auth errors, re-run `Setup.ps1` option 6
+2. Check that the selected provider's authentication is valid before spawning.
+3. If authentication expires, use that provider's current login workflow; do not assume a setup-script menu or a fixed token lifetime.
 4. OpenCode has its own MCP servers (ctftoolkit, ast_grep) — these give it capabilities other agents lack
 
 ## Comparison with Other Agents

@@ -12,8 +12,9 @@ $installedRoots = [ordered]@{
     codex   = "$env:USERPROFILE\.codex\skills"
     claude  = "$env:USERPROFILE\.claude\skills"
     cursor  = "$env:USERPROFILE\.cursor\skills"
+    shared  = "$env:USERPROFILE\.agents\skills"
 }
-# opencode loads skills via the ~/.agents junction to canonical; no installed copy.
+# Current standalone Codex/OpenCode/Cursor installations share ~/.agents/skills.
 
 function Get-FrontmatterField([string]$text, [string]$field) {
     if ($text -match "(?m)^${field}:\s*(.+)$") { return $Matches[1].Trim().Trim('"') }
@@ -80,12 +81,12 @@ $lines.Add('## Installed Root Counts')
 $lines.Add('')
 $lines.Add('| Root | Count | Notes |')
 $lines.Add('|---|---:|---|')
-$lines.Add("| canonical library | $canonicalCount | Full OneDrive source library |")
+$lines.Add("| canonical library | $canonicalCount | Full source library in this checkout |")
 $lines.Add("| default profile | $defaultCount | Desired baseline from default-profile.toml |")
 foreach ($k in $installedRoots.Keys) {
     $c = (Get-ChildItem $installedRoots[$k] -Directory -ErrorAction SilentlyContinue |
         Where-Object { Test-Path (Join-Path $_.FullName 'SKILL.md') }).Count
-    $notes = if ($k -eq 'codex') { 'Lean profile; Codex runtime/system folders excluded from count' } else { 'Lean installed profile' }
+    $notes = if ($k -eq 'shared') { 'Shared Codex/OpenCode/Cursor discovery root; observed local folders' } else { 'Observed local folders; runtime/system folders excluded' }
     $lines.Add("| $k | $c | $notes |")
 }
 $lines.Add('')

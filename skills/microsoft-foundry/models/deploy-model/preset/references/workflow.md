@@ -146,7 +146,7 @@ az cognitiveservices account create \
 Generate unique deployment name using `scripts/generate_deployment_name.sh`:
 
 ```bash
-DEPLOYMENT_NAME=$(bash scripts/generate_deployment_name.sh "$ACCOUNT_NAME" "$RESOURCE_GROUP" "$MODEL_NAME")
+DEPLOYMENT_NAME=$(bash "$PRESET_SKILL_DIR/scripts/generate_deployment_name.sh" "$ACCOUNT_NAME" "$RESOURCE_GROUP" "$MODEL_NAME")
 ```
 
 Calculate capacity — 50% of available, minimum 50 TPM:

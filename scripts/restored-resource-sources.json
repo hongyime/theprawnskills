@@ -1,0 +1,95 @@
+{
+  "description": "Provenance of missing companion files restored in September 2026. Hashes record imported content before local repairs; see Git diffs for modifications.",
+  "resources": [
+    {
+      "path": "skills/commit-work/references/commit-message-template.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/commit-work/references/commit-message-template.md",
+      "sha256": "2a37c8127bb7174d35def49ee658b9408c516a5b58004735b7c58a874f7f0135",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/dependency-updater/scripts/check-tool.sh",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/dependency-updater/scripts/check-tool.sh",
+      "sha256": "80a2cba1a6ecd82c6c69fc58d3e2c0059c9fe7fe958b2e4a7b0836ef2fafae45",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/dependency-updater/scripts/run-taze.sh",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/dependency-updater/scripts/run-taze.sh",
+      "sha256": "b2748f41ec77599cea1649285bcd8b7585441807b4d2c31ce35567c957f024fa",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-dev/examples/generic-components.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-dev/examples/generic-components.md",
+      "sha256": "6d2f3bc573232b6ea8299bdd4ce308eff5dad7b26017bf0d14c4e251a9516f4e",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-dev/examples/server-components.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-dev/examples/server-components.md",
+      "sha256": "971117f20ece87fc87f29de0b72ba4558c1ac63c2857b534efdcc4cb7362eb25",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-dev/references/event-handlers.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-dev/references/event-handlers.md",
+      "sha256": "a118e551a3f8200a2164f5ece96fc2c562c0aa179a4f529ceadb83ceea5f7107",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-dev/references/hooks.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-dev/references/hooks.md",
+      "sha256": "f2780114634ef7b87099608f9f75c9e23c260c9a097c91f65854614d590e9899",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-dev/references/react-19-patterns.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-dev/references/react-19-patterns.md",
+      "sha256": "385551bdf34ca46da9241299cc3850b801e98087f8a192c872691d3209d90738",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-dev/references/react-router.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-dev/references/react-router.md",
+      "sha256": "b554c7f679cc1b1b27a002b1e06a98c236f75a92198466fe398321fe8ddfe97f",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-dev/references/tanstack-router.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-dev/references/tanstack-router.md",
+      "sha256": "2982b9fd78a5454a9fa3fc63720bee44da517f8694cf954fe755f988759fba4a",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-useeffect/alternatives.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-useeffect/alternatives.md",
+      "sha256": "cbb4551edc9d860789c0c44b4298b86132334dff0010dac4aece71f9175df561",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    },
+    {
+      "path": "skills/react-useeffect/anti-patterns.md",
+      "source": "https://github.com/softaworks/agent-toolkit/blob/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/react-useeffect/anti-patterns.md",
+      "sha256": "69146321260d67972646ba3cc98465d516431f543c4908cc60c2d60886a8dda9",
+      "license": "MIT",
+      "normalization": "CRLF to LF"
+    }
+  ],
+  "locally_authored": [
+    "skills/skill-reviewer/references/review-checklist.md",
+    "skills/skill-reviewer/references/severity-classification.md",
+    "skills/skill-reviewer/references/routing-analysis.md",
+    "skills/skill-reviewer/references/output-format.md"
+  ]
+}

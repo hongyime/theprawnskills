@@ -115,7 +115,7 @@ az cognitiveservices usage list \
 
 Quota key pattern: `OpenAI.<SKU>.<model-name>`. Calculate `available = limit - currentValue`.
 
-**Step C — Present only deployable SKUs** (available > 0). If no SKUs have quota, direct user to the [quota skill](../../../../quota/quota.md).
+**Step C — Present only deployable SKUs** (available > 0). If no SKUs have quota, direct user to the [quota skill](../../../microsoft-foundry/quota/quota.md).
 
 ---
 

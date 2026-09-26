@@ -105,7 +105,7 @@ Extract unavailable regions:
 UNAVAILABLE_REGIONS=$(echo "$ALL_REGIONS_JSON" | jq -r '.value[] | select(.properties.skuName=="GlobalStandard" and (.properties.availableCapacity == 0 or .properties.availableCapacity == null)) | "\(.location)|0"')
 ```
 
-If no regions have capacity, defer to the [quota skill](../../../../quota/quota.md) for increase requests. Suggest checking existing deployments or trying alternative models like `gpt-4o-mini`.
+If no regions have capacity, defer to the [quota skill](../../microsoft-foundry/quota/quota.md) for increase requests. Suggest checking existing deployments or trying alternative models like `gpt-4o-mini`.
 
 ---
 
@@ -146,7 +146,7 @@ az cognitiveservices account create \
 Generate unique deployment name using `scripts/generate_deployment_name.sh`:
 
 ```bash
-DEPLOYMENT_NAME=$(bash scripts/generate_deployment_name.sh "$ACCOUNT_NAME" "$RESOURCE_GROUP" "$MODEL_NAME")
+DEPLOYMENT_NAME=$(bash "$PRESET_SKILL_DIR/scripts/generate_deployment_name.sh" "$ACCOUNT_NAME" "$RESOURCE_GROUP" "$MODEL_NAME")
 ```
 
 Calculate capacity — 50% of available, minimum 50 TPM:

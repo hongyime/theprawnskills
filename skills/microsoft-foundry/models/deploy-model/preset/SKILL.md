@@ -21,6 +21,14 @@ Automates intelligent Azure OpenAI model deployment by checking capacity across 
 6. Deploys model with GlobalStandard SKU
 7. Monitors deployment progress
 
+## Helper location
+
+Resolve `PRESET_SKILL_DIR` (Bash) or `$presetSkillDir` (PowerShell) to the
+absolute directory containing this loaded preset SKILL.md. Keep the target
+project as the working directory. The bundled name helpers only list existing
+Azure deployments and select a candidate; they do not create or reserve it.
+If a concurrent deployment takes that name, query again. Stop on helper failure.
+
 ## Prerequisites
 
 - Azure CLI installed and configured

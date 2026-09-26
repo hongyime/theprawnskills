@@ -15,8 +15,10 @@ metadata:
 
 # Spec
 
-Own SPEC.md at repo root. Nothing else edits it — build/check/backprop read it,
-this skill writes it.
+Own SPEC.md at repo root. This skill changes goals, contracts, invariants, task
+definitions, and bugs. The `build` skill may update only existing task status
+cells after verification; `check` and `backprop` otherwise read and refer changes
+back here.
 
 ## File Contract
 

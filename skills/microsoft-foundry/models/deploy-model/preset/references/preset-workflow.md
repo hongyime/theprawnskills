@@ -376,7 +376,7 @@ Use the `generate_deployment_name` script to check existing deployments and gene
 
 *Bash version:*
 ```bash
-DEPLOYMENT_NAME=$(bash scripts/generate_deployment_name.sh \
+DEPLOYMENT_NAME=$(bash "$PRESET_SKILL_DIR/scripts/generate_deployment_name.sh" \
   "$ACCOUNT_NAME" \
   "$RESOURCE_GROUP" \
   "$MODEL_NAME")
@@ -386,7 +386,7 @@ echo "Generated deployment name: $DEPLOYMENT_NAME"
 
 *PowerShell version:*
 ```powershell
-$DEPLOYMENT_NAME = & .\scripts\generate_deployment_name.ps1 `
+$DEPLOYMENT_NAME = & "$presetSkillDir/scripts/generate_deployment_name.ps1" `
   -AccountName $ACCOUNT_NAME `
   -ResourceGroup $RESOURCE_GROUP `
   -ModelName $MODEL_NAME
