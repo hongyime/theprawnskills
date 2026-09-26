@@ -96,9 +96,14 @@ Linux/macOS CI matrix. Tests do not update real agent homes, cloud resources, or
 dependencies. A published repository update does not itself refresh installed
 copies or establish that OneDrive has synchronized on every machine.
 
-Final local run: **52 tests, 37 passed, 15 platform-specific skips, zero failures**.
+Final local run: **53 tests, 37 passed, 16 platform-specific skips, zero failures**.
 Independent handoff review passed 14 additional disposable-fixture assertions,
 including the previously reported freshness and redaction defects. Independent
 resource review passed all ten checker tests and four fake-CLI helper tests and
 found no remaining blockers in scope. Publication-time CI results are recorded
 separately from these local results.
+
+Initial CI found that direct helper calls with an aliased temporary directory
+could fail project containment checks on macOS and Windows. The helpers now
+normalize the project path at their entry points, with an explicit POSIX alias
+regression test in addition to the existing non-Git-project test on every OS.

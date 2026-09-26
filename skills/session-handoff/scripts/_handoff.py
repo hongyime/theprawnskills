@@ -51,6 +51,7 @@ def project_root(value: str | Path) -> Path:
 
 
 def inside(project: Path, relative: str) -> Path:
+    project = project.resolve()
     candidate = Path(relative)
     if candidate.is_absolute() or re.match(r"^[A-Za-z]:|^\\", relative):
         raise ValueError("Use a project-relative path, not a machine-specific absolute path.")
@@ -61,6 +62,7 @@ def inside(project: Path, relative: str) -> Path:
 
 
 def snapshot(project: Path) -> dict:
+    project = project.resolve()
     try:
         head = git(project, "rev-parse", "--verify", "HEAD")
     except (ValueError, FileNotFoundError):
@@ -163,6 +165,7 @@ def secret_findings(text: str) -> list[str]:
 
 
 def validate(path: Path, project: Path) -> dict:
+    project = project.resolve()
     text = path.read_text(encoding="utf-8-sig")
     errors, warnings = [], []
     score = 100
@@ -203,6 +206,7 @@ def validate(path: Path, project: Path) -> dict:
 
 
 def create(project: Path, slug: str, previous: str | None) -> Path:
+    project = project.resolve()
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", slug):
         raise ValueError("Task slug must use 1-64 lowercase letters, digits, or hyphens.")
     folder = inside(project, ".agents/handoffs")
@@ -243,6 +247,7 @@ def create(project: Path, slug: str, previous: str | None) -> Path:
 
 
 def staleness(path: Path, project: Path) -> dict:
+    project = project.resolve()
     text, recorded = read_handoff(path)
     now = datetime.now(timezone.utc)
     age = (now - datetime.fromisoformat(recorded["created_utc"])).total_seconds() / 86400
