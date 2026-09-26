@@ -18,9 +18,13 @@ across the skill library; the owner explicitly requested publication to main.
 
 Progress: all 60 audit findings have dispositions in the committed audit register;
 the repaired library has zero unresolved explicit resource references. Handoff,
-resource checker, installer, and fake-CLI wrapper tests pass on Windows. Independent
-review findings were fixed with regression tests. Finish final review, normal
-fast-forward publication, and GitHub CI verification. Do not overwrite the older
+resource checker, installer, and fake-CLI wrapper tests pass. Independent review
+findings were fixed with regression tests. Published `b2d1a70` and `8fde37a` to
+main with normal fast-forward pushes. Final CI run 36224710255 passed all 53
+tests on Linux/macOS and 37 tests with 16 POSIX skips on Windows. The resource
+gate passed on all three systems. Initial CI exposed a temporary-directory alias
+bug; helper entry points now normalize project paths, independently reviewed
+with eight extra checks. This repair is complete. Do not overwrite the older
 X-drive review branch or the damaged OneDrive Git checkout as an incidental sync.
 
 GitHub reports main unprotected and no active rulesets. No installed skills or
