@@ -273,8 +273,9 @@ app.post('/api/auth/refresh', async (req, res) => {
 - **Compatible platforms**: Claude, ChatGPT, Gemini
 
 ### Related skills
-- [authentication-setup](../authentication-setup/SKILL.md)
-- [deployment](../deployment-automation/SKILL.md)
+- Authentication and deployment helpers depend on the project stack. Use the
+  installed skill index to locate a matching provider skill; the upstream
+  authentication-setup and deployment-automation skills are not bundled here.
 
 ### Tags
 `#security` `#OWASP` `#HTTPS` `#CORS` `#XSS` `#SQL-injection` `#CSRF` `#infrastructure`

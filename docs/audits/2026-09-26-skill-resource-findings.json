@@ -1,0 +1,574 @@
+{
+  "baseline": "bbfe3cf73453e74930070aab6296df94b058eabe",
+  "scope": {
+    "skill_definitions": 224,
+    "main_definitions": 217,
+    "portable_definitions": 7,
+    "bundled_markdown_files": 1632,
+    "mode": "Read-only static scan of tracked Markdown plus targeted existence checks. No operational scripts or remote actions executed."
+  },
+  "findings": [
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/commit-work/SKILL.md",
+      "line": 46,
+      "target": "skills/commit-work/references/commit-message-template.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/dependency-updater/SKILL.md",
+      "line": 106,
+      "target": "skills/dependency-updater/scripts/check-tool.sh",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/dependency-updater/SKILL.md",
+      "line": 479,
+      "target": "skills/dependency-updater/scripts/run-taze.sh",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-dev/SKILL.md",
+      "line": 63,
+      "target": "skills/react-dev/references/react-19-patterns.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-dev/SKILL.md",
+      "line": 135,
+      "target": "skills/react-dev/references/event-handlers.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-dev/SKILL.md",
+      "line": 192,
+      "target": "skills/react-dev/references/hooks.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-dev/SKILL.md",
+      "line": 247,
+      "target": "skills/react-dev/examples/generic-components.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-dev/SKILL.md",
+      "line": 308,
+      "target": "skills/react-dev/examples/server-components.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-dev/SKILL.md",
+      "line": 354,
+      "target": "skills/react-dev/references/tanstack-router.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-dev/SKILL.md",
+      "line": 354,
+      "target": "skills/react-dev/references/react-router.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-useeffect/SKILL.md",
+      "line": 52,
+      "target": "skills/react-useeffect/anti-patterns.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/react-useeffect/SKILL.md",
+      "line": 53,
+      "target": "skills/react-useeffect/alternatives.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/session-handoff/SKILL.md",
+      "line": 30,
+      "target": "skills/session-handoff/scripts/create_handoff.py",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/session-handoff/SKILL.md",
+      "line": 63,
+      "target": "skills/session-handoff/scripts/validate_handoff.py",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/session-handoff/SKILL.md",
+      "line": 90,
+      "target": "skills/session-handoff/scripts/list_handoffs.py",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/session-handoff/SKILL.md",
+      "line": 100,
+      "target": "skills/session-handoff/scripts/check_staleness.py",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/session-handoff/SKILL.md",
+      "line": 56,
+      "target": "skills/session-handoff/references/handoff-template.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/session-handoff/SKILL.md",
+      "line": 124,
+      "target": "skills/session-handoff/references/resume-checklist.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/skill-reviewer/SKILL.md",
+      "line": 25,
+      "target": "skills/skill-reviewer/references/review-checklist.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/skill-reviewer/SKILL.md",
+      "line": 26,
+      "target": "skills/skill-reviewer/references/severity-classification.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/skill-reviewer/SKILL.md",
+      "line": 27,
+      "target": "skills/skill-reviewer/references/routing-analysis.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/skill-reviewer/SKILL.md",
+      "line": 28,
+      "target": "skills/skill-reviewer/references/output-format.md",
+      "recommendation": "Restore bundled resource and verify invocation from a project cwd using the loaded skill base directory.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/preset/references/preset-workflow.md",
+      "line": 379,
+      "target": "skills/preset/scripts/generate_deployment_name.sh",
+      "recommendation": "Restore helper matching documented Azure query/name-suffix contract, or replace calls with a complete inline name-generation procedure. Shell helper is also referenced in references/workflow.md:146,149.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/preset/references/preset-workflow.md",
+      "line": 389,
+      "target": "skills/preset/scripts/generate_deployment_name.ps1",
+      "recommendation": "Restore helper matching documented Azure query/name-suffix contract, or replace calls with a complete inline name-generation procedure. Shell helper is also referenced in references/workflow.md:146,149.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/deploy-model/preset/references/preset-workflow.md",
+      "line": 379,
+      "target": "skills/deploy-model/preset/scripts/generate_deployment_name.sh",
+      "recommendation": "Restore helper matching documented Azure query/name-suffix contract, or replace calls with a complete inline name-generation procedure. Shell helper is also referenced in references/workflow.md:146,149.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/deploy-model/preset/references/preset-workflow.md",
+      "line": 389,
+      "target": "skills/deploy-model/preset/scripts/generate_deployment_name.ps1",
+      "recommendation": "Restore helper matching documented Azure query/name-suffix contract, or replace calls with a complete inline name-generation procedure. Shell helper is also referenced in references/workflow.md:146,149.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/microsoft-foundry/models/deploy-model/preset/references/preset-workflow.md",
+      "line": 379,
+      "target": "skills/microsoft-foundry/models/deploy-model/preset/scripts/generate_deployment_name.sh",
+      "recommendation": "Restore helper matching documented Azure query/name-suffix contract, or replace calls with a complete inline name-generation procedure. Shell helper is also referenced in references/workflow.md:146,149.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-bundled-resource",
+      "source": "skills/microsoft-foundry/models/deploy-model/preset/references/preset-workflow.md",
+      "line": 389,
+      "target": "skills/microsoft-foundry/models/deploy-model/preset/scripts/generate_deployment_name.ps1",
+      "recommendation": "Restore helper matching documented Azure query/name-suffix contract, or replace calls with a complete inline name-generation procedure. Shell helper is also referenced in references/workflow.md:146,149.",
+      "resolution": "Restored or recreated companion file; tested executable helpers with isolated fixtures.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-runtime-plugin-dependency",
+      "source": "skills/caveman-stats/SKILL.md",
+      "line": 10,
+      "target": "hooks/caveman-stats.js",
+      "recommendation": "Skill explicitly delegates all output to hooks which are absent. Document required upstream plugin/hook installation and a safe unavailable result, or package and wire real hooks; merely copying hook files does not register them.",
+      "resolution": "Documented required external Caveman plugin and honest unavailable response. Hooks are not installed by this repository repair.",
+      "status": "external prerequisite documented"
+    },
+    {
+      "category": "missing-runtime-plugin-dependency",
+      "source": "skills/caveman-stats/SKILL.md",
+      "line": 10,
+      "target": "hooks/caveman-mode-tracker.js",
+      "recommendation": "Skill explicitly delegates all output to hooks which are absent. Document required upstream plugin/hook installation and a safe unavailable result, or package and wire real hooks; merely copying hook files does not register them.",
+      "resolution": "Documented required external Caveman plugin and honest unavailable response. Hooks are not installed by this repository repair.",
+      "status": "external prerequisite documented"
+    },
+    {
+      "category": "missing-agent-preset",
+      "source": "skills/cavecrew/README.md",
+      "line": 38,
+      "target": "agents/cavecrew-investigator.md",
+      "recommendation": "Bundle preset prompts under the skill and link them there; support native agent dispatch with those prompts when the upstream named agent types are not registered.",
+      "replacement": "skills/cavecrew/agents/cavecrew-investigator.md",
+      "resolution": "Created portable prompts under skills/cavecrew/agents and documented native dispatch fallback.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-agent-preset",
+      "source": "skills/cavecrew/README.md",
+      "line": 39,
+      "target": "agents/cavecrew-builder.md",
+      "recommendation": "Bundle preset prompts under the skill and link them there; support native agent dispatch with those prompts when the upstream named agent types are not registered.",
+      "replacement": "skills/cavecrew/agents/cavecrew-builder.md",
+      "resolution": "Created portable prompts under skills/cavecrew/agents and documented native dispatch fallback.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-agent-preset",
+      "source": "skills/cavecrew/README.md",
+      "line": 40,
+      "target": "agents/cavecrew-reviewer.md",
+      "recommendation": "Bundle preset prompts under the skill and link them there; support native agent dispatch with those prompts when the upstream named agent types are not registered.",
+      "replacement": "skills/cavecrew/agents/cavecrew-reviewer.md",
+      "resolution": "Created portable prompts under skills/cavecrew/agents and documented native dispatch fallback.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-auxiliary-reference",
+      "source": "skills/impeccable/reference/live-setup.md",
+      "line": 81,
+      "target": "skills/impeccable/tests/framework-fixtures/nextjs-turborepo/expected-after-patch.ts",
+      "recommendation": "Restore the advertised sample or remove the stale reference and rely on the complete inline CSP recipe. Runtime setup scripts themselves exist.",
+      "resolution": "Removed dependencies on unshipped upstream regression fixtures; use the complete inline implementation and verify actual project configuration.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-auxiliary-reference",
+      "source": "skills/impeccable/reference/live-setup.md",
+      "line": 81,
+      "target": "skills/impeccable/tests/framework-fixtures/sveltekit-csp/expected-after-patch.js",
+      "recommendation": "Restore the advertised sample or remove the stale reference and rely on the complete inline CSP recipe. Runtime setup scripts themselves exist.",
+      "resolution": "Removed dependencies on unshipped upstream regression fixtures; use the complete inline implementation and verify actual project configuration.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-auxiliary-reference",
+      "source": "skills/impeccable/reference/live-setup.md",
+      "line": 96,
+      "target": "skills/impeccable/tests/framework-fixtures/nextjs-inline-csp/expected-after-patch.js",
+      "recommendation": "Restore the advertised sample or remove the stale reference and rely on the complete inline CSP recipe. Runtime setup scripts themselves exist.",
+      "resolution": "Removed dependencies on unshipped upstream regression fixtures; use the complete inline implementation and verify actual project configuration.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-auxiliary-reference",
+      "source": "skills/impeccable/reference/live-setup.md",
+      "line": 96,
+      "target": "skills/impeccable/tests/framework-fixtures/nuxt-csp/expected-after-patch.ts",
+      "recommendation": "Restore the advertised sample or remove the stale reference and rely on the complete inline CSP recipe. Runtime setup scripts themselves exist.",
+      "resolution": "Removed dependencies on unshipped upstream regression fixtures; use the complete inline implementation and verify actual project configuration.",
+      "status": "addressed"
+    },
+    {
+      "category": "missing-auxiliary-reference",
+      "source": "skills/impeccable/reference/live.md",
+      "line": 199,
+      "target": "skills/impeccable/tests/live-e2e/agent.mjs",
+      "recommendation": "Restore the advertised template or include the relevant scoped-CSS example inline; do not imply an absent test is available.",
+      "resolution": "Removed dependencies on unshipped upstream regression fixtures; use the complete inline implementation and verify actual project configuration.",
+      "status": "addressed"
+    },
+    {
+      "category": "obsolete-contract-reference",
+      "source": "skills/build/SKILL.md",
+      "line": 20,
+      "target": "FORMAT.md",
+      "recommendation": "Replace with an explicit instruction to load the installed spec skill File Contract; do not invent a second contract. Align build section references from section V to section I and statuses from ./~/x to pending/done, because the current companion spec uses those values.",
+      "replacement": "skills/spec/SKILL.md#file-contract",
+      "resolution": "Replaced FORMAT.md with the current spec contract and aligned section/status ownership.",
+      "status": "addressed"
+    },
+    {
+      "category": "unavailable-related-skill",
+      "source": "skills/security-best-practices/SKILL.md",
+      "line": 276,
+      "target": "skills/authentication-setup/SKILL.md",
+      "recommendation": "Remove unavailable links or state that the separate skill is optional and must be located before use. Do not fabricate entire unrelated skills to satisfy a backlink.",
+      "resolution": "Removed dangling related-skill links and directed discovery to the installed library index.",
+      "status": "addressed"
+    },
+    {
+      "category": "unavailable-related-skill",
+      "source": "skills/security-best-practices/SKILL.md",
+      "line": 277,
+      "target": "skills/deployment-automation/SKILL.md",
+      "recommendation": "Remove unavailable links or state that the separate skill is optional and must be located before use. Do not fabricate entire unrelated skills to satisfy a backlink.",
+      "resolution": "Removed dangling related-skill links and directed discovery to the installed library index.",
+      "status": "addressed"
+    },
+    {
+      "category": "unavailable-related-document",
+      "source": "skills/cloudflare/references/durable-objects/README.md",
+      "line": 185,
+      "target": "skills/cloudflare/references/websockets/README.md",
+      "recommendation": "Point to the existing WebSocket Hibernation section.",
+      "replacement": "./api.md#websocket-hibernation",
+      "resolution": "Pointed to existing equivalent Cloudflare API or Cloudflare One guidance.",
+      "status": "addressed"
+    },
+    {
+      "category": "unavailable-related-document",
+      "source": "skills/cloudflare/references/tunnel/README.md",
+      "line": 128,
+      "target": "skills/cloudflare/references/access/",
+      "recommendation": "Route to the existing cloudflare-one skill for Access/WARP retrieval; the original referenced subdirectories are absent.",
+      "replacement": "../../../cloudflare-one/SKILL.md",
+      "resolution": "Pointed to existing equivalent Cloudflare API or Cloudflare One guidance.",
+      "status": "addressed"
+    },
+    {
+      "category": "unavailable-related-document",
+      "source": "skills/cloudflare/references/tunnel/README.md",
+      "line": 129,
+      "target": "skills/cloudflare/references/warp/",
+      "recommendation": "Route to the existing cloudflare-one skill for Access/WARP retrieval; the original referenced subdirectories are absent.",
+      "replacement": "../../../cloudflare-one/SKILL.md",
+      "resolution": "Pointed to existing equivalent Cloudflare API or Cloudflare One guidance.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/SKILL.md",
+      "line": 12,
+      "target": "../../foundry-agent/create/create-hosted.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../microsoft-foundry/foundry-agent/create/create-hosted.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/SKILL.md",
+      "line": 133,
+      "target": "../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/capacity/SKILL.md",
+      "line": 116,
+      "target": "../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/customize/EXAMPLES.md",
+      "line": 88,
+      "target": "../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/customize/SKILL.md",
+      "line": 157,
+      "target": "../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/customize/references/customize-workflow.md",
+      "line": 118,
+      "target": "../../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/preset/EXAMPLES.md",
+      "line": 22,
+      "target": "../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/preset/SKILL.md",
+      "line": 70,
+      "target": "../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/deploy-model/preset/references/workflow.md",
+      "line": 108,
+      "target": "../../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/preset/EXAMPLES.md",
+      "line": 22,
+      "target": "../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/preset/SKILL.md",
+      "line": 70,
+      "target": "../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/preset/references/workflow.md",
+      "line": 108,
+      "target": "../../../../quota/quota.md",
+      "recommendation": "Correct this copied alias path to the existing microsoft-foundry resource; replace all duplicate occurrences within the source.",
+      "replacement": "../../microsoft-foundry/quota/quota.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/vercel-react-best-practices/AGENTS.md",
+      "line": 116,
+      "target": "./async-defer-await.md",
+      "recommendation": "Generated aggregate AGENTS.md retained source-rule relative links; add rules/ prefix.",
+      "replacement": "./rules/async-defer-await.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/vercel-react-best-practices/AGENTS.md",
+      "line": 219,
+      "target": "./async-cheap-condition-before-await.md",
+      "recommendation": "Generated aggregate AGENTS.md retained source-rule relative links; add rules/ prefix.",
+      "replacement": "./rules/async-cheap-condition-before-await.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "relocated-reference",
+      "source": "skills/vercel-react-best-practices/AGENTS.md",
+      "line": 892,
+      "target": "./server-hoist-static-io.md",
+      "recommendation": "Generated aggregate AGENTS.md retained source-rule relative links; add rules/ prefix.",
+      "replacement": "./rules/server-hoist-static-io.md",
+      "resolution": "Corrected relative link to the existing library file.",
+      "status": "addressed"
+    },
+    {
+      "category": "absent-machine-specific-prerequisite",
+      "source": "skills/opencode-cli/SKILL.md",
+      "line": 53,
+      "target": "C:\\Users\\bryan\\.agents\\skills\\hermes-opencode-setup\\Setup.ps1",
+      "recommendation": "Exact local path does not exist and hermes-opencode-setup is not bundled. Make this optional installation-specific setup; use available OpenCode auth commands only after checking local help, and never claim this helper ships with the skill.",
+      "resolution": "Documented optional external OpenCode setup integration; removed required hardcoded personal setup path.",
+      "status": "external prerequisite documented"
+    }
+  ]
+}

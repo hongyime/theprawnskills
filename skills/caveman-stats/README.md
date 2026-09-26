@@ -1,3 +1,9 @@
+> Runtime prerequisite: this library includes the skill instructions only.
+> Measured statistics require the separately installed Caveman Claude Code
+> plugin and registered hooks. Without them, report statistics unavailable.
+> The examples below describe that external integration, not a guarantee that
+> installing this skill activates it.
+
 # caveman-stats
 
 Real session token receipts. No AI estimation.
@@ -27,4 +33,4 @@ Saved:    7,356 tokens (~65%)
 ## See also
 
 - [`SKILL.md`](./SKILL.md) — hook contract and mechanics
-- [Caveman README](../../README.md) — repo overview
+- [Skill library README](../../README.md) — repo overview

@@ -263,7 +263,7 @@ if [ -z "$AVAILABLE_REGIONS" ]; then
   echo "No regions have available capacity for $MODEL_NAME with GlobalStandard SKU."
   echo ""
   echo "Next Steps:"
-  echo "1. Request quota increase — use the quota skill (../../../quota/quota.md)"
+  echo "1. Request quota increase — use the quota skill (../../../microsoft-foundry/quota/quota.md)"
   echo ""
   echo "2. Check existing deployments (may be using quota):"
   echo "   az cognitiveservices account deployment list \\"
@@ -376,7 +376,7 @@ Use the `generate_deployment_name` script to check existing deployments and gene
 
 *Bash version:*
 ```bash
-DEPLOYMENT_NAME=$(bash scripts/generate_deployment_name.sh \
+DEPLOYMENT_NAME=$(bash "$PRESET_SKILL_DIR/scripts/generate_deployment_name.sh" \
   "$ACCOUNT_NAME" \
   "$RESOURCE_GROUP" \
   "$MODEL_NAME")
@@ -386,7 +386,7 @@ echo "Generated deployment name: $DEPLOYMENT_NAME"
 
 *PowerShell version:*
 ```powershell
-$DEPLOYMENT_NAME = & .\scripts\generate_deployment_name.ps1 `
+$DEPLOYMENT_NAME = & "$presetSkillDir/scripts/generate_deployment_name.ps1" `
   -AccountName $ACCOUNT_NAME `
   -ResourceGroup $RESOURCE_GROUP `
   -ModelName $MODEL_NAME

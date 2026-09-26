@@ -84,7 +84,7 @@ pointers stay valid.
 ### Session start (resume)
 
 1. Read `.agents/STATE.md` first, then referenced pointers/handoffs as needed.
-2. Skim JOURNAL.md tail for recent decisions.
+2. Skim the top of JOURNAL.md for recent decisions (newest entries are first).
 3. Confirm repo reality matches state (branch, key files exist). If drifted,
    update STATE.md noting drift BEFORE working.
 

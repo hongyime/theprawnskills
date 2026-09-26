@@ -21,6 +21,14 @@ Automates intelligent Azure OpenAI model deployment by checking capacity across 
 6. Deploys model with GlobalStandard SKU
 7. Monitors deployment progress
 
+## Helper location
+
+Resolve `PRESET_SKILL_DIR` (Bash) or `$presetSkillDir` (PowerShell) to the
+absolute directory containing this loaded preset SKILL.md. Keep the target
+project as the working directory. The bundled name helpers only list existing
+Azure deployments and select a candidate; they do not create or reserve it.
+If a concurrent deployment takes that name, query again. Stop on helper failure.
+
 ## Prerequisites
 
 - Azure CLI installed and configured
@@ -67,7 +75,7 @@ For detailed step-by-step instructions, see [workflow reference](references/work
 | Error | Symptom | Resolution |
 |-------|---------|------------|
 | Auth failure | `az account show` returns error | Run `az login` then `az account set --subscription <id>` |
-| No quota | All regions show 0 capacity | Defer to the [quota skill](../../../quota/quota.md) for increase requests and troubleshooting; check existing deployments; try alternative models |
+| No quota | All regions show 0 capacity | Defer to the [quota skill](../../microsoft-foundry/quota/quota.md) for increase requests and troubleshooting; check existing deployments; try alternative models |
 | Model not found | Empty capacity list | Verify model name with `az cognitiveservices account list-models`; check case sensitivity |
 | Name conflict | "deployment already exists" | Append suffix to deployment name (handled automatically by `generate_deployment_name` script) |
 | Region unavailable | Region doesn't support model | Select a different region from the available list |
@@ -97,7 +105,7 @@ az cognitiveservices account deployment delete --name <acct> --resource-group <r
 ## Related Skills
 
 - **microsoft-foundry** - Parent skill for Microsoft Foundry operations
-- **[quota](../../../quota/quota.md)** — For quota viewing, increase requests, and troubleshooting quota errors, defer to this skill
+- **[quota](../../microsoft-foundry/quota/quota.md)** — For quota viewing, increase requests, and troubleshooting quota errors, defer to this skill
 - **azure-quick-review** - Review Azure resources for compliance
 - **azure-cost-estimation** - Estimate costs for Azure deployments
 - **azure-validate** - Validate Azure infrastructure before deployment

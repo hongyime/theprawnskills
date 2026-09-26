@@ -1,3 +1,23 @@
+# Skill resource repair — 2026-09-26
+
+Current task: publish the reviewed skill resource repairs to main and verify CI.
+
+- Audited 224 skill definitions and 1,631 baseline bundled Markdown files (plus
+  the platform overview in independent review). Addressed 60
+  findings; current scan checks 1,650 files and 2,551 references with zero unresolved
+  missing references, 16 documented contextual exceptions, and zero stale entries.
+- Implemented four handoff commands, supporting code and guides, six preset helper
+  copies, and three portable Cavecrew prompts. Restored 12 MIT-licensed upstream
+  resources and authored four local review guides. External Caveman/OpenCode setup
+  remains a documented prerequisite rather than an implied installed capability.
+- Verification: 52 local tests, 37 passed and 15 platform-specific skips, zero
+  failures. Native PowerShell and Git Bash wrappers use fake CLIs; handoff tests
+  use real disposable Git projects. Independent reviewers cleared the repairs;
+  the handoff reviewer passed 14 extra assertions. POSIX tests require CI.
+- Report: `docs/audits/2026-09-26-skill-resources.md`; all baseline findings have
+  dispositions in the adjacent JSON register. Publication and CI verification remain.
+  Existing X-drive and OneDrive checkouts and machine installations are preserved.
+
 # Portfolio review — 2026-09-10
 
 Installer/profile source review and both core Python syntax checks passed. The current Windows suite ran 22 tests: nine passed and thirteen Unix symlink cases were skipped. Verification used temporary homes, including install/update/repeat checks for the actual 65-skill profile; installed agent directories were not changed. The repository still has the `no-config-sync` topic. Keep its library and current opt-out intact.

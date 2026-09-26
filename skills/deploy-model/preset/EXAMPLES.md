@@ -19,7 +19,7 @@
 
 **Scenario:** Deploy gpt-4 but all regions have exhausted quota.
 **Result:** Graceful failure with actionable guidance:
-1. Request quota increase via the [quota skill](../../../quota/quota.md)
+1. Request quota increase via the [quota skill](../../microsoft-foundry/quota/quota.md)
 2. List existing deployments consuming quota
 3. Suggest alternative models (gpt-4o, gpt-4o-mini)
 

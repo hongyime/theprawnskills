@@ -8,6 +8,15 @@ metadata:
 
 # Dependency Updater
 
+## Bundled helper location
+
+Resolve `SKILL_DIR` to the absolute directory containing this loaded SKILL.md.
+Keep the current directory at the target project. Invoke helpers with Bash and
+their absolute paths, for example `bash "$SKILL_DIR/scripts/run-taze.sh" -r`.
+On Windows use an available Git Bash or WSL environment; native package-manager
+commands remain available when Bash is absent. These wrappers do not install
+tools or grant permission to update dependencies outside the user's scope.
+
 Smart dependency management for any language with automatic detection and safe updates.
 
 ---
@@ -103,7 +112,7 @@ User Request
 
 ```bash
 # Check prerequisites
-scripts/check-tool.sh taze "npm install -g taze"
+bash "$SKILL_DIR/scripts/check-tool.sh" taze "npm install -g taze"
 
 # Scan for updates
 taze

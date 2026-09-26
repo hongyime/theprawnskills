@@ -1,5 +1,11 @@
 # Decisions
 
+- 2026-09-26: Recreated portable handoff helpers and audited all 224 skill
+  definitions after the owner requested repairs and publication to main. Added
+  a static resource gate, exact contextual exceptions, and isolated runtime tests.
+  Preserved external integration boundaries and used original local review guides
+  where the retrieved upstream licence did not substantiate MIT redistribution.
+
 - 2026-09-09: Preserve all original skill files and the existing 64-skill
   profile; provide Linux management variants separately. Protect the library
   using the existing no-config-sync topic rather than changing global cleanup.

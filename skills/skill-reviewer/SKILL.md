@@ -3,13 +3,19 @@ name: skill-reviewer
 description: "Review skill PRs with structured severity-rated feedback covering token budgets, routing conflicts, required sections, and repo conventions. WHEN: \"review skill\", \"review skill PR\", \"review skill changes\", \"check skill quality\", \"skill PR feedback\"."
 license: MIT
 metadata:
-  author: Microsoft
-  version: "1.0.3"
+  author: Local setup (adapted from the imported Microsoft skill)
+  version: "1.1.0"
 ---
 
 # Skill PR Reviewer
 
 Performs thorough, structured code reviews of skill PRs — severity-classified findings with actionable fixes, positive acknowledgment, and a summary table.
+
+The four reference guides are locally authored for this library. Apply its
+AGENTS.md, skill-authoring conventions, INDEX.md, and default-profile.toml.
+Review bundled paths with the repository's resource audit and exercise changed
+helpers in isolated fixtures. Do not assume provider-specific test registries,
+hook systems, or routing algorithms exist in every agent.
 
 ## When to Use
 
@@ -17,7 +23,8 @@ Performs thorough, structured code reviews of skill PRs — severity-classified 
 - Checking skill compliance before submitting a PR
 - Auditing an existing skill for quality issues
 
-> 💡 **Note:** `.github/skills/` meta-skills have different conventions — checklist sections 8-9 apply only to `plugin/skills/` service skills.
+Apply the conventions of the repository under review; a different library may
+have its own profile, tests, licences, and discovery system.
 
 ## Review Workflow
 

@@ -309,8 +309,24 @@ Private clones require an account or SSH key with access on each machine.
 ## Verification
 
 ```bash
+python3 scripts/audit_skill_resources.py
 python3 -m unittest discover -s tests -v
 ```
+
+The resource audit checks all skill definitions and supporting Markdown in the
+main library and portable variants. It checks local links (including reference
+definitions) and explicit resource paths. Exact reviewed exceptions distinguish
+project outputs and illustrative examples from bundled resources; stale exceptions
+fail the check. It does not prove that provider APIs, hooks, authentication, or
+every external command works. CI runs the audit and helper tests on all three OSes.
+
+The [September resource audit](docs/audits/2026-09-26-skill-resources.md) records
+the 60 initial findings, their repairs, imported-file provenance, and limitations.
+
+For handoff creation or resumption, use `session-handoff` from the full library.
+Its helpers require Python 3.11+ and accept an explicit target `--project`.
+They create and inspect project-local Markdown; committing, pushing, pulling,
+and refreshing installed skill copies remain separate operations.
 
 On Windows, use `py -3 -m unittest discover -s tests -v` instead.
 CI runs on Windows, macOS, and Linux. Tests use isolated homes and verify first

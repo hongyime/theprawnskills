@@ -1,11 +1,40 @@
 ---
 name: session-handoff
-description: "Creates comprehensive handoff documents for seamless AI agent session transfers. Triggered when: (1) user requests handoff/memory/context save, (2) context window approaches capacity, (3) major task milestone completed, (4) work session ending, (5) user says 'save state', 'create handoff', 'I need to pause', 'context is getting full', (6) resuming work with 'load handoff', 'resume from', 'continue where we left off'. Proactively suggests handoffs after substantial work (multiple file edits, complex debugging, architecture decisions). Solves long-running agent context exhaustion by enabling fresh agents to continue with zero ambiguity."
+description: >-
+  Save and resume project work across agents or machines using verified Markdown
+  handoffs. Use for create handoff, save state, pause this task, load handoff,
+  resume from, or continue where we left off. Includes portable draft, validation,
+  listing, and staleness helpers; Git transfer remains a separate action.
+license: MIT
+metadata:
+  author: Local setup
+  version: "1.1.0"
 ---
 
 # Handoff
 
-Creates comprehensive handoff documents that enable fresh AI agents to seamlessly continue work with zero ambiguity. Solves the long-running agent context exhaustion problem.
+Preserve the context another agent needs to continue work, then verify it against
+the actual project. Handoffs belong to the target project, not this skill library.
+
+## Script location and prerequisites
+
+Use Python 3.11+ and Git for freshness checks. Set `SKILL_DIR` (Bash) or
+`$skillDir` (PowerShell) to the absolute folder containing this loaded SKILL.md.
+Set `PROJECT` / `$project` to the target project. Never change into the skill
+folder and accidentally create a handoff for the library itself.
+
+PowerShell example after resolving those two paths:
+
+```powershell
+python "$skillDir/scripts/create_handoff.py" task-slug --project "$project"
+python "$skillDir/scripts/validate_handoff.py" .agents/handoffs/<file>.md --project "$project"
+```
+
+All four commands accept `--project` and `--json`. File arguments and document
+links are project-relative, allowing a different checkout path on the next machine.
+The scripts never stage, commit, push, pull, contact another machine, or update
+STATE.md/JOURNAL.md automatically. They capture filenames and Git identifiers,
+not code contents, commit messages, authentication files, or chat history.
 
 ## Mode Selection
 
@@ -27,20 +56,20 @@ Determine which mode applies:
 Run the smart scaffold script to create a pre-filled handoff document:
 
 ```bash
-python scripts/create_handoff.py [task-slug]
+python "$SKILL_DIR/scripts/create_handoff.py" task-slug --project "$PROJECT"
 ```
 
-Example: `python scripts/create_handoff.py implementing-user-auth`
+Use a lowercase slug such as `implementing-user-auth`.
 
 **For continuation handoffs** (linking to previous work):
 ```bash
-python scripts/create_handoff.py "auth-part-2" --continues-from 2024-01-15-auth.md
+python "$SKILL_DIR/scripts/create_handoff.py" auth-part-2 --project "$PROJECT" --continues-from previous-file.md
 ```
 
 The script will:
 - Create `.agents/handoffs/` directory if needed
 - Generate timestamped filename
-- Pre-fill: timestamp, project path, git branch, recent commits, modified files
+- Pre-fill: UTC timestamp, project name, Git branch, recent commit hashes, modified-file fingerprints
 - Add handoff chain links if continuing from previous
 - Output file path for editing
 
@@ -60,7 +89,7 @@ Use the template structure in [references/handoff-template.md](references/handof
 Run the validation script to check completeness and security:
 
 ```bash
-python scripts/validate_handoff.py <handoff-file>
+python "$SKILL_DIR/scripts/validate_handoff.py" .agents/handoffs/<file>.md --project "$PROJECT"
 ```
 
 The validator checks:
@@ -70,7 +99,12 @@ The validator checks:
 - [ ] Referenced files exist
 - [ ] Quality score (0-100)
 
-**Do not finalize a handoff with secrets detected or score below 70.**
+**Do not finalize unless validation exits 0.** Every required section must be
+populated, placeholders removed, and explicit references valid. A score of 70+
+does not override an error. The score starts at 100 and deducts points for missing
+metadata, sections, placeholders, and files; it is a completeness heuristic, not
+a guarantee of factual accuracy. Secret matching is also heuristic: manually
+review the entire document and staged diff before sharing.
 
 ### Step 4: Confirm Handoff
 
@@ -87,7 +121,7 @@ Report to user:
 List handoffs in the current project:
 
 ```bash
-python scripts/list_handoffs.py
+python "$SKILL_DIR/scripts/list_handoffs.py" --project "$PROJECT"
 ```
 
 This shows all handoffs with dates, titles, and completion status.
@@ -97,7 +131,7 @@ This shows all handoffs with dates, titles, and completion status.
 Before loading, check how current the handoff is:
 
 ```bash
-python scripts/check_staleness.py <handoff-file>
+python "$SKILL_DIR/scripts/check_staleness.py" .agents/handoffs/<file>.md --project "$PROJECT"
 ```
 
 Staleness levels:
@@ -105,6 +139,13 @@ Staleness levels:
 - **SLIGHTLY_STALE**: Review changes, then resume
 - **STALE**: Verify context carefully before resuming
 - **VERY_STALE**: Consider creating a fresh handoff
+- **UNKNOWN**: Git or complete file fingerprints are unavailable; inspect manually
+
+Only FRESH exits 0; other assessments exit 1, invalid inputs exit 2. Age over
+seven days is STALE, over 30 days VERY_STALE. New commits are at least
+SLIGHTLY_STALE; branch, index, or working-file changes are STALE. Missing or
+divergent Git history is VERY_STALE. Sensitive files and dirty submodules are
+not fingerprinted and force UNKNOWN. Freshness does not imply task completion.
 
 The script checks:
 - Time since handoff was created
@@ -156,6 +197,12 @@ handoff, wire it into the MOLT files so any harness finds it:
    handoff at <file>."
 3. On resume, read STATE.md first; only open this handoff when the task is the
    active one.
+
+For transfer through Git, review and commit these project files together with
+the relevant code, then push the intended branch when authorized. The receiving
+machine pulls that same branch and verifies the working tree before resuming.
+Saving a Markdown file alone does not transfer uncommitted code. For a shared
+folder, verify synchronization has completed before the next agent writes.
 
 See `cross-harness-state` for the full file contracts.
 

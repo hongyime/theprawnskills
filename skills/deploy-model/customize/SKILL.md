@@ -154,7 +154,7 @@ az cognitiveservices account deployment delete --name <account> --resource-group
 
 - **preset** - Quick deployment to best region with automatic configuration
 - **microsoft-foundry** - Parent skill for all Microsoft Foundry operations
-- **[quota](../../../quota/quota.md)** — For quota viewing, increase requests, and troubleshooting quota errors, defer to this skill instead of duplicating guidance
+- **[quota](../../microsoft-foundry/quota/quota.md)** — For quota viewing, increase requests, and troubleshooting quota errors, defer to this skill instead of duplicating guidance
 - **rbac** - Manage permissions and access control
 
 ---
