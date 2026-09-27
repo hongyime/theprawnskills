@@ -3,7 +3,8 @@
 The owner requested installed skills on E14, L390, and T14 be refreshed from
 main. The 65-skill profile is unchanged. All seven registered agent roots pass
 file verification against skill content from `74355d2`; 216 separate skill
-copies were refreshed, and all 213 replaced copies have verified backups.
+copies were refreshed. After another successful installed-file verification,
+the owner requested cleanup and all 213 old backup copies were removed.
 
 - E14: Codex, Claude, and Cursor pass. L390: Codex and Claude pass. T14: Codex
   passes; Claude's existing shared-library link is preserved and verified.
@@ -18,7 +19,9 @@ copies were refreshed, and all 213 replaced copies have verified backups.
   replaced. For E14 handoffs, use the verified snapshot until OneDrive is fixed.
 - Local evidence and snapshot on each machine:
   `~/Backups/2026-09-27/skills-main-refresh/`. The initiating machine retains
-  the combined report. Replaced copies remain under `~/Backups/2026-09-27/skills/`.
+  the combined report and per-machine cleanup records. Working Git snapshots
+  remain available; the obsolete copies under the separate `skills/` backup
+  directory were deleted at the owner's request.
 
 # Skill resource repair — 2026-09-26
 

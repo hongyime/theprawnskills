@@ -1,5 +1,11 @@
 # Decisions
 
+- 2026-09-27: At the owner's request, reverified all seven installed agent roots
+  and removed the 213 old copies created by the refresh (E14 99, L390 78, T14 36).
+  Exact deletion paths came from the rollout records and were checked before
+  removal. Kept the verified working snapshots and evidence; E14's shared
+  OneDrive issue remains a separate follow-up.
+
 - 2026-09-27: Refreshed 65 daily skills across seven registered agent roots on
   E14, L390, and T14 from `74355d2`. Verified 216 updates and 213 retained backups.
   Used a hash-verified Git snapshot for separate copies because OneDrive was
