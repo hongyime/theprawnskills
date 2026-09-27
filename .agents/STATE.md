@@ -14,6 +14,23 @@ after a host command-runner failure; Claude handoff is blocked by expired OAuth.
 No unattended schedules or blanket agent registration. See
 docs/audits/2026-09-27-ecc-second-wave.md for pilot boundaries and delivery status.
 
+# Orca skill installation — 2026-09-27
+
+Owner requested four official Orca skills and preservation of the existing
+library conventions. Added computer-use, orchestration, orca-per-workspace-env,
+and orca-cli from stablyai/orca revision
+90bae01db930f11951f75cb28f2da54c2b8b4b9b, with original discovery stubs,
+MIT licenses and source hashes. All four version-matched guides respond in the
+installed Orca runtime. Keep the 65-skill daily profile and existing links;
+this is a targeted local addition, not a fleet refresh. Local Codex copies and
+the existing shared-library links verify against the staged source hashes.
+The 2,228 pre-existing skill files other than the router are unchanged; the
+router adds one Orca route. All three registry files are byte-identical.
+Metadata/index validation passes; text safety finds zero issues; the resource
+audit checks 232 definitions, 1,664 Markdown files and 2,569 references with
+zero missing references and zero stale exceptions. Other-machine delivery is
+not verified. Preserve all prior handoff records below.
+
 # ECC selective adoption — 2026-09-27
 
 Completed and delivered. Owner approved four on-demand additions (verification-loop,

@@ -113,6 +113,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Video, audio, voice, podcasts | `image-to-video`, `ai-avatar-video`, `text-to-speech`, `speech-to-text`, `ai-podcast-creation` |
 | Social content | `ai-social-media-content`, `social-media-carousel`, `twitter-thread-creation`, `youtube-thumbnail-design` |
 | Agent tooling and delegation | `cli-agent-router`, `claude-code-cli`, `opencode-cli`, `codex`, `agent-browser` |
+| Orca ADE worktrees, terminals, handoffs, or embedded browser | `orca-cli`; `orchestration` for supervised workers; `orca-per-workspace-env` for environment recipes; `computer-use` only for visible desktop GUI tasks |
 
 ## Maintenance Rules
 
