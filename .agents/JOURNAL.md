@@ -80,3 +80,5 @@
 - 2026-09-10: Portfolio installer review passed nine applicable Windows tests with thirteen Unix skips and isolated temporary homes. Preserve the library and verified no-config-sync topic; remote rollout was not retried.
 
 - 2026-09-16: Baseline review batch-a. pnpm audit surfaced 26 dev-only vulns; deferred remediation to sourcerepo since lockfile flows via sync-repo-settings. Recorded critical (vitest <3.2.6, dev-only) for the sync-source owner.
+
+- 2026-09-27: Prepared reviewed private-inventory selection, packaging exclusions and public documentation examples without changing installed agent profiles or newer upstream skills.

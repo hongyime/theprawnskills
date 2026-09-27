@@ -28,3 +28,4 @@ templates/** linguist-generated=true
 *.pdf    -filter -diff -merge
 *.psd    -filter -diff -merge
 *.txt    -filter -diff -merge
+/machines.local.toml export-ignore

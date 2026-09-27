@@ -135,3 +135,7 @@ The older remote-machine rollout notes below remain unresolved; this portfolio c
 - Semver ranges (^3.1.0) already permit patched vitest >=3.2.6; lockfile is stale. Deferred: lockfile is sourcerepo-managed (last touched by post-recovery snapshot 5c8ef90). Update should flow through sourcerepo, not this target.
 - Free-tier surface: none. Skill library, no Vercel/Supabase.
 - Next safe steps: file issue in sourcerepo to refresh pnpm-lock.yaml (bumps vitest, postcss/nanoid, esbuild transitives).
+
+## Privacy-safe machine examples - 2026-09-27
+
+Keep machine-specific inventory in an ignored private override, with disabled public examples and packaging exclusions. Preserve the current skill catalog, profile and newer provider-auth instructions. No fleet installation or registry-based synchronization ran.

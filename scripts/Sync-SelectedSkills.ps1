@@ -1,7 +1,7 @@
 # Targeted updates for existing OneDrive/Windows machines. Preview is the default.
 [CmdletBinding()]
 param(
-  [string]$Workspace = (Join-Path $env:USERPROFILE 'OneDrive\01 SKILLS\.agents'),
+  [string]$Workspace = (Split-Path -Parent $PSScriptRoot),
   [Parameter(Mandatory=$true)][string[]]$SkillNames,
   [switch]$Apply,
   [switch]$LocalOnly,
@@ -9,7 +9,8 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $workspacePath = (Resolve-Path -LiteralPath $Workspace).Path
-$registryPath = Join-Path $workspacePath 'machines.toml'
+. (Join-Path $PSScriptRoot "Get-MachineRegistryPath.ps1")
+$registryPath = Get-MachineRegistryPath -Workspace $workspacePath
 $profilePath = Join-Path $workspacePath 'default-profile.toml'
 $parseToml = 'import json,pathlib,sys,tomllib; print(json.dumps(tomllib.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8-sig"))))'
 $registryJson = & python -c $parseToml $registryPath

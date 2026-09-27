@@ -21,7 +21,6 @@ _removed/
 !.agents/handoffs/
 !.agents/handoffs/**
 !.gitignore
-!.npmignore
 !.gitattributes
 !.gitmodules
 !.editorconfig
