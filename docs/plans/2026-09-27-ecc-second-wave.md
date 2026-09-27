@@ -1,6 +1,7 @@
 # ECC second-wave review plan
 
-Date: 2026-09-27. **Owner approved proceeding; implementation in progress.**
+Date: 2026-09-27. **Implementation delivered; live-agent pilot limitations recorded.**
+See [implementation and verification results](../audits/2026-09-27-ecc-second-wave.md).
 Reviewed ECC revision `e482e579415fde18357cafce70f177ae19fd7f03`, the current local skill library,
 local Codex CLI help, and the primary dmux/tmux documentation. The approved
 first wave is recorded in [the adoption audit](../audits/2026-09-27-ecc-adoption.md).
