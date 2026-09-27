@@ -82,3 +82,4 @@
 - 2026-09-16: Baseline review batch-a. pnpm audit surfaced 26 dev-only vulns; deferred remediation to sourcerepo since lockfile flows via sync-repo-settings. Recorded critical (vitest <3.2.6, dev-only) for the sync-source owner.
 
 - 2026-09-27: Prepared reviewed private-inventory selection, packaging exclusions and public documentation examples without changing installed agent profiles or newer upstream skills.
+- 2026-09-27: Owner approved ECC second wave: four on-demand skills, existing CLI/routing improvements and a bounded terminal/agent pilot; daily profile stays 65. Keep supervisor scope detection distinct from sandbox enforcement, preserve failed host-pilot evidence, and deliver through main/OneDrive without claiming new remote-machine verification.

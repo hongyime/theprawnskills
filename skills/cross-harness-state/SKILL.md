@@ -121,3 +121,7 @@ pointers stay valid.
 - `session-handoff` - creates the deep recovery docs stored in `.agents/handoffs/`
 - `to-tickets`, `wayfinder` - artifacts STATE.md points to
 - `bug-diagnosis` - diagnosis docs under `.agents/diagnosis/`
+
+## Related workflow
+
+For durable architectural rationale, use `architecture-decision-records` and link the record from STATE/JOURNAL instead of duplicating it. For bounded repeated repair, use `bounded-agent-loop`; hand off attempts consumed, remaining time and actual test evidence.

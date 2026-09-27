@@ -342,3 +342,7 @@ export function isApiError(value: unknown): value is ApiError {
 | $ref not found | List missing refs |
 | Unknown type | Use `unknown` and warn |
 | Circular reference | Use type alias with lazy reference |
+
+## Related workflow
+
+For provider/consumer compatibility, error shapes, nullability and serialized runtime checks, resolve `api-contracts` through `skill-router`. Generated TypeScript types alone do not validate responses.

@@ -1,105 +1,60 @@
 ---
 name: cli-agent-router
-description: Smart routing for CLI agent delegation. Decides which CLI agent (Claude Code, Codex, Gemini, OpenCode) to delegate a task to based on task characteristics. Use when the user says "delegate", "use the best tool", "pick the right agent", or when Hermes needs to decide which agent handles a coding task.
+description: Choose and launch an available CLI agent for authorized delegation, independent review or isolated implementation. Use for agent selection, host adapters, bounded parallel work, and tmux/dmux worktree coordination.
 ---
 
-# CLI Agent Router
+# CLI agent router
 
-Decide which CLI agent to delegate a task to, then spawn it in a Windows Terminal tab.
+First honor the user's selected agent. Otherwise choose by verified local
+capability, authentication, tool access and task scope. Use configured model
+defaults unless the task specifies a model; check current CLI help instead of
+guessing model IDs, context sizes, prices or flags.
 
-## Decision Matrix
+## Route the work
 
-| Task characteristic | Best agent | Why | Skill to invoke |
-|---|---|---|---|
-| Quick 1-2 file edit, simple fix | **Hermes itself** | No overhead, fastest | (none — do it inline) |
-| Multi-file refactor, complex reasoning | **Claude Code** (sonnet) | Best multi-file understanding | `claude-code-cli` |
-| Hard architecture/security analysis | **Claude Code** (opus) | Deepest reasoning | `claude-code-cli` |
-| Huge codebase scan (>200k tokens) | **Gemini** (pro) | 1M context window | `gemini` |
-| Fast analysis, speed-critical | **Gemini** (flash) | Sub-second latency | `gemini` |
-| OpenAI model needed, user requests | **Codex** | GPT-5.2 access | `codex` |
-| AWS Bedrock models, MCP tools | **OpenCode** | Bedrock auth + MCP | `opencode-cli` |
-| Cost-sensitive bulk work | **Claude Code** (haiku) | Cheapest per token | `claude-code-cli` |
-| Multiple independent tasks | **Parallel tabs** | Spawn 2-3 agents simultaneously | `wt-agent-manager` |
+| Need | Route |
+|---|---|
+| Small change within the current agent's abilities | Complete it here |
+| Independent review with native host subagents available | Use the host's review role when delegation is authorized |
+| Explicit Codex execution | Read `codex`; check `codex --version` and `codex exec --help` |
+| Explicit Claude execution | Check `claude --version` and `claude --help`; inspect local authentication status |
+| Provider/MCP tools configured in OpenCode | Read `opencode-cli`; verify the actual provider and tools |
+| Another installed CLI, such as Gemini | Inspect its local help and authentication; no assumed skill or free quota |
+| Repeated repair with acceptance commands | Read `bounded-agent-loop` |
+| Persistent terminal or isolated multi-worktree pilot | Read [terminal workflows](references/terminal-workflows.md) |
 
-## Routing Logic
+Availability is not readiness: a command can exist but lack credentials, a
+provider, network access or compatible filesystem paths. Never copy auth files
+through this repository. Never print credentials during readiness checks.
 
-When deciding which agent to use, check these in order:
+PowerShell: `Get-Command codex,claude,gemini,opencode -ErrorAction SilentlyContinue`.
+POSIX: `command -v codex claude gemini opencode`. Inspect resolved shims in WSL:
+a Windows executable may require Windows paths and use Windows authentication.
+A successful version command does not prove its working directory or tools work.
 
-### 1. Did the user specify an agent?
-If the user said "use claude", "ask codex", "run gemini", "delegate to opencode" — use that agent. No routing needed.
+## Delegate explicitly
 
-### 2. Does the task need a specific capability?
-- **>200K token context** → Gemini (1M window)
-- **GPT/OpenAI model** → Codex
-- **AWS Bedrock** → OpenCode
-- **MCP tools (ctftoolkit, ast_grep)** → OpenCode
-- Otherwise → Claude Code (best general-purpose)
+Give the worker a concrete task, root/branch, instructions, exact file ownership,
+acceptance command, deadline and output format. Separate read-only exploration
+from implementation. Reuse the portable prompts in `bounded-agent-loop` or
+`cavecrew`; these prompt roles are not universally registered agent names.
 
-### 3. What's the complexity?
-- **Trivial** (rename, format, typo fix) → Hermes inline, no delegation
-- **Simple** (single file bug fix, small feature) → Claude Code (haiku) or Gemini (flash)
-- **Standard** (multi-file feature, refactor) → Claude Code (sonnet)
-- **Complex** (architecture, security audit, cross-repo) → Claude Code (opus) or Gemini (pro)
+Use separate worktrees for independent writers and one integrator. Do not run
+multiple writers against the same checkout. Serialize dependent work. Preserve
+the worker's actual exit, stderr and test evidence; a completion sentence alone
+is not proof. Review its diff and run acceptance independently.
 
-### 4. Cost sensitivity?
-- **Free**: Gemini CLI (Google account, no API costs)
-- **Cheap**: Claude Code haiku, Codex gpt-5.2-mini
-- **Standard**: Claude Code sonnet (included in Max plan)
-- **Premium**: Claude Code opus, Codex gpt-5.2-max
+Keep argument arrays as arrays; do not interpolate user prompts into shell code.
+Use stdin or a private prompt file when supported. Give each run a unique local
+log directory. Background PowerShell helpers use `Start-Process -WindowStyle
+Hidden`; interactive windows are only for a user-requested visible session.
 
-## Parallel Delegation
+## Stop and hand off
 
-For independent subtasks, spawn multiple agents simultaneously as hidden background processes:
-
-```powershell
-# Example: security review + performance analysis + docs update
-# Three agents fired in parallel, no visible windows
-
-$outClaude = "$env:TEMP\hermes-claude-out.txt"; Remove-Item $outClaude -EA SilentlyContinue
-$outGemini = "$env:TEMP\hermes-gemini-out.txt"; Remove-Item $outGemini -EA SilentlyContinue
-$outCodex  = "$env:TEMP\hermes-codex-out.txt";  Remove-Item $outCodex  -EA SilentlyContinue
-
-$pClaude = Start-Process pwsh -WindowStyle Hidden -PassThru -ArgumentList '-NoProfile','-Command',"claude -p --model opus 'Security review of auth module' 2>&1 | Tee-Object '$outClaude'; Add-Content '$outClaude' '=== CLAUDE COMPLETE ==='"
-
-$pGemini = Start-Process pwsh -WindowStyle Hidden -PassThru -ArgumentList '-NoProfile','-Command',"gemini -m gemini-3-pro-preview -y 'Performance analysis of the entire codebase' 2>&1 | Tee-Object '$outGemini'; Add-Content '$outGemini' '=== GEMINI COMPLETE ==='"
-
-$pCodex  = Start-Process pwsh -WindowStyle Hidden -PassThru -ArgumentList '-NoProfile','-Command',"codex exec --skip-git-repo-check --sandbox read-only --full-auto 'Generate API documentation' 2>&1 | Tee-Object '$outCodex'; Add-Content '$outCodex' '=== CODEX COMPLETE ==='"
-
-# Wait for all three
-foreach ($p in @($pClaude,$pGemini,$pCodex)) { $p.WaitForExit() }
-```
-
-Then poll all three output files and report combined results.
-
-## Agent Availability Check
-
-Before delegating, verify the agent is installed:
-
-```powershell
-$agents = @{
-    "claude" = (Get-Command claude -ErrorAction SilentlyContinue)
-    "codex"  = (Get-Command codex -ErrorAction SilentlyContinue)
-    "gemini" = (Get-Command gemini -ErrorAction SilentlyContinue)
-    "opencode" = (Get-Command opencode -ErrorAction SilentlyContinue)
-}
-
-$available = $agents.GetEnumerator() | Where-Object { $_.Value } | ForEach-Object { $_.Key }
-```
-
-If the preferred agent isn't available, fall back to the next best option per the decision matrix.
-
-## Trigger Phrases
-
-Activate this routing when the user says:
-- "delegate this to..." / "use the best tool for..."
-- "which agent should handle..." / "pick the right agent"
-- "run this with claude/codex/gemini/opencode"
-- "parallel review" / "multi-agent analysis"
-- "delegate" (without specifying agent — route automatically)
-
-## Anti-Patterns
-
-- **Don't delegate trivial tasks** — if Hermes can do it in <30 seconds, just do it
-- **Don't spawn 4+ tabs** — user can't watch more than 3 effectively
-- **Don't delegate the same task to multiple agents** unless explicitly comparing outputs
-- **Don't delegate interactive tasks** — CLI agents in WT tabs run non-interactively
+Apply only the permissions required by the authorized task. Do not silently
+enable permission bypass, autopilot, schedules, automatic commits or merging.
+A preauthorized edit does not need another confirmation at each iteration.
+On unavailable tools, cancellation, repeated failure or exhausted budget, record
+the exact limitation and remaining work using `session-handoff` and
+`cross-harness-state`. Resume a specific task/session after checking its root,
+branch and remaining budget; never choose an unrelated "last" session.

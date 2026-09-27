@@ -1,7 +1,7 @@
 # The Prawn Skills
 
 A full skill library plus the daily profile in `default-profile.toml`.
-The library contains 211 top-level skills (221 `SKILL.md` files including
+The library contains 215 top-level skills (225 `SKILL.md` files including
 nested skills), with 65 selected for daily use. The recovered originals remain
 available alongside the new daily `visual-explainer` skill.
 
@@ -375,6 +375,12 @@ Agent locations: [Codex](https://learn.chatgpt.com/docs/build-skills),
 [Claude Code](https://code.claude.com/docs/en/skills),
 [OpenCode](https://opencode.ai/docs/skills/),
 [Cursor](https://cursor.com/docs/context/skills).
+
+Second-wave additions also remain on demand: `api-contracts`,
+`codebase-onboarding`, `architecture-decision-records`, and `bounded-agent-loop`.
+The CLI adapters use installed help and configured defaults; tmux/dmux guidance
+lives with `cli-agent-router`. See the [second-wave audit](docs/audits/2026-09-27-ecc-second-wave.md)
+for pilot results and limits.
 
 ### Private machine inventory
 

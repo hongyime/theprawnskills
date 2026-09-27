@@ -1,104 +1,68 @@
 ---
 name: codex
-description: Use when the user asks to run Codex CLI (codex exec, codex resume) or references OpenAI Codex for code analysis, refactoring, or automated editing. Uses GPT-5.2 by default for state-of-the-art software engineering.
+description: Run the installed Codex CLI for user-requested analysis, review, implementation or resuming a specific task, using verified local flags and configured model defaults.
 ---
 
-# Codex Skill Guide
+# Codex CLI adapter
 
-## Running a Task
-1. Default to `gpt-5.2` model. Ask the user (via `AskUserQuestion`) which reasoning effort to use (`xhigh`,`high`, `medium`, or `low`). User can override model if needed (see Model Options below).
-2. Select the sandbox mode required for the task; default to `--sandbox read-only` unless edits or network access are necessary.
-3. Assemble the command with the appropriate options:
-   - `-m, --model <MODEL>`
-   - `--config model_reasoning_effort="<high|medium|low>"`
-   - `--sandbox <read-only|workspace-write|danger-full-access>`
-   - `--full-auto`
-   - `-C, --cd <DIR>`
-   - `--skip-git-repo-check`
-3. Always use --skip-git-repo-check.
-4. When continuing a previous session, use `codex exec --skip-git-repo-check resume --last` via stdin. When resuming don't use any configuration flags unless explicitly requested by the user e.g. if he species the model or the reasoning effort when requesting to resume a session. Resume syntax: `echo "your prompt here" | codex exec --skip-git-repo-check resume --last 2>/dev/null`. All flags have to be inserted between exec and resume.
-5. **IMPORTANT**: By default, append `2>/dev/null` to all `codex exec` commands to suppress thinking tokens (stderr). Only show stderr if the user explicitly requests to see thinking tokens or if debugging is needed.
-6. Run the command, capture stdout/stderr (filtered as appropriate), and summarize the outcome for the user.
-7. **After Codex completes**, inform the user: "You can resume this Codex session at any time by saying 'codex resume' or asking me to continue with additional analysis or changes."
+Read repository instructions and durable state before delegation. Confirm the
+task root and whether the user authorized analysis or edits. Carry that
+authorization forward without adding a confirmation after every command.
 
-### Quick Reference
-| Use case | Sandbox mode | Key flags |
-| --- | --- | --- |
-| Read-only review or analysis | `read-only` | `--sandbox read-only 2>/dev/null` |
-| Apply local edits | `workspace-write` | `--sandbox workspace-write --full-auto 2>/dev/null` |
-| Permit network or broad access | `danger-full-access` | `--sandbox danger-full-access --full-auto 2>/dev/null` |
-| Resume recent session | Inherited from original | `echo "prompt" \| codex exec --skip-git-repo-check resume --last 2>/dev/null` (no flags allowed) |
-| Run from another directory | Match task needs | `-C <DIR>` plus other flags `2>/dev/null` |
+## Check the installed interface
 
-## Model Options
+Run `codex --version`, `codex exec --help` and, for continuation,
+`codex exec resume --help`. Use `codex login status` to check readiness without
+reading authentication files. Local help is authoritative for this installation;
+flags and available model names change. Preserve diagnostics on failure.
 
-| Model | Best for | Context window | Key features |
-| --- | --- | --- | --- |
-| `gpt-5.2-max` | **Max model**: Ultra-complex reasoning, deep problem analysis | 400K input / 128K output | 76.3% SWE-bench, adaptive reasoning, $1.25/$10.00 |
-| `gpt-5.2` ⭐ | **Flagship model**: Software engineering, agentic coding workflows | 400K input / 128K output | 76.3% SWE-bench, adaptive reasoning, $1.25/$10.00 |
-| `gpt-5.2-mini` | Cost-efficient coding (4x more usage allowance) | 400K input / 128K output | Near SOTA performance, $0.25/$2.00 |
-| `gpt-5.1-thinking` | Ultra-complex reasoning, deep problem analysis | 400K input / 128K output | Adaptive thinking depth, runs 2x slower on hardest tasks |
+Use the configured model/reasoning defaults unless the task names an override.
+Do not hardcode model prices, benchmark scores or an invented model suffix.
+Use `--sandbox read-only` for inspection and `--sandbox workspace-write` for
+authorized repository edits when supported. A CLI flag is not proof of the
+effective sandbox; inspect launch diagnostics and the host's actual enforcement.
 
-**GPT-5.2 Advantages**: 76.3% SWE-bench (vs 72.8% GPT-5), 30% faster on average tasks, better tool handling, reduced hallucinations, improved code quality. Knowledge cutoff: September 30, 2024.
+## Launch a bounded task
 
-**Reasoning Effort Levels**:
-- `xhigh` - Ultra-complex tasks (deep problem analysis, complex reasoning, deep understanding of the problem)
-- `high` - Complex tasks (refactoring, architecture, security analysis, performance optimization)
-- `medium` - Standard tasks (refactoring, code organization, feature additions, bug fixes)
-- `low` - Simple tasks (quick fixes, simple changes, code formatting, documentation)
-
-**Cached Input Discount**: 90% off ($0.125/M tokens) for repeated context, cache lasts up to 24 hours.
-
-## Following Up
-- After every `codex` command, immediately use `AskUserQuestion` to confirm next steps, collect clarifications, or decide whether to resume with `codex exec resume --last`.
-- When resuming, pipe the new prompt via stdin: `echo "new prompt" | codex exec resume --last 2>/dev/null`. The resumed session automatically uses the same model, reasoning effort, and sandbox mode from the original session.
-- Restate the chosen model, reasoning effort, and sandbox mode when proposing follow-up actions.
-
-## Error Handling
-- Stop and report failures whenever `codex --version` or a `codex exec` command exits non-zero; request direction before retrying.
-- Before you use high-impact flags (`--full-auto`, `--sandbox danger-full-access`, `--skip-git-repo-check`) ask the user for permission using AskUserQuestion unless it was already given.
-- When output includes warnings or partial results, summarize them and ask how to adjust using `AskUserQuestion`.
-
-## Background Process Mode (Hermes Delegation)
-
-When Hermes delegates a task to Codex, spawn it as a hidden background process. Output goes to `$env:TEMP\hermes-codex-out.txt` — tail it with `Get-Content -Wait` if you want to watch live.
+Current example, verify flags against the installed CLI first:
 
 ```powershell
-# Read-only analysis
-$out = "$env:TEMP\hermes-codex-out.txt"; Remove-Item $out -EA SilentlyContinue
-$proc = Start-Process pwsh -WindowStyle Hidden -PassThru -ArgumentList '-NoProfile','-Command',"codex exec --skip-git-repo-check -m gpt-5.2 --sandbox read-only --full-auto 'YOUR_PROMPT' 2>&1 | Tee-Object -FilePath '$out'; Add-Content '$out' '=== CODEX COMPLETE ==='"
-
-# With edits (workspace-write)
-$out = "$env:TEMP\hermes-codex-out.txt"; Remove-Item $out -EA SilentlyContinue
-$proc = Start-Process pwsh -WindowStyle Hidden -PassThru -ArgumentList '-NoProfile','-Command',"codex exec --skip-git-repo-check -m gpt-5.2 --sandbox workspace-write --full-auto 'YOUR_PROMPT' 2>&1 | Tee-Object -FilePath '$out'; Add-Content '$out' '=== CODEX COMPLETE ==='"
-
-# In a specific directory
-$out = "$env:TEMP\hermes-codex-out.txt"; Remove-Item $out -EA SilentlyContinue
-$proc = Start-Process pwsh -WindowStyle Hidden -PassThru -ArgumentList '-NoProfile','-Command',"codex exec --skip-git-repo-check -m gpt-5.2 -C 'C:\path\to\project' --sandbox read-only --full-auto 'YOUR_PROMPT' 2>&1 | Tee-Object -FilePath '$out'; Add-Content '$out' '=== CODEX COMPLETE ==='"
+Get-Content -LiteralPath $promptPath -Raw |
+  codex exec --cd $repoPath --sandbox read-only --ephemeral --json --output-last-message $resultPath -
 ```
 
-Poll for completion:
-```powershell
-$outFile = "$env:TEMP\hermes-codex-out.txt"
-$timeout = 300; $start = Get-Date
-while (((Get-Date) - $start).TotalSeconds -lt $timeout) {
-    if ((Test-Path $outFile) -and (Get-Content $outFile -Raw) -match "=== CODEX COMPLETE ===") { break }
-    Start-Sleep -Seconds 10
-}
-$result = Get-Content $outFile -Raw -ErrorAction SilentlyContinue
+POSIX equivalent:
+
+```bash
+codex exec --cd "$repoPath" --sandbox read-only --ephemeral --json \
+  --output-last-message "$resultPath" - < "$promptPath"
 ```
 
-See `wt-agent-manager` skill for full orchestration patterns (parallel spawns, timeout/kill, cleanup).
+Choose a unique private result/log path outside a public repository. Capture the
+process exit and stderr as well as JSON events; do not suppress errors with
+`2>/dev/null`. A final answer is not evidence that tests passed or edits stayed
+in scope. Inspect tool events, changed files and independent acceptance results.
 
-## Authentication
+For edits, change the sandbox mode to match the authorized task. Use the
+supervisor in `bounded-agent-loop` when repetition/deadlines are needed.
+The supervisor accepts executable argument arrays, so Windows npm `.cmd` shims
+may need Node plus the CLI's actual JavaScript entrypoint or a native binary.
+Do not use a shell just to interpolate a prompt. Keep foreground workers alive
+until their children finish; detached processes need explicit lifecycle ownership.
 
-```powershell
-codex auth login
-```
-Opens browser for OpenAI account login. Required on each machine.
+Do not copy legacy `--full-auto`, `--cwd` or `--task-file` examples into a
+command unless this installed version advertises them. Do not bypass the Git
+repository check for a normal repository. Broader filesystem/network access
+must fit the task's actual authority and host rules, not an automatic fallback.
 
-## CLI Version
+## Continue or report failure
 
-Requires Codex CLI v0.57.0 or later for GPT-5.2 model support. The CLI defaults to `gpt-5.2` on macOS/Linux and `gpt-5.2` on Windows. Check version: `codex --version`
+An ephemeral run is not a resumable saved session. For a persistent session,
+record its explicit ID and repository/branch; use the installed resume help to
+build the continuation command. Avoid `resume --last` when multiple agents or
+projects are active. Recheck scope and remaining budget before resuming.
 
-Use `/model` slash command within a Codex session to switch models, or configure default in `~/.codex/config.toml`.
+Retry a transient failure within the already authorized bounds. Missing
+credentials or a required user choice becomes a concise handoff, not a claim
+of success. Summarize changes, actual checks, remaining risks and the precise
+next step. Use `requesting-code-review` before integration.
