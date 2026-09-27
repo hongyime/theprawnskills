@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/stablyai/orca",
+  "commit": "90bae01db930f11951f75cb28f2da54c2b8b4b9b",
+  "skill": "orchestration",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/90bae01db930f11951f75cb28f2da54c2b8b4b9b/skills/orchestration/SKILL.md",
+  "sha256": "cd1b364bf35781bad06bf75ab1766afa8d6cec69cb2060529691d89871a2098a",
+  "description_chars": 524
+}

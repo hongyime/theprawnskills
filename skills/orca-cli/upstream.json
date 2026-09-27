@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/stablyai/orca",
+  "commit": "90bae01db930f11951f75cb28f2da54c2b8b4b9b",
+  "skill": "orca-cli",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/90bae01db930f11951f75cb28f2da54c2b8b4b9b/skills/orca-cli/SKILL.md",
+  "sha256": "aa76f86505010096e8ea9edda1705a78aae7af45e54485f3fe0460664c1d9e4a",
+  "description_chars": 618
+}

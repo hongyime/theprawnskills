@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/stablyai/orca",
+  "commit": "90bae01db930f11951f75cb28f2da54c2b8b4b9b",
+  "skill": "orca-per-workspace-env",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/90bae01db930f11951f75cb28f2da54c2b8b4b9b/skills/orca-per-workspace-env/SKILL.md",
+  "sha256": "c005d126a13d2913351472f07690f1c1a660d4f286e2a5f21864aee294f436ce",
+  "description_chars": 459
+}
