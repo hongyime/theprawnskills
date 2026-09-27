@@ -1,3 +1,25 @@
+# Installed skill refresh — 2026-09-27
+
+The owner requested installed skills on E14, L390, and T14 be refreshed from
+main. The 65-skill profile is unchanged. All seven registered agent roots pass
+file verification against skill content from `74355d2`; 216 separate skill
+copies were refreshed, and all 213 replaced copies have verified backups.
+
+- E14: Codex, Claude, and Cursor pass. L390: Codex and Claude pass. T14: Codex
+  passes; Claude's existing shared-library link is preserved and verified.
+- Full Git snapshots outside OneDrive pass all 2,219 skill-file hashes and the
+  resource audit on each machine. All four handoff commands start successfully.
+- T14's missing Git object was recovered by a fresh fetch, and its OneDrive
+  checkout was fast-forwarded without discarding local files. L390's eight
+  shared handoff files match the updated source. E14's shared OneDrive copy
+  returns cloud-read errors for the new files; do not mark that source synced.
+- Installed-copy refreshes used the verified Git snapshot when OneDrive was
+  delayed. No remote canonical folders or existing shared-library links were
+  replaced. For E14 handoffs, use the verified snapshot until OneDrive is fixed.
+- Local evidence and snapshot on each machine:
+  `~/Backups/2026-09-27/skills-main-refresh/`. The initiating machine retains
+  the combined report. Replaced copies remain under `~/Backups/2026-09-27/skills/`.
+
 # Skill resource repair — 2026-09-26
 
 Current task: complete. Repairs are published to main (`b2d1a70`, `8fde37a`).
