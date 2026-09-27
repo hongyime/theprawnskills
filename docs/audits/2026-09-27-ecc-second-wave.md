@@ -64,6 +64,14 @@ and zero stale exceptions. No text-safety findings.
 Final full-suite, three-OS CI and installed-file evidence are recorded in the
 delivery update below after the checks complete.
 
+Initial CI run `36302444003` passed Linux/macOS (94 Python cases plus five
+documented skips, four React cases and four Chromium cases on each). Windows
+caught a scheduling race in a 1-millisecond wall-budget test: the verifier could
+exit while tree cleanup started, yielding an explicit `cleanup-failed` result.
+The exhausted-before-launch test now uses a controlled clock and asserts no
+command starts. The separate confirmed-live-child timeout test passed and stays
+in place; uncertain cleanup is still reported as a failure, not hidden.
+
 ## Live host pilot
 
 Observed Ubuntu 24.04 WSL: tmux 3.4, Git 2.43.0, Node 20.20.2. dmux 5.11.1 was

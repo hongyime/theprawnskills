@@ -194,8 +194,15 @@ class LoopTests(unittest.TestCase):
                         os.kill(pid, signal.SIGKILL)
 
     def test_wall_budget(self):
-        self.plan["wall_seconds"] = 0.001
-        self.assertEqual(self.execute()["status"], "timeout")
+        import itertools
+        self.plan["wall_seconds"] = 1
+        # Exhaust budget before launch, independently of OS scheduling granularity.
+        with mock.patch.object(loop.time, "monotonic", side_effect=itertools.count()), \
+                mock.patch.object(loop, "command") as launch:
+            state = self.execute()
+        self.assertEqual(state["status"], "timeout")
+        launch.assert_not_called()
+        self.assertEqual(state["attempts"], 0)
 
     def test_cleanup_failure_survives_final_scope_violation(self):
         def execute_command(argv, root, log, seconds, env):
