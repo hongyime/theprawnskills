@@ -3,6 +3,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import os
 import signal
+from socketserver import TCPServer
 from pathlib import Path
 import subprocess
 import sys
@@ -27,6 +28,14 @@ class QuietHandler(SimpleHTTPRequestHandler):
         pass
 
 
+class LocalHTTPServer(ThreadingHTTPServer):
+    def server_bind(self):
+        # This isolated loopback fixture must not depend on external DNS.
+        TCPServer.server_bind(self)
+        self.server_name = 'localhost'
+        self.server_port = self.server_address[1]
+
+
 @unittest.skipUnless(os.environ.get("PRAWN_BROWSER_TESTS") == "1", "opt-in real Chromium suite")
 class BrowserExamplesTests(unittest.TestCase):
     @classmethod
@@ -36,7 +45,7 @@ class BrowserExamplesTests(unittest.TestCase):
         cls.html = cls.root / "page with spaces.html"
         cls.html.write_text(HTML, encoding="utf-8")
         (cls.root / "poll").write_text("ok", encoding="utf-8")
-        cls.server = ThreadingHTTPServer(("127.0.0.1", 0), partial(QuietHandler, directory=cls.temp.name))
+        cls.server = LocalHTTPServer(("127.0.0.1", 0), partial(QuietHandler, directory=cls.temp.name))
         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
         cls.thread.start()
         cls.url = f"http://127.0.0.1:{cls.server.server_port}/page%20with%20spaces.html"

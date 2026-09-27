@@ -11,11 +11,17 @@ import time
 import unittest
 
 HELPER = Path(__file__).resolve().parents[1] / 'skills/webapp-testing/scripts/with_server.py'
-SERVER = """import http.server,sys,os
+SERVER = """import socket,sys,os
 from pathlib import Path
 Path(sys.argv[2]).write_text(str(os.getpid()), encoding='ascii')
 print('x' * 250000, flush=True)
-http.server.HTTPServer(('127.0.0.1', int(sys.argv[1])), http.server.SimpleHTTPRequestHandler).serve_forever()
+# Only a TCP listener is needed; HTTPServer adds a reverse-DNS lookup on bind.
+with socket.socket() as listener:
+    listener.bind(('127.0.0.1', int(sys.argv[1])))
+    listener.listen()
+    while True:
+        connection, _ = listener.accept()
+        connection.close()
 """
 
 
@@ -35,7 +41,7 @@ class BrowserServerTests(unittest.TestCase):
             server = shell_command([sys.executable, str(script), str(port), str(pid_file)])
             try:
                 result = subprocess.run([sys.executable, str(HELPER), '--server', server,
-                                     '--port', str(port), '--timeout', '15', '--',
+                                     '--port', str(port), '--timeout', '30', '--',
                                      sys.executable, '-c', 'raise SystemExit(7)'],
                                         cwd=directory, capture_output=True, text=True, timeout=120)
                 self.assertEqual(result.returncode, 7, result.stderr + result.stdout)

@@ -58,7 +58,8 @@ Use an existing server directly when another process owns its lifecycle.
 Its command is shell-executed by the helper: use a trusted command, never
 interpolate untrusted input. The server command uses `cmd.exe` on Windows and
 `/bin/sh` on POSIX, regardless of the terminal that launched Python. The helper
-requires Python; browser scripts additionally require Playwright and its browser
+requires Python and the standard POSIX `ps` utility on macOS/Linux; browser
+scripts additionally require Playwright and its browser
 runtime. Report missing prerequisites; do not claim a browser check ran.
 
 On POSIX, resolve `skill_dir` and `test_script` to their real paths, then use:

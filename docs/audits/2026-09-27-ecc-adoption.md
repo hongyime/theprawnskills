@@ -82,6 +82,14 @@ router settings, Tailscale settings or Pi-hole containers were changed.
 
 ## Publication and distribution
 
+First publication: `e6ffd2e`. [CI run 36297779800](https://github.com/hongyime/theprawnskills/actions/runs/36297779800)
+passed the complete Linux and Windows jobs, including browser and React cases.
+macOS exposed a local-fixture startup timeout and zombie process-group cleanup
+error. The fixtures now avoid reverse DNS on loopback, and POSIX cleanup reaps
+the leader and checks for live group members before signaling. Permission errors
+for live members remain failures. The startup symptom matches the maintainer-
+confirmed [macOS runner issue](https://github.com/actions/runner-images/issues/14409).
+
 Final commit, CI and local OneDrive verification are recorded below after the
 checks finish. The owner's latest instruction treats OneDrive as distribution
 to the other machines. No new E14/L390 verification is claimed. Their separate

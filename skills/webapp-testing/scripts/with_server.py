@@ -24,6 +24,14 @@ import signal
 import tempfile
 
 
+def group_has_live_members(group):
+    """Darwin killpg reports EPERM for zombie-only groups; inspect status only."""
+    result = subprocess.run(['ps', '-eo', 'pgid=,stat='], capture_output=True,
+                            text=True, check=True, timeout=5)
+    return any(len(parts := line.split()) == 2 and parts[0] == str(group)
+               and not parts[1].startswith('Z') for line in result.stdout.splitlines())
+
+
 def stop_server(process):
     """Stop the foreground shell and its process tree, not just the shell PID."""
     if os.name == 'nt':
@@ -33,13 +41,27 @@ def stop_server(process):
             if result.returncode and process.poll() is None:
                 raise RuntimeError('Could not stop server process tree')
     else:
-        # The process group can outlive its leader.
+        # The process group can outlive its leader. Reap the leader, then
+        # distinguish live descendants from Darwin's zombie-only groups.
+        process.poll()
         try:
-            os.killpg(process.pid, signal.SIGTERM)
-            time.sleep(0.2)
-            os.killpg(process.pid, signal.SIGKILL)
+            if group_has_live_members(process.pid):
+                os.killpg(process.pid, signal.SIGTERM)
+            try:
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+            try:
+                if group_has_live_members(process.pid):
+                    os.killpg(process.pid, signal.SIGKILL)
+            except PermissionError:
+                if group_has_live_members(process.pid):
+                    raise
         except ProcessLookupError:
             pass
+        except PermissionError:
+            if group_has_live_members(process.pid):
+                raise
     process.wait(timeout=10)
 
 
