@@ -1,14 +1,22 @@
 # ECC second wave — 2026-09-27
 
-In progress. Owner approved proceeding with the reviewed second-wave plan:
+Skills delivered; live-agent pilot limitations remain recorded. Owner approved
+proceeding with the reviewed second-wave plan:
 API contracts, codebase onboarding, detailed ADRs, then a bounded orchestration
 pilot and selective agent review lenses. Keep 65 daily skills; publish tested
 source through main and OneDrive, with local T14 copy verification. Other-machine
 delivery continues under the owner's OneDrive assumption.
 
-Implementation starts from 38b8bb5. Four on-demand additions and CLI/routing
-integrations are implemented. Independent review repairs are covered by the
-supervisor tests; final full-suite and three-OS CI checks are in progress.
+Implementation starts from 38b8bb5 and preserves the intervening privacy fix.
+Four on-demand additions and CLI/routing integrations are delivered at e0479fc.
+Three-OS CI 36302727616 passed: 99 Python cases with platform/browser skips,
+plus four React and four Chromium cases per OS. Security jobs passed.
+OneDrive: 2,256 tracked skill files match tested Git content after line-ending
+normalization; its router matches plus the separately added local Orca row.
+T14: 12 affected daily skills refreshed (12 files exact, one router merge
+verified); all 65 profile entries resolve. Preserved 12 local Orca files and
+their uncommitted state/index changes. Private machine inventory moved to its
+ignored override. No new backup copies; temporary merge stash removed.
 tmux/dmux launched in isolated Ubuntu WSL. Live Codex repair stopped no-progress
 after a host command-runner failure; Claude handoff is blocked by expired OAuth.
 No unattended schedules or blanket agent registration. See
