@@ -1,5 +1,12 @@
 # Decisions
 
+- 2026-09-27: Refreshed 65 daily skills across seven registered agent roots on
+  E14, L390, and T14 from `74355d2`. Verified 216 updates and 213 retained backups.
+  Used a hash-verified Git snapshot for separate copies because OneDrive was
+  delayed; preserved shared links and remote canonical folders. E14's shared
+  OneDrive handoff files still fail cloud reads. The local snapshot passes the
+  resource audit and all four handoff command smoke checks on every machine.
+
 - 2026-09-26: Published resource repairs in `b2d1a70` and project-path alias fix
   in `8fde37a`. CI run 36224710255 passed the resource gate and 53-test suite on
   Linux/macOS; Windows passed 37 with 16 POSIX skips. Independent review reproduced
