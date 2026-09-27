@@ -5,7 +5,7 @@ description: Delegate tasks to Claude Code CLI in a hidden background process. U
 
 # Claude Code CLI Skill
 
-Delegate coding tasks to Claude Code by spawning it as a **hidden background PowerShell process**. Output tee'd to a temp file so you can poll for completion and read results. Bryan tail the file with `Get-Content -Wait` if he wants to watch live.
+Delegate coding tasks to Claude Code by spawning it as a **hidden background PowerShell process**. Output tee'd to a temp file so you can poll for completion and read results. You can tail the file with `Get-Content -Wait` to watch live.
 
 ## When to Use
 
@@ -119,3 +119,5 @@ Opens browser for Anthropic account login.
 | Edit capability | Full (with permissions) | Sandbox-based | Approval-based |
 | Cost | Max plan included | OpenAI credits | Free (Google account) |
 | Speed | Fast (sonnet) / Slow (opus) | Fast | Fast (flash) / Slow (pro) |
+
+Machine-specific values in this document use privacy placeholders.

@@ -21,15 +21,15 @@ Update an existing skill, a group of skills, or shared skill-management behavior
 Read before acting:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\machines.toml
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\default-profile.toml
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\machines.toml
+<user-home>\OneDrive\01 SKILLS\.agents\default-profile.toml
 ```
 
 When routing or cross-skill discovery matters, also read:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-router\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-router\SKILL.md
 ```
 
 ## Scope Modes
@@ -98,3 +98,5 @@ If a machine is unreachable, continue and report it.
 
 When a new CLI agent root is added, update `machines.toml` and apply the
 default profile to that root.
+
+Machine-specific values in this document use privacy placeholders.

@@ -375,3 +375,7 @@ Agent locations: [Codex](https://learn.chatgpt.com/docs/build-skills),
 [Claude Code](https://code.claude.com/docs/en/skills),
 [OpenCode](https://opencode.ai/docs/skills/),
 [Cursor](https://cursor.com/docs/context/skills).
+
+### Private machine inventory
+
+Fleet commands load the explicit `THEPRAWNSKILLS_MACHINE_CONFIG` path first, then ignored `machines.local.toml`, then the disabled `machines.toml` example. Real usernames, device addresses and local paths belong only in your private file. The maintenance change preserved the previous local inventory in `machines.local.toml`; it is excluded from Git. Fresh clones must supply their own private inventory before enabling any machine. A missing explicit path fails rather than silently choosing another machine. Existing install/sync commands remain operator actions; no fleet command is run by configuration selection.

@@ -22,9 +22,9 @@ optionally expose it in enabled agent roots.
 Read before acting:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\machines.toml
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\default-profile.toml
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\machines.toml
+<user-home>\OneDrive\01 SKILLS\.agents\default-profile.toml
 ```
 
 If the source is a GitHub repository, URL, or external package, inspect only the
@@ -46,7 +46,7 @@ detail in `references/`.
 2. Create or update:
 
    ```text
-   C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\<kebab-name>\SKILL.md
+   <user-home>\OneDrive\01 SKILLS\.agents\skills\<kebab-name>\SKILL.md
    ```
 
 3. Preserve useful upstream attribution in metadata or body when appropriate.
@@ -71,3 +71,5 @@ this is an update or a duplicate.
 
 Report the source, canonical path, validation status, propagation status, and any
 manual follow-up such as adding an upstream `agents.toml` entry.
+
+Machine-specific values in this document use privacy placeholders.

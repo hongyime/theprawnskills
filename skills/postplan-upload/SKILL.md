@@ -8,7 +8,7 @@ description: >-
   standalone HTML, then upload it with `npx postplan upload`.
 license: MIT
 metadata:
-  author: Bryan local setup
+  author: the maintainer local setup
   version: "1.1.0"
   platform: "Codex, Claude, Cursor, OpenCode on Windows, macOS, Linux"
 ---
@@ -157,3 +157,5 @@ skill produces a substantial document, offer to render it here:
 | `wayfinder` | wayfinding map -> initiative map HTML |
 | `competitive-upgrade` | upgrade report -> strategy HTML |
 | `repo-standardization` | compliance report -> audit HTML |
+
+Machine-specific values in this document use privacy placeholders.

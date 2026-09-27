@@ -22,9 +22,9 @@ agent roots when the user wants it default-visible.
 Before creating or installing a skill, read:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\machines.toml
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\default-profile.toml
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\machines.toml
+<user-home>\OneDrive\01 SKILLS\.agents\default-profile.toml
 ```
 
 Use `skill-router` only when another existing on-demand skill should inform the
@@ -36,7 +36,7 @@ new skill.
 2. Create the canonical file only under:
 
    ```text
-   C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\<kebab-name>\SKILL.md
+   <user-home>\OneDrive\01 SKILLS\.agents\skills\<kebab-name>\SKILL.md
    ```
 
 3. Write focused instructions with useful trigger language and local constraints.
@@ -45,7 +45,7 @@ new skill.
 5. Validate with:
 
    ```powershell
-   python "C:\Users\bryan\.codex\skills\.system\skill-creator\scripts\quick_validate.py" "<skill-folder>"
+   python "<user-home>\.codex\skills\.system\skill-creator\scripts\quick_validate.py" "<skill-folder>"
    ```
 
 6. Update `INDEX.md`.
@@ -80,3 +80,5 @@ Report:
 - machines and agent roots updated
 - machines that failed or were skipped
 - whether `skill-router` or `INDEX.md` changed
+
+Machine-specific values in this document use privacy placeholders.

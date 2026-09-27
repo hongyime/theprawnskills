@@ -20,15 +20,15 @@ Archive skills from canonical or installed roots without permanent deletion.
 Read before acting:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\machines.toml
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\default-profile.toml
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\machines.toml
+<user-home>\OneDrive\01 SKILLS\.agents\default-profile.toml
 ```
 
 If the removal affects discovery, also read:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-router\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-router\SKILL.md
 ```
 
 ## Removal Modes
@@ -72,3 +72,5 @@ Report:
 - where it was archived
 - what references were updated
 - which machines succeeded, failed, or were skipped
+
+Machine-specific values in this document use privacy placeholders.
