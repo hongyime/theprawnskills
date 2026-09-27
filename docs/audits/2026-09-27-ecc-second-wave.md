@@ -62,7 +62,7 @@ Metadata/text/resource gates passed: 232 definitions, 1,671 Markdown files,
 and zero stale exceptions. No text-safety findings.
 
 Final full-suite, three-OS CI and installed-file evidence are recorded in the
-delivery update below after the checks complete.
+delivery update below.
 
 Initial CI run `36302444003` passed Linux/macOS (94 Python cases plus five
 documented skips, four React cases and four Chromium cases on each). Windows
@@ -118,5 +118,36 @@ attempted. This is separate from the three earlier first-wave cleanup blocks.
 
 ## Delivery update
 
-Pending final checks and publication. Other-machine delivery follows the owner's
-instruction to rely on OneDrive; no new E14/L390 verification is claimed.
+Published executable revision: `e0479fc723c87e35a2fa06f3897a8917b8c01a7a`.
+[Final three-OS CI](https://github.com/hongyime/theprawnskills/actions/runs/36302727616)
+passed: Linux/macOS each ran 99 Python cases (94 passed, five documented skips),
+Windows ran 99 (77 passed, 22 skips). Each OS separately passed all four React
+and all four real Chromium cases. Index, resource and text gates passed, as did
+CodeQL, Semgrep, Bandit, TruffleHog and LFS jobs for this revision. The local
+Windows full run passed 76 of 98 cases with 22 skips; the added gitlink and final
+deadline regressions also passed locally before their final 99-case CI run.
+
+The intervening privacy commit `2fa914f` was integrated without losing its
+changes. OneDrive was fast-forwarded, with the prior machine inventory preserved
+in ignored `machines.local.toml` before any fleet command could use disabled
+public examples. No fleet operation ran.
+
+Another completed local task had added four Orca skills while this work ran.
+Their 12 files, router row and uncommitted STATE/JOURNAL/index changes were
+preserved through the update; the temporary merge stash was removed after
+verification. They were not added to this ECC Git publication. Consequently the
+published catalog has 232 definitions, while that local combined catalog has
+236. The daily profile remains 65.
+
+All 2,257 tracked skill files (including portable variants) were checked against
+tested Git content: 636 exact byte matches, 1,620 with only existing CRLF/LF
+differences, and one router matching after removal of its preserved local Orca
+row. Twelve affected T14 daily skill directories were refreshed: 12 files match
+source SHA-256 exactly, and the router's intentional local row was merged and
+verified separately. All 65 selected daily entries resolve; the four new ECC
+skills are readable through the shared on-demand library. No backup copies were
+created. Existing shared-library links and unrelated local skills remain intact.
+
+Other-machine delivery follows the owner's instruction to rely on OneDrive;
+no new E14/L390 verification is claimed. Remaining live-pilot prerequisites are
+the Codex command-runner repair and Claude reauthentication described above.
