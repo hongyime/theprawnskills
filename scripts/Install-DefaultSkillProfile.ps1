@@ -1,5 +1,5 @@
 param(
-  [string]$Workspace = "C:\Users\bryan\OneDrive\01 SKILLS\.agents",
+  [string]$Workspace = (Split-Path -Parent $PSScriptRoot),
   [switch]$WhatIfOnly
 )
 
@@ -141,7 +141,8 @@ foreach (`$root in @(`$installedRoots)) {
 
 $workspacePath = (Resolve-Path -LiteralPath $Workspace).Path
 $profilePath = Join-Path $workspacePath "default-profile.toml"
-$machinesPath = Join-Path $workspacePath "machines.toml"
+. (Join-Path $PSScriptRoot "Get-MachineRegistryPath.ps1")
+$machinesPath = Get-MachineRegistryPath -Workspace $workspacePath
 
 $profile = Read-TomlWithPython -Path $profilePath
 $machinesData = Read-TomlWithPython -Path $machinesPath

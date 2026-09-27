@@ -30,7 +30,7 @@ Windows, macOS, or Linux (including Kali), use `README.md` and
 ## File paths
 
 Always use Windows-style paths or forward-slash equivalents:
-- `C:\Users\bryan\` or `C:/Users/bryan/`
+- `<user-home>\` or `<user-home>/`
 - UNC: `\\server\share` or `//server/share`
 - Drive X: `X:\01 REPOSITORIES\` or `X:/01 REPOSITORIES/`
 
@@ -56,9 +56,9 @@ The canonical skill library is a git repo backed up offsite:
 - After ANY meaningful change to skills/, registry files, or scripts:
 
 ```powershell
-git -C "C:\Users\bryan\OneDrive\01 SKILLS\.agents" add -A
-git -C "C:\Users\bryan\OneDrive\01 SKILLS\.agents" commit -m "chore(library): <what changed>"
-git -C "C:\Users\bryan\OneDrive\01 SKILLS\.agents" push
+git -C "<user-home>\OneDrive\01 SKILLS\.agents" add -A
+git -C "<user-home>\OneDrive\01 SKILLS\.agents" commit -m "chore(library): <what changed>"
+git -C "<user-home>\OneDrive\01 SKILLS\.agents" push
 ```
 
 - Disaster recovery: clone the repo into a separate directory and compare it
@@ -71,11 +71,13 @@ git -C "C:\Users\bryan\OneDrive\01 SKILLS\.agents" push
 
 ## Machine-local backups convention
 
-Never scatter backups/zips/tmps in C:\ root or C:\Users\bryan\AppData\Local\Temp. Use:
+Never scatter backups/zips/tmps in C:\ root or <user-home>\AppData\Local\Temp. Use:
 
-- Path: C:\Users\bryan\Backups\<yyyy-MM-dd>\<category>\
+- Path: <user-home>\Backups\<yyyy-MM-dd>\<category>\
 - Keep OUTSIDE OneDrive (machine-local artifacts do not belong in cloud sync)
 - Categories seen so far: opencode-config-baks, opencode-config-pre-reinstall
 - Delete freely after ~1 month; these are convenience copies only.
   The durable backup of the skill library is the private git remote
   (see Skill library backup above).
+
+Machine-specific values in this document use privacy placeholders.

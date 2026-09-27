@@ -23,13 +23,13 @@ whole library into every agent session.
 Canonical skill library:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills
+<user-home>\OneDrive\01 SKILLS\.agents\skills
 ```
 
 Skill file convention:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\<kebab-name>\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\skills\<kebab-name>\SKILL.md
 ```
 
 Installed agent roots are only exposure targets. The canonical OneDrive
@@ -50,7 +50,7 @@ When the user's request may match an on-demand skill:
 Use PowerShell-compatible search from this machine:
 
 ```powershell
-$root = "C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills"
+$root = "<user-home>\OneDrive\01 SKILLS\.agents\skills"
 Get-ChildItem -LiteralPath $root -Directory |
   ForEach-Object {
     $skill = Join-Path $_.FullName "SKILL.md"
@@ -63,7 +63,7 @@ Get-ChildItem -LiteralPath $root -Directory |
 Prefer `rg` for targeted text search:
 
 ```powershell
-rg -n "deck|presentation|pptx|slides|pdf|image|video|azure|supabase|vercel" "C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills" -g "SKILL.md"
+rg -n "deck|presentation|pptx|slides|pdf|image|video|azure|supabase|vercel" "<user-home>\OneDrive\01 SKILLS\.agents\skills" -g "SKILL.md"
 ```
 
 Do not read secret files while routing. Skill folders should normally contain
@@ -154,3 +154,5 @@ membership. When a new CLI agent is installed, add its skill root to
 `machines.toml` and apply the default profile.
 
 Do not delete on-demand skills just because they are not installed.
+
+Machine-specific values in this document use privacy placeholders.

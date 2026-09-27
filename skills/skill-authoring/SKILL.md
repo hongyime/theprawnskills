@@ -31,7 +31,7 @@ not invent a path or overwrite an installed skill to compensate.
 
 ## Layout & Registry
 
-- Canonical root: `C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills`
+- Canonical root: `<user-home>\OneDrive\01 SKILLS\.agents\skills`
 - One folder per skill: `skills/<kebab-name>/SKILL.md` (folder name = `name`)
 - Registry files at `.agents` root: `machines.toml`, `default-profile.toml`,
   `agents.toml`, `INDEX.md`
@@ -100,3 +100,5 @@ trigger words, body has no dangling skill refs, no secrets, INDEX regenerated.
 After any library change, commit and push to the private remote
 the private remote (see ENVIRONMENT.md at the .agents
 root for exact commands. OneDrive is transport, not a backup.
+
+Machine-specific values in this document use privacy placeholders.

@@ -22,10 +22,10 @@ recoverability.
 Read before acting:
 
 ```text
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\skills\skill-router\SKILL.md
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\machines.toml
-C:\Users\bryan\OneDrive\01 SKILLS\.agents\default-profile.toml
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-authoring\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\skills\skill-router\SKILL.md
+<user-home>\OneDrive\01 SKILLS\.agents\machines.toml
+<user-home>\OneDrive\01 SKILLS\.agents\default-profile.toml
 ```
 
 ## Cleanup Rules
@@ -101,3 +101,5 @@ Treat `default-profile.toml` as the source of truth for this default baseline.
 
 Media, writing, document, presentation, Azure, Supabase, and Vercel skills are
 normally on-demand unless the user promotes one.
+
+Machine-specific values in this document use privacy placeholders.
