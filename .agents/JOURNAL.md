@@ -1,5 +1,12 @@
 # Decisions
 
+- 2026-09-27: Published executable ECC adoption in b9bb28c; all three OS jobs
+  passed run 36298257310 after fixing the macOS loopback/zombie-group failure.
+  Verified 2,236 canonical skill files with existing CRLF/LF normalization and
+  exact SHA-256 equality for 41 files in six refreshed T14 daily copies. Kept
+  the profile at 65, created no backup copies, and preserved the existing shared
+  links. Automatic approval review blocked three temporary-folder deletions.
+
 - 2026-09-27: Implemented four approved ECC adaptations and in-place browser,
   evaluation, index and CI improvements from pinned revision e482e579. Preserved
   65 daily skills and upstream notices. Added real React/browser/helper probes,

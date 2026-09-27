@@ -1,6 +1,6 @@
 # ECC selective adoption — 2026-09-27
 
-Implemented locally; publication checks in progress. Owner approved four on-demand additions (verification-loop,
+Completed and delivered. Owner approved four on-demand additions (verification-loop,
 python-testing, react-testing, homelab-pihole-dns), browser-testing improvements,
 skill evaluation/discovery improvements, and index/CI fixes. Keep the daily
 profile at 65. Adapt from ECC revision e482e579415fde18357cafce70f177ae19fd7f03;
@@ -12,16 +12,24 @@ remote installs or claim a new remote verification. API contracts, onboarding,
 ADRs, autonomous loops, tmux/dmux and the agent roster are research/plan only.
 
 Four skills and three improvement batches are implemented; daily profile is 65.
-Local catalog/text/resource checks and 55 unit cases pass (20 explicit skips),
-plus focused server lifecycle and four React cases. Independent review repairs
-include malformed YAML handling, async assertions and browser server cleanup.
+Executable revision b9bb28c passed three-OS CI run 36298257310: 74 Python cases
+on Linux/macOS, 58 on Windows with 16 POSIX skips, plus four React and four real
+Chromium cases on each OS. Metadata/index/text/resource and security jobs pass.
+Independent review repairs include malformed YAML handling, async assertions,
+server cleanup and macOS loopback fixture startup.
 See docs/audits/2026-09-27-ecc-adoption.md for exact failures and test boundaries.
 See docs/plans/2026-09-27-ecc-second-wave.md for the three next skill proposals,
 bounded loop/tmux/dmux pilot and all 68 upstream agent role mappings.
 
-Next: complete final CI on Windows/macOS/Linux, publish evidence and verify the
-local OneDrive source and T14 daily copies. T14 browser shutdown has hung during
-a static-page probe; a successful screenshot is not a completed browser run.
+OneDrive source: 2,236 tracked skill files match tested content after existing
+CRLF/LF normalization. Six affected T14 daily copies: 41 files match source
+SHA-256 exactly. Four new skills are readable on demand through the shared
+library; no new backup copies were created. Automatic approval review blocked
+cleanup of three temporary test folders. Earlier T14 Chromium shutdown delays
+remain recorded separately from the clean final Windows CI result.
+
+Next: owner review of the second-wave plan only. No API-contract, onboarding,
+ADR or autonomous orchestration implementation is authorized by this record.
 
 # Installed skill refresh — 2026-09-27
 
