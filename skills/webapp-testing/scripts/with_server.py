@@ -19,6 +19,36 @@ import socket
 import time
 import sys
 import argparse
+import os
+import signal
+import tempfile
+
+
+def stop_server(process):
+    """Stop the foreground shell and its process tree, not just the shell PID."""
+    if os.name == 'nt':
+        if process.poll() is None:
+            result = subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                                    capture_output=True, timeout=45)
+            if result.returncode and process.poll() is None:
+                raise RuntimeError('Could not stop server process tree')
+    else:
+        # The process group can outlive its leader.
+        try:
+            os.killpg(process.pid, signal.SIGTERM)
+            time.sleep(0.2)
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    process.wait(timeout=10)
+
+
+def port_open(port):
+    try:
+        with socket.create_connection(('localhost', port), timeout=0.2):
+            return True
+    except OSError:
+        return False
 
 def is_server_ready(port, timeout=30):
     """Wait for server to be ready by polling the port."""
@@ -59,18 +89,26 @@ def main():
         servers.append({'cmd': cmd, 'port': port})
 
     server_processes = []
+    server_logs = []
 
     try:
         # Start all servers
         for i, server in enumerate(servers):
+            if port_open(server['port']):
+                raise RuntimeError(f"Port {server['port']} is already occupied; reuse or stop its owner explicitly")
             print(f"Starting server {i+1}/{len(servers)}: {server['cmd']}")
 
             # Use shell=True to support commands with cd and &&
+            # A file cannot deadlock on an unread pipe buffer. Keep raw logs local.
+            log = tempfile.TemporaryFile(mode='w+b')
+            server_logs.append(log)
             process = subprocess.Popen(
                 server['cmd'],
                 shell=True,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE
+                stdout=log,
+                stderr=subprocess.STDOUT,
+                start_new_session=(os.name != 'nt'),
+                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == 'nt' else 0
             )
             server_processes.append(process)
 
@@ -78,6 +116,8 @@ def main():
             print(f"Waiting for server on port {server['port']}...")
             if not is_server_ready(server['port'], timeout=args.timeout):
                 raise RuntimeError(f"Server failed to start on port {server['port']} within {args.timeout}s")
+            if process.poll() is not None:
+                raise RuntimeError('Server shell exited; use a foreground command without daemonization')
 
             print(f"Server ready on port {server['port']}")
 
@@ -91,15 +131,23 @@ def main():
     finally:
         # Clean up all servers
         print(f"\nStopping {len(server_processes)} server(s)...")
+        cleanup_errors = []
         for i, process in enumerate(server_processes):
             try:
-                process.terminate()
-                process.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                process.kill()
-                process.wait()
-            print(f"Server {i+1} stopped")
-        print("All servers stopped")
+                stop_server(process)
+                deadline = time.monotonic() + 5
+                while port_open(servers[i]['port']) and time.monotonic() < deadline:
+                    time.sleep(0.1)
+                if port_open(servers[i]['port']):
+                    raise RuntimeError('Server port remains open; inspect its owner before continuing')
+                print(f"Server {i+1} stopped")
+            except Exception as error:
+                cleanup_errors.append(f"Server {i+1}: {error}")
+        for log in server_logs:
+            log.close()
+        if cleanup_errors:
+            raise RuntimeError('; '.join(cleanup_errors))
+        print("All managed foreground servers stopped")
 
 
 if __name__ == '__main__':

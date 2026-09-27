@@ -1,5 +1,13 @@
 # Decisions
 
+- 2026-09-27: Implemented four approved ECC adaptations and in-place browser,
+  evaluation, index and CI improvements from pinned revision e482e579. Preserved
+  65 daily skills and upstream notices. Added real React/browser/helper probes,
+  fixed independent review findings and recorded first-run failures honestly.
+  Planned API contracts, onboarding, ADRs, bounded loops, tmux/dmux and 68 agent
+  roles separately. Owner delegated other-machine delivery to OneDrive; this
+  batch does not claim a new E14/L390 installed-copy or cloud-read verification.
+
 - 2026-09-27: At the owner's request, reverified all seven installed agent roots
   and removed the 213 old copies created by the refresh (E14 99, L390 78, T14 36).
   Exact deletion paths came from the rollout records and were checked before

@@ -34,6 +34,10 @@ have its own profile, tests, licences, and discovery system.
 4. **Analyze Routing** — Check triggers for conflicts per [routing analysis](references/routing-analysis.md)
 5. **Draft** — Write the review per the [output format](references/output-format.md)
 6. **Validate** — Verify suggested fixes are actionable with accurate file/line references
+7. **Probe behavior** — For changed workflows, use the existing `skill-creator`
+   baseline/trigger evaluation facilities and the [behavior probe guide](references/behavior-probes.md).
+   Run supportive, neutral and competing prompts as distinct cases. Static
+   resource validation and a reviewer reading prompts are not measured activation.
 
 ## Error Handling
 
@@ -48,3 +52,4 @@ have its own profile, tests, licences, and discovery system.
 - [Severity Classification](references/severity-classification.md)
 - [Routing Analysis](references/routing-analysis.md)
 - [Output Format](references/output-format.md)
+- [Behavior Probes](references/behavior-probes.md)

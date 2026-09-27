@@ -1,7 +1,7 @@
 # The Prawn Skills
 
 A full skill library plus the daily profile in `default-profile.toml`.
-The library contains 207 top-level skills (217 `SKILL.md` files including
+The library contains 211 top-level skills (221 `SKILL.md` files including
 nested skills), with 65 selected for daily use. The recovered originals remain
 available alongside the new daily `visual-explainer` skill.
 
@@ -309,6 +309,9 @@ Private clones require an account or SSH key with access on each machine.
 ## Verification
 
 ```bash
+python3 -m pip install -r requirements-skill-checks.txt
+python3 scripts/update_skill_index.py --check
+python3 scripts/audit_text_safety.py
 python3 scripts/audit_skill_resources.py
 python3 -m unittest discover -s tests -v
 ```
@@ -335,6 +338,38 @@ standalone variants, shared agent roots, managed copy backups and local-edit
 protection, and router discovery. Symlink tests run on macOS/Linux; Windows
 tests verify the default copy mode without symlink privileges. No real agent
 home is changed by the test suite.
+
+The index uses parsed YAML, includes nested definitions in validation, and
+reports the desired profile rather than one machine's installed folders.
+Regenerate with `python3 scripts/update_skill_index.py`; the existing
+`scripts/Update-SkillIndex.ps1` wrapper accepts `-Check` and uses Python on PATH.
+Both require Python 3.11+ and `requirements-skill-checks.txt`.
+The text gate detects malformed UTF-8 and suspicious invisible/control text
+without rewriting legitimate multilingual content. It is not a secret scanner;
+the existing TruffleHog workflow now also runs for Markdown-only changes.
+
+Executable examples have isolated checks in addition to the unit suite:
+
+```bash
+python3 -m pip install -r requirements-browser-checks.txt
+python3 -m playwright install --with-deps chromium
+PRAWN_BROWSER_TESTS=1 python3 -m unittest discover -s tests -p test_browser_examples.py -v
+cd tests/fixtures/react-testing
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+```
+
+In PowerShell, set `$env:PRAWN_BROWSER_TESTS = '1'` before the browser command.
+The React fixture uses its own pinned lockfile and Node 26 in CI; it does not
+change the library installer or dictate a user's project test stack. Chromium
+checks use a local synthetic page, not a production application. Pi-hole guidance
+is reviewed against official documentation; the suite does not alter live DNS.
+
+The four ECC adaptations remain on demand: `verification-loop`, `python-testing`,
+`react-testing`, and `homelab-pihole-dns`. The daily profile stays at 65.
+See the [adoption audit](docs/audits/2026-09-27-ecc-adoption.md),
+[source provenance](scripts/ecc-adaptations.json), and
+[next-wave review plan](docs/plans/2026-09-27-ecc-second-wave.md).
 
 Agent locations: [Codex](https://learn.chatgpt.com/docs/build-skills),
 [Claude Code](https://code.claude.com/docs/en/skills),

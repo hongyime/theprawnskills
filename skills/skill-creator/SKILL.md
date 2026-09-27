@@ -140,6 +140,13 @@ Try to explain to the model why things are important in lieu of heavy-handed mus
 
 ### Test Cases
 
+For this library, also consult `skill-reviewer` and its behavior-probes reference
+through `skill-router`. Include supportive, neutral, competing and near-miss
+prompts. Keep evaluation workspaces outside the canonical/shared skill tree.
+Record the actual host/model/exposure and distinguish static review, fixture
+smoke tests and measured invocation. Claude-only evaluation tools do not prove
+behavior on Codex, Cursor or OpenCode; do not substitute an unavailable model ID.
+
 After writing the skill draft, come up with 2-3 realistic test prompts — the kind of thing a real user would actually say. Share them with the user: [you don't have to use this exact language] "Here are a few test cases I'd like to try. Do these look right, or do you want to add more?" Then run them.
 
 Save test cases to `evals/evals.json`. Don't write assertions yet — just the prompts. You'll draft assertions in the next step while the runs are in progress.
@@ -164,7 +171,7 @@ See `references/schemas.md` for the full schema (including the `assertions` fiel
 
 This section is one continuous sequence — don't stop partway through. Do NOT use `/skill-test` or any other testing skill.
 
-Put results in `<skill-name>-workspace/` as a sibling to the skill directory. Within the workspace, organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Don't create all of this upfront — just create directories as you go.
+Put results in a task-local `<skill-name>-workspace/` outside the canonical/shared skill tree. A sibling is suitable only for an isolated scratch copy, never a skill inside the shared library. Within the workspace, organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Don't create all of this upfront — just create directories as you go.
 
 ### Step 1: Spawn all runs (with-skill AND baseline) in the same turn
 
@@ -382,12 +389,12 @@ Save the eval set to the workspace, then run in the background:
 python -m scripts.run_loop \
   --eval-set <path-to-trigger-eval.json> \
   --skill-path <path-to-skill> \
-  --model <model-id-powering-this-session> \
+  --model <supported-claude-model-id> \
   --max-iterations 5 \
   --verbose
 ```
 
-Use the model ID from your system prompt (the one powering the current session) so the triggering test matches what the user actually experiences.
+This evaluator invokes Claude Code. Run it only with a model that the installed Claude CLI supports and record that model and harness. Use the current session model only when it is a supported Claude model; never substitute a Codex/OpenCode model ID. If Claude is unavailable, use the current host's supported evaluation mechanism and report its limits instead of running this command.
 
 While it runs, periodically tail the output to give the user updates on which iteration it's on and what the scores look like.
 

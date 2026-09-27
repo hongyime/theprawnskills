@@ -1,0 +1,68 @@
+{
+  "upstream": "https://github.com/affaan-m/ECC",
+  "revision": "e482e579415fde18357cafce70f177ae19fd7f03",
+  "license": "MIT",
+  "license_source": "https://github.com/affaan-m/ECC/blob/e482e579415fde18357cafce70f177ae19fd7f03/LICENSE",
+  "policy": "Selective adaptations; no upstream installers, hooks, agents, or runtime imported.",
+  "adaptations": [
+    {
+      "local": "skills/verification-loop",
+      "sources": [
+        "skills/verification-loop/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
+    },
+    {
+      "local": "skills/python-testing",
+      "sources": [
+        "skills/python-testing/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
+    },
+    {
+      "local": "skills/react-testing",
+      "sources": [
+        "skills/react-testing/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
+    },
+    {
+      "local": "skills/homelab-pihole-dns",
+      "sources": [
+        "skills/homelab-pihole-dns/SKILL.md",
+        "skills/homelab-network-readiness/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
+    },
+    {
+      "local": "skills/webapp-testing",
+      "sources": [
+        "skills/e2e-testing/SKILL.md"
+      ],
+      "notice": "ECC-LICENSE.txt",
+      "original_license": "LICENSE.txt (Apache-2.0)"
+    },
+    {
+      "local": "skills/skill-reviewer",
+      "sources": [
+        "skills/skill-comply/SKILL.md"
+      ],
+      "notice": "ECC-LICENSE.txt"
+    },
+    {
+      "local": "scripts",
+      "sources": [
+        "scripts/ci/validate-skills.js",
+        "scripts/ci/check-unicode-safety.js"
+      ],
+      "relationship": "Ideas adapted in new Python implementations; no upstream executable copied.",
+      "notice": "ECC-LICENSE.txt"
+    }
+  ],
+  "additional_primary_sources": [
+    "https://docs.pi-hole.net/docker/upgrading/v5-v6/",
+    "https://docs.pi-hole.net/docker/configuration/",
+    "https://testing-library.com/docs/dom-testing-library/api-async/",
+    "https://playwright.dev/docs/api/class-page#page-wait-for-load-state"
+  ]
+}

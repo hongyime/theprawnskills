@@ -23,6 +23,11 @@ Dispatch a code reviewer subagent to catch issues before they cascade. The revie
 
 ## How to Request
 
+Before claiming readiness, use `verification-loop` to gather actual test/build
+results and limitations. Resolve it through `skill-router` if not installed.
+Choose the actual review base and include uncommitted/untracked changes when
+they are part of the task; the example below is not a universal base selection.
+
 **1. Get git SHAs:**
 ```bash
 BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
