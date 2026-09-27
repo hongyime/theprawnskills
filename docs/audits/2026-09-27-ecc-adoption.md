@@ -90,8 +90,37 @@ the leader and checks for live group members before signaling. Permission errors
 for live members remain failures. The startup symptom matches the maintainer-
 confirmed [macOS runner issue](https://github.com/actions/runner-images/issues/14409).
 
-Final commit, CI and local OneDrive verification are recorded below after the
-checks finish. The owner's latest instruction treats OneDrive as distribution
+Final executable revision: **b9bb28c**. [CI run 36298257310](https://github.com/hongyime/theprawnskills/actions/runs/36298257310)
+completed successfully on all three operating systems:
+
+| OS | Python cases passed | Chromium cases passed | React cases passed | Platform-specific skips |
+|---|---:|---:|---:|---:|
+| Linux | 74 | 4 | 4 | 0 |
+| macOS | 74 | 4 | 4 | 0 |
+| Windows | 58 | 4 | 4 | 16 POSIX/symlink cases |
+
+The unit discovery command reports 78 cases and initially skips the four opt-in
+browser cases; the separate Chromium step runs all four. The table counts each
+executed case once. All final metadata, index, text and resource gates passed.
+CodeQL, Semgrep, Bandit, TruffleHog and LFS Guard also passed for this revision.
+Both Windows PowerShell 5 and PowerShell 7 index-wrapper checks passed locally.
+The earlier T14 shutdown hang and first macOS failure remain recorded above;
+the clean final Windows CI browser run is a separate result.
+
+OneDrive delivery is verified against `b9bb28c`: all **2,236 tracked skill files**
+match tested Git content after normalizing existing CRLF/LF differences (1,622
+older files differ only in line endings). The four new on-demand definitions
+are readable, the shared Claude/agents links resolve to this source, and the
+profile remains 65. Six affected T14 daily copies were refreshed after checking
+that their previous content was unmodified; all **41 delivered files** have
+exact SHA-256 equality with their OneDrive source. No backup copies were created.
+The existing untracked canonical `.agents/.gitignore` was preserved.
+
+Automatic approval review blocked cleanup of three task-created temporary test
+folders with the reason "blocked by policy"; they were left intact. This does
+not affect source files, installed skills or test results.
+
+The owner's latest instruction treats OneDrive as distribution
 to the other machines. No new E14/L390 verification is claimed. Their separate
 installed copies are not proven refreshed merely by updating the shared source.
 The historical E14 cloud-read issue is not represented as repaired in this batch.
