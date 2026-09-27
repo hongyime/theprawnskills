@@ -1,0 +1,2 @@
+# Only the repository's metadata/index checks need this dependency.
+PyYAML==6.0.3

@@ -71,6 +71,11 @@ Rule: never silently fix root-cause without considering backprop. §B is the mem
 
 ## VERIFICATION
 
+Use `verification-loop` for the completion evidence format and project-specific
+checks; locate it through `skill-router` when running a daily installed copy.
+Use `python-testing`, `react-testing` or `webapp-testing` only for the relevant
+test boundary. Preserve assignment and repository test requirements.
+
 Task `done` only if:
 - Verification command exits 0.
 - New test(s) added per plan.

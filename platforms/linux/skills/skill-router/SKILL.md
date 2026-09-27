@@ -27,6 +27,9 @@ following relative references. Never install the full library just to search it.
 |---|---|
 | Create, add, update, audit, remove skills | Standalone variants of skill-create, skill-add, skill-update, skill-cleanup, skill-remove, skill-authoring |
 | Coding, review, debugging | build, check, refactor, requesting-code-review, systematic-debugging |
+| Completion evidence across build/types/lint/tests | verification-loop; check remains SPEC drift only |
+| Python testing; React component testing; browser flows | python-testing; react-testing; webapp-testing |
+| Pi-hole, resolver health and Tailscale DNS routing | homelab-pihole-dns, docker-expert |
 | Visual explanations, diagrams, UML/C4, flows, comparisons, HTML reports | visual-explainer; postplan-upload for hosted delivery |
 | Documents, spreadsheets, presentations | pdf, docx, xlsx, pptx |
 | Frontend design | frontend-design, web-design-guidelines, shadcn |

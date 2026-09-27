@@ -1,3 +1,28 @@
+# ECC selective adoption — 2026-09-27
+
+Implemented locally; publication checks in progress. Owner approved four on-demand additions (verification-loop,
+python-testing, react-testing, homelab-pihole-dns), browser-testing improvements,
+skill evaluation/discovery improvements, and index/CI fixes. Keep the daily
+profile at 65. Adapt from ECC revision e482e579415fde18357cafce70f177ae19fd7f03;
+preserve attribution and validate all bundled dependencies.
+
+Publish tested changes to main and the local OneDrive library. The owner's
+latest instruction delegates other-machine delivery to OneDrive: do not retry
+remote installs or claim a new remote verification. API contracts, onboarding,
+ADRs, autonomous loops, tmux/dmux and the agent roster are research/plan only.
+
+Four skills and three improvement batches are implemented; daily profile is 65.
+Local catalog/text/resource checks and 55 unit cases pass (20 explicit skips),
+plus focused server lifecycle and four React cases. Independent review repairs
+include malformed YAML handling, async assertions and browser server cleanup.
+See docs/audits/2026-09-27-ecc-adoption.md for exact failures and test boundaries.
+See docs/plans/2026-09-27-ecc-second-wave.md for the three next skill proposals,
+bounded loop/tmux/dmux pilot and all 68 upstream agent role mappings.
+
+Next: complete final CI on Windows/macOS/Linux, publish evidence and verify the
+local OneDrive source and T14 daily copies. T14 browser shutdown has hung during
+a static-page probe; a successful screenshot is not a completed browser run.
+
 # Installed skill refresh — 2026-09-27
 
 The owner requested installed skills on E14, L390, and T14 be refreshed from

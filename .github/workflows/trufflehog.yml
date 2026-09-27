@@ -3,15 +3,13 @@ name: TruffleHog Secret Scan
 
 # COST-OPTIMISED (2026-07-04, 2026-08-04):
 # - concurrency cancels superseded runs.
-# - paths-ignore skips scans on docs / markdown / license-only changes.
+# - Markdown and docs are scanned: skills and handoffs can contain secrets.
 # - PRs use shallow (fetch-depth: 2) checkout since we only diff base..head.
 # - Push: still uses fetch-depth: 0 for full-history scan on default branch.
 on:
   push:
     branches: ["main", "master"]
     paths-ignore:
-      - "**.md"
-      - "docs/**"
       - "LICENSE"
       - "**/LICENSE"
       - ".gitignore"
@@ -20,8 +18,6 @@ on:
   pull_request:
     branches: ["main", "master"]
     paths-ignore:
-      - "**.md"
-      - "docs/**"
       - "LICENSE"
       - "**/LICENSE"
       - ".gitignore"

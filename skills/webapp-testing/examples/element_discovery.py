@@ -1,40 +1,30 @@
-from playwright.sync_api import sync_playwright
+"""Discover elements after explicit readiness; all artifacts stay in --output-dir."""
+import argparse
+from pathlib import Path
 
-# Example: Discovering buttons and other elements on a page
 
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
-    page = browser.new_page()
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--url", required=True)
+    parser.add_argument("--ready-selector", required=True)
+    parser.add_argument("--output-dir", required=True, type=Path)
+    args = parser.parse_args()
+    from playwright.sync_api import expect, sync_playwright
 
-    # Navigate to page and wait for it to fully load
-    page.goto('http://localhost:5173')
-    page.wait_for_load_state('networkidle')
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(headless=True)
+        try:
+            page = browser.new_page()
+            page.goto(args.url, wait_until="domcontentloaded")
+            expect(page.locator(args.ready_selector)).to_be_visible()
+            for label, selector in [("buttons", "button"), ("links", "a[href]"),
+                                    ("inputs", "input, textarea, select")]:
+                print(f"{label}: {page.locator(selector).count()}")
+            page.screenshot(path=str(args.output_dir / "page-discovery.png"), full_page=True)
+        finally:
+            browser.close()
 
-    # Discover all buttons on the page
-    buttons = page.locator('button').all()
-    print(f"Found {len(buttons)} buttons:")
-    for i, button in enumerate(buttons):
-        text = button.inner_text() if button.is_visible() else "[hidden]"
-        print(f"  [{i}] {text}")
 
-    # Discover links
-    links = page.locator('a[href]').all()
-    print(f"\nFound {len(links)} links:")
-    for link in links[:5]:  # Show first 5
-        text = link.inner_text().strip()
-        href = link.get_attribute('href')
-        print(f"  - {text} -> {href}")
-
-    # Discover input fields
-    inputs = page.locator('input, textarea, select').all()
-    print(f"\nFound {len(inputs)} input fields:")
-    for input_elem in inputs:
-        name = input_elem.get_attribute('name') or input_elem.get_attribute('id') or "[unnamed]"
-        input_type = input_elem.get_attribute('type') or 'text'
-        print(f"  - {name} ({input_type})")
-
-    # Take screenshot for visual reference
-    page.screenshot(path='/tmp/page_discovery.png', full_page=True)
-    print("\nScreenshot saved to /tmp/page_discovery.png")
-
-    browser.close()
+if __name__ == "__main__":
+    main()
