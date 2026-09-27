@@ -1,3 +1,19 @@
+# ECC second wave — 2026-09-27
+
+In progress. Owner approved proceeding with the reviewed second-wave plan:
+API contracts, codebase onboarding, detailed ADRs, then a bounded orchestration
+pilot and selective agent review lenses. Keep 65 daily skills; publish tested
+source through main and OneDrive, with local T14 copy verification. Other-machine
+delivery continues under the owner's OneDrive assumption.
+
+Implementation starts from 38b8bb5. Four on-demand additions and CLI/routing
+integrations are implemented. Independent review repairs are covered by the
+supervisor tests; final full-suite and three-OS CI checks are in progress.
+tmux/dmux launched in isolated Ubuntu WSL. Live Codex repair stopped no-progress
+after a host command-runner failure; Claude handoff is blocked by expired OAuth.
+No unattended schedules or blanket agent registration. See
+docs/audits/2026-09-27-ecc-second-wave.md for pilot boundaries and delivery status.
+
 # ECC selective adoption — 2026-09-27
 
 Completed and delivered. Owner approved four on-demand additions (verification-loop,
@@ -9,7 +25,8 @@ preserve attribution and validate all bundled dependencies.
 Publish tested changes to main and the local OneDrive library. The owner's
 latest instruction delegates other-machine delivery to OneDrive: do not retry
 remote installs or claim a new remote verification. API contracts, onboarding,
-ADRs, autonomous loops, tmux/dmux and the agent roster are research/plan only.
+ADRs, autonomous loops, tmux/dmux and the agent roster were research/plan only
+in the first wave; the later second-wave authorization above supersedes that.
 
 Four skills and three improvement batches are implemented; daily profile is 65.
 Executable revision b9bb28c passed three-OS CI run 36298257310: 74 Python cases
@@ -28,8 +45,7 @@ library; no new backup copies were created. Automatic approval review blocked
 cleanup of three temporary test folders. Earlier T14 Chromium shutdown delays
 remain recorded separately from the clean final Windows CI result.
 
-Next: owner review of the second-wave plan only. No API-contract, onboarding,
-ADR or autonomous orchestration implementation is authorized by this record.
+First-wave next step was owner review; the owner has now approved proceeding.
 
 # Installed skill refresh — 2026-09-27
 

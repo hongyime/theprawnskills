@@ -25,6 +25,10 @@ following relative references. Never install the full library just to search it.
 
 | Request | Starting points |
 |---|---|
+| API compatibility and serialized provider/consumer contracts | api-contracts; openapi-to-typescript for generated types |
+| Understand an unfamiliar repository | codebase-onboarding; codebase-design for choosing changes |
+| Record or find architectural decisions and rationale | architecture-decision-records; cross-harness-state for current task state |
+| Bounded repair loops, agent roles, terminal/worktree coordination | bounded-agent-loop, cli-agent-router |
 | Create, add, update, audit, remove skills | Standalone variants of skill-create, skill-add, skill-update, skill-cleanup, skill-remove, skill-authoring |
 | Coding, review, debugging | build, check, refactor, requesting-code-review, systematic-debugging |
 | Completion evidence across build/types/lint/tests | verification-loop; check remains SPEC drift only |

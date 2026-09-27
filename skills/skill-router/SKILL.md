@@ -75,6 +75,10 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 
 | User intent | Candidate skills |
 |---|---|
+| API compatibility, serialized responses, provider/consumer contracts | `api-contracts`; `openapi-to-typescript` for generated types |
+| Understand an unfamiliar repository and trace its existing behavior | `codebase-onboarding`; `codebase-design` for choosing changes |
+| Record or find an architectural decision and its rationale | `architecture-decision-records`; `cross-harness-state` for current task state |
+| Bounded repeated repair, agent roles, terminal/worktree coordination | `bounded-agent-loop`, `cli-agent-router` |
 | Create a brand-new local skill | `skill-create`, `skill-authoring`, `skill-creator` |
 | Add a skill from GitHub, link, pasted text, or tool docs | `skill-add`, `skill-create` |
 | Update one skill or improve skills from coding practice | `skill-update`, `skill-authoring` |

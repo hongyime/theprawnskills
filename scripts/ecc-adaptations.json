@@ -57,6 +57,37 @@
       ],
       "relationship": "Ideas adapted in new Python implementations; no upstream executable copied.",
       "notice": "ECC-LICENSE.txt"
+    },
+    {
+      "local": "skills/api-contracts",
+      "sources": [
+        "skills/contract-first/SKILL.md",
+        "skills/api-design/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
+    },
+    {
+      "local": "skills/codebase-onboarding",
+      "sources": [
+        "skills/codebase-onboarding/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
+    },
+    {
+      "local": "skills/architecture-decision-records",
+      "sources": [
+        "skills/architecture-decision-records/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
+    },
+    {
+      "local": "skills/bounded-agent-loop",
+      "sources": [
+        "skills/continuous-agent-loop/SKILL.md",
+        "skills/loop-design-check/SKILL.md",
+        "skills/team-agent-orchestration/SKILL.md"
+      ],
+      "notice": "LICENSE.txt"
     }
   ],
   "additional_primary_sources": [

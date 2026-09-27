@@ -1,0 +1,9 @@
+{
+  "root": "REPLACE_WITH_ABSOLUTE_DISPOSABLE_WORKTREE",
+  "worker": ["REPLACE_WITH_EXECUTABLE", "REPLACE_WITH_AGENT_ARGUMENTS"],
+  "verify": ["python", "-m", "unittest", "discover", "-s", "tests"],
+  "allowed_files": ["src/example.py"],
+  "max_attempts": 3,
+  "wall_seconds": 600,
+  "command_seconds": 120
+}

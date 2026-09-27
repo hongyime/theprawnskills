@@ -107,3 +107,7 @@ and migration path. Then:
 - `domain-modeling` - upstream conceptual clarity
 - `to-spec`, `to-tickets` - turning design into ordered work
 - `understand` - knowledge-graph exploration of large unfamiliar repos
+
+## Related workflow
+
+Use `codebase-onboarding` to map an unfamiliar repository before choosing changes. For a material accepted decision or a proposed ADR, use `architecture-decision-records`; preserve the project's existing decision location and history.

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["status", "data"],
+      "properties": {
+        "status": {"const": 200},
+        "data": {
+          "type": "object",
+          "required": ["id", "label", "assignedTo"],
+          "properties": {
+            "id": {"type": "string", "pattern": "^[0-9]+$"},
+            "label": {"type": "string", "minLength": 1},
+            "assignedTo": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["status", "error"],
+      "properties": {
+        "status": {"const": 404},
+        "error": {
+          "type": "object",
+          "required": ["code", "message"],
+          "properties": {
+            "code": {"const": "NOT_FOUND"},
+            "message": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    }
+  ]
+}

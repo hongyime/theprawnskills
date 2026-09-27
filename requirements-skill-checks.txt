@@ -1,2 +1,3 @@
-# Only the repository's metadata/index checks need this dependency.
+# Repository metadata/index and isolated contract-example checks.
 PyYAML==6.0.3
+jsonschema==4.26.0

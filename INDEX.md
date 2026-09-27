@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 211 |
-| All definitions, including nested skills and portable variants | 228 |
+| Top-level skills | 215 |
+| All definitions, including nested skills and portable variants | 232 |
 | Portable variants | 7 |
 | Daily profile | 65 |
 
@@ -34,8 +34,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `ai-voice-cloning` | AI voice generation, text-to-speech, and voice synthesis via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion/non-verbal steering), Inworld TTS 1.5 (ultra-low la... | ON-DEMAND |
 | `airunway-aks-setup` | Set up AI Runway on AKS — from bare cluster to running model. Covers cluster verification, controller install, GPU assessment, provider setup, and first deployment. WHEN: "setup... | ON-DEMAND |
 | `algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithm... | ON-DEMAND |
+| `api-contracts` | Design and verify API contracts shared by consumers and providers. Use for request/response drift, contract-first implementation, compatibility reviews, schema evolution, genera... | ON-DEMAND |
 | `app-store-screenshots` | App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dimensions, gallery ordering, device mockups, and preview videos. Use for: app store ... | ON-DEMAND |
 | `appinsights-instrumentation` | Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references. WHEN: how to instrument app, App Insigh... | ON-DEMAND |
+| `architecture-decision-records` | Record or explain significant architectural decisions with context, alternatives, consequences and proposed/accepted/superseded status. Use for ADRs, record this decision, why d... | ON-DEMAND |
 | `azure-ai` | Use for Azure AI: Search, Speech, OpenAI, Document Intelligence. Helps with search, vector/hybrid search, speech-to-text, text-to-speech, transcription, OCR. WHEN: AI Search, qu... | ON-DEMAND |
 | `azure-aigateway` | Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: semantic caching, token limit, content safety, load balancing, AI model governance, M... | ON-DEMAND |
 | `azure-cloud-migrate` | Assess and migrate cross-cloud workloads to Azure with reports and code conversion. Supports Lambda→Functions, Beanstalk/Heroku/App Engine→App Service, Fargate/Kubernetes/Cloud ... | ON-DEMAND |
@@ -59,6 +61,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `background-removal` | Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparen... | ON-DEMAND |
 | `backprop` | Bug-to-invariant protocol. When a bug is confirmed or a test fails, trace the root cause, then decide whether a new §I invariant would prevent recurrence and file it into SPEC.m... | ON-DEMAND |
 | `book-cover-design` | Book cover design with genre-specific conventions, typography rules, and AI image generation. Covers fiction and non-fiction genres, sizing, thumbnail testing, and iteration wor... | ON-DEMAND |
+| `bounded-agent-loop` | Run a user-authorized, bounded repair loop with explicit acceptance commands, isolated ownership, attempt and time limits, failure stop conditions, and a resumable handoff. Use ... | ON-DEMAND |
 | `brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidel... | ON-DEMAND |
 | `bug-diagnosis` | Structured bug diagnosis producing a written diagnosis document before any fix is attempted. Use when the user reports a bug, asks to investigate why something fails, says diagn... | DAILY |
 | `build` | Plan-then-execute implementation against SPEC.md. Native single-thread loop, no sub-agents. On test or build failure, auto-invokes the backprop skill before retrying — a failed ... | DAILY |
@@ -77,13 +80,14 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `check` | Read-only drift detector. Diffs SPEC.md against current code and reports violations grouped by severity. Writes nothing — suggests remedies via the spec or build skills but neve... | DAILY |
 | `claude-api` | Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER — read BEFORE open... | ON-DEMAND |
 | `claude-code-cli` | Delegate tasks to Claude Code CLI in a hidden background process. Use when the user asks to use Claude Code, or when a task needs multi-file reasoning, complex refactoring, or C... | DAILY |
-| `cli-agent-router` | Smart routing for CLI agent delegation. Decides which CLI agent (Claude Code, Codex, Gemini, OpenCode) to delegate a task to based on task characteristics. Use when the user say... | DAILY |
+| `cli-agent-router` | Choose and launch an available CLI agent for authorized delegation, independent review or isolated implementation. Use for agent selection, host adapters, bounded parallel work,... | DAILY |
 | `cloudflare` | Comprehensive Cloudflare platform skill covering Workers, Pages, storage (KV, D1, R2), AI (Workers AI, Vectorize, Agents SDK), feature flags (Flagship), networking (Tunnel, Spec... | DAILY |
 | `cloudflare-email-service` | Send and receive transactional emails with Cloudflare Email Service (Email Sending + Email Routing). Use when building email sending (Workers binding or REST API), email routing... | DAILY |
 | `cloudflare-one` | Guides Cloudflare One Zero Trust and SASE work across Access, Gateway, WARP, Tunnel, Cloudflare WAN, DLP, CASB, device posture, and identity. Use when designing, configuring, tr... | DAILY |
 | `cloudflare-one-migrations` | Plans migrations from Zscaler ZIA/ZPA, Palo Alto, legacy VPN, SWG, or SASE stacks to Cloudflare One. Use for migration assessments, policy mapping, rollout plans, and parity/gap... | DAILY |
 | `codebase-design` | Design how a change should be organized in the codebase: module boundaries, dependency direction, file layout, and seams for testing. Use when the user says where should this go... | ON-DEMAND |
-| `codex` | Use when the user asks to run Codex CLI (codex exec, codex resume) or references OpenAI Codex for code analysis, refactoring, or automated editing. Uses GPT-5.2 by default for s... | DAILY |
+| `codebase-onboarding` | Explain an unfamiliar repository using evidenced architecture, entry points, request or job flow, test commands and conventions. Use for onboard me, understand this repo, where ... | ON-DEMAND |
+| `codex` | Run the installed Codex CLI for user-requested analysis, review, implementation or resuming a specific task, using verified local flags and configured model defaults. | DAILY |
 | `commit-work` | Create high-quality git commits: review/stage intended changes, split into logical commits, and write clear commit messages (including Conventional Commits). Use when the user a... | DAILY |
 | `competitive-upgrade` | Compare the current repo, app, or product against real live companies, competitors, SaaS tools, and best-in-class examples using current web research, then turn findings into re... | ON-DEMAND |
 | `competitor-teardown` | Structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review. Covers research frameworks, pricing comparison, review mining, and visual deliverab... | ON-DEMAND |
