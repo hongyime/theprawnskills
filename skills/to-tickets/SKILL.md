@@ -24,6 +24,23 @@ verifiable tickets sized for a single focused session each.
 - User says "break this into tickets/tasks", "work breakdown", "sprint plan"
 - Work will span sessions, agents, or machines and needs resumable units
 
+## Request template
+
+```text
+Break this into tickets.
+
+Source:        <path to approved spec, or the plan itself>
+Ordering:      <any dependency or sequencing constraints I already know>
+Session size:  <default: one focused session, under ~400 changed lines>
+Parallelism:   <will multiple agents or machines work these concurrently?>
+Out of scope:  <anything in the spec NOT to be ticketed yet>
+
+Follow the to-tickets skill. Each ticket must name its file scope, its
+acceptance check, and what blocks it. Flag any ticket you cannot size to one
+session instead of silently producing an oversized one.
+```
+
+
 ## Ticket Sizing Rules
 
 A good ticket is:

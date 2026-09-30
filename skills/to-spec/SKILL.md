@@ -30,6 +30,26 @@ If the repo already has SPEC.md governed by the `spec` skill, AMEND it through
 that skill's format instead of creating a competing document. This skill drafts;
 the `spec` skill owns the file.
 
+## Request template
+
+Optional, but it front-loads the answers step 1 would otherwise have to ask for.
+
+```text
+Write a spec for this change.
+
+Change:      <the one feature, fix, or change>
+Problem:     <what is wrong or missing, and for whom>
+Outcome:     <observable behavior once done>
+Out of scope: <what this deliberately does not cover>
+Constraints: <compatibility, performance, deadlines, must-not-breaks>
+Repo state:  <existing SPEC.md governed by the spec skill? yes/no>
+
+Follow the to-spec skill. Ask me only what you cannot determine from the repo.
+If a SPEC.md already exists under the spec skill, amend through that skill
+rather than creating a competing document.
+```
+
+
 ## Workflow
 
 ### 1. Clarify Intent

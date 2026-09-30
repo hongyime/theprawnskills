@@ -12,6 +12,33 @@ For a separate CLI, resolve `cli-agent-router` and inspect its installed help.
 Use the configured model unless the task specifies one; never invent model IDs,
 prices, permissions, or flags. Existing task authorization carries forward.
 
+## Authorizing a run
+
+This skill needs explicit authorization and hard limits before it starts. Paste
+this, filling every field — an unfilled budget is not an unlimited budget, it is
+a reason to stop and ask.
+
+```text
+Run a bounded repair loop.
+
+Task:                <the concrete deliverable>
+Acceptance command:  <exact command that must exit zero>
+Baseline commit:     <sha or "current HEAD">
+Editable files:      <explicit paths the worker may change>
+Immutable:           <tests and files it must not touch>
+Worktree/branch:     <disposable branch or worktree to use>
+Max attempts:        <up to 3>
+Wall-clock deadline: <duration>
+Per-command timeout: <duration>
+Cost cap:            <limit, or "none enforceable">
+
+Run acceptance once before editing and show me the baseline failure. Stop on
+success, budget exhaustion, scope or Git-history change, missing tools or
+credentials, or a repeated failure with no progress. Do not weaken tests to
+obtain a pass. Report a patch or branch only; do not merge, deploy, or enable
+any schedule.
+```
+
 ## Define the run
 
 1. Read project instructions and `.agents/STATE.md`. Identify a clean disposable

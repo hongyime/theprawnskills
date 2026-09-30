@@ -44,6 +44,25 @@ Routing out:
 - Output becomes a large ambiguous project -> `wayfinder` (if installed)
 - Implementation-ready work -> hand off to `to-spec` / `to-tickets` (if installed)
 
+## Request template
+
+```text
+Compare this project against real competitors and propose upgrades.
+
+This repo/product: <what it is, in one line>
+Compare against:   <named products or "you pick the best-in-class">
+Audience:          <who this is for>
+Goal:              <what I want to improve: retention, onboarding, depth, etc.>
+Out of scope:      <areas not to touch>
+Deliverable:       <findings only | findings + specs | findings + tickets>
+
+Follow the competitive-upgrade skill. Research live products rather than
+recalling them, cite what you found, and tie every recommendation back to a
+concrete capability or gap in this repo. Separate what we should copy from what
+we deliberately should not.
+```
+
+
 ## Required Behavior
 
 Live company capabilities change. Perform current web research before making any
