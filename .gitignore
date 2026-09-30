@@ -6,6 +6,12 @@ agents.lock
 node_modules/
 packages/
 *.log
+# Root manifests belong to the co-located @understand-anything workspace,
+# not to this skill library. Tracking them made Dependabot scan a lockfile
+# whose workspace packages are ignored and absent from a fresh checkout.
+/package.json
+/pnpm-lock.yaml
+/pnpm-workspace.yaml
 
 # Archive graveyard (placeholder-broken under OneDrive)
 _removed/
@@ -20,7 +26,7 @@ _removed/
 !.agents/JOURNAL.md
 !.agents/handoffs/
 !.agents/handoffs/**
-!.gitignore
+!/.gitignore
 !.npmignore
 !.gitattributes
 !.gitmodules
