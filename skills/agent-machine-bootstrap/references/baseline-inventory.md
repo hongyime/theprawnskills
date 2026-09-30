@@ -21,6 +21,7 @@ sequence, not priority: a must-have can still be installed last.
 | Agent CLI | claude | 3 | |
 | Agent CLI | agy | 3 | |
 | Agent CLI | kiro | 3 | |
+| Agent CLI | gemini | 3 | |
 | Fleet | Tailscale | 8 | Join the tailnet, then confirm reachability both directions |
 | Desktop | Beeper | 9 | Desktop session only; nothing to install on a headless target |
 | Sync | Cloud file-sync client | 9 | See platform notes |

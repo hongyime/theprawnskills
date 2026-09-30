@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 223 |
-| All definitions, including nested skills and portable variants | 240 |
+| Top-level skills | 224 |
+| All definitions, including nested skills and portable variants | 241 |
 | Portable variants | 7 |
 | Daily profile | 65 |
 
@@ -17,6 +17,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Skill | Purpose | Default status |
 |---|---|---|
+| `agent-account-isolation` | Run two or more accounts of the same coding-agent CLI on one machine without cross-contamination. Use for "it used my other account", "wrong account", separating work and person... | ON-DEMAND |
 | `agent-browser` | Browser automation for AI agents via inference.sh. Navigate web pages, interact with elements using @e refs, take screenshots, record video. Capabilities: web scraping, form fil... | DAILY |
 | `agent-machine-bootstrap` | Bootstrap any new, rebuilt or virtual machine into a working coding-agent environment: sizing, base tooling, runtimes, agent CLIs, model credentials, agent config, plugins, MCP ... | ON-DEMAND |
 | `agent-tools` | Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, ... | ON-DEMAND |

@@ -99,6 +99,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | VirtualBox guest VM access, guestcontrol, host-only networking, guest shell traps | `virtualbox-guest-access` |
 | Android device or emulator control over adb | `orca-emulator-android` |
 | New machine setup, fresh install, replicate or move an agent environment | `agent-machine-bootstrap`; `virtualbox-guest-access` for VM access, `opencode-bedrock-config` for provider auth |
+| Two accounts of the same agent CLI on one machine, wrong-account drift, WSL versus host identity | `agent-account-isolation` |
 | Bug investigation and root cause | `bug-diagnosis`, `systematic-debugging`, `backprop` |
 | Merge conflicts and git surgery | `merge-conflict-resolution`, `commit-work`, `git-commit` |
 | Spec writing (one clear feature) | `to-spec`, `spec`, `build`, `check` |
