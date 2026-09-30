@@ -90,8 +90,8 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Python fixtures, mocks, boundary cases, unittest or pytest | `python-testing`; `python-sdk` specifically for inference.sh |
 | React component, hook or form tests | `react-testing`; `webapp-testing` for real browser flows |
 | Pi-hole DNS, Docker resolver health, Tailscale DNS routing | `homelab-pihole-dns`, `docker-expert` |
-| VirtualBox guest VM access, guestcontrol, host-only networking, guest shell traps | `virtualbox-kali-vm` |
-| New machine setup, fresh install, replicate or move an agent environment | `agent-machine-bootstrap`; `virtualbox-kali-vm` for VM access, `opencode-bedrock-config` for provider auth |
+| VirtualBox guest VM access, guestcontrol, host-only networking, guest shell traps | `virtualbox-guest-access` |
+| New machine setup, fresh install, replicate or move an agent environment | `agent-machine-bootstrap`; `virtualbox-guest-access` for VM access, `opencode-bedrock-config` for provider auth |
 | Bug investigation and root cause | `bug-diagnosis`, `systematic-debugging`, `backprop` |
 | Merge conflicts and git surgery | `merge-conflict-resolution`, `commit-work`, `git-commit` |
 | Spec writing (one clear feature) | `to-spec`, `spec`, `build`, `check` |

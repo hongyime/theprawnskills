@@ -18,7 +18,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | Skill | Purpose | Default status |
 |---|---|---|
 | `agent-browser` | Browser automation for AI agents via inference.sh. Navigate web pages, interact with elements using @e refs, take screenshots, record video. Capabilities: web scraping, form fil... | DAILY |
-| `agent-machine-bootstrap` | Bootstrap a new or rebuilt machine into a working coding-agent environment: base tooling, OpenCode and other agent CLIs, cloud model auth, agent config, plugins, MCP servers, an... | ON-DEMAND |
+| `agent-machine-bootstrap` | Bootstrap any new, rebuilt or virtual machine into a working coding-agent environment: sizing, base tooling, runtimes, agent CLIs, model credentials, agent config, plugins, MCP ... | ON-DEMAND |
 | `agent-tools` | Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, ... | ON-DEMAND |
 | `agent-ui` | Batteries-included agent component for React/Next.js from ui.inference.sh. One component with runtime, tools, streaming, approvals, and widgets built in. Capabilities: drop-in a... | ON-DEMAND |
 | `agents-sdk` | Build AI agents on Cloudflare Workers using the Agents SDK. Load when creating stateful agents, durable workflows, real-time WebSocket apps, scheduled tasks, MCP servers, chat a... | DAILY |
@@ -225,7 +225,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `verification-loop` | Verify a completed change with the project's actual build, type, lint, test and diff checks before reporting readiness. Use for verify this change, ready for review, prove this ... | ON-DEMAND |
 | `video-ad-specs` | Video ad creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, LinkedIn. Covers dimensions, duration limits, AIDA framework, and caption requirem... | ON-DEMAND |
 | `video-prompting-guide` | Best practices and techniques for writing effective AI video generation prompts. Covers: Veo, Seedance, Wan, Grok, Kling, Runway, Pika, Sora prompting strategies. Learn: shot ty... | ON-DEMAND |
-| `virtualbox-kali-vm` | Operate a VirtualBox Linux guest VM from a Windows host over SSH or VBoxManage guestcontrol. Use for Kali or Debian guest access, "cannot SSH into the VM", host-only networking,... | ON-DEMAND |
+| `virtualbox-guest-access` | Operate a VirtualBox Linux guest VM from its host over SSH or VBoxManage guestcontrol. Use for guest VM access, "cannot SSH into the VM", host-only networking, guestcontrol comm... | ON-DEMAND |
 | `visual-explainer` | Explain ideas, plans, architecture, code changes, comparisons, audits, and workflows with consistent standalone HTML and useful diagrams. Use proactively for most answers where ... | DAILY |
 | `wayfinder` | Navigate large, ambiguous initiatives where the destination or path is unclear. Use when the user says figure out how to approach this, this is too vague to spec, help me find a... | ON-DEMAND |
 | `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifact... | ON-DEMAND |

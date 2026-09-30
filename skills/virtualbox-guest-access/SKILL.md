@@ -1,19 +1,19 @@
 ---
-name: virtualbox-kali-vm
+name: virtualbox-guest-access
 description: >-
-  Operate a VirtualBox Linux guest VM from a Windows host over SSH or
-  VBoxManage guestcontrol. Use for Kali or Debian guest access, "cannot SSH
-  into the VM", host-only networking, guestcontrol command patterns, VPN
-  killswitch blocking the host subnet, Guest Additions health, and installing
-  tooling inside a guest. Applies to any CLI agent, not one specific harness.
+  Operate a VirtualBox Linux guest VM from its host over SSH or VBoxManage
+  guestcontrol. Use for guest VM access, "cannot SSH into the VM", host-only
+  networking, guestcontrol command patterns, a VPN killswitch blocking the
+  host subnet, Guest Additions health, and installing tooling inside a guest.
+  Applies to any CLI agent, not one specific harness.
 license: MIT
 metadata:
   author: Local setup
-  version: "1.0.0"
-  platform: Windows host with VirtualBox; Debian/Kali guest
+  version: "1.1.0"
+  platform: VirtualBox host and Linux guest
 ---
 
-# VirtualBox Linux Guest From a Windows Host
+# VirtualBox Linux Guest Access
 
 Two independent channels reach a guest. Pick deliberately: SSH is fast but
 depends on guest networking; `guestcontrol` is slow but survives a broken
@@ -22,7 +22,7 @@ network.
 ## When to use
 
 Use when running commands, installing tooling, or diagnosing access to a
-VirtualBox Linux guest from a Windows host. Use `systematic-debugging` for an
+VirtualBox Linux guest from its host. Use `systematic-debugging` for an
 unexplained in-guest application failure and `homelab-pihole-dns` for DNS
 resolver questions. This skill is not a VM provisioner, does not create VMs,
 and contains no credentials.
