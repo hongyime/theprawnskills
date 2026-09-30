@@ -58,3 +58,5 @@ __pycache__/
 
 # Private machine inventory
 /machines.local.toml
+*.local.md
+*.local.toml

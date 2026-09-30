@@ -35,10 +35,14 @@ This file is generic on purpose. It names publicly documented products, and
 never hosts, addresses, usernames, account identifiers, hardware inventory,
 private project names or credentials.
 
-Machine-specific values belong in a local, version-control-ignored inventory on
-the driving machine, following the same pattern as any private machine registry
-the library already ignores. Never commit the filled-in inventory, and never
-paste secrets into a chat or issue.
+Machine-specific values belong in a local inventory held outside this
+repository, or at minimum ignored by version control. Keep the operator's
+baseline application list, per-machine records and credential-rotation log
+there, not here. Never commit a filled-in inventory, and never paste secrets
+into a chat, issue or commit message.
+
+Commit messages are as public and as permanent as the files themselves. Apply
+the same rule to them.
 
 ### Inventory the agent needs
 
@@ -57,6 +61,9 @@ question, not an assumption.
 | MCP servers wanted | server names | Each may need its own auth |
 | Container runtime needed | yes/no | Large disk and RAM impact |
 | Fleet integration | mesh VPN, SSH inbound, shares | Often blocked by a VPN killswitch |
+| Desktop apps wanted | messaging, communication and GUI utilities | Requires a desktop session; skip on headless targets |
+| Sync client wanted | which service, and the client to use per platform | Some services have no first-party client on every platform |
+| Headless or desktop | headless, desktop | Decides whether layer 9 applies at all, and whether browser auth flows work |
 
 ## Kickoff prompt
 
@@ -75,6 +82,9 @@ Skill library:     <git remote>
 MCP servers:       <list or none>
 Container runtime: <yes | no>
 Fleet access:      <mesh VPN | SSH inbound | none>
+Desktop apps:      <list or none>
+Sync client:       <service + client, or none>
+Session type:      <headless | desktop>
 
 Follow the agent-machine-bootstrap skill.
 
@@ -124,103 +134,25 @@ cause of confusing failure.
 ```text
 0 preflight → 1 base tooling → 2 runtimes → 3 agent CLIs → 4 credentials
 → 5 agent config → 6 plugins + MCP → 7 skill library → 8 remote access
-→ 9 optional workload tooling → verification
+→ 9 desktop and sync apps → 10 workload tooling → verification
 ```
 
-### Layer 0 — Preflight detection
+| # | Layer | What goes in | Why it sits here | Gate | Classic failure |
+|---|---|---|---|---|---|
+| 0 | Preflight detection | OS, distro, version, architecture, login shell, existing runtimes, version managers, privilege model, outbound path including VPN or proxy, free RAM and disk, existing agent configs, desktop versus headless | Every later choice branches on these. Detecting costs seconds; a wrong assumption costs an hour | Findings reported before any install | Assuming one shell when another is the login shell, so every `PATH` export lands in a file nothing reads |
+| 1 | Base tooling | Version control, a downloader, an archive extractor, a C/C++ toolchain | Native modules in later layers compile against the toolchain; absent, they fail with misleading errors | Each binary resolves | No compiler, so a native plugin or MCP dependency fails deep inside an install log |
+| 2 | Runtimes | Language runtimes the agents and MCP servers need, at current versions. Choose deliberately between a system package, a vendor repository and a version manager, then record the choice | Agent CLIs and MCP servers are runtime-hosted. The install method sets the prefix, which decides `PATH` precedence in layer 3 | Version output, and which path resolves | A distro default years stale, or a version manager silently winning `PATH` later |
+| 3 | Agent CLIs | Only the requested agents, each via its vendor's documented installer. Then resolve each binary and export `PATH` in the rc file layer 0 detected | Needs runtimes. Must precede config because you must know which binary wins before configuring it | Version from the winning path | Two installs of one agent, with the unintended one shadowing |
+| 4 | Credentials and model access | Mint fresh, per-machine, separately revocable credentials. Prefer the source the agent reads natively with no custom code. Verify caller identity before writing config | Before config, so a later failure is unambiguous: auth is already proven | Provider identity call returns a principal | Copying secrets between hosts, or debugging "auth broken" when the real fault was a config typo |
+| 5 | Agent configuration | Credential selector such as a named profile, region or endpoint, per-agent model overrides, permissions, instruction and memory files | Needs a working binary and proven credentials. Config is read once at startup, so restart after every change | Parses, and the agent starts clean | A provider ignoring an on-disk credentials file because no profile was named, or editing config without restarting |
+| 6 | Plugins and MCP servers | Pin exact plugin versions. Confirm the package actually landed. Register MCP servers in the agent's own native config shape | These load into the agent, so it must already run and be configured | Each server reports connected; plugin layer active | A timed-out installer leaving a partial tree that looks installed, or a config shape copied from another harness being ignored |
+| 7 | Skill library | Clone with version control, then run the repository's own installer: dry-run, apply, check | Skills are consumed by a working agent, so this is pointless earlier | Expected skill count present | Depending on a cloud-sync client instead of a clone, or running a command the library documents as forbidden |
+| 8 | Remote access and fleet | SSH server, key deployment, mesh VPN join, reachability confirmed in both directions | After the machine is useful, so transport and setup are not debugged simultaneously | Driving machine connects non-interactively | A VPN killswitch dropping the management subnet, or a key whose passphrase is not genuinely empty and so cannot sign non-interactively |
+| 9 | Desktop and sync apps | Messaging and communication clients, cloud storage or file-sync clients, and any GUI utilities the operator expects | Needs base tooling and often a desktop session; irrelevant to proving the agent environment works, so it comes after verification-critical layers | Each launches, and any sync client completes one successful sync | Installing a GUI app on a headless target, or a proprietary sync service with no first-party client for the target platform, needing a third-party client or an object-storage bridge instead |
+| 10 | Workload tooling | Container runtimes, databases, language toolchains, and anything specific to the work this machine will do | Deliberately last: none of it is needed to prove the agent environment works, and it competes for the resources sized above | Only what the workload needs | Installing tens of gigabytes of container images before discovering the agent never authenticated |
 
-| Detect | Why it changes the plan |
-|---|---|
-| OS, distro, version, architecture | Selects install method and binary variant |
-| Login shell | Decides which rc file receives `PATH` and env exports; a zsh user never reads a bash rc |
-| Existing runtimes and versions | Avoids reinstalling; reveals what is already depended on |
-| Version manager present | A managed runtime injects its own `PATH` and can shadow a standalone binary |
-| Privilege model | Passwordless elevation versus password-per-call changes every script |
-| Outbound path: VPN, proxy, killswitch | A default-drop VPN firewall blocks inbound access and can reset long downloads |
-| Free disk and RAM against the sizing table | Decide before installing, not after |
-| Existing agent configs | Merge; never clobber a working config |
-| Desktop versus headless | Affects browser-based auth flows and any GUI tooling |
-
-### Layer 1 — Base tooling
-
-Version control, a downloader, an archive extractor, and a C toolchain for
-native modules. Without the toolchain, later native builds fail confusingly.
-
-### Layer 2 — Runtimes
-
-Install the runtimes your agents and MCP servers need, at current versions
-rather than a stale distro default. Decide deliberately between a system
-package, a vendor repository, and a version manager — then record the choice,
-because later `PATH` resolution depends on it.
-
-### Layer 3 — Agent CLIs
-
-Install only the requested agents, each via its vendor's documented installer.
-A standalone binary avoids coupling to a version manager; a package-manager
-install is fine but the binary then lives under that manager's prefix and
-inherits its `PATH` behaviour.
-
-Afterwards resolve each binary explicitly and export `PATH` in the rc file the
-detected shell actually reads. Confirm which path wins when more than one
-install of the same agent exists.
-
-### Layer 4 — Credentials and model access
-
-Mint fresh, separately revocable credentials per machine. Do not copy secrets
-between hosts, and rotate anything that has passed through a chat, log or
-screenshot.
-
-Prefer whichever credential source the agent reads natively with no custom
-code. Verify identity with the provider's own caller-identity call before
-writing agent config, so a later failure is unambiguous.
-
-### Layer 5 — Agent configuration
-
-Write config, confirm it parses, then restart the agent — config is typically
-read once at startup.
-
-| Setting | Why it matters |
-|---|---|
-| Credential selector, such as a named profile | Some providers ignore an on-disk credentials file unless told which profile to use |
-| Region or endpoint | Cross-region and global model routing is anchored to a specific region |
-| Per-agent model overrides | Plugin-contributed subagents can carry a hardcoded model; a global default does not override them |
-| Permissions | Mirror the source machine rather than loosening defaults |
-| Instruction and memory files | Agents read different filenames; place each where that agent looks |
-
-### Layer 6 — Plugins and MCP servers
-
-Pin plugin versions rather than floating ranges so the target matches the
-source. Install, then confirm the package actually landed — a timed-out
-installer leaves a partial tree that looks installed.
-
-Register MCP servers in the agent's own native config shape; a shape copied
-from a different harness may be silently ignored. Each server may need its own
-credentials and its own verification.
-
-### Layer 7 — Skill library
-
-Clone with version control and run the repository's own installer: dry-run,
-apply, then its check. Do not depend on a cloud-sync client, and do not mount
-or symlink another machine's synced folder. Respect any command the library
-documents as forbidden, and let the installer choose copies or links per
-platform.
-
-### Layer 8 — Remote access and fleet integration
-
-If this machine will be driven remotely, install the SSH server, deploy a key,
-and confirm from the driving machine. Generate keys with a genuinely empty
-passphrase, or non-interactive automation cannot sign with them.
-
-On a mesh VPN, join the network and confirm reachability in both directions. If
-a VPN killswitch is active, allow the management subnet through the VPN's own
-allowlist rather than editing firewall rules it will regenerate.
-
-### Layer 9 — Optional workload tooling
-
-Container runtimes, databases, language toolchains and anything specific to the
-work this machine will do. Deliberately last: none of it is needed to prove the
-agent environment works, and it competes for the resources sized above.
-
+Layers 9 and 10 are the only optional ones. Everything from 0 to 8 is required
+for a machine that is driven remotely; stop at 7 for a purely local machine.
 ## OS differences that actually matter
 
 | Concern | Windows | macOS | Linux | VM or VPS guest |
