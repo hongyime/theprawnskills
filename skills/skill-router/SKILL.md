@@ -90,6 +90,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Python fixtures, mocks, boundary cases, unittest or pytest | `python-testing`; `python-sdk` specifically for inference.sh |
 | React component, hook or form tests | `react-testing`; `webapp-testing` for real browser flows |
 | Pi-hole DNS, Docker resolver health, Tailscale DNS routing | `homelab-pihole-dns`, `docker-expert` |
+| VirtualBox guest VM access, guestcontrol, host-only networking, guest shell traps | `virtualbox-kali-vm` |
 | Bug investigation and root cause | `bug-diagnosis`, `systematic-debugging`, `backprop` |
 | Merge conflicts and git surgery | `merge-conflict-resolution`, `commit-work`, `git-commit` |
 | Spec writing (one clear feature) | `to-spec`, `spec`, `build`, `check` |
@@ -113,6 +114,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Video, audio, voice, podcasts | `image-to-video`, `ai-avatar-video`, `text-to-speech`, `speech-to-text`, `ai-podcast-creation` |
 | Social content | `ai-social-media-content`, `social-media-carousel`, `twitter-thread-creation`, `youtube-thumbnail-design` |
 | Agent tooling and delegation | `cli-agent-router`, `claude-code-cli`, `opencode-cli`, `codex`, `agent-browser` |
+| OpenCode Bedrock provider auth, region pinning, per-agent model override | `opencode-bedrock-config` |
 | Orca ADE worktrees, terminals, handoffs, or embedded browser | `orca-cli`; `orchestration` for supervised workers; `orca-per-workspace-env` for environment recipes; `computer-use` only for visible desktop GUI tasks |
 
 ## Maintenance Rules

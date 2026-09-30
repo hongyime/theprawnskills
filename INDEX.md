@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 219 |
-| All definitions, including nested skills and portable variants | 236 |
+| Top-level skills | 222 |
+| All definitions, including nested skills and portable variants | 239 |
 | Portable variants | 7 |
 | Daily profile | 65 |
 
@@ -146,8 +146,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `newsletter-curation` | Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. ... | ON-DEMAND |
 | `og-image-design` | Open Graph and social sharing image design with platform specs, text placement, and branding. Covers OG meta tags, Twitter cards, LinkedIn previews, and dynamic generation. Use ... | ON-DEMAND |
 | `openapi-to-typescript` | Converts OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type guards. This skill should be used when the user asks to generate types from OpenAPI, convert schema to TS, creat... | DAILY |
+| `opencode-bedrock-config` | Configure OpenCode to use AWS Bedrock models, and fix subagents pinned to a dead or unfunded provider. Use for "SigV4 authentication requires AWS credentials", Bedrock provider ... | ON-DEMAND |
 | `opencode-cli` | Delegate tasks to OpenCode CLI as a hidden background process. Use when the user asks to use OpenCode, or when a task needs Bedrock model access, or when an active OpenCode sess... | DAILY |
 | `orca-cli` | Operate Orca-managed worktrees, folder contexts, terminals, repos, automations, artifacts, skill sharing, worktree comments, and Orca's embedded browser through the `orca` CLI. ... | ON-DEMAND |
+| `orca-emulator-android` | Android device and emulator control from inside Orca over adb, with the live device view in Orca's emulator pane. Use when driving an adb-connected emulator or phone on Windows,... | ON-DEMAND |
 | `orca-per-workspace-env` | Set up, review, debug, or validate an Orca per-workspace environment recipe: the on-demand, disposable runtime (cloud sandbox, VM, SSH host, or local container) Orca creates fre... | ON-DEMAND |
 | `orchestration` | Coordinate supervised Orca workers: threaded messages, blocking ask/reply, task dispatch, worker_done/escalation waits, task DAGs, decision gates, coordinator loops, and decompo... | ON-DEMAND |
 | `p-image` | Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA ... | ON-DEMAND |
@@ -222,6 +224,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `verification-loop` | Verify a completed change with the project's actual build, type, lint, test and diff checks before reporting readiness. Use for verify this change, ready for review, prove this ... | ON-DEMAND |
 | `video-ad-specs` | Video ad creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, LinkedIn. Covers dimensions, duration limits, AIDA framework, and caption requirem... | ON-DEMAND |
 | `video-prompting-guide` | Best practices and techniques for writing effective AI video generation prompts. Covers: Veo, Seedance, Wan, Grok, Kling, Runway, Pika, Sora prompting strategies. Learn: shot ty... | ON-DEMAND |
+| `virtualbox-kali-vm` | Operate a VirtualBox Linux guest VM from a Windows host over SSH or VBoxManage guestcontrol. Use for Kali or Debian guest access, "cannot SSH into the VM", host-only networking,... | ON-DEMAND |
 | `visual-explainer` | Explain ideas, plans, architecture, code changes, comparisons, audits, and workflows with consistent standalone HTML and useful diagrams. Use proactively for most answers where ... | DAILY |
 | `wayfinder` | Navigate large, ambiguous initiatives where the destination or path is unclear. Use when the user says figure out how to approach this, this is too vague to spec, help me find a... | ON-DEMAND |
 | `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifact... | ON-DEMAND |
