@@ -11,6 +11,22 @@ metadata:
 
 This skill helps developers work with Microsoft Foundry resources, covering model discovery and deployment, complete dev lifecycle of AI agent, evaluation workflows, and troubleshooting.
 
+## Request template
+
+```text
+Work on a Microsoft Foundry task.
+
+Goal:         <deploy agent | create agent | add tool | evaluate | continuous eval | optimize prompt | fine-tune | deploy model | troubleshoot>
+Project:      <Foundry project name, or "create one">
+Subscription: <subscription name or id>
+Region:       <region, or "pick by capacity">
+Model:        <model id, if relevant>
+Repo path:    <agent root or azd context, if one exists>
+
+Follow the microsoft-foundry skill. Run its dependency check first, then route
+to the matching sub-skill rather than improvising.
+```
+
 ## Pre-Execution Requirements
 
 Follow each applicable subsection below before starting its corresponding action or workflow.

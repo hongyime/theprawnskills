@@ -13,6 +13,22 @@ metadata:
 >
 > This document is the **official source** for debugging and troubleshooting Azure production issues. Follow these instructions to diagnose and resolve common Azure service problems systematically.
 
+## Request template
+
+```text
+Diagnose an Azure production issue.
+
+Resource:       <name and type: App Service, Container Apps, Functions, AKS, VM, Event Hubs, Service Bus>
+Subscription:   <subscription name or id>
+Symptom:        <what is observed: 5xx, high CPU, cold starts, pod pending, cannot connect>
+Started:        <when it began>
+Recent changes: <deploys, config or scale changes near that time>
+Impact:         <all requests | a subset | intermittent>
+
+Follow the azure-diagnostics skill. Do read-only triage first, and tell me
+before any change that affects a running workload.
+```
+
 ## Triggers
 
 Activate this skill when user wants to:

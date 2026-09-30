@@ -12,6 +12,22 @@ metadata:
 
 > This skill handles **assessment and automated upgrades** of existing Azure workloads from one Azure service, hosting plan, or SKU to another — all within Azure. This includes plan/tier upgrades (e.g. Consumption → Flex Consumption), cross-service migrations (e.g. App Service → Container Apps), and SKU changes. It also covers **Azure SDK for Java source-code modernization** (e.g. legacy Java `com.microsoft.azure.*` → modern `com.azure.*`). This is NOT for cross-cloud migration — use `azure-cloud-migrate` for that.
 
+## Request template
+
+```text
+Assess and upgrade this Azure workload.
+
+Resource:     <name and type>
+Subscription: <subscription name or id>
+Current:      <plan, tier or SKU today>
+Target:       <desired plan, tier or SKU, or "you recommend">
+Kind:         <hosting plan change | SKU change | SDK modernization>
+Constraints:  <downtime tolerance, cost ceiling>
+
+Follow the azure-upgrade skill. Assess before changing anything, and state
+plainly which steps are irreversible.
+```
+
 ## Triggers
 
 | User Intent | Example Prompts |

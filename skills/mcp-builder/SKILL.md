@@ -6,6 +6,24 @@ license: Complete terms in LICENSE.txt
 
 # MCP Server Development Guide
 
+## Request template
+
+```text
+Build an MCP server.
+
+Service or API: <what it wraps>
+API docs:       <URL or local spec>
+Language:       <Python with FastMCP | TypeScript with the MCP SDK>
+Auth:           <API key | OAuth | none>
+Tools wanted:   <the operations an LLM should be able to perform>
+Transport:      <stdio | HTTP>
+Out of scope:   <operations deliberately excluded>
+
+Follow the mcp-builder skill. Research the protocol and framework docs before
+implementing, and design tools around real end-to-end tasks rather than
+mirroring every API endpoint.
+```
+
 ## Overview
 
 Create MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. The quality of an MCP server is measured by how well it enables LLMs to accomplish real-world tasks.

@@ -16,6 +16,23 @@ metadata:
 Preserve the context another agent needs to continue work, then verify it against
 the actual project. Handoffs belong to the target project, not this skill library.
 
+## Request template
+
+```text
+Create or resume a session handoff.
+
+Mode:          <CREATE | RESUME>
+Project:       <repo or directory the handoff belongs to>
+Task:          <what the work is>            # CREATE only
+Current state: <what is done, what is next>  # CREATE only
+Blockers:      <anything unresolved>         # CREATE only
+Handoff file:  <path, or "find the latest">  # RESUME only
+
+Follow the session-handoff skill. Handoffs belong to the target project, not to
+the skill library. On RESUME, check staleness and verify against the actual
+repository before starting work.
+```
+
 ## Script location and prerequisites
 
 Use Python 3.11+ and Git for freshness checks. Set `SKILL_DIR` (Bash) or

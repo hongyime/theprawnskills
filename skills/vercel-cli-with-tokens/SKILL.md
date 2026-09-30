@@ -10,6 +10,22 @@ metadata:
 
 Deploy and manage projects on Vercel using the CLI with token-based authentication, without relying on `vercel login`.
 
+## Request template
+
+```text
+Deploy or manage this project on Vercel using a token.
+
+Repo path:    <path>
+Token source: <VERCEL_TOKEN in env | .env file at <path> | I will provide | none yet>
+Project:      <Vercel project name, or "link it">
+Team/scope:   <team slug, or personal>
+Action:       <deploy preview | deploy production | set env vars | link project>
+Env vars:     <names only; values supplied separately>
+
+Follow the vercel-cli-with-tokens skill. Read the token from the environment.
+Never place it on a command line and never echo it.
+```
+
 ## Step 1: Locate the Vercel Token
 
 Before running any Vercel CLI commands, identify where the token is coming from. Work through these scenarios in order:

@@ -7,6 +7,23 @@ description: Analyzes web performance using Chrome DevTools MCP. Measures Core W
 
 Your knowledge of web performance metrics, thresholds, and tooling APIs may be outdated. **Prefer retrieval over pre-training** when citing specific numbers or recommendations.
 
+## Request template
+
+```text
+Audit this page's performance.
+
+URL:            <page to audit>
+Device profile: <desktop | mobile>
+Network:        <no throttling | slow 4G | custom>
+Repo path:      <local codebase, if source analysis is also wanted>
+Framework:      <if known, otherwise detect it>
+Focus:          <LCP | INP | CLS | bundle size | all>
+Constraints:    <what I cannot change, for example third-party tags>
+
+Follow the web-perf skill. Verify the Chrome DevTools MCP tools are available
+first, and retrieve current thresholds rather than quoting remembered numbers.
+```
+
 ## Retrieval Sources
 
 | Source | How to retrieve | Use for |

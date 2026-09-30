@@ -11,6 +11,21 @@ metadata:
 
 > This skill handles **assessment and code migration** of existing cloud workloads to Azure.
 
+## Request template
+
+```text
+Assess and migrate this workload to Azure.
+
+Source:      <Lambda | Beanstalk | Heroku | App Engine | Fargate | ECS | EKS | GKE | Cloud Run | Spring Boot>
+Repo path:   <path>
+Target:      <Azure Functions | App Service | Container Apps | you recommend>
+Scope:       <assessment only | assessment plus code conversion>
+Constraints: <runtime versions, data residency, downtime tolerance>
+
+Follow the azure-cloud-migrate skill. Produce the assessment before converting
+any code, and do not skip phases.
+```
+
 ## Rules
 
 1. Follow phases sequentially — do not skip

@@ -23,6 +23,21 @@ metadata:
 >
 > `azure-prepare` → `azure-validate` → `azure-deploy`
 
+## Request template
+
+```text
+Validate this app for Azure deployment readiness.
+
+App path:     <repo or app directory>
+IaC:          <Bicep | Terraform | azd | none yet>
+Environment:  <target env name>
+Subscription: <subscription name or id>
+Check depth:  <config only | include RBAC and managed identity | include what-if>
+
+Follow the azure-validate skill. Report every failed check with its exact fix,
+and finish with an explicit Validated or Not-validated status.
+```
+
 ## Triggers
 
 - Check if app is ready to deploy

@@ -7,6 +7,23 @@ metadata:
   version: "1.2.1"
 ---
 
+## Request template
+
+```text
+Set up a Microsoft Entra app registration.
+
+App name:        <name>
+App type:        <web app | SPA | console or desktop | daemon or service | mobile>
+Tenant:          <tenant id or name>
+Auth flow:       <user sign-in | client credentials | device code | on-behalf-of>
+API permissions: <which APIs and scopes>
+Credential:      <client secret | certificate | federated identity>
+Language:        <for the MSAL example>
+
+Follow the entra-app-registration skill. Never print a real secret value; tell
+me where it is stored instead.
+```
+
 ## Overview
 
 Microsoft Entra ID (formerly Azure Active Directory) is Microsoft's cloud-based identity and access management service. App registrations allow applications to authenticate users and access Azure resources securely.

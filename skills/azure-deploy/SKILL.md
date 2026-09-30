@@ -31,6 +31,23 @@ metadata:
 >
 > `azure-prepare` → `azure-validate` → `azure-deploy`
 
+## Request template
+
+```text
+Deploy this app to Azure.
+
+App path:        <repo or app directory>
+Deployment plan: <.azure/deployment-plan.md present? yes/no>
+IaC:             <Bicep | Terraform | azd>
+Environment:     <env name>
+Subscription:    <subscription name or id>
+Region:          <region>
+
+Follow the azure-deploy skill. Confirm azure-validate has completed with status
+Validated before executing anything. If the deployment plan or infrastructure
+files are missing, stop and tell me rather than generating them here.
+```
+
 ## Triggers
 
 Activate this skill when user wants to:

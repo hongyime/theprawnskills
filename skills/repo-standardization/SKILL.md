@@ -19,6 +19,22 @@ metadata:
 Bring any repository to the house standard: correct tier-appropriate files,
 metadata, licensing, and hygiene — then prove it with a compliance report.
 
+## Request template
+
+```text
+Standardize this repository.
+
+Repo:        <owner/name or local path>
+Tier:        <T1 | T2 | T3, or "determine it">
+Scope:       <full checklist | licensing only | metadata only | scan only>
+Visibility:  <public | private>
+Deliverable: <apply changes | compliance report only>
+
+Follow the repo-standardization skill. Determine the tier before applying
+anything. If scanning finds a secret, report it and recommend rotation; never
+commit it.
+```
+
 ## Repo Tiers
 
 Determine the tier FIRST; requirements scale with exposure:
