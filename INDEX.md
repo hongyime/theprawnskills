@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 222 |
-| All definitions, including nested skills and portable variants | 239 |
+| Top-level skills | 223 |
+| All definitions, including nested skills and portable variants | 240 |
 | Portable variants | 7 |
 | Daily profile | 65 |
 
@@ -18,6 +18,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | Skill | Purpose | Default status |
 |---|---|---|
 | `agent-browser` | Browser automation for AI agents via inference.sh. Navigate web pages, interact with elements using @e refs, take screenshots, record video. Capabilities: web scraping, form fil... | DAILY |
+| `agent-machine-bootstrap` | Bootstrap a new or rebuilt machine into a working coding-agent environment: base tooling, OpenCode and other agent CLIs, cloud model auth, agent config, plugins, MCP servers, an... | ON-DEMAND |
 | `agent-tools` | Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, ... | ON-DEMAND |
 | `agent-ui` | Batteries-included agent component for React/Next.js from ui.inference.sh. One component with runtime, tools, streaming, approvals, and widgets built in. Capabilities: drop-in a... | ON-DEMAND |
 | `agents-sdk` | Build AI agents on Cloudflare Workers using the Agents SDK. Load when creating stateful agents, durable workflows, real-time WebSocket apps, scheduled tasks, MCP servers, chat a... | DAILY |
