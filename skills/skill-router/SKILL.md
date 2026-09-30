@@ -84,13 +84,20 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Update one skill or improve skills from coding practice | `skill-update`, `skill-authoring` |
 | Clean up, prune, dedupe, or reduce skill context | `skill-cleanup`, `skill-remove` |
 | Remove or retire a skill | `skill-remove`, `skill-cleanup` |
-| Find a skill or decide what applies | `skill-router`, `find-skills`, `skill-authoring` |
+| Score, review or audit skill quality | `skill-judge`, `skill-reviewer`, `skill-authoring` |
+| Find a skill or decide what applies | `skill-router`, `find-skills`, `skill-authoring`, `related-skill` |
 | Coding, refactor, review, testing | `refactor`, `requesting-code-review`, `systematic-debugging`, `webapp-testing` |
 | Verify a completed change, ready for review, completion evidence | `verification-loop`; `check` specifically for SPEC drift |
 | Python fixtures, mocks, boundary cases, unittest or pytest | `python-testing`; `python-sdk` specifically for inference.sh |
 | React component, hook or form tests | `react-testing`; `webapp-testing` for real browser flows |
+| React or TypeScript engineering patterns | `react-dev`, `react-useeffect`, `typescript-advanced-types`, `vercel-composition-patterns`, `vercel-react-view-transitions`; `vercel-react-native-skills` for React Native |
+| Agent-facing UI components: chat, tools, widgets | `agent-ui`, `chat-ui`, `tools-ui`, `widgets-ui`; `web-artifacts-builder` for multi-component HTML artifacts |
+| Database schema, indexes, migrations | `database-schema-designer`; `supabase-postgres-best-practices` for Postgres specifics; `project-db-autodetect` to detect local settings |
+| Application and API security practices | `security-best-practices`; `mcp-security-hygiene` for MCP configuration |
+| Dependency updates and vulnerability triage | `dependency-updater` |
 | Pi-hole DNS, Docker resolver health, Tailscale DNS routing | `homelab-pihole-dns`, `docker-expert` |
 | VirtualBox guest VM access, guestcontrol, host-only networking, guest shell traps | `virtualbox-guest-access` |
+| Android device or emulator control over adb | `orca-emulator-android` |
 | New machine setup, fresh install, replicate or move an agent environment | `agent-machine-bootstrap`; `virtualbox-guest-access` for VM access, `opencode-bedrock-config` for provider auth |
 | Bug investigation and root cause | `bug-diagnosis`, `systematic-debugging`, `backprop` |
 | Merge conflicts and git surgery | `merge-conflict-resolution`, `commit-work`, `git-commit` |
@@ -103,17 +110,36 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Session continuity across agents | `cross-harness-state`, `session-handoff` |
 | Repo standardization and compliance | `repo-standardization` |
 | Compare repo with competitors / market upgrades | `competitive-upgrade`, `competitor-teardown` |
-| Web or frontend design | `frontend-design`, `web-design-guidelines`, `shadcn`, `impeccable` |
-| Cloudflare and Workers | `cloudflare`, `wrangler`, `workers-best-practices`, `durable-objects`, `agents-sdk`, `turnstile-spin` |
-| Azure | `azure-prepare`, `azure-deploy`, `azure-validate`, `azure-diagnostics`, `azure-cost`, `azure-ai`, `microsoft-foundry` |
+| Reduce token usage, compress output or memory files | `caveman`, `caveman-compress`, `caveman-help`; `caveman-commit` for commits, `caveman-review` for PR feedback, `caveman-stats` for usage, `cavecrew` for compressed subagents |
+| Build or repair an MCP server or MCP config | `mcp-builder`; `mcp-health-repair` for failures, `mcp-security-hygiene` for secrets, `postgres-mcp-onboarding` for Postgres MCP |
+| Web or frontend design | `frontend-design`, `web-design-guidelines`, `shadcn`, `impeccable`; `landing-page-design` for conversion pages, `email-design` for email |
+| Brand, theme, palette or visual identity | `brand-guidelines`, `theme-factory`, `logo-design-guide`, `canvas-design` |
+| Static visual assets: covers, icons, screenshots, social images | `book-cover-design`, `app-store-screenshots`, `og-image-design`, `character-design-sheet`, `slack-gif-creator`, `algorithmic-art` |
+| Charts, dashboards and data storytelling | `data-visualization`; `pitch-deck-visuals` for investor decks |
+| Web performance and Core Web Vitals | `web-perf` |
+| Cloudflare and Workers | `cloudflare`, `wrangler`, `workers-best-practices`, `durable-objects`, `agents-sdk`, `turnstile-spin`; `cloudflare-email-service` for email, `sandbox-sdk` for sandboxed execution |
+| Cloudflare Zero Trust / SASE | `cloudflare-one`; `cloudflare-one-migrations` for migrating off another vendor |
+| Azure: apps, deploy, diagnose, cost | `azure-prepare`, `azure-deploy`, `azure-validate`, `azure-diagnostics`, `azure-cost`, `azure-ai`, `microsoft-foundry` |
+| Azure: infrastructure, compute, storage, quotas, inventory | `azure-enterprise-infra-planner`, `azure-compute`, `azure-storage`, `azure-quotas`, `azure-resource-lookup`, `azure-resource-visualizer`, `azure-upgrade`, `azure-cloud-migrate`, `azure-compliance` |
+| Azure: Kubernetes and AI gateway | `azure-kubernetes`, `azure-kubernetes-automatic-readiness`, `airunway-aks-setup`, `azure-aigateway` |
+| Azure: data, messaging, telemetry | `azure-kusto`, `azure-messaging`, `appinsights-instrumentation` |
+| Microsoft Entra identity and app registration | `entra-app-registration`; `entra-agent-id` for agent identities |
+| Azure OpenAI model deployment and capacity | `deploy-model`, `preset` |
 | Supabase or Postgres | `supabase`, `supabase-postgres-best-practices`, `postgres-mcp-onboarding` |
 | Vercel | `deploy-to-vercel`, `vercel-react-best-practices`, `vercel-cli-with-tokens` |
-| Documents, PDFs, spreadsheets, decks | `docx`, `pdf`, `xlsx`, `pptx` |
-| Writing and communication | `technical-blog-writing`, `press-release-writing`, `case-study-writing`, `newsletter-curation` |
-| Marketing and launch content | `seo-content-brief`, `product-hunt-launch`, `linkedin-content`, `content-repurposing` |
-| Image generation or editing | `ai-image-generation`, `gpt-image`, `flux-image`, `background-removal`, `image-upscaling`, `product-photography` |
-| Video, audio, voice, podcasts | `image-to-video`, `ai-avatar-video`, `text-to-speech`, `speech-to-text`, `ai-podcast-creation` |
-| Social content | `ai-social-media-content`, `social-media-carousel`, `twitter-thread-creation`, `youtube-thumbnail-design` |
+| Documents, PDFs, spreadsheets, decks | `docx`, `pdf`, `xlsx`, `pptx`; `pitch-deck-visuals` for investor decks |
+| Writing and communication | `technical-blog-writing`, `press-release-writing`, `case-study-writing`, `newsletter-curation`; `internal-comms` for internal updates, `doc-coauthoring` for structured docs, `product-changelog` for release notes |
+| Marketing and launch content | `seo-content-brief`, `product-hunt-launch`, `linkedin-content`, `content-repurposing`; `customer-persona` for audience research |
+| Prompt engineering and model prompting technique | `prompt-engineering`; `video-prompting-guide` for video models |
+| Image generation or editing | `ai-image-generation`, `gpt-image`, `flux-image`, `background-removal`, `image-upscaling`, `product-photography`, `ai-product-photography`; model-specific: `nano-banana`, `nano-banana-2`, `qwen-image-2`, `qwen-image-2-pro`, `p-image` |
+| Video generation | `image-to-video`, `google-veo`, `seedance`, `happyhorse`, `p-video`, `remotion-render`; `video-prompting-guide` for prompting, `video-ad-specs` for platform specs, `storyboard-creation` and `explainer-video-guide` for planning |
+| Talking-head and avatar video | `ai-avatar-video`, `talking-head-production`, `p-video-avatar` |
+| Speech, voice and music | `text-to-speech`, `speech-to-text`, `ai-voice-cloning`, `ai-music-generation`, `dialogue-audio`, `ai-podcast-creation`; ElevenLabs-specific: `elevenlabs-tts`, `elevenlabs-stt`, `elevenlabs-dialogue`, `elevenlabs-dubbing`, `elevenlabs-music`, `elevenlabs-sound-effects`, `elevenlabs-voice-changer`, `elevenlabs-voice-isolator` |
+| Multi-step AI content or automation pipelines | `ai-content-pipeline`, `ai-automation-workflows`, `ai-rag-pipeline`, `ai-marketing-videos` |
+| inference.sh platform: run apps, build apps, SDKs | `infsh-cli`, `agent-tools`, `building-inferencesh-apps`, `python-sdk`, `javascript-sdk`, `python-executor`, `llm-models` |
+| Social content | `ai-social-media-content`, `social-media-carousel`, `twitter-thread-creation`, `youtube-thumbnail-design`; `twitter-automation` for posting via API |
+| Web search, scraping and page extraction | `web-search`, `web-to-markdown`, `agent-browser` |
+| Claude API, model ids, pricing, tool use | `claude-api` |
 | Agent tooling and delegation | `cli-agent-router`, `claude-code-cli`, `opencode-cli`, `codex`, `agent-browser` |
 | OpenCode Bedrock provider auth, region pinning, per-agent model override | `opencode-bedrock-config` |
 | Orca ADE worktrees, terminals, handoffs, or embedded browser | `orca-cli`; `orchestration` for supervised workers; `orca-per-workspace-env` for environment recipes; `computer-use` only for visible desktop GUI tasks |
