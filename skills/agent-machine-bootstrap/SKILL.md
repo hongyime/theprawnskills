@@ -151,8 +151,16 @@ cause of confusing failure.
 | 9 | Desktop and sync apps | Messaging and communication clients, cloud storage or file-sync clients, and any GUI utilities the operator expects | Needs base tooling and often a desktop session; irrelevant to proving the agent environment works, so it comes after verification-critical layers | Each launches, and any sync client completes one successful sync | Installing a GUI app on a headless target, or a proprietary sync service with no first-party client for the target platform, needing a third-party client or an object-storage bridge instead |
 | 10 | Workload tooling | Container runtimes, databases, language toolchains, and anything specific to the work this machine will do | Deliberately last: none of it is needed to prove the agent environment works, and it competes for the resources sized above | Only what the workload needs | Installing tens of gigabytes of container images before discovering the agent never authenticated |
 
-Layers 9 and 10 are the only optional ones. Everything from 0 to 8 is required
-for a machine that is driven remotely; stop at 7 for a purely local machine.
+The **order** is fixed; **membership is not**. Which items appear in layers 3,
+9 and 10 is defined by the operator's baseline, not by this skill — a container
+runtime may be a hard requirement on every machine and still belongs last in
+sequence, because it does not gate whether the agent environment works.
+
+Layers 0 to 8 are structurally required for a remotely driven machine. A purely
+local machine can stop at 7. See
+[baseline inventory](references/baseline-inventory.md) for the operator's own
+must-have list and per-machine template.
+
 ## OS differences that actually matter
 
 | Concern | Windows | macOS | Linux | VM or VPS guest |
