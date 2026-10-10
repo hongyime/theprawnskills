@@ -27,8 +27,65 @@ sequence, not priority: a must-have can still be installed last.
 | Sync | Cloud file-sync client | 9 | See platform notes |
 | Container | Docker | 10 | **Must-have, installed last.** Largest disk and RAM cost of anything here |
 
-Optional per machine: MCP servers, databases, language toolchains, anything
-workload-specific.
+Optional per machine: extra MCP servers, databases, language toolchains,
+anything workload-specific. The OpenCode plugin and model baseline below is
+not optional on a machine that runs OpenCode.
+
+## OpenCode plugin and model baseline
+
+Layer 5 writes both config files. Layer 6 installs the plugin. Quit and
+restart OpenCode after either change. An already-open session keeps the model
+it was created with, so prove this on a new session.
+
+No hosts, account ids, or credentials belong in this file. The operator
+supplies IAM credentials on the target. Do not copy them from another machine.
+
+| Piece | Value |
+|---|---|
+| Agent | opencode only, unless the operator asks for more |
+| Provider | `amazon-bedrock` |
+| Region | `us-east-1` |
+| Auth | IAM via the process environment: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION=us-east-1`. Not `opencode auth login`. A bearer token in `AWS_BEARER_TOKEN_BEDROCK`, if set, overrides IAM |
+| Plugin | `oh-my-openagent` pinned at `4.19.4`, listed in both `opencode.jsonc` and `tui.json` |
+| Default model | `amazon-bedrock/global.anthropic.claude-fable-5-1` |
+| Thinking cap | `variant`, `reasoning`, and `reasoningEffort` all `xhigh`. Never `max` |
+
+Write the same model on every named agent in both files. The status bar reads
+the top-level `model` in `opencode.jsonc`. The agent picker reads
+`agent.<name>.model` there. The plugin reads `oh-my-openagent.json` when it
+spawns a subagent. Setting only one file leaves the other path on the old
+default.
+
+| Agents | Model id, after `amazon-bedrock/` |
+|---|---|
+| sisyphus, prometheus, metis, plan | `global.anthropic.claude-fable-5-1` |
+| atlas, sisyphus-junior | `global.anthropic.claude-sonnet-5` |
+| hephaestus, oracle, librarian, explore, momus, multimodal-looker | `global.openai.gpt-6-astra` |
+
+Categories live only in `oh-my-openagent.json`. They do not appear in the
+agent picker.
+
+| Categories | Model id, after `amazon-bedrock/` |
+|---|---|
+| visual-engineering, artistry, unspecified-high | `global.anthropic.claude-fable-5-1` |
+| quick, writing | `global.anthropic.claude-sonnet-5` |
+| ultrabrain, deep, unspecified-low | `global.openai.gpt-6-astra` |
+
+Do not set `fallback_models`. The plugin uses that list at spawn time as
+"first model present in the local catalog", not only after an error. An older
+catalog model in the list replaces the configured model immediately.
+
+Other switches in `opencode.jsonc`: set `"autoupdate": false`, and set
+`permission.webfetch` to `allow`.
+
+Claude Code user plugins, only when that CLI is requested: context7,
+frontend-design, code-review, code-simplifier, playwright, claude-md-management,
+ralph-loop, security-guidance, typescript-lsp, explanatory-output-style,
+learning-output-style, pr-review-toolkit, commit-commands, feature-dev.
+A machine that is OpenCode-only skips this list.
+
+Prove it: a new Sisyphus session must call Fable 5.1, and an explore subagent
+it spawns must call Astra, not an older default.
 
 ## Sizing before committing to a machine or paid tier
 

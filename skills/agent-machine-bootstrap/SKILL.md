@@ -11,7 +11,7 @@ description: >-
 license: MIT
 metadata:
   author: Local setup
-  version: "2.0.0"
+  version: "2.1.0"
   platform: "Windows, macOS, Linux and VM/VPS targets; any CLI agent as driver"
 ---
 
@@ -159,7 +159,8 @@ sequence, because it does not gate whether the agent environment works.
 Layers 0 to 8 are structurally required for a remotely driven machine. A purely
 local machine can stop at 7. See
 [baseline inventory](references/baseline-inventory.md) for the operator's own
-must-have list and per-machine template.
+must-have list, the OpenCode plugin and model baseline, and the per-machine
+template.
 
 ## OS differences that actually matter
 
