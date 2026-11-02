@@ -92,7 +92,7 @@ def inspect_directory_skills(root: Path, profile_skills: list[str]) -> tuple[int
     if not root.is_dir():
         return 0, 0, [], []
 
-    skill_folders = [p for p in root.iterdir() if p.is_dir()]
+    skill_folders = [p for p in root.iterdir() if p.is_dir() and not p.name.startswith(".")]
     skill_count = len(skill_folders)
     valid_names = set()
     broken_skills = []
@@ -185,7 +185,7 @@ $roots = @(
 $out = @()
 foreach ($r in $roots) {
   if (Test-Path -LiteralPath $r.Path) {
-    $dirs = Get-ChildItem -LiteralPath $r.Path -Directory -ErrorAction SilentlyContinue
+    $dirs = Get-ChildItem -LiteralPath $r.Path -Directory -ErrorAction SilentlyContinue | Where-Object { -not $_.Name.StartsWith('.') }
     $count = ($dirs | Measure-Object).Count
     $names = @()
     $broken = @()
@@ -232,7 +232,7 @@ out = []
 for rel, label in roots:
     p = home / rel
     if p.is_dir():
-        dirs = [d for d in p.iterdir() if d.is_dir()]
+        dirs = [d for d in p.iterdir() if d.is_dir() and not d.name.startswith('.')]
         valid = set()
         broken = []
         for d in dirs:
