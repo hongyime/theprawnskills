@@ -6,6 +6,8 @@ Added to `default-profile.toml` (under core coding workflow) so machines running
 Added discovery route in `skills/skill-router/SKILL.md` and regenerated `INDEX.md`.
 Verified with `quick_validate.py`, `update_skill_index.py --check`, `audit_text_safety.py`
 and `audit_skill_resources.py` (242 definitions, 1,682 Markdown files checked, 0 errors).
+Fleet rollout complete: pushed to origin/main (`363ac71`), deployed and verified across
+prawn-l390, prawn-3410, prawn-e14, and prawn-t14.
 
 # ECC second wave — 2026-09-27
 

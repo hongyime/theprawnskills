@@ -1,5 +1,9 @@
 # Decisions
 
+- 2026-11-02: Pushed project-transfer to origin/main (363ac71). Deployed and
+  verified across active Tailscale machines (prawn-l390, prawn-3410, prawn-e14,
+  prawn-t14).
+
 - 2026-11-02: Added project-transfer skill to skills/project-transfer/SKILL.md,
   registered in default-profile.toml and skills/skill-router/SKILL.md, and updated
   INDEX.md. Validation suite, resource audit, and text safety checks all pass.
