@@ -109,6 +109,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Large ambiguous initiatives | `wayfinder`, `domain-modeling`, `codebase-design` |
 | Guided step-by-step setup | `wizard`, `azure-prepare`, `wrangler` |
 | Session continuity across agents | `cross-harness-state`, `session-handoff` |
+| Transfer lessons, harvest rules or reuse workflows from another project | `project-transfer`; `cross-harness-state` for active sessions |
 | Repo standardization and compliance | `repo-standardization` |
 | Compare repo with competitors / market upgrades | `competitive-upgrade`, `competitor-teardown` |
 | Reduce token usage, compress output or memory files | `caveman`, `caveman-compress`, `caveman-help`; `caveman-commit` for commits, `caveman-review` for PR feedback, `caveman-stats` for usage, `cavecrew` for compressed subagents |

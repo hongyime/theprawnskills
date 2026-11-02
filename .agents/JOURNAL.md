@@ -1,5 +1,9 @@
 # Decisions
 
+- 2026-11-02: Added project-transfer skill to skills/project-transfer/SKILL.md,
+  registered in default-profile.toml and skills/skill-router/SKILL.md, and updated
+  INDEX.md. Validation suite, resource audit, and text safety checks all pass.
+
 - 2026-09-27: Published executable ECC adoption in b9bb28c; all three OS jobs
   passed run 36298257310 after fixing the macOS loopback/zombie-group failure.
   Verified 2,236 canonical skill files with existing CRLF/LF normalization and

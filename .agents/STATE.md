@@ -1,3 +1,12 @@
+# Add project-transfer skill — 2026-11-02
+
+Delivered new canonical skill `project-transfer` under `skills/project-transfer/SKILL.md`.
+Added to `default-profile.toml` (under core coding workflow) so machines running
+`scripts/install_skills.py` deploy it automatically to configured agent roots.
+Added discovery route in `skills/skill-router/SKILL.md` and regenerated `INDEX.md`.
+Verified with `quick_validate.py`, `update_skill_index.py --check`, `audit_text_safety.py`
+and `audit_skill_resources.py` (242 definitions, 1,682 Markdown files checked, 0 errors).
+
 # ECC second wave — 2026-09-27
 
 Skills delivered; live-agent pilot limitations remain recorded. Owner approved

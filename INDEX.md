@@ -8,10 +8,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 224 |
-| All definitions, including nested skills and portable variants | 241 |
+| Top-level skills | 225 |
+| All definitions, including nested skills and portable variants | 242 |
 | Portable variants | 7 |
-| Daily profile | 65 |
+| Daily profile | 66 |
 
 ## Skills
 
@@ -168,6 +168,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `product-hunt-launch` | Product Hunt launch optimization with specific specs, timing, and gallery strategy. Covers taglines, gallery images, maker comments, and launch day tactics. Use for: product lau... | ON-DEMAND |
 | `product-photography` | AI product photography with studio lighting, lifestyle shots, and packshot conventions. Covers angles, backgrounds, shadow types, hero shots, and e-commerce image requirements. ... | ON-DEMAND |
 | `project-db-autodetect` | Detect project database settings and map them to MCP runtime env. USE FOR: auto-detecting Postgres/SQLite from .env, docker-compose, Prisma, project folders. DO NOT USE FOR: pro... | DAILY |
+| `project-transfer` | One-time, on-demand transfer of proven lessons from a finished project (SOURCE) to another project (TARGET), even across different languages or stacks. Extracts rules, skills, l... | DAILY |
 | `prompt-engineering` | Master prompt engineering for AI models: LLMs, image generators, video models. Techniques: chain-of-thought, few-shot, system prompts, negative prompts. Models: Claude, GPT-4, G... | ON-DEMAND |
 | `prototype` | Build small throwaway proofs that answer one technical question fast. Use when the user says prototype this, spike it, try a quick proof of concept, test if X is feasible, valid... | DAILY |
 | `python-executor` | Execute Python code in a safe sandboxed environment via [inference.sh](https://inference.sh). Pre-installed: NumPy, Pandas, Matplotlib, requests, BeautifulSoup, Selenium, Playwr... | ON-DEMAND |
