@@ -1,3 +1,15 @@
+# Fleet skill verification and Windows Kiro junction repair — 2026-11-02
+
+- Repaired Kiro skill discovery on Windows fleet nodes: replaced individual per-skill
+  junctions with a single direct junction to the canonical OneDrive skills library
+  (`OneDrive\01 SKILLS\.agents\skills`), matching OpenCode's architecture.
+- Resolved NTFS "untrusted mount point" errors and corrupted reparse point issues.
+- Filtered internal agent dot-directories (e.g. `.system`) in `audit_fleet_skills.py`
+  and removed orphan empty directory under `.codex/skills`.
+- Verified all online fleet nodes: 0 broken skills, 66/66 daily profile skills
+  present and valid across OpenCode, Codex CLI, Claude Code, and Kiro.
+- All repositories fast-forwarded to main (`aa5a527`).
+
 # Fleet skill audit and generic verification — 2026-11-02
 
 Delivered `fleet-skill-audit` skill and portable `scripts/audit_fleet_skills.py`.

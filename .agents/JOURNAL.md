@@ -1,5 +1,10 @@
 # Decisions
 
+- 2026-11-02: Resolved Windows junction traversal defects and fleet audit false positives.
+  Updated Kiro discovery on Windows nodes to use a single directory junction directly
+  to canonical OneDrive skills (matching OpenCode architecture, 0 broken skills).
+  Filtered dot-directories (.system) in audit scripts and cleaned up orphan empty runtime directory.
+
 - 2026-11-02: Added fleet-skill-audit skill and generic scripts/audit_fleet_skills.py.
   Supports dynamic fault-tolerant multi-agent skill verification with privacy masking.
 
