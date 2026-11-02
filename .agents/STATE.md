@@ -1,3 +1,11 @@
+# Fleet skill audit and generic verification — 2026-11-02
+
+Delivered `fleet-skill-audit` skill and portable `scripts/audit_fleet_skills.py`.
+Provides generic, fault-tolerant verification of agent discovery roots (OpenCode,
+Codex, Claude Code, Kiro, Cursor, DeepSeek) without requiring agent logins.
+Supports dynamic network discovery and anonymizes node names and IPs by default.
+Registered in `skills/skill-router/SKILL.md` and updated `INDEX.md`.
+
 # Add project-transfer skill — 2026-11-02
 
 Delivered new canonical skill `project-transfer` under `skills/project-transfer/SKILL.md`.
@@ -7,7 +15,7 @@ Added discovery route in `skills/skill-router/SKILL.md` and regenerated `INDEX.m
 Verified with `quick_validate.py`, `update_skill_index.py --check`, `audit_text_safety.py`
 and `audit_skill_resources.py` (242 definitions, 1,682 Markdown files checked, 0 errors).
 Fleet rollout complete: pushed to origin/main (`363ac71`), deployed and verified across
-prawn-l390, prawn-3410, prawn-e14, and prawn-t14.
+active Linux and Windows fleet nodes.
 
 # ECC second wave — 2026-09-27
 

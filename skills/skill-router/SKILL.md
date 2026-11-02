@@ -85,6 +85,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Clean up, prune, dedupe, or reduce skill context | `skill-cleanup`, `skill-remove` |
 | Remove or retire a skill | `skill-remove`, `skill-cleanup` |
 | Score, review or audit skill quality | `skill-judge`, `skill-reviewer`, `skill-authoring` |
+| Audit fleet machine skill discovery, health, and agent roots | `fleet-skill-audit`, `skill-judge` |
 | Find a skill or decide what applies | `skill-router`, `find-skills`, `skill-authoring`, `related-skill` |
 | Coding, refactor, review, testing | `refactor`, `requesting-code-review`, `systematic-debugging`, `webapp-testing` |
 | Verify a completed change, ready for review, completion evidence | `verification-loop`; `check` specifically for SPEC drift |

@@ -1,8 +1,10 @@
 # Decisions
 
+- 2026-11-02: Added fleet-skill-audit skill and generic scripts/audit_fleet_skills.py.
+  Supports dynamic fault-tolerant multi-agent skill verification with privacy masking.
+
 - 2026-11-02: Pushed project-transfer to origin/main (363ac71). Deployed and
-  verified across active Tailscale machines (prawn-l390, prawn-3410, prawn-e14,
-  prawn-t14).
+  verified across active fleet nodes.
 
 - 2026-11-02: Added project-transfer skill to skills/project-transfer/SKILL.md,
   registered in default-profile.toml and skills/skill-router/SKILL.md, and updated

@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 225 |
-| All definitions, including nested skills and portable variants | 242 |
+| Top-level skills | 226 |
+| All definitions, including nested skills and portable variants | 243 |
 | Portable variants | 7 |
 | Daily profile | 66 |
 
@@ -121,6 +121,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `entra-app-registration` | Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up auth... | ON-DEMAND |
 | `explainer-video-guide` | Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script formulas, pacing rules, scene planning, and multi-tool pipelines. Use for: product d... | ON-DEMAND |
 | `find-skills` | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extendin... | DAILY |
+| `fleet-skill-audit` | Generic, fault-tolerant audit of agent skills discovery and health across all fleet machines. Verifies that agents (OpenCode, Codex, Claude Code, Kiro, Cursor, DeepSeek) discove... | ON-DEMAND |
 | `flux-image` | Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with custom style adaptation. Capabilities: text-to-image, im... | ON-DEMAND |
 | `frontend-design` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't ... | ON-DEMAND |
 | `git-commit` | Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions... | DAILY |
