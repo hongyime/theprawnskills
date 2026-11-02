@@ -36,6 +36,7 @@ STANDARD_ROOTS_WINDOWS = [
     (".codex\\skills", "Codex CLI"),
     (".claude\\skills", "Claude Code"),
     (".cursor\\skills", "Cursor"),
+    (".config\\opencode\\skills", "OpenCode (Dedicated)"),
     (".kiro\\skills", "Kiro"),
     ("OneDrive\\01 SKILLS\\.agents\\skills", "Canonical OneDrive Shared"),
 ]
@@ -179,6 +180,7 @@ $roots = @(
   @{ Path = (Join-Path $HOME '.codex\\skills'); Label = 'Codex CLI' },
   @{ Path = (Join-Path $HOME '.claude\\skills'); Label = 'Claude Code' },
   @{ Path = (Join-Path $HOME '.cursor\\skills'); Label = 'Cursor' },
+  @{ Path = (Join-Path $HOME '.config\\opencode\\skills'); Label = 'OpenCode (Dedicated)' },
   @{ Path = (Join-Path $HOME '.kiro\\skills'); Label = 'Kiro' },
   @{ Path = (Join-Path $HOME 'OneDrive\\01 SKILLS\\.agents\\skills'); Label = 'OneDrive Shared' }
 )

@@ -1,5 +1,9 @@
 # Decisions
 
+- 2026-11-02: Replicated 66 daily skills to dedicated agent roots (Claude Code, OpenCode,
+  Codex CLI, Cursor) across all Linux and Windows fleet nodes, achieving 100% OK (66/66)
+  across all online agents while preserving existing custom skills.
+
 - 2026-11-02: Resolved Windows junction traversal defects and fleet audit false positives.
   Updated Kiro discovery on Windows nodes to use a single directory junction directly
   to canonical OneDrive skills (matching OpenCode architecture, 0 broken skills).

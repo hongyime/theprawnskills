@@ -1,3 +1,16 @@
+# Full fleet agent replication and dedicated root rollout — 2026-11-02
+
+- Replicated all 66 profile skills to dedicated agent roots across the entire fleet:
+  - Linux: symlinked 66 profile skills into `~/.claude/skills`, `~/.codex/skills`,
+    and `~/.config/opencode/skills`, while preserving existing custom skills (`arkcli-*`)
+    and internal system directories (`.system`).
+  - Windows: copied 66 profile skills into `.cursor\skills` and `.config\opencode\skills`
+    across all nodes, matching existing `.claude` and `.codex` roots.
+- Updated `audit_fleet_skills.py` to audit dedicated OpenCode roots on Windows.
+- Verified fleet-wide audit: all 4 online nodes show 100% OK (66/66) across all
+  agents (Shared, Codex CLI, Claude Code, Cursor, OpenCode, Kiro).
+- 0 broken skills, 0 missing profile skills across all nodes.
+
 # Fleet skill verification and Windows Kiro junction repair — 2026-11-02
 
 - Repaired Kiro skill discovery on Windows fleet nodes: replaced individual per-skill
