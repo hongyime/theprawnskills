@@ -125,7 +125,7 @@ def audit_local_host(library_root: Path, profile_skills: list[str], mask: bool =
     home = Path.home()
     is_win = sys.platform == "win32"
     os_name = "windows" if is_win else ("darwin" if sys.platform == "darwin" else "linux")
-    raw_name = os.environ.get("HOSTNAME") or "localhost"
+    raw_name = os.environ.get("COMPUTERNAME") or os.environ.get("HOSTNAME") or "localhost"
     display_name = f"{mask_string(raw_name)} (local)" if mask else f"{raw_name} (local)"
 
     roots_to_scan = STANDARD_ROOTS_WINDOWS if is_win else STANDARD_ROOTS_POSIX
@@ -298,6 +298,7 @@ print(json.dumps(out))
             # Privacy mask user paths on remote machines
             clean_path = re.sub(r"^[A-Za-z]:\\Users\\[^\\]+", "%USERPROFILE%", raw_path)
             clean_path = re.sub(r"^/home/[^/]+", "~", clean_path)
+            clean_path = re.sub(r"^/Users/[^/]+", "~", clean_path)
 
             root_results.append(RootAuditResult(
                 path=clean_path,
@@ -506,7 +507,7 @@ def main() -> int:
                 "message": h.message,
                 "roots": [
                     {
-                        "path": r.path if args.unmask else mask_string(r.path),
+                        "path": r.path,
                         "label": r.label,
                         "skill_count": r.skill_count,
                         "profile_present": r.profile_present,

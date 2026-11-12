@@ -104,3 +104,6 @@
 - 2026-09-27: Owner approved ECC second wave: four on-demand skills, existing CLI/routing improvements and a bounded terminal/agent pilot; daily profile stays 65. Keep supervisor scope detection distinct from sandbox enforcement, preserve failed host-pilot evidence, and deliver through main/OneDrive without claiming new remote-machine verification.
 
 - 2026-09-27: Added four official Orca discovery skills at upstream 90bae01db930f11951f75cb28f2da54c2b8b4b9b with MIT license and provenance; preserved the 65-skill profile, all three registries and existing links. Installed local Codex copies, added one router entry, and passed metadata, text-safety, resource and preservation checks. No fleet rollout.
+- 2026-11-12 15:01:03 +08:00 [PRAWN-T14/codex/session-start] branch=main head=6e61c4a dirty=0
+- 2026-11-12 15:13:23 +08:00 [PRAWN-T14/codex/session-start] branch=main head=6e61c4a dirty=0
+- 2026-11-12: Fleet-audit paths now remain readable JSON values, and legacy profile installation preserves reparse-point roots and skills. Bot merges wait for Skill library through protected auto-merge rather than bypassing branch protection.

@@ -224,3 +224,24 @@ The older remote-machine rollout notes below remain unresolved; this portfolio c
 ## Privacy-safe machine examples - 2026-09-27
 
 Keep machine-specific inventory in an ignored private override, with disabled public examples and packaging exclusions. Preserve the current skill catalog, profile and newer provider-auth instructions. No fleet installation or registry-based synchronization ran.
+
+## Current task — 2026-11-12
+
+Hardened the fleet audit, legacy PowerShell installer, and bot merge gates. The
+audit copies remain byte-identical; local host naming and remote path masking
+are corrected; linked installer roots/destinations are skipped. Bot workflows
+now wait for `Skill library` and use protected auto-merge. Focused regressions,
+library integrity gates, and a fresh read-only 4/4 fleet audit pass.
+
+<!-- MOLT_AUTO_START -->
+## Auto State
+
+- Updated: 2026-11-12 15:13:23 +08:00
+- Machine: PRAWN-T14
+- Harness: codex
+- Event: session-start
+- Branch: main
+- HEAD: 6e61c4a
+- Dirty files: 0
+- Resume hint: Read .agents/STATE.md, then the latest file in .agents/handoffs/ if present.
+<!-- MOLT_AUTO_END -->

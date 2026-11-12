@@ -7,8 +7,16 @@ $ErrorActionPreference = "Stop"
 
 function Read-TomlWithPython {
   param([string]$Path)
-  $json = python -c "import json, pathlib, tomllib; print(json.dumps(tomllib.loads(pathlib.Path(r'$Path').read_text(encoding='utf-8-sig'))))"
-  return $json | ConvertFrom-Json
+  $parser = "import json, pathlib, sys, tomllib; print(json.dumps(tomllib.loads(pathlib.Path(sys.argv[1]).read_text(encoding='utf-8-sig'))))"
+  $json = & python -c $parser $Path
+  if ($LASTEXITCODE -ne 0) { throw "Failed to parse TOML: $Path" }
+  return $json | ConvertFrom-Json -ErrorAction Stop
+}
+
+function Test-ReparsePoint {
+  param([string]$Path)
+  $item = Get-Item -Force -LiteralPath $Path -ErrorAction SilentlyContinue
+  return $null -ne $item -and [bool]($item.Attributes -band [IO.FileAttributes]::ReparsePoint)
 }
 
 function Add-Result {
@@ -30,6 +38,10 @@ function Install-ProfileLocally {
   $today = Get-Date -Format "yyyy-MM-dd"
 
   foreach ($root in $InstalledRoots) {
+    if (Test-ReparsePoint -Path $root) {
+      Add-Result $Results $MachineId $root "SKIPPED-LINK" "installed root"
+      continue
+    }
     if (-not $WhatIfMode) {
       New-Item -ItemType Directory -Force -Path $root | Out-Null
     }
@@ -47,6 +59,10 @@ function Install-ProfileLocally {
         continue
       }
 
+      if (Test-ReparsePoint -Path $dst) {
+        Add-Result $Results $MachineId $root "SKIPPED-LINK" $skillName
+        continue
+      }
       if (Test-Path -LiteralPath $dst) {
         $rootKey = ($root -replace "[:\\]+", "_").Trim("_")
         $archiveDir = Join-Path $WorkspacePath "_removed\$today\$MachineId\pre-default-profile\$rootKey"
@@ -92,7 +108,16 @@ function Install-ProfileOverSsh {
 `$skillsRoot = Join-Path `$workspacePath 'skills'
 `$today = Get-Date -Format 'yyyy-MM-dd'
 `$rows = New-Object System.Collections.Generic.List[object]
+function Test-ReparsePoint {
+  param([string]`$Path)
+  `$item = Get-Item -Force -LiteralPath `$Path -ErrorAction SilentlyContinue
+  return `$null -ne `$item -and [bool](`$item.Attributes -band [IO.FileAttributes]::ReparsePoint)
+}
 foreach (`$root in @(`$installedRoots)) {
+  if (Test-ReparsePoint -Path `$root) {
+    `$rows.Add([pscustomobject]@{ Machine=`$machineId; Root=`$root; Status='SKIPPED-LINK'; Detail='installed root' })
+    continue
+  }
   if (-not `$whatIfMode) { New-Item -ItemType Directory -Force -Path `$root | Out-Null }
   foreach (`$skillName in @(`$skills)) {
     `$src = Join-Path `$skillsRoot `$skillName
@@ -103,6 +128,10 @@ foreach (`$root in @(`$installedRoots)) {
     }
     if (`$whatIfMode) {
       `$rows.Add([pscustomobject]@{ Machine=`$machineId; Root=`$root; Status='WOULD-INSTALL'; Detail=`$skillName })
+      continue
+    }
+    if (Test-ReparsePoint -Path `$dst) {
+      `$rows.Add([pscustomobject]@{ Machine=`$machineId; Root=`$root; Status='SKIPPED-LINK'; Detail=`$skillName })
       continue
     }
     if (Test-Path -LiteralPath `$dst) {
@@ -163,4 +192,4 @@ foreach ($machine in @($machinesData.machines)) {
   }
 }
 
-$results | Format-Table -AutoSize
+$results | Format-Table Machine, Status, Detail, Root -AutoSize

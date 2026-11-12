@@ -2,7 +2,7 @@
 
 A full skill library plus the daily profile in `default-profile.toml`.
 The library contains 215 top-level skills (225 `SKILL.md` files including
-nested skills), with 65 selected for daily use. The recovered originals remain
+nested skills), with 66 selected for daily use. The recovered originals remain
 available alongside the new daily `visual-explainer` skill.
 
 ## Your daily visual standard
@@ -178,7 +178,7 @@ copies on Windows, symlinks on macOS/Linux. No administrator rights are needed
 for the default copy installation. Do not change symlink privileges or require OneDrive.
 Run --dry-run first. If it reports conflicts, inspect and report them while
 preserving all existing files. If the preview succeeds, run --apply and
---check. Confirm that the 65 daily skills resolve, including the standalone
+--check. Confirm that the 66 daily skills resolve, including the standalone
 skill-router and visual-explainer with its template, and that the router can
 locate an on-demand skill such as pdf.
 Keep the full library in the clone and use only the profile in agent discovery.

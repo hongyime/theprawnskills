@@ -32,7 +32,7 @@ The GH_PAT (GitHub Personal Access Token) requires:
 The sync-repo-settings.yml workflow **propagates GH_PAT to every owned non-archived repository** as a repository secret. This means:
 
 - If the PAT is compromised, an attacker has write access to ALL repositories
-- The PAT is used with --admin flag in bot auto-merge workflows, bypassing all branch protection
+- Bot auto-merge uses GitHub's protected `--auto --squash` path; the PAT cannot bypass branch protection
 
 ### Mitigation
 
@@ -41,10 +41,11 @@ The sync-repo-settings.yml workflow **propagates GH_PAT to every owned non-archi
 - PAT should be rotated quarterly (recommended)
 - Consider using a fine-grained PAT with minimal scope when GitHub supports it for all required operations
 
-### Auto-merge --admin Pattern
+### Protected Auto-merge Pattern
 
-Bot PRs (Dependabot, Snyk, Sourcery, DeepSource, Copilot SWE) are merged with --admin to bypass branch protection. This is acceptable because:
+Bot PRs (Dependabot, Snyk, Sourcery, DeepSource, Copilot SWE) are queued with
+`--auto --squash`. GitHub merges them only after its required protections pass:
 
 1. These bots only modify dependency manifests and lockfiles
 2. TruffleHog and CodeQL scan every commit regardless of merge method
-3. The Build Check workflow validates the build before --admin merge is triggered
+3. The Skill library workflow validates library changes before auto-merge is enabled
