@@ -1,3 +1,35 @@
+# Hill-climb skill created (on demand, uncommitted) — 2026-11-11
+
+- New skill `hill-climb` in `skills/hill-climb/SKILL.md`, based on Theo's
+  `council` (t3dotgg/tstack), generalised from UI-only to any scoreable
+  goal. Judges: agy (implementer first) + Codex (critic), 3rd judge
+  deterministic. Defaults: threshold 9/10, max 8 rounds, plateau 2.
+- Debian/Linux addendum in the skill: library clone paths resolve from library.json; `~/.agents/skills`, Python installer.
+  Windows/OneDrive text preserved. Not added to `default-profile.toml`.
+- INDEX.md regenerated (227 top-level, 244 definitions), router route
+  added, validations pass: quick_validate, index check, text safety 0,
+  resource audit Missing 0, installer dry-run 66 selected / 0 changes.
+- v1.1.0 (2026-11-12): fallback ladder + walkthrough mode added per
+  the user's concern — see skill. No scores invented, no silent substitution.
+- v1.2.0 (2026-11-12): Codex audit verdict NEEDS FIXES 7.5/10, 4 blockers
+  fixed (score aggregation, no-delegate self-review, fleet paths,
+  walkthrough defaults). Report: ~/workspace/hill-climb-audit-codex-20261112.md.
+- v1.3.0 (2026-11-12): de-fleeted per the user — no machine names, personal
+  paths, provider balances, or "Bryan"/"fleet" in the skill. Grep clean.
+- v1.4.0 (2026-11-12): agy audit NEEDS FIXES 8.0/10, all findings fixed
+  (ONE model judge, not two; plateau = stop, escape is a user menu; git
+  checkpoint/revert; baseline must be scored; drift every 3rd round;
+  headless ban scoped to fleet work). Reports in ~/workspace.
+- v1.5.0 (2026-11-12): Codex third check NEEDS FIXES 8.2/10, all fixed
+  (baseline gate-first, drift re-anchor, degraded exception, scoped git
+  commands, stale wording). Report: ~/workspace/hill-climb-audit-codex-v140-20261112.md.
+- STATE.md / JOURNAL.md scrubbed 2026-11-12 (machine names → generic
+  roles, personal paths removed, grep clean).
+- Pulled 2026-11-12 15:42 SGT: HEAD 04477d5 (Bryan's hardening commit).
+- Verified READY by Muse 2026-11-12 against the Codex third-check
+  findings (all 5 fixed, full consistency sweep clean). Committed to
+  main and pushed to origin/main on the user's word.
+
 # Full fleet agent replication and dedicated root rollout — 2026-11-02
 
 - Replicated all 66 profile skills to dedicated agent roots across the entire fleet:
@@ -48,7 +80,7 @@ Skills delivered; live-agent pilot limitations remain recorded. Owner approved
 proceeding with the reviewed second-wave plan:
 API contracts, codebase onboarding, detailed ADRs, then a bounded orchestration
 pilot and selective agent review lenses. Keep 65 daily skills; publish tested
-source through main and OneDrive, with local T14 copy verification. Other-machine
+source through main and OneDrive, with local copy verification on the Windows daily laptop. Other-machine
 delivery continues under the owner's OneDrive assumption.
 
 Implementation starts from 38b8bb5 and preserves the intervening privacy fix.
@@ -57,7 +89,7 @@ Three-OS CI 36302727616 passed: 99 Python cases with platform/browser skips,
 plus four React and four Chromium cases per OS. Security jobs passed.
 OneDrive: 2,256 tracked skill files match tested Git content after line-ending
 normalization; its router matches plus the separately added local Orca row.
-T14: 12 affected daily skills refreshed (12 files exact, one router merge
+Windows daily laptop: 12 affected daily skills refreshed (12 files exact, one router merge
 verified); all 65 profile entries resolve. Preserved 12 local Orca files and
 their uncommitted state/index changes. Private machine inventory moved to its
 ignored override. No new backup copies; temporary merge stash removed.
@@ -108,33 +140,33 @@ See docs/plans/2026-09-27-ecc-second-wave.md for the three next skill proposals,
 bounded loop/tmux/dmux pilot and all 68 upstream agent role mappings.
 
 OneDrive source: 2,236 tracked skill files match tested content after existing
-CRLF/LF normalization. Six affected T14 daily copies: 41 files match source
+CRLF/LF normalization. Six affected daily copies on the Windows daily laptop: 41 files match source
 SHA-256 exactly. Four new skills are readable on demand through the shared
 library; no new backup copies were created. Automatic approval review blocked
-cleanup of three temporary test folders. Earlier T14 Chromium shutdown delays
+cleanup of three temporary test folders. Earlier Chromium shutdown delays on the Windows daily laptop
 remain recorded separately from the clean final Windows CI result.
 
 First-wave next step was owner review; the owner has now approved proceeding.
 
 # Installed skill refresh — 2026-09-27
 
-The owner requested installed skills on E14, L390, and T14 be refreshed from
+The owner requested installed skills on the Windows work laptop, the Debian dev machine, and the Windows daily laptop be refreshed from
 main. The 65-skill profile is unchanged. All seven registered agent roots pass
 file verification against skill content from `74355d2`; 216 separate skill
 copies were refreshed. After another successful installed-file verification,
 the owner requested cleanup and all 213 old backup copies were removed.
 
-- E14: Codex, Claude, and Cursor pass. L390: Codex and Claude pass. T14: Codex
+- Windows work laptop: Codex, Claude, and Cursor pass. Debian dev machine: Codex and Claude pass. Windows daily laptop: Codex
   passes; Claude's existing shared-library link is preserved and verified.
 - Full Git snapshots outside OneDrive pass all 2,219 skill-file hashes and the
   resource audit on each machine. All four handoff commands start successfully.
-- T14's missing Git object was recovered by a fresh fetch, and its OneDrive
-  checkout was fast-forwarded without discarding local files. L390's eight
-  shared handoff files match the updated source. E14's shared OneDrive copy
+- the Windows daily laptop's missing Git object was recovered by a fresh fetch, and its OneDrive
+  checkout was fast-forwarded without discarding local files. the Debian dev machine's eight
+  shared handoff files match the updated source. the Windows work laptop's shared OneDrive copy
   returns cloud-read errors for the new files; do not mark that source synced.
 - Installed-copy refreshes used the verified Git snapshot when OneDrive was
   delayed. No remote canonical folders or existing shared-library links were
-  replaced. For E14 handoffs, use the verified snapshot until OneDrive is fixed.
+  replaced. For the Windows work laptop handoffs, use the verified snapshot until OneDrive is fixed.
 - Local evidence and snapshot on each machine:
   `~/Backups/2026-09-27/skills-main-refresh/`. The initiating machine retains
   the combined report and per-machine cleanup records. Working Git snapshots
@@ -237,7 +269,7 @@ library integrity gates, and a fresh read-only 4/4 fleet audit pass.
 ## Auto State
 
 - Updated: 2026-11-12 15:13:23 +08:00
-- Machine: PRAWN-T14
+- Machine: Windows daily laptop
 - Harness: codex
 - Event: session-start
 - Branch: main

@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 226 |
-| All definitions, including nested skills and portable variants | 243 |
+| Top-level skills | 227 |
+| All definitions, including nested skills and portable variants | 244 |
 | Portable variants | 7 |
 | Daily profile | 66 |
 
@@ -128,6 +128,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `google-veo` | Generate videos with Google Veo models via inference.sh CLI. Models: Veo 3.1, Veo 3.1 Fast, Veo 3, Veo 3 Fast, Veo 2. Capabilities: text-to-video, cinematic output, high quality... | ON-DEMAND |
 | `gpt-image` | Generate and edit images with OpenAI GPT-Image-2 via inference.sh CLI. Models: GPT-Image-2. Capabilities: text-to-image, image editing, inpainting, mask-based editing, multi-ima... | ON-DEMAND |
 | `happyhorse` | Generate and edit videos with Alibaba HappyHorse 1.0 models via inference.sh CLI. Models: HappyHorse T2V, I2V, R2V, Video Edit. Capabilities: text-to-video, image-to-video, refe... | ON-DEMAND |
+| `hill-climb` | Hill climb any scoreable goal — code, research, or UI — by looping implement, judge, fix until a threshold or plateau. Use when the user says hill climb, hill climbing, climb th... | ON-DEMAND |
 | `homelab-pihole-dns` | Diagnose and plan Pi-hole DNS changes in Docker homelabs with Windows clients and Tailscale. Use for Pi-hole health, blocked domains, broken resolution, DNS routing, v6 configur... | ON-DEMAND |
 | `image-to-video` | Still-to-video conversion guide: model selection, motion prompting, and camera movement. Covers Wan 2.5 i2v, Seedance, Fabric, Grok Video with when to use each. Use for: animati... | ON-DEMAND |
 | `image-upscaling` | Upscale and enhance images with Real-ESRGAN, Thera, Topaz, FLUX Upscaler via inference.sh CLI. Models: Real-ESRGAN, Thera (any size), FLUX Dev Upscaler, Topaz Image Upscaler. Us... | ON-DEMAND |

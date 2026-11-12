@@ -22,7 +22,7 @@
 - 2026-09-27: Published executable ECC adoption in b9bb28c; all three OS jobs
   passed run 36298257310 after fixing the macOS loopback/zombie-group failure.
   Verified 2,236 canonical skill files with existing CRLF/LF normalization and
-  exact SHA-256 equality for 41 files in six refreshed T14 daily copies. Kept
+  exact SHA-256 equality for 41 files in six refreshed daily copies on the Windows daily laptop. Kept
   the profile at 65, created no backup copies, and preserved the existing shared
   links. Automatic approval review blocked three temporary-folder deletions.
 
@@ -32,18 +32,18 @@
   fixed independent review findings and recorded first-run failures honestly.
   Planned API contracts, onboarding, ADRs, bounded loops, tmux/dmux and 68 agent
   roles separately. Owner delegated other-machine delivery to OneDrive; this
-  batch does not claim a new E14/L390 installed-copy or cloud-read verification.
+  batch does not claim a new installed-copy or cloud-read verification on the Windows work laptop or the Debian dev machine.
 
 - 2026-09-27: At the owner's request, reverified all seven installed agent roots
-  and removed the 213 old copies created by the refresh (E14 99, L390 78, T14 36).
+  and removed the 213 old copies created by the refresh (the Windows work laptop 99, the Debian dev machine 78, the Windows daily laptop 36).
   Exact deletion paths came from the rollout records and were checked before
-  removal. Kept the verified working snapshots and evidence; E14's shared
+  removal. Kept the verified working snapshots and evidence; the Windows work laptop's shared
   OneDrive issue remains a separate follow-up.
 
 - 2026-09-27: Refreshed 65 daily skills across seven registered agent roots on
-  E14, L390, and T14 from `74355d2`. Verified 216 updates and 213 retained backups.
+  the Windows work laptop, the Debian dev machine, and the Windows daily laptop from `74355d2`. Verified 216 updates and 213 retained backups.
   Used a hash-verified Git snapshot for separate copies because OneDrive was
-  delayed; preserved shared links and remote canonical folders. E14's shared
+  delayed; preserved shared links and remote canonical folders. the Windows work laptop's shared
   OneDrive handoff files still fail cloud reads. The local snapshot passes the
   resource audit and all four handoff command smoke checks on every machine.
 
@@ -104,6 +104,19 @@
 - 2026-09-27: Owner approved ECC second wave: four on-demand skills, existing CLI/routing improvements and a bounded terminal/agent pilot; daily profile stays 65. Keep supervisor scope detection distinct from sandbox enforcement, preserve failed host-pilot evidence, and deliver through main/OneDrive without claiming new remote-machine verification.
 
 - 2026-09-27: Added four official Orca discovery skills at upstream 90bae01db930f11951f75cb28f2da54c2b8b4b9b with MIT license and provenance; preserved the 65-skill profile, all three registries and existing links. Installed local Codex copies, added one router entry, and passed metadata, text-safety, resource and preservation checks. No fleet rollout.
-- 2026-11-12 15:01:03 +08:00 [PRAWN-T14/codex/session-start] branch=main head=6e61c4a dirty=0
-- 2026-11-12 15:13:23 +08:00 [PRAWN-T14/codex/session-start] branch=main head=6e61c4a dirty=0
+- 2026-11-11: Added on-demand skill `hill-climb` (Theo council, generalised; agy implementer, Codex critic, deterministic 3rd judge; plateau default). Debian/Linux addendum included; Windows/OneDrive preserved. INDEX regenerated (227/244), router route added, all validations pass. Uncommitted; no fleet rollout.
+
+- 2026-11-12: hill-climb v1.1.0 — added fallback ladder (full / 1-model degraded / 0-model / no-delegate-tool) and walkthrough mode (max 5 questions, suggested defaults, fill auth form for user, explicit go). No scores invented, no silent substitution. Validations pass.
+
+- 2026-11-12: hill-climb v1.2.0 — Codex audit (VM, 86,651 tokens) verdict NEEDS FIXES 7.5/10; all 4 blockers fixed (score aggregation, no-delegate self-review, fleet paths, walkthrough defaults). Codex could not write its report (sandbox: only repo + /tmp writable) — Muse saved reconstructed report at ~/workspace/hill-climb-audit-codex-20261112.md. Validations pass.
+
+- 2026-11-12: hill-climb v1.3.0 — de-fleeted per the user: no machine names, no personal clone paths, no provider credit/balance state, no "Bryan"/"Muse VM"/"fleet" in the skill. Generic wording only; library paths resolve from library.json. Grep clean, validations pass. Standing rule: skills must not expose fleet config or machine names.
+
+- 2026-11-12: hill-climb v1.4.0 — agy audit (second opinion) verdict NEEDS FIXES 8.0/10; all findings fixed (1 model judge, not 2 — score = judge score + gate; plateau = stop, escape is a user menu; git checkpoint/revert commands; baseline must be scored, no "unscored"; drift re-score every 3rd round, >1 = report + re-anchor; headless ban scoped to fleet work only). Report: ~/workspace/hill-climb-audit-agy-20261112.md. Validations pass.
+- 2026-11-12 15:01:03 +08:00 [Windows daily laptop/codex/session-start] branch=main head=6e61c4a dirty=0
+- 2026-11-12 15:13:23 +08:00 [Windows daily laptop/codex/session-start] branch=main head=6e61c4a dirty=0
 - 2026-11-12: Fleet-audit paths now remain readable JSON values, and legacy profile installation preserves reparse-point roots and skills. Bot merges wait for Skill library through protected auto-merge rather than bypassing branch protection.
+
+- 2026-11-12: hill-climb v1.5.0 — Codex re-audit (third check) verdict NEEDS FIXES 8.2/10; all 4 moderate + 1 minor fixed (baseline gate-first ordering, drift re-anchor = reset baseline + best kept, degraded same-model exception qualified, git commands scoped to editable files with clean-worktree check, stale "two providers" wording). Report: ~/workspace/hill-climb-audit-codex-v140-20261112.md. Validations pass.
+
+- 2026-11-12: hill-climb v1.5.0 verified READY by Muse (self-verification on the user's word): all 5 Codex third-check findings confirmed fixed in the file, full consistency sweep clean (single-judge everywhere, threshold / plateau / max rounds agree, no stale wording, de-fleeting clean). Committed to main on the user's word; push pending.
