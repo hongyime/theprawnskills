@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 227 |
-| All definitions, including nested skills and portable variants | 244 |
+| Top-level skills | 222 |
+| All definitions, including nested skills and portable variants | 239 |
 | Portable variants | 7 |
 | Daily profile | 66 |
 
@@ -93,7 +93,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `commit-work` | Create high-quality git commits: review/stage intended changes, split into logical commits, and write clear commit messages (including Conventional Commits). Use when the user a... | DAILY |
 | `competitive-upgrade` | Compare the current repo, app, or product against real live companies, competitors, SaaS tools, and best-in-class examples using current web research, then turn findings into re... | ON-DEMAND |
 | `competitor-teardown` | Structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review. Covers research frameworks, pricing comparison, review mining, and visual deliverab... | ON-DEMAND |
-| `computer-use` | Drives the GUI of a visible local app window through `orca computer`: accessibility tree, clicks, typing, menus, dialogs, and screenshots in native apps and external browser win... | ON-DEMAND |
 | `content-repurposing` | Content atomization — turn one piece of content into many formats. Covers blog-to-thread, blog-to-carousel, podcast-to-blog, video-to-quotes, and more. Use for: content marketin... | ON-DEMAND |
 | `cross-harness-state` | Maintain MOLT-style persistent agent state in a repo's .agents/ folder so any harness (Codex, Claude Code, Cursor, OpenCode) can resume work with zero ambiguity. Use when starti... | DAILY |
 | `customer-persona` | Research-backed customer persona creation with market data and avatar generation. Covers demographics, psychographics, jobs-to-be-done, journey mapping, and anti-personas. Use f... | ON-DEMAND |
@@ -152,10 +151,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `openapi-to-typescript` | Converts OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type guards. This skill should be used when the user asks to generate types from OpenAPI, convert schema to TS, creat... | DAILY |
 | `opencode-bedrock-config` | Configure OpenCode to use AWS Bedrock models, and fix subagents pinned to a dead or unfunded provider. Use for "SigV4 authentication requires AWS credentials", Bedrock provider ... | ON-DEMAND |
 | `opencode-cli` | Delegate tasks to OpenCode CLI as a hidden background process. Use when the user asks to use OpenCode, or when a task needs Bedrock model access, or when an active OpenCode sess... | DAILY |
-| `orca-cli` | Operate Orca-managed worktrees, folder contexts, terminals, repos, automations, artifacts, skill sharing, worktree comments, and Orca's embedded browser through the `orca` CLI. ... | ON-DEMAND |
-| `orca-emulator-android` | Android device and emulator control from inside Orca over adb, with the live device view in Orca's emulator pane. Use when driving an adb-connected emulator or phone on Windows,... | ON-DEMAND |
-| `orca-per-workspace-env` | Set up, review, debug, or validate an Orca per-workspace environment recipe: the on-demand, disposable runtime (cloud sandbox, VM, SSH host, or local container) Orca creates fre... | ON-DEMAND |
-| `orchestration` | Coordinate supervised Orca workers: threaded messages, blocking ask/reply, task dispatch, worker_done/escalation waits, task DAGs, decision gates, coordinator loops, and decompo... | ON-DEMAND |
 | `p-image` | Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA ... | ON-DEMAND |
 | `p-video` | Generate videos with Pruna P-Video and WAN models via inference.sh CLI. Models: P-Video, WAN-T2V, WAN-I2V. Capabilities: text-to-video, image-to-video, audio support, 720p/1080p... | ON-DEMAND |
 | `p-video-avatar` | Generate talking head avatar videos with Pruna P-Video-Avatar via inference.sh CLI. Turn a portrait image into a realistic speaking video with built-in TTS. 18x faster and 6x ch... | ON-DEMAND |

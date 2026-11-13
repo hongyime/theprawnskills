@@ -99,7 +99,6 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Dependency updates and vulnerability triage | `dependency-updater` |
 | Pi-hole DNS, Docker resolver health, Tailscale DNS routing | `homelab-pihole-dns`, `docker-expert` |
 | VirtualBox guest VM access, guestcontrol, host-only networking, guest shell traps | `virtualbox-guest-access` |
-| Android device or emulator control over adb | `orca-emulator-android` |
 | New machine setup, fresh install, replicate or move an agent environment | `agent-machine-bootstrap`; `virtualbox-guest-access` for VM access, `opencode-bedrock-config` for provider auth |
 | Two accounts of the same agent CLI on one machine, wrong-account drift, WSL versus host identity | `agent-account-isolation` |
 | Bug investigation and root cause | `bug-diagnosis`, `systematic-debugging`, `backprop` |
@@ -146,7 +145,6 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Claude API, model ids, pricing, tool use | `claude-api` |
 | Agent tooling and delegation | `cli-agent-router`, `claude-code-cli`, `opencode-cli`, `codex`, `agent-browser` |
 | OpenCode Bedrock provider auth, region pinning, per-agent model override | `opencode-bedrock-config` |
-| Orca ADE worktrees, terminals, handoffs, or embedded browser | `orca-cli`; `orchestration` for supervised workers; `orca-per-workspace-env` for environment recipes; `computer-use` only for visible desktop GUI tasks |
 
 ## Maintenance Rules
 
