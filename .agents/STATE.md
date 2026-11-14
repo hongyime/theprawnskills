@@ -91,14 +91,26 @@
   %LOCALAPPDATA%); relaunch from SSH lands in Session 0 (no tray icon,
   sync still works, normal again after next login/reboot).
 - Early-stage note + cross-harness-state platform fix (2026-11-14,
-  Bryan's word, UNCOMMITTED): polish-repo gained an "Early-stage repos"
-  section + description line + Phase 1 no-code line (second-opinion-only
-  stops after Phase 2; Phases 3–5 skip until code exists; no invented
-  baseline). cross-harness-state platform line fixed from "Codex, Claude,
-  Cursor, OpenCode on Windows" to the contract string + Claude Code/Cursor;
-  Harness Notes updated to match. Validations re-passed; INDEX.md
-  unchanged (descriptions are truncated in the table, the new sentence
-  falls past the cut).
+  Bryan's word, COMMITTED + PUSHED as 5f1620d): polish-repo gained an
+  "Early-stage repos" section + description line + Phase 1 no-code line
+  (second-opinion-only stops after Phase 2; Phases 3–5 skip until code
+  exists; no invented baseline). cross-harness-state platform line fixed
+  from "Codex, Claude, Cursor, OpenCode on Windows" to the contract string
+  + Claude Code/Cursor; Harness Notes updated to match. Validations
+  re-passed; INDEX.md unchanged (descriptions are truncated in the table,
+  the new sentence falls past the cut). Fleet install verified same day:
+  VM, L390, 3410, T14 primary + OneDrive, E14 primary + OneDrive all at
+  5f1620d; both skills byte-identical in opencode + codex roots.
+- _molt / _shell (2026-11-14, found on T14 + E14, identical on both): NOT
+  skills — standalone folders under C:\Users\bryan\Projects\. _molt is the
+  MOLT continuity system itself (2026-08-08 rev 2): README + a
+  harness-agnostic agent prompt (paste into whichever CLI has tokens
+  today) + AGENTS stanza + STATE.md templates for a repo's _molt/
+  folder. cross-harness-state + session-handoff in theprawnskills are the
+  skill versions of the same idea. _shell is the SHELL repo standard
+  (2026-08-08 rev 2, target hongyime/sourcerepo/STANDARD.md): desired
+  state for every hongyime/bryanseah234 repo (Apache-2.0 everywhere) +
+  CLI/repo inventory, tiers, scan_identity.py. Not a terminal-shell skill.
 
 # Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (committed + pushed 48310f4, fleet synced)
 
