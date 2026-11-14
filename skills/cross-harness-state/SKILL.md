@@ -11,7 +11,7 @@ license: MIT
 metadata:
   author: Local setup
   version: "1.0.0"
-  platform: "Codex, Claude, Cursor, OpenCode on Windows"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse, Claude Code, Cursor on Windows, macOS, Linux (Debian)"
 ---
 
 # Cross-Harness State (MOLT)
@@ -110,7 +110,7 @@ pointers stay valid.
 
 ## Harness Notes
 
-- Works identically from Codex, Claude Code, Cursor, OpenCode — plain files, no
+- Works identically from Codex, Claude Code, Cursor, OpenCode, agy, Muse — plain files, no
   tooling required.
 - On OneDrive-synced repos, files sync across machines automatically; watch for
   sync conflicts after simultaneous edits on two machines — resolve by newest

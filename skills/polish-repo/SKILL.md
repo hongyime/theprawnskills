@@ -4,7 +4,9 @@ description: >-
   Polish a somewhat-done repo with one command: map it, stress-test it, fix
   it with tests, tighten and secure it, improve the frontend, prove it, and
   open a PR. Use when the user says polish this repo, give this project
-  another pass, or review and improve this project.
+  another pass, or review and improve this project. Also works on an
+  early-stage repo with PRD/TDD docs and little code yet — Phases 1–2 give
+  the second opinion and Phase 7 turns gaps into tasks.
 license: MIT
 metadata:
   author: Local setup
@@ -22,6 +24,16 @@ design-taste-frontend / impeccable → verification-loop → file-pr — and
 stops where a human decision is needed. One feature at a time, nothing
 fixed without approval, nothing polished that was not first mapped. One
 repo per run.
+
+## Early-stage repos
+
+Also works on a repo that is mostly docs so far (PRD, TDD/design docs,
+little or no code yet). Say "second opinion only" and the run stops after
+Phase 2: Phase 1 maps what the docs claim, Phase 2 challenges the claims
+and records the gaps, Phase 7 turns the gaps into tasks. Phases 3–5 mostly
+skip until there is code to fix, refactor, or show. The baseline test/build
+check in Phase 1 just reports what is missing when there is nothing to run
+yet.
 
 ## Ground rules
 
@@ -45,6 +57,8 @@ flags. Then STOP and ask the user which feature to start with.
 Before starting on the feature, run the repo's test suite and build once
 and record the baseline. If it is already broken, say so before fixing
 anything — do not let pre-existing breakage blur with polish regressions.
+If there is no code or no test suite yet, record that and move on — do not
+invent a baseline.
 
 ## Phase 2: Challenge
 

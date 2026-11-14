@@ -90,6 +90,15 @@
   Microsoft OneDrive\OneDrive.exe (per-machine install, NOT
   %LOCALAPPDATA%); relaunch from SSH lands in Session 0 (no tray icon,
   sync still works, normal again after next login/reboot).
+- Early-stage note + cross-harness-state platform fix (2026-11-14,
+  Bryan's word, UNCOMMITTED): polish-repo gained an "Early-stage repos"
+  section + description line + Phase 1 no-code line (second-opinion-only
+  stops after Phase 2; Phases 3–5 skip until code exists; no invented
+  baseline). cross-harness-state platform line fixed from "Codex, Claude,
+  Cursor, OpenCode on Windows" to the contract string + Claude Code/Cursor;
+  Harness Notes updated to match. Validations re-passed; INDEX.md
+  unchanged (descriptions are truncated in the table, the new sentence
+  falls past the cut).
 
 # Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (committed + pushed 48310f4, fleet synced)
 
