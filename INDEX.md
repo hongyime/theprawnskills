@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 222 |
-| All definitions, including nested skills and portable variants | 239 |
+| Top-level skills | 251 |
+| All definitions, including nested skills and portable variants | 268 |
 | Portable variants | 7 |
 | Daily profile | 66 |
 
@@ -60,8 +60,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `azure-storage` | Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and Data Lake. Answers questions about storage access tiers (hot, cool, cold, archive),... | ON-DEMAND |
 | `azure-upgrade` | Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code. WHEN: upgrade Consumption to Flex Consumption, upgrade Azur... | ON-DEMAND |
 | `azure-validate` | Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), RBAC role assignments, managed identity permissions, and pr... | ON-DEMAND |
+| `babysit-pr` | Monitor a pull request through review and CI. Use when the user asks to monitor, watch, or babysit a PR. | ON-DEMAND |
 | `background-removal` | Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparen... | ON-DEMAND |
 | `backprop` | Bug-to-invariant protocol. When a bug is confirmed or a test fails, trace the root cause, then decide whether a new §I invariant would prevent recurrence and file it into SPEC.m... | ON-DEMAND |
+| `blast-radius` | Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use fo... | ON-DEMAND |
 | `book-cover-design` | Book cover design with genre-specific conventions, typography rules, and AI image generation. Covers fiction and non-fiction genres, sizing, thumbnail testing, and iteration wor... | ON-DEMAND |
 | `bounded-agent-loop` | Run a user-authorized, bounded repair loop with explicit acceptance commands, isolated ownership, attempt and time limits, failure stop conditions, and a resumable handoff. Use ... | ON-DEMAND |
 | `brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidel... | ON-DEMAND |
@@ -94,6 +96,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `competitive-upgrade` | Compare the current repo, app, or product against real live companies, competitors, SaaS tools, and best-in-class examples using current web research, then turn findings into re... | ON-DEMAND |
 | `competitor-teardown` | Structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review. Covers research frameworks, pricing comparison, review mining, and visual deliverab... | ON-DEMAND |
 | `content-repurposing` | Content atomization — turn one piece of content into many formats. Covers blog-to-thread, blog-to-carousel, podcast-to-blog, video-to-quotes, and more. Use for: content marketin... | ON-DEMAND |
+| `correct` | Find the mistakes agents keep repeating in this repo and make each one impossible. Try architecture first, then types, then a lint whose error names the fix, then a test, and wr... | ON-DEMAND |
 | `cross-harness-state` | Maintain MOLT-style persistent agent state in a repo's .agents/ folder so any harness (Codex, Claude Code, Cursor, OpenCode) can resume work with zero ambiguity. Use when starti... | DAILY |
 | `customer-persona` | Research-backed customer persona creation with market data and avatar generation. Covers demographics, psychographics, jobs-to-be-done, journey mapping, and anti-personas. Use f... | ON-DEMAND |
 | `data-visualization` | Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, scatter, heatmap), axes rules, and storytelling with data. U... | ON-DEMAND |
@@ -101,6 +104,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `dependency-updater` | Smart dependency management for any language. Auto-detects project type, applies safe updates automatically, prompts for major versions, diagnoses and fixes dependency issues. | DAILY |
 | `deploy-model` | Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI polic... | ON-DEMAND |
 | `deploy-to-vercel` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a pre... | ON-DEMAND |
+| `design-taste-frontend` | tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one sectio... | ON-DEMAND |
 | `dialogue-audio` | Multi-speaker dialogue audio creation with ElevenLabs and Dia TTS. Covers speaker tags, emotion control, pacing, conversation flow, and post-production. Use for: podcasts, audio... | ON-DEMAND |
 | `doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar struc... | ON-DEMAND |
 | `docker-expert` | You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patte... | DAILY |
@@ -119,23 +123,30 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `entra-agent-id` | Provision Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agent Identities via Microsoft Graph, and configure OAuth 2.0 token exchange (fmi_path... | ON-DEMAND |
 | `entra-app-registration` | Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up auth... | ON-DEMAND |
 | `explainer-video-guide` | Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script formulas, pacing rules, scene planning, and multi-tool pipelines. Use for: product d... | ON-DEMAND |
+| `figure-it-out` | Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task,... | ON-DEMAND |
+| `file-pr` | File a concise pull request. Use when the user asks to file, open, or create a PR. | ON-DEMAND |
 | `find-skills` | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extendin... | DAILY |
 | `fleet-skill-audit` | Generic, fault-tolerant audit of agent skills discovery and health across all fleet machines. Verifies that agents (OpenCode, Codex, Claude Code, Kiro, Cursor, DeepSeek) discove... | ON-DEMAND |
 | `flux-image` | Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with custom style adaptation. Capabilities: text-to-image, im... | ON-DEMAND |
 | `frontend-design` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't ... | ON-DEMAND |
+| `full-send` | Takes a change to a merged PR with nobody watching: proves it, reviews it, files it, babysits it, and merges it once the merge gate passes. Use only when the user explicitly say... | ON-DEMAND |
+| `full-stop` | Trigger this if the user says 'full stop', even as a closing "Full stop." that reads like emphasis. | ON-DEMAND |
 | `git-commit` | Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions... | DAILY |
 | `google-veo` | Generate videos with Google Veo models via inference.sh CLI. Models: Veo 3.1, Veo 3.1 Fast, Veo 3, Veo 3 Fast, Veo 2. Capabilities: text-to-video, cinematic output, high quality... | ON-DEMAND |
 | `gpt-image` | Generate and edit images with OpenAI GPT-Image-2 via inference.sh CLI. Models: GPT-Image-2. Capabilities: text-to-image, image editing, inpainting, mask-based editing, multi-ima... | ON-DEMAND |
 | `happyhorse` | Generate and edit videos with Alibaba HappyHorse 1.0 models via inference.sh CLI. Models: HappyHorse T2V, I2V, R2V, Video Edit. Capabilities: text-to-video, image-to-video, refe... | ON-DEMAND |
 | `hill-climb` | Hill climb any scoreable goal — code, research, or UI — by looping implement, judge, fix until a threshold or plateau. Use when the user says hill climb, hill climbing, climb th... | ON-DEMAND |
 | `homelab-pihole-dns` | Diagnose and plan Pi-hole DNS changes in Docker homelabs with Windows clients and Tailscale. Use for Pi-hole health, blocked domains, broken resolution, DNS routing, v6 configur... | ON-DEMAND |
+| `how` | Use for "how does X work", code walkthroughs before changing something, and placement / ownership / layering questions ("where should this live", "which package owns this", "is ... | ON-DEMAND |
 | `image-to-video` | Still-to-video conversion guide: model selection, motion prompting, and camera movement. Covers Wan 2.5 i2v, Seedance, Fabric, Grok Video with when to use each. Use for: animati... | ON-DEMAND |
 | `image-upscaling` | Upscale and enhance images with Real-ESRGAN, Thera, Topaz, FLUX Upscaler via inference.sh CLI. Models: Real-ESRGAN, Thera (any size), FLUX Dev Upscaler, Topaz Image Upscaler. Us... | ON-DEMAND |
 | `impeccable` | Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a fronte... | ON-DEMAND |
 | `infsh-cli` | Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, ... | ON-DEMAND |
 | `internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write so... | ON-DEMAND |
+| `interrogate` | Use for "interrogate", "adversarial review", "multi-model review", "challenge this", "stress test this code", "find blind spots", or "tear this apart". Adversaries try to break ... | ON-DEMAND |
 | `javascript-sdk` | JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate 250+ models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file ... | DAILY |
 | `landing-page-design` | Landing page conversion optimization with layout rules, hero section design, and CTA psychology. Covers above-the-fold formula, social proof placement, mobile design, and F-patt... | ON-DEMAND |
+| `leaving-pr-comments` | Use whenever leaving comments on GitHub. | ON-DEMAND |
 | `linkedin-content` | LinkedIn post writing with hook formulas, formatting rules, and engagement patterns. Covers post types, algorithm signals, character limits, and content pillars. Use for: Linked... | ON-DEMAND |
 | `llm-models` | Access Claude, Gemini, Kimi, GLM and 100+ LLMs via inference.sh CLI using OpenRouter. Models: Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3 Pro, Kimi K2, GLM-4.... | ON-DEMAND |
 | `logo-design-guide` | Logo design principles and AI image generation best practices for creating logos. Covers logo types, prompting techniques, scalability rules, and iteration workflows. Use for: b... | ON-DEMAND |
@@ -144,6 +155,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `mcp-security-hygiene` | Harden MCP configuration security. USE FOR: removing inline secrets, env-var migration, log redaction, least-privilege MCP defaults. DO NOT USE FOR: unrelated auth implementations. | DAILY |
 | `merge-conflict-resolution` | Resolve git merge/rebase conflicts systematically without losing either side's intent. Use when the user says fix this merge conflict, resolve the rebase, there are conflicts, g... | ON-DEMAND |
 | `microsoft-foundry` | Deploy, evaluate, fine-tune, and manage Foundry agents end-to-end with azd: hosted agent scaffold/run/deploy, prompt agent create, batch eval, continuous eval, prompt optimizer,... | ON-DEMAND |
+| `modernize` | For getting old prs up to date. Use when asked to rebase a pr or "modernize". | ON-DEMAND |
 | `nano-banana` | Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, mult... | ON-DEMAND |
 | `nano-banana-2` | Generate images with Google Gemini 3.1 Flash Image Preview (Nano Banana 2) via inference.sh CLI. Capabilities: text-to-image, image editing, multi-image input (up to 14 images),... | ON-DEMAND |
 | `newsletter-curation` | Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. ... | ON-DEMAND |
@@ -156,6 +168,12 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `p-video-avatar` | Generate talking head avatar videos with Pruna P-Video-Avatar via inference.sh CLI. Turn a portrait image into a realistic speaking video with built-in TTS. 18x faster and 6x ch... | ON-DEMAND |
 | `pdf` | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, spl... | ON-DEMAND |
 | `pitch-deck-visuals` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data presentation. Covers the 12-slide framework, chart types, team slides, and common inve... | ON-DEMAND |
+| `ponytail` | Lazy senior dev mode: the smallest change that fully solves the task, and a reply a busy human understands in one read. Use on any coding task (writing, fixing, refactoring, rev... | ON-DEMAND |
+| `ponytail-audit` | Quality audit of a whole repo: bugs, security holes, what breaks under real load, risky code without tests, slow paths, and what to delete, merge or split. Ranked, each finding ... | ON-DEMAND |
+| `ponytail-debt` | List every `shortcut:` comment (and older `ponytail:` ones) as a debt ledger. One-shot report, changes nothing. Use for "ponytail debt", "what did ponytail defer", "list the sho... | ON-DEMAND |
+| `ponytail-gain` | Show ponytail's measured savings (code, cost, speed) from the benchmark. One-shot display. Use for /ponytail-gain, "what does ponytail save", "ponytail impact". | ON-DEMAND |
+| `ponytail-help` | Quick reference for ponytail levels, skills and commands. One-shot display. Use for /ponytail-help, "ponytail help", "how do I use ponytail". | ON-DEMAND |
+| `ponytail-review` | Quality review of a change: is the logic right, is it safe, does it hold under real load, is risky code tested, is it fast enough, and is every line needed. Reads the connected ... | ON-DEMAND |
 | `postgres-mcp-onboarding` | Enable PostgreSQL MCP correctly across providers. USE FOR: local Docker Postgres, Supabase, Railway, Neon, managed Postgres URLs. DO NOT USE FOR: SQL query optimization itself. | DAILY |
 | `postplan-upload` | Use this when generating a substantial execution plan, architecture spec, refactoring blueprint, implementation plan, visual draft report, PR review summary, or when the user as... | DAILY |
 | `pptx` | Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, pa... | ON-DEMAND |
@@ -177,6 +195,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `react-testing` | Write and repair React component and hook tests with Testing Library and the project's Jest or Vitest runner. Use for form behavior, async state, network mocks, accessible queri... | ON-DEMAND |
 | `react-useeffect` | React useEffect best practices from official docs. Use when writing/reviewing useEffect, useState for derived values, data fetching, or state synchronization. Teaches when NOT t... | DAILY |
 | `refactor` | Surgical code refactoring to improve maintainability without changing behavior. Covers extracting functions, renaming variables, breaking down god functions, improving type safe... | DAILY |
+| `reflect` | Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect. | ON-DEMAND |
 | `related-skill` | Discover and install related skills from inference.sh skill registry. Helps find complementary skills for your AI workflow. Use for: skill discovery, workflow expansion, capabil... | ON-DEMAND |
 | `remotion-render` | Render videos from React/Remotion component code via inference.sh. Pass TSX code, get MP4. Supports all Remotion APIs: useCurrentFrame, useVideoConfig, spring, interpolate, Abso... | ON-DEMAND |
 | `repo-standardization` | Standardize repositories to a common baseline: repo tiers, Apache-2.0 LICENSE and NOTICE files, GitHub description/homepage/topics metadata, README identity block, secret/identi... | ON-DEMAND |
@@ -187,6 +206,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `seo-content-brief` | SEO content brief creation with keyword research, search intent analysis, and content structure. Covers SERP analysis, heading hierarchy, word count targets, and internal linkin... | ON-DEMAND |
 | `session-handoff` | Save and resume project work across agents or machines using verified Markdown handoffs. Use for create handoff, save state, pause this task, load handoff, resume from, or conti... | ON-DEMAND |
 | `shadcn` | Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI. Provides project context, component docs, and usage examples. Applies w... | DAILY |
+| `sharpen` | Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen. | ON-DEMAND |
+| `show-me-your-work` | Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a revie... | ON-DEMAND |
 | `skill-add` | Add a skill from an upstream GitHub repository, URL, pasted markdown, pasted instructions, or a described tool workflow. Use when the user says add this skill, install this skil... | DAILY |
 | `skill-authoring` | Conventions for creating, editing, pruning, or auditing AI-agent skills on this Windows dotagents setup. Canonical skills live under OneDrive `01 SKILLS/.agents/skills`; PowerSh... | ON-DEMAND |
 | `skill-cleanup` | Audit, prune, deduplicate, archive, or reorganize the local AI-agent skill library. Use when the user says clean up skills, too many skills, prune installed roots, remove unused... | DAILY |
@@ -201,12 +222,17 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `social-media-carousel` | Multi-slide carousel design for Instagram, LinkedIn, and Twitter/X with layout rules and hooks. Covers slide structure, text hierarchy, swipe psychology, and platform-specific s... | ON-DEMAND |
 | `spec` | Create, amend, or maintain SPEC.md at repo root: goals, contracts, invariants, tasks, and backpropped bugs. Sole mutator of the project spec. Triggers when the user asks to writ... | ON-DEMAND |
 | `speech-to-text` | Transcribe audio to text with ElevenLabs Scribe and Whisper models via inference.sh CLI. Models: ElevenLabs Scribe v2 (98%+ accuracy, diarization), Fast Whisper Large V3, Whispe... | ON-DEMAND |
+| `statechart` | Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it as a Mermaid statechart. The report gives the shortest pa... | ON-DEMAND |
 | `storyboard-creation` | Film and video storyboarding with shot vocabulary, continuity rules, and panel layout. Covers shot types, camera angles, movement, 180-degree rule, and annotation format. Use fo... | ON-DEMAND |
 | `supabase` | Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR inte... | ON-DEMAND |
 | `supabase-postgres-best-practices` | Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or... | ON-DEMAND |
 | `systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes | DAILY |
+| `takeover` | Take over existing work. Use when the user asks to take over a PR, branch, or agent thread, or requests a takeover. | ON-DEMAND |
 | `talking-head-production` | Talking head video production with AI avatars, lipsync, and voiceover. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also covers OmniHuman, PixVerse, Fabric. Po... | ON-DEMAND |
+| `tdd` | Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear,... | ON-DEMAND |
+| `teach` | Explain a body of work plainly so a person actually understands it. Runs the `how` and `why` skills and weaves what they find into one clear explanation. Use for 'teach me this'... | ON-DEMAND |
 | `technical-blog-writing` | Technical blog post writing with structure, code examples, and developer audience conventions. Covers post types, code formatting, explanation depth, and developer-specific enga... | ON-DEMAND |
+| `technical-writing` | Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writin... | ON-DEMAND |
 | `text-to-speech` | Convert text to natural speech with Inworld TTS, ElevenLabs, DIA TTS, Kokoro, Chatterbox, and more via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion steering)... | ON-DEMAND |
 | `theme-factory` | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can ... | ON-DEMAND |
 | `to-spec` | Turn one clear feature, bug fix, or change request into an implementation-ready spec. Use when the user says write a spec for this, turn this into a spec, spec out this feature,... | DAILY |
@@ -216,6 +242,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `twitter-automation` | Automate Twitter/X with posting, engagement, and user management via inference.sh CLI. Apps: x/post-tweet, x/post-create (with media), x/post-like, x/post-retweet, x/dm-send, x/... | ON-DEMAND |
 | `twitter-thread-creation` | Twitter/X thread writing with hook tweets, thread structure, and engagement optimization. Covers tweet formatting, character limits, media attachments, and posting strategies. U... | ON-DEMAND |
 | `typescript-advanced-types` | Master TypeScript's advanced type system including generics, conditional types, mapped types, template literals, and utility types for building type-safe applications. Use when ... | DAILY |
+| `unslop` | Removes AI tells from any writing: superficial -ing phrases, vague attributions, AI vocabulary, and forced rule-of-three structure, preserving meaning and tone. Use when editing... | ON-DEMAND |
+| `user-stories` | Review a finished project with the user through user stories: map what a user can actually do, find edge cases, and reconcile the user's mental model with what the code really d... | ON-DEMAND |
 | `vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. "deploy to verce... | ON-DEMAND |
 | `vercel-composition-patterns` | React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Trigge... | ON-DEMAND |
 | `vercel-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure opt... | ON-DEMAND |
@@ -233,6 +261,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `web-search` | Web search and content extraction with Tavily and Exa via inference.sh CLI. Apps: Tavily Search, Tavily Extract, Exa Search, Exa Answer, Exa Extract. Capabilities: AI-powered se... | DAILY |
 | `web-to-markdown` | Use ONLY when the user explicitly says: 'use the skill web-to-markdown ...' (or 'use a skill web-to-markdown ...'). Converts webpage URLs to clean Markdown by calling the local ... | DAILY |
 | `webapp-testing` | Verify web applications in a real browser with Playwright: user flows, layout, screenshots, logs, CI artifacts and flaky-test diagnosis. Use for browser testing and end-to-end f... | ON-DEMAND |
+| `why` | Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Discovers available MCPs and queries each evidence ... | ON-DEMAND |
 | `widgets-ui` | Declarative UI widgets from JSON for React/Next.js from ui.inference.sh. Render rich interactive UIs from structured agent responses. Capabilities: forms, buttons, cards, layout... | ON-DEMAND |
 | `wizard` | Run a guided, step-by-step interactive workflow with the user: one question or decision at a time, visible progress, resumable state. Use when the user says walk me through this... | ON-DEMAND |
 | `workers-best-practices` | Reviews and authors Cloudflare Workers code against production best practices. Load when writing new Workers, reviewing Worker code, configuring wrangler.jsonc, or checking for ... | DAILY |

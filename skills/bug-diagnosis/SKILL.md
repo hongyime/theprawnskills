@@ -38,6 +38,12 @@ Use this skill when the diagnosis itself needs structure and persistence.
    output, repro step), not inference alone.
 3. If evidence contradicts the hypothesis, update the hypothesis, not the
    evidence.
+4. Fix the fault, not the place where it surfaced. The symptom is where a
+   wrong state became visible; the root cause is the first place the system
+   did something it should not do, or failed to handle a state it should
+   handle. A guard is a fix only when the state it handles is legitimate;
+   if the state should never exist, the check hides the bug. Check for the
+   pattern, not just the instance.
 
 ## Workflow
 

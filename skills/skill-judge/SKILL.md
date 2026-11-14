@@ -71,6 +71,19 @@ When evaluating, categorize each section:
 
 The art of Skill design is maximizing Expert content, using Activation sparingly, and eliminating Redundant ruthlessly.
 
+### Verification discipline
+
+When judging a skill, verify its claims against the real artifact, not the
+skill's self-report: run its examples, check the files it cites exist, and
+confirm its commands do what it says. A claim the judge did not check is
+unverified, not true.
+
+When a skill includes tests or examples, judge them by what they prove about
+behavior: a test that still passes when the behavior breaks proves nothing,
+and a test that fails when only the internals change is pinned to the
+implementation. Keep tests that fail on a behavior break and survive an
+internal refactor; the rest are decoration.
+
 ---
 
 ## Evaluation Dimensions (120 points total)

@@ -119,6 +119,15 @@ You MUST complete each phase before proceeding to the next.
    - Keep tracing up until you find the source
    - Fix at source, not at symptom
 
+   A guard is a fix only when the state it handles is legitimate. If the
+   state should never exist, a check where it broke hides the bug: find what
+   produced the state instead. Guards, retries, swallowed errors, clamped
+   values, and discarded state are the usual ways to hide a bug. When
+   something fails only after a restart, suspect persisted state first
+   (config files, caches, lock files, serialized state). Check for the
+   pattern, not just the instance: find every place with the same fault and
+   fix them all.
+
 ### Phase 2: Pattern Analysis
 
 **Find the pattern before fixing:**

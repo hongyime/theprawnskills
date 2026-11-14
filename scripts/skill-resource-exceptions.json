@@ -96,6 +96,48 @@
       "target": "tests/foo.test.ts",
       "kind": "resource",
       "reason": "Illustrative future test deliverable in a sample ticket, not a bundled script."
+    },
+    {
+      "source": "skills/design-taste-frontend/assets/objects/_scenes/README.md",
+      "target": "assets/img/map-tile.png",
+      "kind": "resource",
+      "reason": "Example scene markup in a README; the map-tile image is a placeholder the user supplies, not a shipped asset."
+    },
+    {
+      "source": "skills/design-taste-frontend/assets/objects/product-render/README.md",
+      "target": "assets/objects/product-render/specs/my-bike.json",
+      "kind": "resource",
+      "reason": "Example product spec path in a README; the user supplies their own product spec JSON."
+    },
+    {
+      "source": "skills/design-taste-frontend/references/cards.md",
+      "target": "assets/ui/icons/x.svg",
+      "kind": "resource",
+      "reason": "Sample mark in prose showing how to paste an icon; the kit's real demo icon lives at assets/icons/demo/x.svg."
+    },
+    {
+      "source": "skills/design-taste-frontend/references/sections.md",
+      "target": "assets/ui/icons/x.svg",
+      "kind": "resource",
+      "reason": "Sample mark in prose showing how to paste an icon; the kit's real demo icon lives at assets/icons/demo/x.svg."
+    },
+    {
+      "source": "skills/impeccable/reference/component-review.md",
+      "target": "assets/plates/sky.png",
+      "kind": "resource",
+      "reason": "Example dependency list inside a sample manifest; the user supplies their own plate assets."
+    },
+    {
+      "source": "skills/show-me-your-work/SKILL.md",
+      "target": "scripts/snapshot.sh",
+      "kind": "resource",
+      "reason": "Illustrative work-log row in prose; snapshot.sh is an example helper name, not a shipped script (the skill ships log.sh)."
+    },
+    {
+      "source": "skills/why/references/synthesizer-prompt.md",
+      "target": "url",
+      "kind": "link",
+      "reason": "Template placeholder [PR #123](url) in a synthesizer prompt template; the agent fills in the real URL at use time."
     }
   ]
 }

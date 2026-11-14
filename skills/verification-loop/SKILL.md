@@ -36,6 +36,12 @@ solely to satisfy this checklist.
    as applicable, focused regression tests, then broader checks required by the
    repo or justified by integration risk. A zero exit code with zero collected
    tests is not test coverage. Inspect skips and unexpected empty discovery.
+   Tests assert what the code's users can observe, so a test fails when the
+   behavior breaks and keeps passing when only the internals change: drive
+   the code through its users' interface with a concrete input, and derive
+   the expected value from the requirement, not from a run of the code. A
+   test that still passes when the behavior breaks proves nothing; a test
+   that fails when only internals change is pinned to the implementation.
 4. Run each command with its working directory and capture its real exit code.
    Keep full output locally when needed; summarize without masking failures
    through head/tail pipelines. In PowerShell, capture `$LASTEXITCODE`
@@ -64,6 +70,16 @@ Use **PASS**, **FAIL**, **SKIPPED (reason)**, **UNAVAILABLE (prerequisite)** or
 **NOT APPLICABLE (reason)** per check. Required unavailable/skipped checks leave
 readiness unverified. Never turn them into PASS. A test summary printed before
 a hang or nonzero process exit is incomplete evidence.
+
+## Prove it works
+
+Verify against the real artifact, not a proxy, a self-report, or "it
+compiles." Read the actual value, not a cached or derived representation;
+check process liveness directly, not through derived state. When
+verification fails, suspect the observation method before suspecting the
+system. The strongest proof is a deterministic script that re-runs the same
+comparison: write it, run it, and keep its output as an artifact a reviewer
+can re-run instead of trusting your word.
 
 ## Prerequisites and companions
 

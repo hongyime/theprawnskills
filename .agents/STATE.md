@@ -1,3 +1,30 @@
+# Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (uncommitted)
+
+- 29 new ON-DEMAND skills (INDEX 228 → 257 rows, definitions 239 → 268):
+  user-stories (fresh, from the user's prompt + pstack mechanics); pstack 14
+  (interrogate, why, how, figure-it-out, correct, tdd, unslop, sharpen,
+  blast-radius, teach, show-me-your-work, reflect, statechart,
+  technical-writing); design-taste-frontend (taste-skill, adapted for CLI
+  agents); ponytail 6; tstack 7 (full-stop, full-send, file-pr, takeover,
+  babysit-pr, modernize, leaving-pr-comments). None installed pstack as a
+  plugin; all adapted in-library with Provenance sections.
+- impeccable 4.1.1 → 4.9.0: 37 reference files ported with launcher calls
+  translated to node scripts (`node .agent/skills/impeccable/scripts/*.mjs`)
+  and commands to `/impeccable <command>`; live scripts stay at 4.1.1
+  (upstream live-browser.js is launcher-coupled). Async no-live mode is now
+  the default; live is opt-in. 13 upstream verbs have no library equivalent
+  (comp-spec, comp-diff, build-phase, component-review, live-generate,
+  font-match, audit-storage, signals, ignores, world, update, install,
+  design) — reference files present as guidance, verbs left bare.
+- Principle folds: prove-it-works + test-behavior-not-implementation into
+  verification-loop and skill-judge; fix-root-causes into bug-diagnosis and
+  systematic-debugging.
+- Validations pass: quick_validate 35/35, INDEX --check agrees, text safety
+  0, resource audit Missing 0 (7 new exceptions for example/placeholder
+  paths), installer dry-run + check 66 selected / 0 changes.
+- Router: 10 new rows for the new skills. No default-profile.toml change.
+- NOT committed or pushed — awaiting the user's word.
+
 # Hill-climb skill created (on demand, uncommitted) — 2026-11-11
 
 - New skill `hill-climb` in `skills/hill-climb/SKILL.md`, based on Theo's

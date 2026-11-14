@@ -90,6 +90,13 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Find a skill or decide what applies | `skill-router`, `find-skills`, `skill-authoring`, `related-skill` |
 | Coding, refactor, review, testing | `refactor`, `requesting-code-review`, `systematic-debugging`, `webapp-testing` |
 | Verify a completed change, ready for review, completion evidence | `verification-loop`; `check` specifically for SPEC drift |
+| Review a finished project with the user through user stories: map what users can actually do, find edge cases, reconcile the mental model with the code | `user-stories` |
+| Adversarial review: stress-test a change, prove it by running it, find blind spots | `interrogate`, `blast-radius`, `figure-it-out`, `show-me-your-work` |
+| Understand why and how: rationale for a design, how something works, teach it | `why`, `how`, `teach` |
+| Stop repeating the same mistake: diagnose a recurring error pattern and fix the cause | `correct` |
+| Write tests by behavior first, regression test before the fix | `tdd` |
+| Sharpen writing, strip slop, structure state machines and technical docs | `unslop`, `sharpen`, `technical-writing`, `statechart` |
+| Reflect on a session, write down what worked, harvest a reusable lesson | `reflect` |
 | Python fixtures, mocks, boundary cases, unittest or pytest | `python-testing`; `python-sdk` specifically for inference.sh |
 | React component, hook or form tests | `react-testing`; `webapp-testing` for real browser flows |
 | React or TypeScript engineering patterns | `react-dev`, `react-useeffect`, `typescript-advanced-types`, `vercel-composition-patterns`, `vercel-react-view-transitions`; `vercel-react-native-skills` for React Native |
@@ -103,6 +110,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Two accounts of the same agent CLI on one machine, wrong-account drift, WSL versus host identity | `agent-account-isolation` |
 | Bug investigation and root cause | `bug-diagnosis`, `systematic-debugging`, `backprop` |
 | Merge conflicts and git surgery | `merge-conflict-resolution`, `commit-work`, `git-commit` |
+| Take a PR to merged: autonomous full send, merge-ready full stop, file a PR, take over someone else's PR, babysit CI and reviews, modernize a stale PR, leave review comments | `full-send`, `full-stop`, `file-pr`, `takeover`, `babysit-pr`, `modernize`, `leaving-pr-comments` |
 | Spec writing (one clear feature) | `to-spec`, `spec`, `build`, `check` |
 | Ticket breakdown / work planning | `to-tickets`, `to-spec`, `postplan-upload` |
 | Explain visually, diagrams, flows, UML/C4, comparisons, HTML reports | `visual-explainer`; `postplan-upload` for hosted delivery |
@@ -116,6 +124,8 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Reduce token usage, compress output or memory files | `caveman`, `caveman-compress`, `caveman-help`; `caveman-commit` for commits, `caveman-review` for PR feedback, `caveman-stats` for usage, `cavecrew` for compressed subagents |
 | Build or repair an MCP server or MCP config | `mcp-builder`; `mcp-health-repair` for failures, `mcp-security-hygiene` for secrets, `postgres-mcp-onboarding` for Postgres MCP |
 | Web or frontend design | `frontend-design`, `web-design-guidelines`, `shadcn`, `impeccable`; `landing-page-design` for conversion pages, `email-design` for email |
+| Anti-slop company/landing frontend: plain copy, one system, taste gate | `design-taste-frontend`; `impeccable` for app UI and design systems |
+| Lazy senior-dev review: repo audit, change review, tech-debt ledger | `ponytail`, `ponytail-review`, `ponytail-audit`, `ponytail-debt`; `ponytail-gain` for benchmark scores, `ponytail-help` for the reference card |
 | Brand, theme, palette or visual identity | `brand-guidelines`, `theme-factory`, `logo-design-guide`, `canvas-design` |
 | Static visual assets: covers, icons, screenshots, social images | `book-cover-design`, `app-store-screenshots`, `og-image-design`, `character-design-sheet`, `slack-gif-creator`, `algorithmic-art` |
 | Charts, dashboards and data storytelling | `data-visualization`; `pitch-deck-visuals` for investor decks |
