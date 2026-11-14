@@ -2,6 +2,10 @@
 name: social-media-carousel
 description: "Multi-slide carousel design for Instagram, LinkedIn, and Twitter/X with layout rules and hooks. Covers slide structure, text hierarchy, swipe psychology, and platform-specific specs. Use for: carousel posts, Instagram carousels, LinkedIn carousels, slide posts, educational content. Triggers: carousel, instagram carousel, linkedin carousel, slide post, carousel design, swipe post, multi-image post, carousel template, educational carousel, carousel content, instagram slides, linkedin slides"
 allowed-tools: Bash(belt *)
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

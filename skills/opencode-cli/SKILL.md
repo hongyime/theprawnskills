@@ -1,6 +1,10 @@
 ---
 name: opencode-cli
 description: Delegate tasks to OpenCode CLI as a hidden background process. Use when the user asks to use OpenCode, or when a task needs Bedrock model access, or when an active OpenCode session already exists. Spawns opencode hidden with output capture in $env:TEMP\hermes-opencode-out.txt.
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "OpenCode CLI on Windows (PowerShell)"
 ---
 
 # OpenCode CLI Skill

@@ -8,6 +8,10 @@ description: |
   to build, implement, execute the spec, or tackle a specific §T task
   (`build §T.3`, `build --next`, `implement next task`, `run the build`).
   Expects SPEC.md to exist; if not, defers to the spec skill.
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # build — implement spec

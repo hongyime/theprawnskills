@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Local setup (adapted from the imported Microsoft skill)
   version: "1.1.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill PR Reviewer

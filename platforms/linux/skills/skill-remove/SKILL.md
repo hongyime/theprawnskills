@@ -5,7 +5,7 @@ description: >-
   recoverable backups. Use for uninstalling or archiving an exact named skill.
 license: MIT
 metadata:
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Remove for Standalone Installs

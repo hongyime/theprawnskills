@@ -2,6 +2,10 @@
 name: book-cover-design
 description: "Book cover design with genre-specific conventions, typography rules, and AI image generation. Covers fiction and non-fiction genres, sizing, thumbnail testing, and iteration workflows. Use for: self-publishing, ebook covers, print covers, audiobook covers, cover mockups. Triggers: book cover, cover design, ebook cover, book art, novel cover, self publishing cover, kindle cover, audiobook cover, book jacket, cover illustration, fiction cover, nonfiction cover"
 allowed-tools: Bash(belt *)
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

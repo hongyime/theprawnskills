@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Microsoft
   version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Deploy Model

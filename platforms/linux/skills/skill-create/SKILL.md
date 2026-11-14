@@ -5,7 +5,7 @@ description: >-
   asked to create a skill, teach an agent a workflow, or make future agents know it.
 license: MIT
 metadata:
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Create for Standalone Installs

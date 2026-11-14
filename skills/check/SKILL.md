@@ -7,6 +7,10 @@ description: |
   asks to check drift, audit the spec, verify invariants, or ask whether
   code still matches the spec. Phrasings: "check drift", "audit the spec",
   "does the code still match §V", "check invariants", "spec vs code".
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # check — drift report

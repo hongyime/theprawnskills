@@ -5,7 +5,7 @@ description: >-
   workflow evidence. Use when asked to refresh a skill or change its behavior.
 license: MIT
 metadata:
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Update for Standalone Installs

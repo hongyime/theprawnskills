@@ -1,6 +1,10 @@
 ---
 name: cli-agent-router
 description: Choose and launch an available CLI agent for authorized delegation, independent review or isolated implementation. Use for agent selection, host adapters, bounded parallel work, and tmux/dmux worktree coordination.
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # CLI agent router

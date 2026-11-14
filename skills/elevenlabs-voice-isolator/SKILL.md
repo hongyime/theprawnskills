@@ -2,6 +2,10 @@
 name: elevenlabs-voice-isolator
 description: "ElevenLabs voice isolator - remove background noise and isolate vocals from audio via inference.sh CLI. Capabilities: noise removal, voice extraction, audio cleanup, background removal. Use for: podcast cleanup, interview audio, music vocals, noisy recordings, audio restoration. Triggers: voice isolator, noise removal, background removal, isolate voice, clean audio, remove background noise, audio cleanup, voice extraction, elevenlabs isolator, eleven labs noise, vocal isolation, denoise, audio restoration, voice separation"
 allowed-tools: Bash(belt *)
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

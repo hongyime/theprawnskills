@@ -5,6 +5,10 @@ category: devops
 risk: unknown
 source: community
 date_added: "2026-02-27"
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Docker Expert

@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Microsoft
   version: "1.3.2"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Azure Cloud Migrate

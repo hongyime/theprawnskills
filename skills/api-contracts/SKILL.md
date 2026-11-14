@@ -5,6 +5,10 @@ description: >-
   request/response drift, contract-first implementation, compatibility reviews,
   schema evolution, generated clients, and validating serialized API responses.
 license: MIT; see LICENSE.txt
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # API Contracts

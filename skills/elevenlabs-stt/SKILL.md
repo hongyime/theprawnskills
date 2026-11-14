@@ -2,6 +2,10 @@
 name: elevenlabs-stt
 description: "ElevenLabs speech-to-text with Scribe models and forced alignment via inference.sh CLI. Models: Scribe v1/v2 (98%+ accuracy, 90+ languages). Capabilities: transcription, speaker diarization, audio event tagging, word-level timestamps, forced alignment, subtitle generation. Use for: meeting transcription, subtitles, podcast transcripts, lip-sync timing, karaoke. Triggers: elevenlabs stt, elevenlabs transcription, scribe, elevenlabs speech to text, forced alignment, word alignment, subtitle timing, diarization, speaker identification, audio event detection, eleven labs transcribe"
 allowed-tools: Bash(belt *)
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

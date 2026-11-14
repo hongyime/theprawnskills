@@ -1,4 +1,4 @@
-# Platform-line pass + molt/shell aliases + platform CI check — 2026-11-14 (alias pair committed; pass + CI still uncommitted)
+# Platform-line pass + molt/shell aliases + platform CI check — 2026-11-14 (alias pair + pass + CI + audit fixes committed; 7 + 8 left alone)
 
 - Platform-line pass (2026-11-14, Bryan's word "YES DO ALL"): 269 files
   scanned; 222 changed (193 added the contract line, 29 replaced a
@@ -41,8 +41,25 @@
 - Alias pair (molt + shell + INDEX + router) committed 2026-11-14 on
   Bryan's word ("fix both of these now first and commit and push to
   main") — the SHELL-home fix ships with it. Platform pass (222 files)
-  + CI check still UNCOMMITTED. agy audit fixes HELD per Bryan
-  2026-11-14 22:34 (decide later).
+  + CI check + audit fixes committed 2026-11-14 on Bryan's word. agy
+  audit fixes, round 1 (2026-11-14, Bryan's word "do all 10" — scoped):
+  findings 1, 2, 3, 4, 5, 6, 9 APPLIED. 1: to_posix() normalizes rel paths; 2: Linux
+  router gained molt/shell rows; 3: claude-api out of exceptions +
+  contract line (SDK reference, not a runner); 4: codex / claude-code-cli
+  / opencode-cli gained honest agent-specific platform lines, exceptions
+  kept with true reasons; 5: stale check now flags unscanned existing
+  paths; 6: new tests/test_audit_skill_platforms.py (16 tests, all pass);
+  9: trailing newline in exceptions JSON (13 entries now). Validations:
+  platform audit OK (271 files, 13 exceptions), text safety 0, resource
+  audit Missing 0, INDEX --check agrees, installer --check 67/0. Full
+  suite 125 tests, 1 failure — the pre-existing test_install_skills
+  66-vs-67 (polish-repo). claude-api quick_validate still fails on the
+  pre-existing description-length issue (1068 > 1024), untouched.
+  Findings 7 + 8 LEFT ALONE per Bryan 2026-11-14 23:47 ("leave 7 and 8
+  alone") — aliases stay (names are the interface), stamped lines stay
+  (fleet stable, re-stamp is one script run). Finding 10 DEBUNKED
+  (sibling audit scripts also non-executable; CI calls via python) — no
+  action.
 
 # polish-repo entry-point skill — 2026-11-14 (uncommitted)
 

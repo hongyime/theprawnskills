@@ -12,7 +12,7 @@ license: MIT
 metadata:
   author: Local setup
   version: "2.1.0"
-  platform: "Windows, macOS, Linux and VM/VPS targets; any CLI agent as driver"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Agent Machine Bootstrap

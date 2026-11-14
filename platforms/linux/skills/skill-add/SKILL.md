@@ -5,7 +5,7 @@ description: >-
   instructions, or a described workflow. Use when asked to add or install a skill.
 license: MIT
 metadata:
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Add for Standalone Installs

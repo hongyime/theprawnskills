@@ -1,0 +1,57 @@
+{
+  "description": "Skills that cannot declare the full agent-agnostic platform line, with the reason each is exempt. The checker rejects stale entries (file now complies, path no longer exists, or path is not a scanned skill file).",
+  "exceptions": [
+    {
+      "reason": "Agent-specific by design: drives the Codex CLI; platform line declares its scope (Codex CLI on Windows, macOS, Linux), not the contract.",
+      "source": "skills/codex/SKILL.md"
+    },
+    {
+      "reason": "Agent-specific by design: drives the Claude Code CLI via hidden Windows PowerShell; platform line declares its scope, not the contract.",
+      "source": "skills/claude-code-cli/SKILL.md"
+    },
+    {
+      "reason": "Agent-specific by design: drives the OpenCode CLI via hidden Windows PowerShell; platform line declares its scope, not the contract.",
+      "source": "skills/opencode-cli/SKILL.md"
+    },
+    {
+      "reason": "OpenCode-only by design.",
+      "source": "skills/opencode-bedrock-config/SKILL.md"
+    },
+    {
+      "reason": "Platform-specific by design: Windows clients and Linux/Docker DNS hosts.",
+      "source": "skills/homelab-pihole-dns/SKILL.md"
+    },
+    {
+      "reason": "Platform-specific by design: VirtualBox host and Linux guest.",
+      "source": "skills/virtualbox-guest-access/SKILL.md"
+    },
+    {
+      "reason": "Windows variant copy; the Linux twin in platforms/linux/skills/ covers the rest.",
+      "source": "skills/skill-add/SKILL.md"
+    },
+    {
+      "reason": "Windows variant copy; the Linux twin in platforms/linux/skills/ covers the rest.",
+      "source": "skills/skill-cleanup/SKILL.md"
+    },
+    {
+      "reason": "Windows variant copy; the Linux twin in platforms/linux/skills/ covers the rest.",
+      "source": "skills/skill-create/SKILL.md"
+    },
+    {
+      "reason": "Windows variant copy; the Linux twin in platforms/linux/skills/ covers the rest.",
+      "source": "skills/skill-remove/SKILL.md"
+    },
+    {
+      "reason": "Windows variant copy; the Linux twin in platforms/linux/skills/ covers the rest.",
+      "source": "skills/skill-router/SKILL.md"
+    },
+    {
+      "reason": "Windows variant copy; the Linux twin in platforms/linux/skills/ covers the rest.",
+      "source": "skills/skill-update/SKILL.md"
+    },
+    {
+      "reason": "Windows variant copy; the Linux twin in platforms/linux/skills/ covers the rest.",
+      "source": "skills/skill-authoring/SKILL.md"
+    }
+  ]
+}

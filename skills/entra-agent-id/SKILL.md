@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Microsoft
   version: "1.1.1"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Microsoft Entra Agent ID

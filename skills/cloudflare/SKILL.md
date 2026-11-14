@@ -7,6 +7,10 @@ references:
   - d1
   - durable-objects
   - workers-ai
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Cloudflare Platform Skill

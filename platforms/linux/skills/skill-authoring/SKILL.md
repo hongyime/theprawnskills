@@ -5,7 +5,7 @@ description: >-
   Skills in a Git clone. Use for SKILL.md changes and skill library maintenance.
 license: MIT
 metadata:
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Authoring for Standalone Installs

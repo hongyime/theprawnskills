@@ -2,6 +2,10 @@
 name: elevenlabs-dubbing
 description: "ElevenLabs automatic dubbing - translate and dub audio/video into 29 languages while preserving speaker voice via inference.sh CLI. Capabilities: auto speaker detection, voice-preserving translation, video dubbing, audio localization. Use for: content localization, video translation, multilingual content, international distribution. Triggers: dubbing, dub video, translate audio, video translation, audio translation, localize content, elevenlabs dubbing, eleven labs dub, multilingual dub, voice translation, auto dub, language dub, content localization"
 allowed-tools: Bash(belt *)
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

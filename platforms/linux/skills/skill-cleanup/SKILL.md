@@ -5,7 +5,7 @@ description: >-
   Prawn Skills installation. Use for messy skills or requests to clean up the library.
 license: MIT
 metadata:
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Cleanup for Standalone Installs

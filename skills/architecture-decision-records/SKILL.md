@@ -5,6 +5,10 @@ description: >-
   alternatives, consequences and proposed/accepted/superseded status. Use for
   ADRs, record this decision, why did we choose this, or durable design rationale.
 license: MIT; see LICENSE.txt
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Architecture Decision Records

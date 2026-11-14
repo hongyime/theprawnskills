@@ -9,6 +9,7 @@ license: MIT
 metadata:
   author: Local setup
   version: "1.1.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Handoff

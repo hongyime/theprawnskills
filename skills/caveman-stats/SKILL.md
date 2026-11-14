@@ -5,6 +5,10 @@ description: >
   Requires the external Caveman Claude Code plugin and its registered hooks.
   Triggers on /caveman-stats. Report unavailable when the runtime integration
   is absent; never estimate token counts or claim hooks ran without evidence.
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 This library contains the instruction only. The external Caveman plugin supplies

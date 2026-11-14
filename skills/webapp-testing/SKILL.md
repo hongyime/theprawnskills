@@ -5,6 +5,10 @@ description: >-
   screenshots, logs, CI artifacts and flaky-test diagnosis. Use for browser
   testing and end-to-end flows; use react-testing for isolated component tests.
 license: Complete terms in LICENSE.txt; ECC-derived guidance also carries ECC-LICENSE.txt
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Web Application Testing

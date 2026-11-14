@@ -2,6 +2,10 @@
 name: bounded-agent-loop
 description: Run a user-authorized, bounded repair loop with explicit acceptance commands, isolated ownership, attempt and time limits, failure stop conditions, and a resumable handoff. Use for repeated agent repair work, not routine one-pass edits or unattended scheduling.
 license: MIT
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Bounded agent loop

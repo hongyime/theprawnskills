@@ -9,6 +9,7 @@ license: MIT
 metadata:
   author: vercel
   version: '1.0.0'
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # React Native Skills

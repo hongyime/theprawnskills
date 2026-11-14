@@ -2,6 +2,10 @@
 name: happyhorse
 description: "Generate and edit videos with Alibaba HappyHorse 1.0 models via inference.sh CLI. Models: HappyHorse T2V, I2V, R2V, Video Edit. Capabilities: text-to-video, image-to-video, reference-to-video, video editing with natural language, character preservation, 720P/1080P, up to 15 seconds. Use for: physically realistic video, video editing, character-consistent content, product demos, social media. Triggers: happyhorse, happy horse, alibaba video, happyhorse 1.0, dashscope video, alibaba happyhorse, video editing ai, ai video editor"
 allowed-tools: Bash(belt *)
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

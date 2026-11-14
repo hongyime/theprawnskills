@@ -10,7 +10,7 @@ license: MIT
 metadata:
   author: the maintainer local setup
   version: "1.1.0"
-  platform: "Codex, Claude, Cursor, OpenCode on Windows, macOS, Linux"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # PostPlan Upload

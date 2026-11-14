@@ -8,7 +8,7 @@ license: MIT
 metadata:
   author: Local setup, adapted from ECC
   version: "1.0.0"
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Verify a Change

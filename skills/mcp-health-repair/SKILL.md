@@ -1,6 +1,10 @@
 ---
 name: mcp-health-repair
 description: "Troubleshoot OpenCode MCP failures fast. USE FOR: /status failures, timeout errors, connection closed, broken MCP command args, intermittent MCP flapping. DO NOT USE FOR: feature implementation unrelated to MCP health."
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # MCP Health Repair

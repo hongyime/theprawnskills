@@ -5,6 +5,10 @@ description: >-
   request or job flow, test commands and conventions. Use for onboard me,
   understand this repo, where do I start, or preparing a codebase orientation.
 license: MIT; see LICENSE.txt
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Codebase Onboarding

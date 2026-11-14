@@ -6,7 +6,7 @@ description: >-
   involving documents, media, cloud platforms, writing, or skill maintenance.
 license: MIT
 metadata:
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Router for Standalone Installs
@@ -41,6 +41,8 @@ following relative references. Never install the full library just to search it.
 | Azure / Supabase / Vercel | azure-prepare, supabase, deploy-to-vercel |
 | Images, video, audio | ai-image-generation, image-to-video, text-to-speech |
 | Writing and marketing | technical-blog-writing, case-study-writing, content-repurposing |
+| Session continuity across agents | cross-harness-state; session-handoff; molt |
+| Repo standardization and compliance | repo-standardization; shell |
 
 Verify candidate availability and tool prerequisites from the actual files.
 Keep source skills and installed links/copies separate. Use the Python installer

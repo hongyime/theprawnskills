@@ -14,7 +14,7 @@ license: MIT
 metadata:
   author: Local setup
   version: "1.0.1"
-  platform: Codex, Claude, Cursor, OpenCode on Windows
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Competitive Upgrade

@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Microsoft
   version: "3.2.1"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 compatibility: Requires Azure CLI (az) for configuration and testing
 ---
 

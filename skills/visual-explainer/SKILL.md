@@ -11,7 +11,7 @@ description: >-
 license: MIT
 metadata:
   version: "1.0.0"
-  platform: Windows, macOS, Linux
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Visual Explainer

@@ -6,6 +6,7 @@ compatibility: python3.10+
 metadata:
   author: Microsoft
   version: "1.2.1"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Azure Upgrade

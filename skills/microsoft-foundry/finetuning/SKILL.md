@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Microsoft
   version: "0.0.0-placeholder"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Fine-Tuning on Microsoft Foundry

@@ -1,6 +1,10 @@
 ---
 name: codex
 description: Run the installed Codex CLI for user-requested analysis, review, implementation or resuming a specific task, using verified local flags and configured model defaults.
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex CLI on Windows, macOS, Linux (Debian)"
 ---
 
 # Codex CLI adapter

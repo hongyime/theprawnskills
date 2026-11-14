@@ -4,6 +4,7 @@ description: Deploy and manage projects on Vercel using token-based authenticati
 metadata:
   author: vercel
   version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Vercel CLI with Tokens

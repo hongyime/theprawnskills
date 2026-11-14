@@ -8,6 +8,10 @@ references:
   - astro
   - sveltekit
   - hugo
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Turnstile Spin skill

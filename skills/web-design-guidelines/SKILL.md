@@ -4,6 +4,7 @@ description: Review UI code for Web Interface Guidelines compliance. Use when as
 metadata:
   author: vercel
   version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
   argument-hint: <file-or-pattern>
 ---
 

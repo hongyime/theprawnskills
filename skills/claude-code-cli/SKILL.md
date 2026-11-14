@@ -1,6 +1,10 @@
 ---
 name: claude-code-cli
 description: Delegate tasks to Claude Code CLI in a hidden background process. Use when the user asks to use Claude Code, or when a task needs multi-file reasoning, complex refactoring, or Claude-quality analysis. Spawns claude in --print mode with no visible terminal — output tee'd to $env:TEMP\hermes-claude-out.txt.
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Claude Code CLI on Windows (PowerShell)"
 ---
 
 # Claude Code CLI Skill

@@ -1,6 +1,10 @@
 ---
 name: mcp-security-hygiene
 description: "Harden MCP configuration security. USE FOR: removing inline secrets, env-var migration, log redaction, least-privilege MCP defaults. DO NOT USE FOR: unrelated auth implementations."
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # MCP Security Hygiene

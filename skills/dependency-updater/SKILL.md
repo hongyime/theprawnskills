@@ -4,6 +4,7 @@ description: Smart dependency management for any language. Auto-detects project 
 license: MIT
 metadata:
   version: 1.0.0
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Dependency Updater

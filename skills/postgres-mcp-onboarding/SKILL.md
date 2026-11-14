@@ -1,6 +1,10 @@
 ---
 name: postgres-mcp-onboarding
 description: "Enable PostgreSQL MCP correctly across providers. USE FOR: local Docker Postgres, Supabase, Railway, Neon, managed Postgres URLs. DO NOT USE FOR: SQL query optimization itself."
+metadata:
+  author: Local setup
+  version: "1.0.0"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Postgres MCP Onboarding

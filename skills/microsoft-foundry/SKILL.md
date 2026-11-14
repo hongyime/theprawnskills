@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Microsoft
   version: "1.2.8"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Microsoft Foundry Skill
