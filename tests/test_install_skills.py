@@ -248,7 +248,7 @@ class ProfileIntegrationTests(Fixture):
             result = subprocess.run([*command, mode], capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
         links = list((self.home / ".agents/skills").iterdir())
-        self.assertEqual(len(links), 66)
+        self.assertEqual(len(links), 67)
         self.assertTrue(all((link / "SKILL.md").is_file() for link in links))
         self.assertTrue(all(link.is_symlink() == (os.name != "nt") for link in links))
         metadata = json.loads((self.home / ".config/theprawnskills/library.json").read_text())
