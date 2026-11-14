@@ -28,9 +28,29 @@
   48310f4, INDEX 257 rows, clean trees. SSH from the VM runs as root, so
   the ssh-config Host stanzas do not apply — use explicit
   `-o ProxyCommand` + `-i` flags (direct 3410 SSH resets; jump via L390).
-  OPEN: E14 reportedly has a second clone (Orca note 2026-11-13) — not
-  found in Projects, OneDrive, Documents, C:\ root, or 01 SKILLS; ask the
-  user where it is before claiming full convergence.
+  OPEN: E14's second clone FOUND 2026-11-14 — it is the live OneDrive
+  clone at `C:\Users\bryan\.agents` (symlink → OneDrive\01 SKILLS\.agents);
+  T14 has the same setup and its OneDrive clone synced cleanly to 2993050.
+  E14's OneDrive clone is STUCK: new files are on disk but every git op
+  fails with "Could not write new index file". PROVED 2026-11-14: renaming
+  .git/index fails — "being used by another process", so some process on
+  E14 holds the index file open (codex.exe IS running on E14, PID 21412,
+  console session 1, no visible window — possibly a Herdr pane agent).
+  Ruled out: read-only flag, lock file, disk space (297 GB free), OneDrive
+  not running, Controlled Folder Access audit-only. HEAD still b4c63e9.
+  Fix: reboot E14 (clears the handle), then pull. Do NOT stash/commit the
+  "local changes" — they ARE the new files from the half-finished pull.
+  T14 note: T14's OneDrive clone synced cleanly to 2993050.
+- 3410 direct SSH CORRECTED 2026-11-14: direct works with explicit flags
+  (verified login); the old "refuses connection" note was stale — the
+  failures were root ignoring ssh-config (no ProxyCommand). L390 jump is
+  fallback only.
+- VM SSH lesson (2026-11-14): exec runs as root, so ssh-config Host
+  stanzas do NOT apply and /root/.ssh/known_hosts is ephemeral (wiped on
+  VM restart — E14 host-key check failed mid-session after a restart).
+  Always use explicit flags: -o ProxyCommand, -i key,
+  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null. Direct
+  3410 SSH resets; jump via L390.
 
 # Hill-climb skill created (on demand, uncommitted) — 2026-11-11
 
