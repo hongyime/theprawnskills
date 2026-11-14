@@ -74,20 +74,22 @@
   T14 primary, E14 primary + OneDrive all at e745fc5; T14 OneDrive clone
   git is BROKEN again (see below) but its working-tree files were synced
   from the primary clone and SHA256-match e745fc5 content.
-- T14 OneDrive clone RE-BROKE 2026-11-14 (same OneDrive corruption):
-  pull fails "Could not read fb7a72e / unresolved deltas / unpack-objects
-  failed". Local-remote fetch transplant failed identically (thin packs
-  delta against the missing object). Object-DB xcopy from the healthy
-  primary clone did NOT fix it (pack overwrite blocked — "Access denied",
-  OneDrive holds the files open). fsck shows broken remote refs again,
-  a missing .gitattributes blob, and re-appeared *-Prawn-E14 reflog
-  conflict files (OneDrive re-synced them back from E14). FIXED the
-  install by file-sync instead (4 files xcopied from primary clone,
-  SHA256-verified). PROPER git repair needs OneDrive paused on T14 first
-  (Bryan's call) — do not keep repairing against a live sync; it
-  re-corrupts. Recovery then: git reset --hard origin/main or re-clone.
-  LESSON: never run git operations on a OneDrive-synced clone while
-  OneDrive.exe is running; the sync fights git in real time.
+- T14 OneDrive clone REPAIRED 2026-11-14 (Bryan approved pause):
+  root cause was the .pack/.idx files were GONE from
+  .git/objects/pack (only .rev/.mtimes left) — OneDrive had eaten them,
+  so every fetch failed on the missing fb7a72e base object. Repair with
+  OneDrive killed: deleted 6 *-Prawn-* conflict files, commit-graph,
+  logs, 3 broken remote refs; xcopy /R (NOT plain xcopy — git pack files
+  are read-only, plain xcopy fails "Access denied" on them) of the
+  primary clone's .git/objects (46 files incl. the 37MB pack); fsck
+  clean (3 dangling commits only), pull already up to date, git reset
+  fixed stale index (status MM → clean). HEAD ea4100c, status clean.
+  LESSON: never run git on a OneDrive-synced clone while OneDrive.exe
+  is running — it re-corrupts the object DB in real time; proper repair
+  needs OneDrive paused first. T14 OneDrive path is C:\Program Files\
+  Microsoft OneDrive\OneDrive.exe (per-machine install, NOT
+  %LOCALAPPDATA%); relaunch from SSH lands in Session 0 (no tray icon,
+  sync still works, normal again after next login/reboot).
 
 # Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (committed + pushed 48310f4, fleet synced)
 
