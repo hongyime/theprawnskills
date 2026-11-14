@@ -1,3 +1,31 @@
+# polish-repo entry-point skill — 2026-11-14 (uncommitted)
+
+- New ON-DEMAND skill `polish-repo` (INDEX 257 → 258 rows, definitions
+  268 → 269): one command ("polish this repo") chaining user-stories
+  (map) → interrogate (challenge) → correct + tdd (fix) →
+  design-taste-frontend / impeccable (looks, async no-live default) →
+  verification-loop (prove it). Ground rules inherited from user-stories:
+  no code changes until the user approves a specific fix, no unrelated
+  refactors, no commit/push unless asked, running record in
+  docs/user-stories.md, one feature at a time with stop points.
+- Built because invoking 29 skills one by one from memory is too much
+  friction. Checked kunchenguid/headless + kun first: neither fits
+  (headless = machine provisioning over SSH; kun = one generalist
+  "think like a principal engineer" skill, not a runner for other skills).
+- Built because invoking 29 skills one by one from memory is too much
+  friction. Checked kunchenguid/headless + kun first: neither fits
+  (headless = machine provisioning over SSH; kun = one generalist
+  "think like a principal engineer" skill, not a runner for other skills).
+- Router row added. Validations pass: quick_validate (polish-repo,
+  skill-router), INDEX --check agrees, text safety 0, resource audit
+  Missing 0, installer dry-run + check verified.
+- DEFAULT since 2026-11-14 (user's word): added to default-profile.toml
+  (Core coding workflow, after requesting-code-review); INDEX regenerated
+  (polish-repo now DAILY, 67 selected). Installed on the VM via installer
+  --apply (opencode): ~/.agents/skills/polish-repo symlinked to the clone,
+  --check verified. NOT committed or pushed yet — needs the user's word,
+  then fleet install (pull + installer --apply per machine).
+
 # Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (committed + pushed 48310f4, fleet synced)
 
 - 29 new ON-DEMAND skills (INDEX 228 → 257 rows, definitions 239 → 268):
@@ -31,20 +59,16 @@
   OPEN: E14's second clone FOUND 2026-11-14 — it is the live OneDrive
   clone at `C:\Users\bryan\.agents` (symlink → OneDrive\01 SKILLS\.agents);
   T14 has the same setup and its OneDrive clone synced cleanly to 2993050.
-  E14's OneDrive clone is STUCK: new files are on disk but every git op
-  fails with "Could not write new index file". PROVED 2026-11-14: renaming
-  .git/index fails — "being used by another process", so some process on
-  E14 holds the index file open (codex.exe IS running on E14, PID 21412,
-  console session 1, no visible window — possibly a Herdr pane agent).
-  Ruled out: read-only flag, lock file, disk space (297 GB free), OneDrive
-  not running, Controlled Folder Access audit-only. HEAD still b4c63e9.
-  Fix: reboot E14 (clears the handle), then pull. Do NOT stash/commit the
-  "local changes" — they ARE the new files from the half-finished pull.
-  T14 note: T14's OneDrive clone synced cleanly to 2993050.
+  RESOLVED 2026-11-14: Bryan rebooted E14; the OneDrive clone pulled
+  clean to 2993050 (status 0), then to b1f3d38 with the rest of the fleet.
+  The locked index file was cleared by the reboot. Docs for this saga
+  committed as b1f3d38; all 7 clones (VM, L390, 3410, T14 Projects +
+  OneDrive, E14 Projects + OneDrive) at b1f3d38, clean. (This STATE
+  update itself uncommitted — rides with the next commit.)
 - 3410 direct SSH CORRECTED 2026-11-14: direct works with explicit flags
-  (verified login); the old "refuses connection" note was stale — the
-  failures were root ignoring ssh-config (no ProxyCommand). L390 jump is
-  fallback only.
+  (verified login twice, incl. a pull over direct SSH); the old "refuses
+  connection" note was stale — the failures were root ignoring ssh-config
+  (no ProxyCommand). L390 jump is fallback only.
 - VM SSH lesson (2026-11-14): exec runs as root, so ssh-config Host
   stanzas do NOT apply and /root/.ssh/known_hosts is ephemeral (wiped on
   VM restart — E14 host-key check failed mid-session after a restart).

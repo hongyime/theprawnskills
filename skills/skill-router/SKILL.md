@@ -91,6 +91,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Coding, refactor, review, testing | `refactor`, `requesting-code-review`, `systematic-debugging`, `webapp-testing` |
 | Verify a completed change, ready for review, completion evidence | `verification-loop`; `check` specifically for SPEC drift |
 | Review a finished project with the user through user stories: map what users can actually do, find edge cases, reconcile the mental model with the code | `user-stories` |
+| Polish a somewhat-done repo end to end: map, challenge, fix, improve the frontend, verify | `polish-repo`; `user-stories` for the mapping step alone, `interrogate` for the challenge step alone |
 | Adversarial review: stress-test a change, prove it by running it, find blind spots | `interrogate`, `blast-radius`, `figure-it-out`, `show-me-your-work` |
 | Understand why and how: rationale for a design, how something works, teach it | `why`, `how`, `teach` |
 | Stop repeating the same mistake: diagnose a recurring error pattern and fix the cause | `correct` |

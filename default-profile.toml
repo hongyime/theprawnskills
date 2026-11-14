@@ -33,6 +33,7 @@ skills = [
   "git-commit",
   "refactor",
   "requesting-code-review",
+  "polish-repo",
   "systematic-debugging",
   "security-best-practices",
   "dependency-updater",

@@ -8,10 +8,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 251 |
-| All definitions, including nested skills and portable variants | 268 |
+| Top-level skills | 252 |
+| All definitions, including nested skills and portable variants | 269 |
 | Portable variants | 7 |
-| Daily profile | 66 |
+| Daily profile | 67 |
 
 ## Skills
 
@@ -168,6 +168,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `p-video-avatar` | Generate talking head avatar videos with Pruna P-Video-Avatar via inference.sh CLI. Turn a portrait image into a realistic speaking video with built-in TTS. 18x faster and 6x ch... | ON-DEMAND |
 | `pdf` | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, spl... | ON-DEMAND |
 | `pitch-deck-visuals` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data presentation. Covers the 12-slide framework, chart types, team slides, and common inve... | ON-DEMAND |
+| `polish-repo` | Polish a somewhat-done repo with one command: map what it really does with user stories, stress-test it, fix what is wrong with tests, improve the frontend, and prove the result... | DAILY |
 | `ponytail` | Lazy senior dev mode: the smallest change that fully solves the task, and a reply a busy human understands in one read. Use on any coding task (writing, fixing, refactoring, rev... | ON-DEMAND |
 | `ponytail-audit` | Quality audit of a whole repo: bugs, security holes, what breaks under real load, risky code without tests, slow paths, and what to delete, merge or split. Ranked, each finding ... | ON-DEMAND |
 | `ponytail-debt` | List every `shortcut:` comment (and older `ponytail:` ones) as a debt ledger. One-shot report, changes nothing. Use for "ponytail debt", "what did ponytail defer", "list the sho... | ON-DEMAND |
