@@ -60,6 +60,16 @@
   Orca copies (computer-use, orchestration) — not cleaned, out of scope.
 - E14's OneDrive clone arriving via sync (not git) is why "Already up to
   date" appeared there with no fetch.
+- agy fixes applied 2026-11-14 (user's word, UNCOMMITTED): dropped
+  modernize/unslop/sharpen/correct (wrong skills — verified against their
+  SKILL.md descriptions); Phase 3 now uses blast-radius + inline
+  fix-the-fault guidance + tdd only when the test target is obvious/cheap;
+  Phase 4 Tighten is now refactor + ponytail-review with an approval gate;
+  security moved to Phase 2; batch story review (one summary table);
+  baseline test/build check in Phase 1; loop/exit after Phase 7 (next
+  feature or wrap up); "What this skill does not do" deleted; frontmatter
+  description compressed; verification verbiage trimmed. File 6,731 →
+  6,140 bytes. Validations re-passed, INDEX regenerated.
 
 # Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (committed + pushed 48310f4, fleet synced)
 
