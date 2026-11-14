@@ -60,7 +60,7 @@
   Orca copies (computer-use, orchestration) — not cleaned, out of scope.
 - E14's OneDrive clone arriving via sync (not git) is why "Already up to
   date" appeared there with no fetch.
-- agy fixes applied 2026-11-14 (user's word, UNCOMMITTED): dropped
+- agy fixes applied 2026-11-14 (user's word): dropped
   modernize/unslop/sharpen/correct (wrong skills — verified against their
   SKILL.md descriptions); Phase 3 now uses blast-radius + inline
   fix-the-fault guidance + tdd only when the test target is obvious/cheap;
@@ -69,7 +69,25 @@
   baseline test/build check in Phase 1; loop/exit after Phase 7 (next
   feature or wrap up); "What this skill does not do" deleted; frontmatter
   description compressed; verification verbiage trimmed. File 6,731 →
-  6,140 bytes. Validations re-passed, INDEX regenerated.
+  6,140 bytes. Validations re-passed, INDEX regenerated. COMMITTED +
+  PUSHED as e745fc5. Fleet install verified same day: VM, L390, 3410,
+  T14 primary, E14 primary + OneDrive all at e745fc5; T14 OneDrive clone
+  git is BROKEN again (see below) but its working-tree files were synced
+  from the primary clone and SHA256-match e745fc5 content.
+- T14 OneDrive clone RE-BROKE 2026-11-14 (same OneDrive corruption):
+  pull fails "Could not read fb7a72e / unresolved deltas / unpack-objects
+  failed". Local-remote fetch transplant failed identically (thin packs
+  delta against the missing object). Object-DB xcopy from the healthy
+  primary clone did NOT fix it (pack overwrite blocked — "Access denied",
+  OneDrive holds the files open). fsck shows broken remote refs again,
+  a missing .gitattributes blob, and re-appeared *-Prawn-E14 reflog
+  conflict files (OneDrive re-synced them back from E14). FIXED the
+  install by file-sync instead (4 files xcopied from primary clone,
+  SHA256-verified). PROPER git repair needs OneDrive paused on T14 first
+  (Bryan's call) — do not keep repairing against a live sync; it
+  re-corrupts. Recovery then: git reset --hard origin/main or re-clone.
+  LESSON: never run git operations on a OneDrive-synced clone while
+  OneDrive.exe is running; the sync fights git in real time.
 
 # Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (committed + pushed 48310f4, fleet synced)
 
