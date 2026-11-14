@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 252 |
-| All definitions, including nested skills and portable variants | 269 |
+| Top-level skills | 254 |
+| All definitions, including nested skills and portable variants | 271 |
 | Portable variants | 7 |
 | Daily profile | 67 |
 
@@ -156,6 +156,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `merge-conflict-resolution` | Resolve git merge/rebase conflicts systematically without losing either side's intent. Use when the user says fix this merge conflict, resolve the rebase, there are conflicts, g... | ON-DEMAND |
 | `microsoft-foundry` | Deploy, evaluate, fine-tune, and manage Foundry agents end-to-end with azd: hosted agent scaffold/run/deploy, prompt agent create, batch eval, continuous eval, prompt optimizer,... | ON-DEMAND |
 | `modernize` | For getting old prs up to date. Use when asked to rebase a pr or "modernize". | ON-DEMAND |
+| `molt` | Carry work across agents and machines with MOLT-style persistent state in a repo's .agents/ folder: STATE.md for now, JOURNAL.md for history, handoff docs for deep recovery. Use... | ON-DEMAND |
 | `nano-banana` | Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, mult... | ON-DEMAND |
 | `nano-banana-2` | Generate images with Google Gemini 3.1 Flash Image Preview (Nano Banana 2) via inference.sh CLI. Capabilities: text-to-image, image editing, multi-image input (up to 14 images),... | ON-DEMAND |
 | `newsletter-curation` | Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. ... | ON-DEMAND |
@@ -208,6 +209,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `session-handoff` | Save and resume project work across agents or machines using verified Markdown handoffs. Use for create handoff, save state, pause this task, load handoff, resume from, or conti... | ON-DEMAND |
 | `shadcn` | Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI. Provides project context, component docs, and usage examples. Applies w... | DAILY |
 | `sharpen` | Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen. | ON-DEMAND |
+| `shell` | Bring a repo to the SHELL house standard: tiers, Apache-2.0 license files, GitHub metadata, README identity, secret scanning, and a compliance report. Use when the user says she... | ON-DEMAND |
 | `show-me-your-work` | Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a revie... | ON-DEMAND |
 | `skill-add` | Add a skill from an upstream GitHub repository, URL, pasted markdown, pasted instructions, or a described tool workflow. Use when the user says add this skill, install this skil... | DAILY |
 | `skill-authoring` | Conventions for creating, editing, pruning, or auditing AI-agent skills on this Windows dotagents setup. Canonical skills live under OneDrive `01 SKILLS/.agents/skills`; PowerSh... | ON-DEMAND |

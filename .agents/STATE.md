@@ -1,3 +1,49 @@
+# Platform-line pass + molt/shell aliases + platform CI check — 2026-11-14 (alias pair committed; pass + CI still uncommitted)
+
+- Platform-line pass (2026-11-14, Bryan's word "YES DO ALL"): 269 files
+  scanned; 222 changed (193 added the contract line, 29 replaced a
+  narrower line), 14 kept as documented exceptions (4 agent-specific:
+  codex, claude-code-cli, opencode-cli, claude-api; 2 platform-specific:
+  homelab-pihole-dns, virtualbox-guest-access; 7 Windows variant copies
+  with Linux twins; opencode-bedrock-config). Re-audit: 254 exact
+  contract string + 1 contract+extras (cross-harness-state); the 14 kept
+  files are the only ones without it, all by design.
+- PASS-SCRIPT BUG, caught by spot-check + quick_validate: the first run
+  glued the closing `---` onto the platform line in all 142 added-block
+  files ("Invalid frontmatter format"). Repaired by inserting the
+  missing newline; all 142 now validate. LESSON: YAML-parsing the
+  frontmatter fragment is not enough — verify the reconstructed file
+  with quick_validate on samples.
+- molt + shell alias skills (new, ON-DEMAND, not in default-profile):
+  molt routes to cross-harness-state + session-handoff; shell routes to
+  repo-standardization. Router rows extended (continuity row, repo
+  standardization row). INDEX 269 → 271 definitions. De-fleet grep
+  clean. Validations pass. Provenance fix 2026-11-14 (Bryan's word):
+  sourcerepo deleted STANDARD.md in b01008a, so the shell skill's
+  "canonical home is hongyime/sourcerepo/STANDARD.md" line was a dead
+  path — now names repo-standardization as the standard's home (its
+  checklist is the standard); _shell/ folder holds a local copy of the
+  retired doc. sourcerepo docs/skills-manifest.md now points at
+  theprawnskills as the single skills home and names repo-standardization
+  as the SHELL home.
+- Platform-line CI check: scripts/audit_skill_platforms.py +
+  scripts/skill-platform-exceptions.json (14 entries) + a step in
+  .github/workflows/skills.yml after the resource audit. Token-set check
+  (Codex, Antigravity (agy), OpenCode, Muse, Windows, macOS,
+  Linux (Debian) all must appear); rejects stale exceptions. Local run:
+  271 files OK. Negative tests pass (old Windows-only line flagged,
+  missing line flagged, contract + extras pass).
+- Full validations: quick_validate loop over 271 dirs — 9 failures, ALL
+  pre-existing at HEAD (description angle brackets / too long,
+  unexpected top-level keys; none platform-related). INDEX --check
+  agrees, text safety 0, resource audit Missing 0, installer --check
+  verified (67 selected, 0 changes).
+- Alias pair (molt + shell + INDEX + router) committed 2026-11-14 on
+  Bryan's word ("fix both of these now first and commit and push to
+  main") — the SHELL-home fix ships with it. Platform pass (222 files)
+  + CI check still UNCOMMITTED. agy audit fixes HELD per Bryan
+  2026-11-14 22:34 (decide later).
+
 # polish-repo entry-point skill — 2026-11-14 (uncommitted)
 
 - New ON-DEMAND skill `polish-repo` (INDEX 257 → 258 rows, definitions

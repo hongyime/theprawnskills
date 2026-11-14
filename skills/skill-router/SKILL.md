@@ -118,9 +118,9 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Prototypes / feasibility spikes | `prototype`, `wayfinder` |
 | Large ambiguous initiatives | `wayfinder`, `domain-modeling`, `codebase-design` |
 | Guided step-by-step setup | `wizard`, `azure-prepare`, `wrangler` |
-| Session continuity across agents | `cross-harness-state`, `session-handoff` |
+| Session continuity across agents | `cross-harness-state`, `session-handoff`, `molt` |
 | Transfer lessons, harvest rules or reuse workflows from another project | `project-transfer`; `cross-harness-state` for active sessions |
-| Repo standardization and compliance | `repo-standardization` |
+| Repo standardization and compliance | `repo-standardization`, `shell` |
 | Compare repo with competitors / market upgrades | `competitive-upgrade`, `competitor-teardown` |
 | Reduce token usage, compress output or memory files | `caveman`, `caveman-compress`, `caveman-help`; `caveman-commit` for commits, `caveman-review` for PR feedback, `caveman-stats` for usage, `cavecrew` for compressed subagents |
 | Build or repair an MCP server or MCP config | `mcp-builder`; `mcp-health-repair` for failures, `mcp-security-hygiene` for secrets, `postgres-mcp-onboarding` for Postgres MCP |
