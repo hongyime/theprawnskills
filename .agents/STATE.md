@@ -1,4 +1,4 @@
-# Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (uncommitted)
+# Skill sourcing build: 29 new skills, impeccable 4.9.0, 3 principle folds — 2026-11-14 (committed + pushed 48310f4, fleet synced)
 
 - 29 new ON-DEMAND skills (INDEX 228 → 257 rows, definitions 239 → 268):
   user-stories (fresh, from the user's prompt + pstack mechanics); pstack 14
@@ -23,7 +23,14 @@
   0, resource audit Missing 0 (7 new exceptions for example/placeholder
   paths), installer dry-run + check 66 selected / 0 changes.
 - Router: 10 new rows for the new skills. No default-profile.toml change.
-- NOT committed or pushed — awaiting the user's word.
+- Committed + pushed 2026-11-14 on the user's word as 48310f4. Fleet sync
+  verified same day: VM, L390, 3410, T14, E14 primary clones all at
+  48310f4, INDEX 257 rows, clean trees. SSH from the VM runs as root, so
+  the ssh-config Host stanzas do not apply — use explicit
+  `-o ProxyCommand` + `-i` flags (direct 3410 SSH resets; jump via L390).
+  OPEN: E14 reportedly has a second clone (Orca note 2026-11-13) — not
+  found in Projects, OneDrive, Documents, C:\ root, or 01 SKILLS; ask the
+  user where it is before claiming full convergence.
 
 # Hill-climb skill created (on demand, uncommitted) — 2026-11-11
 
