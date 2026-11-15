@@ -375,6 +375,9 @@ Each line names its checks: `consistency.mjs` ids in brackets, `check.mjs` findi
 - A drawn look-alike of a real logo; invented reviews, quotes, customers or figures.
 - Violet or lavender in the page's own design: accent, ground, gradient, effect colour or tint (a
   real third-party logo keeps its own colours, `icons.md`).
+- AI-tell visuals (cook ban list): eyebrow labels, monospace uppercase text, random serif fonts,
+  beige as a ground, 01/02/03 counters, glowing orbs, shockwave rings popping out of things,
+  decorative particles. Purple gradients are already banned by the violet rule above.
 - Copying a reference site's code, copy, pictures or signature effect.
 - Deleting or editing the kit's own files (`assets/`, `scripts/`) to clear a check: a check that
   flags a kit file is reported, and the page is checked again after any change.

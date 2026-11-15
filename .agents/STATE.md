@@ -1,3 +1,9 @@
+# Cook lessons applied — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
+
+- Bryan: "I love the pointers u made for 'cook' lets go those." Cook-sourced edits only (no cook skill import): hill-climb gains a calibration offset (user's score vs model score, applied to later scores), zero-context critics in Full Mode, and a usage-pacing line in the authorization form; polish-repo gains a too-fast check (zero mismatches on a non-trivial repo = bar read too low), a decide+log rule (only product decisions and approval gates stop the run), and a pacing line; design-taste-frontend gains cook's visual slop ban list in section 6 Never. MEMORY.md gains the pacing standing rule (~20% of the 5h window per hour, never 100%).
+- Branch stance (Bryan 2026-11-15): NO branch-per-agent default — direct on main where needed, branch only when the workflow needs one (e.g. opening a PR). The omnigraph-inspired branch-per-agent fleet default was rejected; polish-repo keeps its implied branch only at the file-pr step. Version-matched-skills rule (omnigraph) NOT applied — Bryan approved cook pointers only.
+- Still open, needs a deeper read first: people-graph convergence rules (omnigraph schema-design.md, 687 lines — read in full, then write schema rules + convergence test into the goal workspace) and Fudan write-side idempotency (read the collector runbooks first to confirm whether there's a gap).
+
 # molt + shell moved to the default profile — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
 
 - Bryan (2026-11-15): agents must know to use molt/shell without being told — they belong in the default skills. Added both to default-profile.toml (Core coding workflow, after cross-harness-state), 67 → 69 selected skills. INDEX regenerated (molt/shell ON-DEMAND → DAILY). Test count updated 67 → 69 (tests/test_install_skills.py:251 — same tripwire as the 66→67 fix).

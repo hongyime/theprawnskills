@@ -148,3 +148,4 @@
 - 2026-11-15: Debian edits committed as 6df3a71 and fleet-rolled-out — all 7 clones at 6df3a71, clean.
 - 2026-11-15: molt + shell moved into default-profile.toml (67 → 69 skills); INDEX DAILY; test count 67 → 69. Installer --apply on VM installed both symlinks; full suite 125 OK. Committed + fleet-rolled-out. agy correction: works, 5-hour window, not out of credits.
 - 2026-11-15: molt/shell fleet install verified — installer --apply on L390/3410 (69 selected, 0 changes after) + manual symlinks into ~/.codex/skills; T14/E14 xcopy into .codex\skills with fc /b no differences; .agents\skills live root has both (molt 2,120 B, shell 1,600 B). VM root verified earlier.
+- 2026-11-15: cook lessons applied — hill-climb calibration offset + zero-context critics + pacing; polish-repo too-fast check + decide/log + pacing; design-taste-frontend visual slop ban list. Branch-per-agent default REJECTED by Bryan (direct on main where needed). Committed + fleet-rolled-out.

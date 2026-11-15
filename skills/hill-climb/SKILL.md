@@ -157,6 +157,11 @@ Editable files:      <explicit paths the worker may change>
 Immutable:           <tests, eval, and files it must not touch>
 Worktree/branch:     <disposable branch or worktree to use>
 Cost cap:            <limit, or "none enforceable">
+Usage pacing:        <budget per hour as a share of the provider's limit
+                     window, e.g. ~20% of a 5h window per hour; never 100%
+                     — a run that burns the window stalls. Check remaining
+                     budget at every round boundary; slow down or pause
+                     before the window is exhausted>
 ```
 
 ## Define the Eval
@@ -177,7 +182,12 @@ Every 3rd round, re-score the baseline: if the re-score differs by
 more than 1 from the original baseline, report the drift and re-anchor
 like this: set baseline = new re-score, set best kept score = new
 re-score, and mark all earlier scores as old-scale in the report —
-pre-drift and post-drift scores are not comparable. If a
+pre-drift and post-drift scores are not comparable. Calibration: models
+rate themselves too high. When the user scores the artefact, log the gap
+between the model judge's score and the user's score as the calibration
+offset, and subtract it from every later model score. Recompute the
+offset each time the user scores again; the latest offset replaces the
+old one. If a
 judge scores something that is not in the screenshots / code / sources
 in front of it, discard that finding and say so — check every finding
 against the artefact before acting on it.
@@ -224,7 +234,10 @@ attempt.
    failure, next attempt. Never weaken the gate, the tests, or the eval
    to get a pass.
 4. The model judge scores the new version 0-10, read-only, with
-   specific fixes listed. A fresh review after fixes is a new round.
+   specific fixes listed. The judge sees only the artefact and the eval
+   rubric — no implementation history, no earlier rounds, no notes on
+   what changed. A judge that knows what was attempted scores the
+   attempt, not the artefact. A fresh review after fixes is a new round.
    Every 3rd round, re-score the baseline (see Define the Eval); if
    drift is more than 1, report it and re-anchor.
 5. Keep only if the judge score went up vs the best kept score (see
