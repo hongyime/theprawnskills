@@ -6,7 +6,8 @@ defaults come from an explicit standing preference, not from the current subject
 ## Tokens
 
 The template's CSS custom properties are the implementation of these tokens.
-When editing a token, update this table and mermaid-config.json in the same change.
+When editing a token, update this table, mermaid-config.json, and
+scripts/check_html.py (EXPECTED_TOKENS) in the same change.
 
 | Token | Value | Use |
 |---|---|---|

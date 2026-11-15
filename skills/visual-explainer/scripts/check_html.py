@@ -1,15 +1,41 @@
 #!/usr/bin/env python3
-"""Check the shared HTML structure and obvious external runtime dependencies."""
+"""Check the shared HTML structure, design tokens, section order, and obvious
+external runtime dependencies.
+
+The design-token check keeps the shared dark/cyan style from drifting: the
+template's stylesheet (templates/explainer.html) defines these tokens as CSS
+custom properties, and a document copied from the template carries them all.
+A missing token means the stylesheet was rewritten instead of reused. The
+expected values come from references/design-system.md — update EXPECTED_TOKENS
+in the same change as that table and assets/mermaid-config.json.
+"""
 from html.parser import HTMLParser
 from pathlib import Path
 import re
 import sys
+
+# (token name, hex value) from references/design-system.md. Checked
+# case-insensitively against <style> blocks only — inline style attributes
+# do not count, so a single coloured element cannot fake the stylesheet.
+EXPECTED_TOKENS = [
+    ("background", "#101418"),
+    ("surface", "#171D23"),
+    ("raised", "#202830"),
+    ("border", "#36434F"),
+    ("text", "#E8EDF2"),
+    ("muted", "#A8B5C2"),
+    ("accent", "#67D4E8"),
+    ("accent-soft", "#182D34"),
+]
+
+REQUIRED_SECTIONS = ("overview", "details", "next-steps")
 
 
 class DocumentCheck(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.ids = set()
+        self.id_order = []
         self.local_links = []
         self.errors = []
         self.svg_count = 0
@@ -17,6 +43,7 @@ class DocumentCheck(HTMLParser):
         self.style_depth = 0
         self.scripts = []
         self.styles = []
+        self.style_blocks = []
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
@@ -24,6 +51,8 @@ class DocumentCheck(HTMLParser):
         if identity:
             if identity in self.ids:
                 self.errors.append(f'Duplicate id: {identity}')
+            else:
+                self.id_order.append(identity)
             self.ids.add(identity)
         if tag in {'iframe', 'form', 'object', 'embed', 'base'}:
             self.errors.append(f'Unsupported element: {tag}')
@@ -70,14 +99,25 @@ class DocumentCheck(HTMLParser):
             self.scripts.append(data)
         if self.style_depth:
             self.styles.append(data)
+            self.style_blocks.append(data)
 
 
 def check(path):
     parser = DocumentCheck()
     parser.feed(Path(path).read_text(encoding='utf-8-sig'))
-    for identity in ('overview', 'details', 'next-steps'):
+    for identity in REQUIRED_SECTIONS:
         if identity not in parser.ids:
             parser.errors.append(f'Missing document section: {identity}')
+    if all(identity in parser.ids for identity in REQUIRED_SECTIONS):
+        positions = [parser.id_order.index(identity) for identity in REQUIRED_SECTIONS]
+        if positions != sorted(positions):
+            parser.errors.append(
+                'Document sections out of order: expected overview, then details, then next-steps')
+    css = '\n'.join(parser.style_blocks).lower()
+    for name, value in EXPECTED_TOKENS:
+        if value.lower() not in css:
+            parser.errors.append(
+                f'Missing design token: {name} {value} (see references/design-system.md)')
     for identity in parser.local_links:
         if identity and identity not in parser.ids:
             parser.errors.append(f'Broken in-page reference: {identity}')

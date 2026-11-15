@@ -61,7 +61,9 @@ also valid upload inputs when hosted delivery is requested or already authorized
    that standard can be uploaded without recreating it. If the sibling is
    missing, locate it in the shared library; report a missing dependency rather
    than silently reverting to a different theme. Respect explicitly requested
-   project branding. Create a local standalone HTML file, usually:
+   project branding. Copy its template (`../visual-explainer/templates/explainer.html`)
+   to the output path first and replace only the content regions; do not write
+   the HTML from scratch. Create a local standalone HTML file, usually:
 
    ```text
    .\plan.html
@@ -125,7 +127,13 @@ For architecture specs, prefer:
 
 ## Constraints
 
-Follow `visual-explainer`'s structural and visual checks. A local headless browser
+Follow `visual-explainer`'s structural and visual checks. Run its
+`check_html.py` on the finished HTML; it must pass (structure, design tokens,
+section order) before upload. A token failure means the stylesheet was
+rewritten instead of reused — restore the template's stylesheet. If project
+branding was explicitly requested, the token check is waived; note the
+override when you present the URL. Before uploading, run the glance test from
+`visual-explainer`: the page alone must state the answer. A local headless browser
 is appropriate for checking a new layout or diagram. Do not launch a visible
 browser window unless requested. Preserve a usable local artifact if tools or
 hosting are unavailable.

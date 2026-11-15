@@ -39,9 +39,12 @@ Resolve this SKILL.md's containing directory, following its symlink if needed.
 All assets below are relative to that directory and work in installed copies too.
 
 1. Read [design-system.md](references/design-system.md).
-2. Start from [explainer.html](templates/explainer.html). It is a complete example
-   and a reusable template: replace its subject matter, diagrams, links, and next
-   steps; retain its design tokens, accessibility, and three section anchors.
+2. Copy [explainer.html](templates/explainer.html) to the output path first.
+   It is the document, not an example to imitate: replace only its subject
+   matter, diagrams, links, and next steps; retain its stylesheet, design
+   tokens, accessibility, and three section anchors in order. Do not write the
+   HTML from scratch and do not rewrite the stylesheet — a page that drifts
+   from the template drifts from every other page.
 3. Read [diagrams.md](references/diagrams.md) when a diagram is useful. Use
    [mermaid-config.json](assets/mermaid-config.json) for Mermaid rendering.
 
@@ -109,8 +112,20 @@ Do not use CDN scripts, remote fonts, runtime fetches, iframes, or external CSS.
 ## Verify and deliver
 
 - Run `python scripts/check_html.py <output.html>` from this skill's directory
-  (Windows: `py -3`; macOS/Linux: `python3`). This is a structural check, not a
-  visual review or a full security audit.
+  (Windows: `py -3`; macOS/Linux: `python3`). It must pass before delivery: it
+  checks structure, the design tokens, and the section order — not a visual
+  review or a full security audit. A token failure means the stylesheet was
+  rewritten instead of reused; restore the template's stylesheet rather than
+  patching the check.
+- Glance test: read only the finished page — no chat, no source documents —
+  and state the answer in one sentence. If the page needs the chat to be
+  understood, redraw the overview before delivering. For a substantial plan or
+  report, have a fresh agent with no context on the work read only the page
+  and answer as a stranger: what is being decided, and could they act on it?
+  Rework anything it cannot explain; at most three rounds.
+- If the user explicitly requested different project branding, the token check
+  is expected to fail — note the override in your reply instead of forcing the
+  shared tokens back.
 - Inspect a screenshot or browser view when making a new layout or diagram.
   Check wide and narrow screens, readable labels, no clipped content, and controls.
   Prefer a local headless browser; if unavailable, disclose that visual inspection
