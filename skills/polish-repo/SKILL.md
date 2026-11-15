@@ -43,9 +43,11 @@ yet.
   approval gate: pick the reasonable option, log the decision in the running
   record, and keep going. Questions about what the system SHOULD do are
   product decisions — ask those. Questions about how to do it — decide and log.
-- Pacing: a polish run can span a provider's limit window. Budget usage
-  (~20% of a 5h window per hour, never 100%) and check the remaining budget
-  at each phase boundary; slow down before the window is exhausted.
+- Pacing: a polish run can span the active provider's limit window. Budget usage
+  (~20% of that window per hour, never 100%) and check the remaining budget
+  at each phase boundary; slow down before the window is exhausted. The window
+  belongs to whichever agent is running (Codex, agy, OpenCode, Muse) — agy's
+  is 5h; use the active provider's own window.
 - Write from the user's point of view (what they see, do and get back), not
   in terms of functions or classes. Cite file paths/lines for where each
   behavior lives.

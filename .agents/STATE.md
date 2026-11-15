@@ -1,3 +1,8 @@
+# Pacing is provider-neutral — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
+
+- Bryan (2026-11-15): the 5h window doesn't only apply to agy — pacing must apply to whatever agent is running. The cook-lessons wording said "the provider's limit window" but used "5h window" as the example everywhere, which reads as agy-only. Fixed in hill-climb (authorization form), polish-repo (ground rules), and MEMORY.md: the window belongs to whichever agent is running (Codex, agy, OpenCode, Muse) — agy's is 5h; use the active provider's own window. Rule unchanged otherwise (~20% per hour, never 100%, check at boundaries).
+- Also answered 2026-11-15: polish-repo does NOT include hill-climb (grep: zero mentions). Its chain ends at verification-loop → file-pr. Hill-climb is a separate on-demand skill. Offered to wire it in; awaiting Bryan's word.
+
 # PostPlan consistency fix — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
 
 - Bryan (2026-11-15): postplan gives different style/format on different machines and projects — fix it. Diagnosis (verified live, all 5 machines): the 5 postplan/visual-explainer files are hash-identical everywhere and installed copies are complete — NOT machine drift. Cause: agents free-wrote HTML instead of copying the template, and check_html.py checked structure only, never tokens.

@@ -157,11 +157,14 @@ Editable files:      <explicit paths the worker may change>
 Immutable:           <tests, eval, and files it must not touch>
 Worktree/branch:     <disposable branch or worktree to use>
 Cost cap:            <limit, or "none enforceable">
-Usage pacing:        <budget per hour as a share of the provider's limit
-                     window, e.g. ~20% of a 5h window per hour; never 100%
-                     — a run that burns the window stalls. Check remaining
-                     budget at every round boundary; slow down or pause
-                     before the window is exhausted>
+Usage pacing:        <budget per hour as a share of the ACTIVE provider's
+                     limit window, e.g. ~20% per hour; never 100% — a run
+                     that burns the window stalls. The window belongs to
+                     whichever agent is running (Codex, agy, OpenCode,
+                     Muse) — agy's is 5h; use the active provider's own
+                     window. Check remaining budget at every round
+                     boundary; slow down or pause before the window is
+                     exhausted>
 ```
 
 ## Define the Eval
