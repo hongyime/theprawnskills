@@ -155,3 +155,4 @@
 - 2026-11-15: Pacing made provider-neutral (Bryan correction) — hill-climb + polish-repo + MEMORY.md now say the window belongs to whichever agent is running (Codex, agy, OpenCode, Muse); agy's 5h is just the example. Full suite 132 OK. Committed + fleet-rolled-out.
 - 2026-11-15: Pacing fix CI green — Skill library run 43723283168 on 5976045, all 3 OS jobs success.
 - 2026-11-15: hill-climb wired into polish-repo as optional Phase 7 (Ship renumbered to Phase 8); INDEX regenerated. Committed + fleet-rolled-out.
+- 2026-11-15: hill-climb wiring CI green — Skill library run 43723913207 on 8f343f5, all 3 OS jobs success; fleet at 8f343f5.
