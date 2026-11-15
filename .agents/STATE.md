@@ -1,3 +1,9 @@
+# molt + shell moved to the default profile — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
+
+- Bryan (2026-11-15): agents must know to use molt/shell without being told — they belong in the default skills. Added both to default-profile.toml (Core coding workflow, after cross-harness-state), 67 → 69 selected skills. INDEX regenerated (molt/shell ON-DEMAND → DAILY). Test count updated 67 → 69 (tests/test_install_skills.py:251 — same tripwire as the 66→67 fix).
+- Load chain verified on the VM: profile lists both → INDEX marks both DAILY → skill-router rows list both → installer --apply installed both as symlinks into ~/.agents/skills (69 selected, 0 changes after). No live agent invocation test — agents pick them up through the installed profile root.
+- agy correction (Bryan 2026-11-15): agy WORKS — no credits, but a 5-hour limit window. The "agy credits GONE, Codex only" note was stale; corrected in MEMORY.md.
+
 # Debian edits for Windows-only skills — 2026-11-15 (edits applied; committed + fleet rolled out — see JOURNAL for hash)
 
 - Audit (2026-11-12, resumed 2026-11-15 on Bryan's word): 32 files mention Windows with no Linux/Debian/macOS; 5 false positives left alone (azure-kusto, deploy-model/customize, microsoft-foundry duplicate, image-to-video, storyboard-creation); 28 real candidates in 4 tiers — A 13 metadata-only, B 5 notes/fences, C 2 genuinely Windows-implemented (claude-code-cli, opencode-cli), D 7 skill-management (NOT edited: shared files stay Windows/OneDrive by design, Linux twins under platforms/linux/skills/ cover Debian).
