@@ -2,11 +2,12 @@
 name: polish-repo
 description: >-
   Polish a somewhat-done repo with one command: map it, stress-test it, fix
-  it with tests, tighten and secure it, improve the frontend, prove it, and
-  open a PR. Use when the user says polish this repo, give this project
-  another pass, or review and improve this project. Also works on an
-  early-stage repo with PRD/TDD docs and little code yet — Phases 1–2 give
-  the second opinion and Phase 7 turns gaps into tasks.
+  it with tests, tighten and secure it, improve the frontend, prove it,
+  optionally climb the weakest area until it scores 9/10, and open a PR.
+  Use when the user says polish this repo, give this project another pass,
+  or review and improve this project. Also works on an early-stage repo
+  with PRD/TDD docs and little code yet — Phases 1–2 give the second
+  opinion and Phase 8 turns gaps into tasks.
 license: MIT
 metadata:
   author: Local setup
@@ -17,20 +18,20 @@ metadata:
 # Polish Repo
 
 One entry point for giving a finished-ish project another pass. You say
-"polish this repo" once; this skill chains the library's review skills in
+"polish this repo" once; this skill chains the library's skills in
 order — user-stories → interrogate + security-best-practices →
 blast-radius + tdd → refactor + ponytail-review →
-design-taste-frontend / impeccable → verification-loop → file-pr — and
-stops where a human decision is needed. One feature at a time, nothing
-fixed without approval, nothing polished that was not first mapped. One
-repo per run.
+design-taste-frontend / impeccable → verification-loop →
+hill-climb (optional) → file-pr — and stops where a human decision is
+needed. One feature at a time, nothing fixed without approval, nothing
+polished that was not first mapped. One repo per run.
 
 ## Early-stage repos
 
 Also works on a repo that is mostly docs so far (PRD, TDD/design docs,
 little or no code yet). Say "second opinion only" and the run stops after
 Phase 2: Phase 1 maps what the docs claim, Phase 2 challenges the claims
-and records the gaps, Phase 7 turns the gaps into tasks. Phases 3–5 mostly
+and records the gaps, Phase 8 turns the gaps into tasks. Phases 3–5 mostly
 skip until there is code to fix, refactor, or show. The baseline test/build
 check in Phase 1 just reports what is missing when there is nothing to run
 yet.
@@ -155,7 +156,51 @@ Then wrap up in chat, in this order:
 - What is still open (unfixed mismatches, unclear edge cases).
 - What was deliberately left alone, and why.
 
-## Phase 7: Ship
+## Phase 7: Iterate (optional)
+
+Only if the user says yes at the end of Phase 6 — never by default. The
+point is to keep climbing the weakest area instead of stopping at the
+first clean verification pass. Skip entirely for early-stage repos (no
+code or tests yet — nothing scoreable to climb).
+
+- Pick the weakest area from the Phase 6 wrap-up ("still open") and the
+  mismatch log: the most open mismatches, or the lowest verification
+  confidence. Name it when asking — the user may pick a different area
+  instead.
+- Ask: "Run the hill-climb loop on <area>, or ship as-is?" On no, go to
+  Phase 8. On yes, load `hill-climb` and fill its authorization form
+  from the polish context — no fresh walkthrough, the eval already
+  exists:
+  - Goal: improve <area> until the judge scores it 9/10.
+  - Eval: the feature's acceptance criteria from Phase 2 plus the
+    coding row of hill-climb's Define the Eval table.
+  - Deterministic gate: the repo's test suite + build + lint (the
+    Phase 1 baseline commands).
+  - Threshold 9/10, max 8 rounds, plateau 2 rounds with no gain.
+  - Baseline: score the post-Phase-6 version first — gate, then judge.
+    If the gate fails, fix the baseline before the loop starts.
+  - Editable files: only the files changed in Phases 3–5 for this
+    feature. Immutable: tests, the eval, everything else.
+  - Worktree/branch: the same disposable branch this polish run uses.
+    The branch will have uncommitted changes from Phases 3–5 — the
+    baseline checkpoint commit captures exactly that state; that is
+    the baseline, not dirt to clean first. Saying yes to the loop
+    authorizes local checkpoint commits on that branch (`hill-climb
+    baseline`, `hill-climb round N: <score>/10`); push still needs a
+    separate yes — Phase 8 handles that.
+  - Pacing: same rule as the ground rules — ~20% of the active
+    provider's window per hour, never 100%, check at every round
+    boundary.
+- Follow `hill-climb` as written: one small change per round, gate
+  first, zero-context judge, keep only if the score rises, plateau is
+  a decision point — present the escape options and wait for the user's
+  pick, do not auto-branch or restructure. Fix only what moves the
+  eval score; park the rest as follow-ups in the mismatch log.
+- When the loop stops, report the rounds in a table, the best score,
+  what changed, what stalled, and the branch / checkpoint — then go
+  to Phase 8.
+
+## Phase 8: Ship
 
 Do not stop at the wrap-up. Ask the user whether to open a pull request
 for the changes. On yes, load `file-pr` and follow it. On no, leave the

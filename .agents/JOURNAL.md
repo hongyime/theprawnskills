@@ -153,3 +153,5 @@
 - 2026-11-15: PostPlan consistency fix — check_html.py gains design-token check (8 hex values, <style> blocks only) + section-order check; new tests/test_check_html.py (7 tests); visual-explainer + postplan-upload gain copy-the-template hard rule + Enso at-a-glance/cold-read gate + branding exception. Full suite 132 OK. Committed + fleet-rolled-out.
 - 2026-11-15: PostPlan fix CI green — Skill library run 43722309497 on 8cbfb56, all 3 OS jobs success; fleet at 8cbfb56.
 - 2026-11-15: Pacing made provider-neutral (Bryan correction) — hill-climb + polish-repo + MEMORY.md now say the window belongs to whichever agent is running (Codex, agy, OpenCode, Muse); agy's 5h is just the example. Full suite 132 OK. Committed + fleet-rolled-out.
+- 2026-11-15: Pacing fix CI green — Skill library run 43723283168 on 5976045, all 3 OS jobs success.
+- 2026-11-15: hill-climb wired into polish-repo as optional Phase 7 (Ship renumbered to Phase 8); INDEX regenerated. Committed + fleet-rolled-out.

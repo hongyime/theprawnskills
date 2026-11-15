@@ -1,4 +1,11 @@
-# Pacing is provider-neutral — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
+# hill-climb wired into polish-repo — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
+
+- Bryan (2026-11-15): yes, add hill-climb to polish-repo. New optional Phase 7 "Iterate" sits between Verify (6) and Ship (renumbered 8). Ask at the end of Phase 6: run the loop on the weakest area, or ship as-is. The weakest area comes from the Phase 6 wrap-up ("still open") + mismatch log; user may pick a different area.
+- The authorization form is filled from polish context, no fresh walkthrough: goal = improve the area to 9/10; eval = Phase 2 acceptance criteria + hill-climb's coding row; gate = the Phase 1 baseline test/build/lint; threshold 9/10, max 8 rounds, plateau 2; baseline scored post-Phase-6 first; editable = files changed in Phases 3–5 only; same disposable branch. Saying yes authorizes local checkpoint commits on that branch; push still needs a separate yes in Phase 8. Plateau is a decision point (escape options, wait for the pick). Skipped for early-stage repos.
+- Description + intro chain + early-stage note updated (Phase 7 → Phase 8 for the gaps-into-tasks line); INDEX.md regenerated (polish-repo row only).
+- Validations: quick_validate polish-repo; text safety 0; resource audit Missing 0; platform audit OK; INDEX --check agrees; full suite 132 tests OK (skipped=10).
+
+# Pacing is provider-neutral — 2026-11-15 (committed + fleet rolled out — CI green run 43723283168)
 
 - Bryan (2026-11-15): the 5h window doesn't only apply to agy — pacing must apply to whatever agent is running. The cook-lessons wording said "the provider's limit window" but used "5h window" as the example everywhere, which reads as agy-only. Fixed in hill-climb (authorization form), polish-repo (ground rules), and MEMORY.md: the window belongs to whichever agent is running (Codex, agy, OpenCode, Muse) — agy's is 5h; use the active provider's own window. Rule unchanged otherwise (~20% per hour, never 100%, check at boundaries).
 - Also answered 2026-11-15: polish-repo does NOT include hill-climb (grep: zero mentions). Its chain ends at verification-loop → file-pr. Hill-climb is a separate on-demand skill. Offered to wire it in; awaiting Bryan's word.
