@@ -90,6 +90,31 @@ After reading the output file, summarize the key findings or changes to the user
 - Any warnings or errors
 - Whether follow-up is needed (`--continue` flag)
 
+## Debian/Linux adaptation
+
+Same flow, with bash instead of PowerShell. Temp file is
+`/tmp/hermes-claude-out.txt` (or `$TMPDIR` when set); watch live with `tail -f`.
+
+```bash
+# Standard: sonnet, read + analyze — detached, output to temp file
+out=/tmp/hermes-claude-out.txt; rm -f "$out"
+( claude -p --model sonnet 'YOUR_PROMPT_HERE' > "$out" 2>&1; echo '=== CLAUDE COMPLETE ===' >> "$out" ) & disown
+
+# In a specific project directory (POSIX path)
+( claude -C /path/to/project -p --model sonnet 'YOUR_PROMPT_HERE' > "$out" 2>&1; echo '=== CLAUDE COMPLETE ===' >> "$out" ) & disown
+
+# Poll for completion (300 s timeout)
+out=/tmp/hermes-claude-out.txt; start=$(date +%s)
+while [ $(( $(date +%s) - start )) -lt 300 ]; do
+  grep -q "=== CLAUDE COMPLETE ===" "$out" 2>/dev/null && break
+  sleep 10
+done
+result=$(cat "$out" 2>/dev/null)
+```
+
+Long prompts: `claude -p --model sonnet < /path/to/prompt.txt` (same temp-file
+capture). Auth is the same plain command: `claude auth login`.
+
 ## Max Turns Control
 
 Limit how many tool-use loops Claude performs:

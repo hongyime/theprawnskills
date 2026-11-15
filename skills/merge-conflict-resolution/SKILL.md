@@ -29,7 +29,7 @@ the code should be — never by picking a side blindly or deleting markers.
 
 ### 1. Establish Context
 
-```powershell
+```bash
 git status                 # which files, which operation (merge/rebase/cherry-pick)
 git log --oneline --all -15 --graph   # what is meeting what
 git log MERGE_HEAD -5      # incoming side (during merge); rebase refs differ
@@ -39,7 +39,7 @@ Know: what change am I integrating into what? Read both commit messages.
 
 ### 2. Triage Conflicted Files
 
-```powershell
+```bash
 git diff --name-only --diff-filter=U
 ```
 

@@ -114,7 +114,9 @@ pointers stay valid.
   tooling required.
 - On OneDrive-synced repos, files sync across machines automatically; watch for
   sync conflicts after simultaneous edits on two machines — resolve by newest
-  verified content, then re-append a journal line about the conflict.
+  verified content, then re-append a journal line about the conflict. On
+  Debian/Linux the same state travels through git instead — commit and push
+  before switching machines.
 
 ## Related Skills
 

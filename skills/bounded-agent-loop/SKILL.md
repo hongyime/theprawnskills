@@ -47,7 +47,8 @@ any schedule.
 
 1. Read project instructions and `.agents/STATE.md`. Identify a clean disposable
    branch/worktree, a single writer, exact editable files and immutable tests.
-   Keep active worktrees and private transcripts outside the OneDrive library.
+   Keep active worktrees and private transcripts outside the synced library
+   (OneDrive on Windows; any synced folder on Debian/Linux).
 2. Record the task, baseline commit, acceptance command, scope, maximum three
    attempts, wall-clock deadline, and per-command timeout. If the CLI exposes an
    enforceable cost limit, set it; otherwise report that there is no hard cost cap.
@@ -72,7 +73,7 @@ Repositories containing Git submodules are rejected before launch: this helper
 does not recursively supervise submodule content/history.
 Git metadata and process cleanup have bounded grace periods beyond command
 execution deadlines (Windows tree cleanup retries at most twice, 45 seconds
-each). A `cleanup-failed` result requires inspecting/stopping surviving children
+each; on Debian/Linux the process group gets SIGKILL with a 15-second wait). A `cleanup-failed` result requires inspecting/stopping surviving children
 before resuming; it is not an ordinary task timeout or a successful stop.
 These checks detect scope changes; **they are not a security sandbox**. They do
 not monitor ignored files, outside paths, transient changes or external effects.
@@ -82,7 +83,8 @@ foreground children; detached daemons are outside this helper's contract.
 Copy `examples/plan.json` to a private location and replace every placeholder.
 Use absolute executable paths when PATH differs across hosts. On Windows, npm
 `.cmd` shims need an explicit interpreter; prefer the CLI's native executable or
-Node plus its JavaScript entrypoint. Do not add `shell=True` to work around it.
+Node plus its JavaScript entrypoint. On Debian/Linux the shims are executable
+scripts, so call them directly. Do not add `shell=True` to work around it.
 
 Resolve `$skillDir` to the directory containing the loaded `SKILL.md`; an
 on-demand skill may live in a library clone rather than an installed agent root.
@@ -92,7 +94,10 @@ $skillDir = Split-Path -Parent $loadedSkillPath
 python (Join-Path $skillDir 'scripts/run_loop.py') --plan $planPath --run-dir $newRunDirectory
 ```
 
-POSIX: `python3 "$skillDir/scripts/run_loop.py" --plan "$planPath" --run-dir "$newRunDirectory"`.
+```bash
+skillDir=$(dirname "$loadedSkillPath")
+python3 "$skillDir/scripts/run_loop.py" --plan "$planPath" --run-dir "$newRunDirectory"
+```
 The plan owns a worker command and an acceptance command; no agent CLI is bundled.
 Both receive the worktree as their working directory. Each worker invocation gets
 `PRAWN_LOOP_ATTEMPT` and `PRAWN_LOOP_FEEDBACK` (previous verifier-log path).

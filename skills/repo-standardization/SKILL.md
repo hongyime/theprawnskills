@@ -75,7 +75,7 @@ T3 minimum: README one-liner + `.gitignore`. Do not gold-plate scratch repos.
 
 Set via `gh` CLI:
 
-```powershell
+```bash
 gh repo edit --description "<<=350 char description>" --homepage "<url if any>"
 gh repo edit --add-topic <topic1> --add-topic <topic2>   # lowercase, hyphenated
 ```
@@ -93,7 +93,7 @@ Description must match the README one-liner in substance.
 
 Run before any compliance sign-off:
 
-```powershell
+```bash
 rg -n "(?i)(api[_-]?key|secret|password|token)\s*[:=]\s*['\"][A-Za-z0-9+/_-]{16,}" --glob '!package-lock.json' --glob '!pnpm-lock.yaml'
 rg -n "(?i)(AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|xox[baprs]-)"
 git log --oneline -10   # confirm nothing sensitive was recently committed

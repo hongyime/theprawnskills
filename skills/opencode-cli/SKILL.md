@@ -48,6 +48,28 @@ $result = Get-Content $outFile -Raw -ErrorAction SilentlyContinue
 
 Summarize what OpenCode found or changed, flag any errors, and offer follow-up.
 
+## Debian/Linux adaptation
+
+Same flow, with bash instead of PowerShell. Temp file is
+`/tmp/hermes-opencode-out.txt` (or `$TMPDIR` when set); watch live with `tail -f`.
+
+```bash
+# Standard: delegate a task — detached, output to temp file
+out=/tmp/hermes-opencode-out.txt; rm -f "$out"
+( opencode 'YOUR_PROMPT_HERE' > "$out" 2>&1; echo '=== OPENCODE COMPLETE ===' >> "$out" ) & disown
+
+# In a specific project directory (POSIX path)
+( cd /path/to/project && opencode 'YOUR_PROMPT_HERE' > "$out" 2>&1; echo '=== OPENCODE COMPLETE ===' >> "$out" ) & disown
+
+# Poll for completion (300 s timeout)
+out=/tmp/hermes-opencode-out.txt; start=$(date +%s)
+while [ $(( $(date +%s) - start )) -lt 300 ]; do
+  grep -q "=== OPENCODE COMPLETE ===" "$out" 2>/dev/null && break
+  sleep 10
+done
+result=$(cat "$out" 2>/dev/null)
+```
+
 ## Authentication
 
 Use the provider authentication configured on the current machine. The older
@@ -59,12 +81,13 @@ Report missing authentication as a prerequisite, without copying credentials
 from another machine or printing authentication files.
 
 Or if using ABSK static keys, these are configured in the OpenCode config at:
-`%USERPROFILE%\.config\opencode\opencode.jsonc`
+`%USERPROFILE%\.config\opencode\opencode.jsonc` (Debian/Linux:
+`~/.config/opencode/opencode.jsonc`)
 
 ## OpenCode Config Location
 
-- Config: `%USERPROFILE%\.config\opencode\opencode.jsonc`
-- Auth: `%USERPROFILE%\.local\share\opencode\auth.json`
+- Config: `%USERPROFILE%\.config\opencode\opencode.jsonc` (Debian/Linux: `~/.config/opencode/opencode.jsonc`)
+- Auth: `%USERPROFILE%\.local\share\opencode\auth.json` (Debian/Linux: `~/.local/share/opencode/auth.json`)
 - Default model: `bedrock/global.anthropic.claude-sonnet-4-6`
 
 ## Critical Rules

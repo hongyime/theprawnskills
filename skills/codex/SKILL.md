@@ -51,6 +51,7 @@ For edits, change the sandbox mode to match the authorized task. Use the
 supervisor in `bounded-agent-loop` when repetition/deadlines are needed.
 The supervisor accepts executable argument arrays, so Windows npm `.cmd` shims
 may need Node plus the CLI's actual JavaScript entrypoint or a native binary.
+On Debian/Linux, npm shims are executable scripts — call them directly.
 Do not use a shell just to interpolate a prompt. Keep foreground workers alive
 until their children finish; detached processes need explicit lifecycle ownership.
 

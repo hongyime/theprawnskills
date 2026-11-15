@@ -54,7 +54,7 @@ Get user agreement on the time box when it exceeds ~1 hour.
 ### 2. Isolate
 
 - Work outside the real repo unless interaction with real code IS the question.
-  Use `$env:TEMP\proto-<slug>\` or a `scratch/` gitignored dir otherwise.
+  Use `$TMPDIR/proto-<slug>/` on macOS/Linux (Debian) (`$env:TEMP\proto-<slug>\` on Windows) or a `scratch/` gitignored dir otherwise.
 - Smallest possible harness: single script/file preferred.
 - Realistic data matters; synthetic data that avoids the hard case proves
   nothing.

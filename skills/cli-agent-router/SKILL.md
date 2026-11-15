@@ -32,8 +32,10 @@ provider, network access or compatible filesystem paths. Never copy auth files
 through this repository. Never print credentials during readiness checks.
 
 PowerShell: `Get-Command codex,claude,gemini,opencode -ErrorAction SilentlyContinue`.
-POSIX: `command -v codex claude gemini opencode`. Inspect resolved shims in WSL:
+POSIX: `command -v codex claude gemini opencode`. In WSL, inspect resolved shims:
 a Windows executable may require Windows paths and use Windows authentication.
+On Debian/Linux the shims are native executables, so no Windows-path
+translation applies.
 A successful version command does not prove its working directory or tools work.
 
 ## Delegate explicitly
@@ -51,7 +53,8 @@ is not proof. Review its diff and run acceptance independently.
 Keep argument arrays as arrays; do not interpolate user prompts into shell code.
 Use stdin or a private prompt file when supported. Give each run a unique local
 log directory. Background PowerShell helpers use `Start-Process -WindowStyle
-Hidden`; interactive windows are only for a user-requested visible session.
+Hidden` (on Debian/Linux, detach with `nohup <cmd> &` or `setsid <cmd>`);
+interactive windows are only for a user-requested visible session.
 
 ## Stop and hand off
 

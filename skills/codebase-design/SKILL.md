@@ -49,8 +49,8 @@ Inspect before proposing:
 - Existing layering conventions (this repo's rules beat generic ideals)
 - Import graph hotspots: most-imported, most-importing, cycles
 
-```powershell
-rg -n "^import|^from" src --type ts | Measure-Object   # scale check first
+```bash
+rg -n "^import|^from" src --type ts | wc -l   # scale check first
 ```
 
 ### 2. Identify The Pressure
