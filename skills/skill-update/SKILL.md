@@ -16,6 +16,8 @@ metadata:
 
 Update an existing skill, a group of skills, or shared skill-management behavior.
 
+Debian/Linux variant: `../../platforms/linux/skills/skill-update/SKILL.md`.
+
 ## Required Context
 
 Read before acting:

@@ -17,6 +17,8 @@ metadata:
 Turn an external source or pasted content into a canonical local skill, then
 optionally expose it in enabled agent roots.
 
+Debian/Linux variant: `../../platforms/linux/skills/skill-add/SKILL.md`.
+
 ## Required Context
 
 Read before acting:

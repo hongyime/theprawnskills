@@ -18,6 +18,8 @@ metadata:
 
 House conventions for every SKILL.md in the canonical library.
 
+Debian/Linux variant: `../../platforms/linux/skills/skill-authoring/SKILL.md`.
+
 ## Resolve the full library first
 
 Repository scripts and registry files belong to the full library checkout, not

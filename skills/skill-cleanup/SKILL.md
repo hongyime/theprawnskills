@@ -17,6 +17,8 @@ metadata:
 Clean up the canonical skill library and installed agent roots without losing
 recoverability.
 
+Debian/Linux variant: `../../platforms/linux/skills/skill-cleanup/SKILL.md`.
+
 ## Required Context
 
 Read before acting:

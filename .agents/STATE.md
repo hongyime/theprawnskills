@@ -1,3 +1,11 @@
+# Version-matched skills + Tier D pointers + 9 quick_validate fixes — 2026-11-16 (committed + fleet rolled out — see JOURNAL for hash)
+
+- Bryan (2026-11-16): approved all three open items — version-matched rule, Tier D links, fix the 9 quick_validate failures now.
+- Version-matched rule recorded in AGENTS.md Skill System: a skill describing a versioned tool states the tool version it matches, in the body after the title, with machine + date verified; updating the tool without updating the line is a bug. Matched lines added: codex 0.167.2 (VM), claude-code-cli 2.1.296 (3410), opencode-cli 1.18.34 (VM). Note: codex is 0.169.0 on 3410 — versions differ per machine, the line records where verified. Frontmatter cannot carry the version (quick_validate allows only name/description/license/allowed-tools/metadata/compatibility).
+- Tier D pointers: all 7 skill-management files now point at their Linux twin (`../../platforms/linux/skills/<name>/SKILL.md`); skill-router notes its twin is a curated shortlist, not a mirror. Platform lines untouched (documented exceptions).
+- 9 quick_validate failures fixed: ai-content-pipeline (`->` → `→`), vercel-react-view-transitions (angle brackets out), airunway-aks-setup (dropped `argument-hint`), claude-api (description 1068 → 1020 chars, cut the "looks like a one-liner" aside), cloudflare + turnstile-spin (dropped `references` key; files stay on disk), docker-expert (dropped category/risk/source/date_added), react-dev (dropped top-level `version`), shadcn (dropped `user-invocable`).
+- Validations: quick_validate sweep 0 failures (was 9); text safety 0; resource audit Missing 0; platform audit OK; INDEX regenerated + agrees; installer --check 69/0; full suite 132 tests OK (skipped=10).
+
 # agy review fixes — 2026-11-16 (committed + fleet rolled out — see JOURNAL for hash)
 
 - Bryan (2026-11-15): fix all 9 agy findings on the hill-climb wiring. Verdict was NEEDS CHANGES; Muse verified all 9 against the files first, all held. Report: ~/workspace/polish-repo-hillclimb-agy-review-20261115.md.

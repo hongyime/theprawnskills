@@ -15,6 +15,8 @@ metadata:
 
 Archive skills from canonical or installed roots without permanent deletion.
 
+Debian/Linux variant: `../../platforms/linux/skills/skill-remove/SKILL.md`.
+
 ## Required Context
 
 Read before acting:

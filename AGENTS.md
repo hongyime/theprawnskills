@@ -121,6 +121,11 @@ The shared profile is `default-profile.toml`. Portable management variants
 retain their original `platforms/linux/skills/` paths for existing symlinks.
 Do not propagate standalone installation changes through the Windows registry.
 
+Version-matched skills: a skill describing a versioned tool must state the
+tool version it matches, in the body right after the title, with the machine
+and date it was verified against. Updating the tool without updating that
+line is a bug — the line is the match record, not decoration.
+
 Shared repo instructions live in `AGENTS.md`; shared handoff state lives under
 `.agents/`. Never put authentication files, tokens, or machine-local install
 state in this repository. Do not prune or delete skills during migration.

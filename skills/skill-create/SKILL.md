@@ -17,6 +17,8 @@ metadata:
 Create a new skill in the canonical OneDrive library and propagate it to enabled
 agent roots when the user wants it default-visible.
 
+Debian/Linux variant: `../../platforms/linux/skills/skill-create/SKILL.md`.
+
 ## Required Context
 
 Before creating or installing a skill, read:

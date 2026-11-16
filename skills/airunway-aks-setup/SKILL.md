@@ -6,7 +6,6 @@ metadata:
   author: Microsoft
   version: "1.1.1"
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
-argument-hint: "[skip-to-step N]"
 ---
 
 # AI Runway AKS Setup

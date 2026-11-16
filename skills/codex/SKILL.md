@@ -9,6 +9,8 @@ metadata:
 
 # Codex CLI adapter
 
+Matches Codex CLI 0.167.2 (verified on the VM, 2026-11-16). If the installed version moves, update this line.
+
 Read repository instructions and durable state before delegation. Confirm the
 task root and whether the user authorized analysis or edits. Carry that
 authorization forward without adding a confirmation after every command.

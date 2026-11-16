@@ -9,6 +9,8 @@ metadata:
 
 # OpenCode CLI Skill
 
+Matches OpenCode CLI 1.18.34 (verified on the VM, 2026-11-16). If the installed version moves, update this line.
+
 Delegate coding tasks to OpenCode by spawning it as a **hidden background PowerShell process**. Output tee'd to a temp file — tail with `Get-Content -Wait` if you want to peek.
 
 ## When to Use

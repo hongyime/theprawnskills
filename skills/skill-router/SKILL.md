@@ -18,6 +18,8 @@ metadata:
 Use this skill to find and load on-demand skills without installing the
 whole library into every agent session.
 
+Debian/Linux variant (curated shortlist, not a mirror): `../../platforms/linux/skills/skill-router/SKILL.md`.
+
 ## Source of Truth
 
 Canonical skill library:

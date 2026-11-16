@@ -158,3 +158,4 @@
 - 2026-11-15: hill-climb wiring CI green — Skill library run 43723913207 on 8f343f5, all 3 OS jobs success; fleet at 8f343f5.
 - 2026-11-16: All 9 agy review findings fixed in polish-repo Phase 7 (finding 1 via explicit path groups + reset --hard ban, not git add -A). Full suite 132 OK. Committed + fleet-rolled-out.
 - 2026-11-16: agy review fixes (f9b0c6f) CI green — Skill library run 43722309497 was postplan; this run 43822565953, all 3 OS jobs success.
+- 2026-11-16: Version-matched rule + Tier D pointers + all 9 quick_validate failures fixed (quick_validate sweep now 0 failures). Committed + fleet-rolled-out.
