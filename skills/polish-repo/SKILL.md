@@ -7,7 +7,7 @@ description: >-
   Use when the user says polish this repo, give this project another pass,
   or review and improve this project. Also works on an early-stage repo
   with PRD/TDD docs and little code yet — Phases 1–2 give the second
-  opinion and Phase 8 turns gaps into tasks.
+  opinion and log the gaps in docs/user-stories.md.
 license: MIT
 metadata:
   author: Local setup
@@ -31,7 +31,7 @@ polished that was not first mapped. One repo per run.
 Also works on a repo that is mostly docs so far (PRD, TDD/design docs,
 little or no code yet). Say "second opinion only" and the run stops after
 Phase 2: Phase 1 maps what the docs claim, Phase 2 challenges the claims
-and records the gaps, Phase 8 turns the gaps into tasks. Phases 3–5 mostly
+and logs the gaps in docs/user-stories.md. Phases 3–5 mostly
 skip until there is code to fix, refactor, or show. The baseline test/build
 check in Phase 1 just reports what is missing when there is nothing to run
 yet.
@@ -161,7 +161,8 @@ Then wrap up in chat, in this order:
 Only if the user says yes at the end of Phase 6 — never by default. The
 point is to keep climbing the weakest area instead of stopping at the
 first clean verification pass. Skip entirely for early-stage repos (no
-code or tests yet — nothing scoreable to climb).
+code or tests yet — nothing scoreable to climb), and for any repo with no
+executable test suite, build, or lint to serve as the deterministic gate.
 
 - Pick the weakest area from the Phase 6 wrap-up ("still open") and the
   mismatch log: the most open mismatches, or the lowest verification
@@ -178,19 +179,36 @@ code or tests yet — nothing scoreable to climb).
     Phase 1 baseline commands).
   - Threshold 9/10, max 8 rounds, plateau 2 rounds with no gain.
   - Baseline: score the post-Phase-6 version first — gate, then judge.
-    If the gate fails, fix the baseline before the loop starts.
-  - Editable files: only the files changed in Phases 3–5 for this
-    feature. Immutable: tests, the eval, everything else.
+    If the gate fails, propose the fix and get user approval before
+    starting the loop, or abort Phase 7 and go to Phase 8.
+  - Editable files: the files for <area> (by default, the files
+    changed in Phases 3–5 for this feature). Immutable: tests, the
+    eval, everything else.
   - Worktree/branch: the same disposable branch this polish run uses.
-    The branch will have uncommitted changes from Phases 3–5 — the
-    baseline checkpoint commit captures exactly that state; that is
-    the baseline, not dirt to clean first. Saying yes to the loop
-    authorizes local checkpoint commits on that branch (`hill-climb
-    baseline`, `hill-climb round N: <score>/10`); push still needs a
-    separate yes — Phase 8 handles that.
+    The branch will have uncommitted changes from Phases 1–6 — code,
+    the Phase 3 regression tests, and docs/user-stories.md. The
+    baseline checkpoint commit stages all of them explicitly
+    (`git add -- <editable files> <test files> docs/user-stories.md
+    && git commit -m "hill-climb baseline"`); that is the baseline,
+    not dirt to clean first. Do NOT use `git add -A` (hill-climb
+    forbids it) and do NOT use `git reset --hard` anywhere in the
+    loop — reverts use only the scoped `git restore -- <editable
+    files>` plus `git clean -fd -- <editable files>`, so uncommitted
+    tests are never wiped. During rounds 1–8, stage and restore ONLY
+    the editable files. Saying yes to the loop authorizes autonomous
+    per-round edits within Editable files and local checkpoint
+    commits on that branch (`hill-climb baseline`,
+    `hill-climb round N: <score>/10`); push still needs a separate
+    yes — Phase 8 handles that.
+  - Cost cap: none enforceable (subscription / local model).
   - Pacing: same rule as the ground rules — ~20% of the active
     provider's window per hour, never 100%, check at every round
     boundary.
+  - Harness check: if only one model provider is available (e.g. agy
+    without Codex), follow hill-climb's Degraded 1-model mode: tell
+    the user which seat is missing and get a "go", cap at 4 rounds,
+    label every score single-judge, low confidence — a 9/10 there is
+    NOT consensus.
 - Follow `hill-climb` as written: one small change per round, gate
   first, zero-context judge, keep only if the score rises, plateau is
   a decision point — present the escape options and wait for the user's
@@ -208,4 +226,6 @@ changes uncommitted on the branch and say so.
 
 Then check the Phase 1 map: if other features remain, ask "Continue with
 the next feature ([Name]), or wrap up here?" If the user picks the next
-feature, return to Phase 2 with it. If they wrap up, stop.
+feature, return to Phase 2 with it. The next feature continues on the
+same branch — Phase 7 checkpoints stay in its history; start a fresh
+branch only if the user asks. If they wrap up, stop.

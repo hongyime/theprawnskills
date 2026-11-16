@@ -1,3 +1,9 @@
+# agy review fixes — 2026-11-16 (committed + fleet rolled out — see JOURNAL for hash)
+
+- Bryan (2026-11-15): fix all 9 agy findings on the hill-climb wiring. Verdict was NEEDS CHANGES; Muse verified all 9 against the files first, all held. Report: ~/workspace/polish-repo-hillclimb-agy-review-20261115.md.
+- Fixes: (1) baseline checkpoint now stages explicit path groups (editable files + Phase 3 tests + docs/user-stories.md) and bans `git reset --hard` in the loop — NOT agy's proposed `git add -A`, which hill-climb:227 forbids; reverts use only scoped restore/clean. (2) "Phase 8 turns gaps into tasks" removed from description + early-stage (pre-existing loose wording carried through the renumbering) — gaps are logged in docs/user-stories.md; Phase 3 turns them into a fix queue. (3) Degraded 1-model harness check added (cap 4 rounds, single-judge labels, 9/10 not consensus). (4) Editable files now "the files for <area>" (default Phase 3–5 files). (5) Baseline gate failure: propose fix + get approval, or abort to Phase 8. (6) Cost cap field added (none enforceable). (7) Yes-to-loop authorizes autonomous per-round edits, not just commits. (8) Skip Phase 7 when no test/build/lint gate exists. (9) Next feature continues on the same branch.
+- Validations: quick_validate; text safety 0; resource audit Missing 0; platform audit OK; INDEX regenerated + agrees (no INDEX diff — description change falls past truncation); full suite 132 tests OK (skipped=10).
+
 # hill-climb wired into polish-repo — 2026-11-15 (committed + fleet rolled out — see JOURNAL for hash)
 
 - Bryan (2026-11-15): yes, add hill-climb to polish-repo. New optional Phase 7 "Iterate" sits between Verify (6) and Ship (renumbered 8). Ask at the end of Phase 6: run the loop on the weakest area, or ship as-is. The weakest area comes from the Phase 6 wrap-up ("still open") + mismatch log; user may pick a different area.
