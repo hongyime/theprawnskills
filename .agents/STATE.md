@@ -1,3 +1,10 @@
+# Import better-accessibility + break from jakubkrehel/skills — 2026-11-17 (committed + fleet rolled out — see JOURNAL for hash)
+
+- Bryan (2026-11-17): drop build-design, import the other 2. build-design is Figma-first as shipped (Figma link = exact values via Figma MCP; no Figma tool = hard stop asking the user to connect one) — Bryan: don't be dependent on Figma. build-design NOT imported; no Figma-dependent skill in the library.
+- Imported (on-demand, MIT, interfaces 1.20.0, verified 2026-11-17): better-accessibility (WCAG 2.2 review + fix, criterion-cited, Block/Approve verdict; 6 reference files) and break (stress-test one component under worst-case scenarios on a throwaway harness page; scenarios.md). Whole dirs copied, including agents/openai.yaml display metadata (break's also carries allow_implicit_invocation: false, matching the dropped disable-model-invocation).
+- Adaptation: frontmatter per house rules (license MIT; metadata author "Local setup", version "1.0.0", upstream-version "1.20.0", platform contract line); dropped break's `disable-model-invocation` (Claude-only key, fails quick_validate); hand-off lines rewritten from non-imported jakub skills to local owners (design-taste-frontend for typography/layout/color/UI/copy; verification-loop for code review) or dropped where no equivalent exists; contrast measurement kept inline via the skill's own table; provenance line after each H1. Router rows added by the frontend rows (main router only — Linux router is a curated shortlist and doesn't carry the frontend design rows either).
+- Validations: quick_validate both valid; text safety 0; resource audit Missing 0; platform audit OK (273 files, 13 exceptions); INDEX regenerated + agrees (271 → 273 definitions); full suite 132 tests OK (skipped=10). Profile stays 69 (on-demand, no installer run, no test-count change).
+
 # Version-matched skills + Tier D pointers + 9 quick_validate fixes — 2026-11-16 (committed + fleet rolled out — see JOURNAL for hash)
 
 - Bryan (2026-11-16): approved all three open items — version-matched rule, Tier D links, fix the 9 quick_validate failures now.

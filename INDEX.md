@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 254 |
-| All definitions, including nested skills and portable variants | 271 |
+| Top-level skills | 256 |
+| All definitions, including nested skills and portable variants | 273 |
 | Portable variants | 7 |
 | Daily profile | 69 |
 
@@ -63,10 +63,12 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `babysit-pr` | Monitor a pull request through review and CI. Use when the user asks to monitor, watch, or babysit a PR. | ON-DEMAND |
 | `background-removal` | Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparen... | ON-DEMAND |
 | `backprop` | Bug-to-invariant protocol. When a bug is confirmed or a test fails, trace the root cause, then decide whether a new §I invariant would prevent recurrence and file it into SPEC.m... | ON-DEMAND |
+| `better-accessibility` | Reviews and fixes keyboard and focus behavior, ARIA, accessible names, forms, screen-reader announcements, motion and zoom against WCAG 2.2. | ON-DEMAND |
 | `blast-radius` | Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use fo... | ON-DEMAND |
 | `book-cover-design` | Book cover design with genre-specific conventions, typography rules, and AI image generation. Covers fiction and non-fiction genres, sizing, thumbnail testing, and iteration wor... | ON-DEMAND |
 | `bounded-agent-loop` | Run a user-authorized, bounded repair loop with explicit acceptance commands, isolated ownership, attempt and time limits, failure stop conditions, and a resumable handoff. Use ... | ON-DEMAND |
 | `brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidel... | ON-DEMAND |
+| `break` | Renders a component you choose under every scenario that can reach it on a temporary page and stress tests it. | ON-DEMAND |
 | `bug-diagnosis` | Structured bug diagnosis producing a written diagnosis document before any fix is attempted. Use when the user reports a bug, asks to investigate why something fails, says diagn... | DAILY |
 | `build` | Plan-then-execute implementation against SPEC.md. Native single-thread loop, no sub-agents. On test or build failure, auto-invokes the backprop skill before retrying — a failed ... | DAILY |
 | `building-inferencesh-apps` | Build and deploy applications on inference.sh. Use when getting started, understanding the platform, creating apps, configuring resources, or needing an overview of inference.sh... | ON-DEMAND |

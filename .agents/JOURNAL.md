@@ -160,3 +160,4 @@
 - 2026-11-16: agy review fixes (f9b0c6f) CI green — Skill library run 43722309497 was postplan; this run 43822565953, all 3 OS jobs success.
 - 2026-11-16: Version-matched rule + Tier D pointers + all 9 quick_validate failures fixed (quick_validate sweep now 0 failures). Committed + fleet-rolled-out.
 - 2026-11-16: Version-matched rule + Tier D pointers + 9 quick_validate fixes (42c2b23) CI green — Skill library run 43829263517, all 3 OS jobs success; LFS Guard + TruffleHog green.
+- 2026-11-17: Imported better-accessibility + break from jakubkrehel/skills (interfaces 1.20.0, MIT, on-demand); build-design dropped — Figma-first, Bryan: don't be dependent on Figma. Full suite 132 OK. Committed + fleet-rolled-out.

@@ -128,6 +128,8 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Build or repair an MCP server or MCP config | `mcp-builder`; `mcp-health-repair` for failures, `mcp-security-hygiene` for secrets, `postgres-mcp-onboarding` for Postgres MCP |
 | Web or frontend design | `frontend-design`, `web-design-guidelines`, `shadcn`, `impeccable`; `landing-page-design` for conversion pages, `email-design` for email |
 | Anti-slop company/landing frontend: plain copy, one system, taste gate | `design-taste-frontend`; `impeccable` for app UI and design systems |
+| Accessibility: keyboard, focus, ARIA, forms, motion, zoom vs WCAG 2.2 | `better-accessibility` |
+| Stress-test one component under worst-case content on a throwaway page | `break` |
 | Lazy senior-dev review: repo audit, change review, tech-debt ledger | `ponytail`, `ponytail-review`, `ponytail-audit`, `ponytail-debt`; `ponytail-gain` for benchmark scores, `ponytail-help` for the reference card |
 | Brand, theme, palette or visual identity | `brand-guidelines`, `theme-factory`, `logo-design-guide`, `canvas-design` |
 | Static visual assets: covers, icons, screenshots, social images | `book-cover-design`, `app-store-screenshots`, `og-image-design`, `character-design-sheet`, `slack-gif-creator`, `algorithmic-art` |
