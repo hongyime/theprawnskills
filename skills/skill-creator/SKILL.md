@@ -70,6 +70,10 @@ Based on the user interview, fill in these components:
 - **name**: Skill identifier
 - **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
 - **compatibility**: Required tools, dependencies (optional, rarely needed)
+- **shape**: domain or verb. A domain skill holds knowledge (what is true about a topic); a verb skill holds a procedure (do this, in this order). A procedure sitting inside a domain skill is a candidate for extraction; a domain rule sitting inside a verb skill belongs to its owner skill instead.
+- **calibration**: one or two lines saying how hard to press — which values are exact rather than approximate, what counts as a finding versus a preference, when the right answer is to write nothing. Put it in the opener or its own section with a heading that carries the point (e.g. `Evidence, not taste`), not a generic label.
+- **Before you finish**: a two-column table (detection pattern | fix) where the domain has recurring mistakes. The left column is the pattern that tells the agent it is about to make the mistake — a principle statement alone does not give that.
+- **Reporting**: every domain skill carries its severity ladder, verification checks, and the format for a standalone review. See the Craft section below.
 - **the rest of the skill :)**
 
 ### Skill Writing Guide
@@ -137,6 +141,36 @@ ALWAYS use this exact template:
 Input: Added user authentication with JWT tokens
 Output: feat(auth): implement JWT-based authentication
 ```
+
+### Skill craft (adapted from jakubkrehel/skills, MIT, interfaces 1.20.0)
+
+Applies to every new skill and to any skill being improved. It is craft, not a template: the content headings belong to the skill, not to a house style. A set of files all filling one section template reads like instances of one file.
+
+**Shape: domain or verb.** A domain skill holds knowledge; a verb skill holds a procedure. A procedure inside a domain skill is a candidate for extraction, and a domain rule inside a verb skill belongs to its owner instead.
+
+**Rule ownership.** Each rule lives in exactly one skill. Other skills point to it by skill name in backticks (`` `design-taste-frontend` ``), never by cross-skill relative link — a skill directory ships on its own. Point at a principle by its heading in bold (**Classify every finding**), never by its number: a numbered reference breaks silently when a principle is inserted above it. Overlap test: a skill keeps a fact its own output cannot be produced without (a threshold it reports against, a trigger list it builds to) and names the owner beside it; a hand-off is enough when the topic is simply out of scope without the sibling. A recipe, or a longer restatement of another skill's rule, never qualifies as overlap.
+
+**Calibration.** Every skill says how hard to press: which values are exact, what counts as a finding versus a preference, when the right answer is to write nothing. A skill that lists rules without saying how hard to press leaves that to chance — the difference between a review that blocks on evidence and one that blocks on taste.
+
+**Headings that carry the point.** Sentence case, and the heading states the point (`Native elements first`, not `Semantics`). Number headings only where the steps genuinely run in order, as in a verb skill's procedure. Numbering flat reference implies a sequence that is not there, and every insertion becomes a renumber.
+
+**Before you finish.** A two-column table (detection pattern | fix) where the domain has recurring mistakes. The heading names the moment on purpose: `Common mistakes` is a label an agent reads past while orienting; `Before you finish` names the point in the work where the table is worth consulting.
+
+**Reporting.** Every domain skill carries a `## Reporting` section: that domain's severity ladder, its verification checks, and the format for a standalone review. A skill that works when installed alone carries the format its own output needs — it does not assume a sibling skill is on disk to read it from.
+
+**Reference files.** A principle states the rule and links out for the recipe; the reference file holds the recipe and never restates the principle. Link each reference from the principle that needs it, so the link sits where the agent lands.
+
+**Counts that cannot go stale.** Prefer wording that stays true when skills are added ("every skill in this repository", not a number). Deliberate exception in this library: the installer test's hardcoded skill count is a tripwire by design.
+
+**Four checks after an edit** (prose drifts back toward the mean):
+- **No sentence over 30 words**, counting a code span as one word. A ceiling, not an average — split the individual 40-word sentence carrying four clauses and leave the rest alone.
+- **Description matches its INDEX.md row.** Two wordings of one skill is one skill described twice.
+- **One statement of each rule.** Before adding a sentence, check whether the file already says it somewhere else.
+- **A pruning pass, not a word ceiling.** Read each sentence and ask what it changes. A sentence that cannot be restated as an instruction, a fact, or a number is cut.
+
+**Where this library deliberately differs from jakubkrehel:**
+- **Descriptions keep trigger phrases.** Our frontmatter contract requires WHAT + WHEN with trigger phrases front-loaded. Their "no trigger list, one or two plain sentences" rule is NOT adopted — it contradicts that contract.
+- **User-invoked is not a frontmatter switch.** If a skill must be user-invoked only, the switch lives in the agent metadata file (`policy.allow_implicit_invocation: false`), never in frontmatter — quick_validate forbids the key.
 
 ### Writing Style
 
