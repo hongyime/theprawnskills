@@ -58,6 +58,10 @@ yet.
   refactor unrelated code. Do not commit or push unless the user says so.
 - Keep the running record in `docs/user-stories.md` (create it if missing).
   If it already exists, read it first and resume where it left off.
+- Annotation packets are the human feedback channel: the user annotates
+  the render in plain words, the agent turns each note into a packet
+  (see Phase 5). Every packet is resolved or explicitly dismissed by the
+  user before ship — the agent never dismisses a packet on its own.
 
 ## Phase 1: Map
 
@@ -143,11 +147,48 @@ backend-only, CLI-only, or library features.
 Present UI recommendations first and get the user's approval before editing
 any frontend files.
 
+Then run one annotation round:
+
+- Present the render (screenshot, live page, or postplan page) alongside
+  the recommendations and ask the user to annotate it — plain words are
+  fine ("header nav feels tight").
+- Build one packet per note (see below) and record it in
+  `docs/annotations.md`. Fix the packets in severity order, then
+  re-render once so the user can confirm. One round per feature by
+  default — a second round only if the user asks for it.
+
+### Annotation packet
+
+Format adapted from the Agentation annotation packet (no dependency —
+the Agentation tool itself is not adopted).
+
+- Element: selector / path to the element the user pointed at.
+- File: file:line where it lives.
+- Component tree: the component ancestry around the element.
+- Computed styles: the relevant ones only — the values the note is about.
+- Intent: what is wrong / what to change, in the user's words.
+- Severity: High (blocks ship), Medium (fix this pass), Low (deferrable —
+  park in the mismatch log with a reason).
+- Status: open → acknowledged → resolved, or dismissed. The agent
+  acknowledges a packet when it starts the fix and resolves it when the
+  fix is verified in the re-render. Only the user dismisses a packet,
+  with a reason.
+
+The agent fills Element, File, Component tree, and Computed styles from
+the code it already knows — the user only supplies the note and, if they
+want, the severity.
+
 ## Phase 6: Verify
 
 Load `verification-loop`. Prove changes against the real artifact with
 deterministic tests/commands (testing behavior, not implementation). Stop
 when clean.
+
+Annotation gate: every packet in `docs/annotations.md` must be resolved
+or user-dismissed before this phase passes. An open or acknowledged
+packet fails verification — it is still-open human feedback, not a
+passing check. Low packets the user deferred stay in the mismatch log
+with their reason.
 
 Then wrap up in chat, in this order:
 
