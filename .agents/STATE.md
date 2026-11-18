@@ -1,3 +1,14 @@
+# Full Azure removal — 2026-11-18 (committed e1d85b9, fleet rolled out, CI green run 44262752694)
+
+- Bryan (2026-11-18): "yes remove azure". Full-send covers the edits.
+- Deleted 25 top-level dirs (814 files): all 19 azure-* skills, entra-agent-id, entra-app-registration, airunway-aks-setup, deploy-model tree, microsoft-foundry tree, preset, appinsights-instrumentation (Azure Application Insights — its whole purpose). Library 262 → 230 definitions.
+- Hand-offs fixed in surviving skills: skill-router (6 azure/Entra/deploy-model rows + 2 "Azure, " list mentions + line 122 azure-prepare), Linux router row 41, docker-expert (AKS + azure-prepare rows), skill-cleanup:104, wizard:111. "preset" word hits in 9 surviving skills are all generic (LoRA presets, shadcn --preset, babel preset-env, wrangler --preset) — left alone. Cloudflare ai-gateway's "Azure OpenAI" provider row is a factual capability table of a third-party product, not a library hand-off — left alone. skill-creator:115 `azure.md` is an example file tree — left alone. skill-router:68 `rg ... azure|...` is a search-pattern example — left alone.
+- scripts/skill-resource-exceptions.json: 23 → 14 (9 dying-source entries removed; audit rejects stale entries).
+- tests/test_restored_helpers.py: preset tests deleted (bash + powershell); only the dependency-updater test remains. Suite 129 tests OK (skipped=9).
+- Belt installed on the VM (Bryan: "if u need to install pls install"): `curl -fsSL cli.inference.sh | sh` with INSTALL_DIR=/home/hatch/.local/bin (installer defaults to /usr/local/bin as root — ephemeral on the VM). belt v1.29.5. Version line added to all 69 `Bash(belt *)` skills via script (63 after H1, 6 after an existing app Matches line). web-perf line: chrome-devtools-mcp 1.13.0 (npx --version verified live on the VM; skill runs it via `npx -y chrome-devtools-mcp@latest`).
+- Fleet: all 5 primaries at e1d85b9. Windows: 6 profiled edited skills xcopy'd to .codex\skills (hash-verified, `\*` copy — no nesting this time); 25 dirs deleted from T14 OneDrive .agents (hook never deletes; E14 via OneDrive sync). No STALE-CODEX entries.
+- web2md: NOT found on any of the 5 machines (VM, L390, 3410, T14, E14 — checked workspace/softaworks, Projects/softaworks, and softaworks paths). It is Bryan's own custom softaworks project (local CLI, not a published package). Version line stays open until he says where the project lives.
+
 # Skill consolidations — 2026-11-18 (committed e01ff06, fleet rolled out, CI green run 44256442840)
 
 - Bryan (2026-11-18): "yes agree.. merge thos / i dont need azure or qwen image lol / idk waht to do about the preset" + tapped yes to add the 3 version lines. Full-send covers the edits.
