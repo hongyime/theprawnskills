@@ -593,13 +593,18 @@ The older remote-machine rollout notes below remain unresolved; this portfolio c
 
 Keep machine-specific inventory in an ignored private override, with disabled public examples and packaging exclusions. Preserve the current skill catalog, profile and newer provider-auth instructions. No fleet installation or registry-based synchronization ran.
 
-## Current task — 2026-11-12
+## Current task — 2026-11-18
 
-Hardened the fleet audit, legacy PowerShell installer, and bot merge gates. The
-audit copies remain byte-identical; local host naming and remote path masking
-are corrected; linked installer roots/destinations are skipped. Bot workflows
-now wait for `Skill library` and use protected auto-merge. Focused regressions,
-library integrity gates, and a fresh read-only 4/4 fleet audit pass.
+Extended `project-transfer` with git-history mining, no-ownership mode, and a
+fluid store/target split (`644481b`). New private repo `hongyime/theprawnlearnings`
+(one folder per source repo, markdown PACKs + consolidated lessons.md).
+Trial Phase 1 harvest on `bchuminx/healthkaki-pov`: remote is unreachable from
+GitHub (repository not found via `gh` + `ls-remote`, VM and L390) — the L390
+clone (1341 commits, 56 branches) is the only copy; harvest ran clone-only,
+no PRs/issues. PACK at `~/workspace/healthkaki-pov-lessons.md` (11 lessons,
+3 dropped), awaiting Bryan's review before filing to theprawnlearnings.
+Fleet all at `644481b`; project-transfer copied to T14/E14 codex roots
+(hash match both).
 
 <!-- MOLT_AUTO_START -->
 ## Auto State
