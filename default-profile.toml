@@ -74,7 +74,6 @@ skills = [
   "turnstile-spin",
   "web-perf",
   "web-search",
-  "web-to-markdown",
 
   # Existing workflow helpers
   "cavecrew",

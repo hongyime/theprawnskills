@@ -8,10 +8,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 223 |
-| All definitions, including nested skills and portable variants | 230 |
+| Top-level skills | 222 |
+| All definitions, including nested skills and portable variants | 229 |
 | Portable variants | 7 |
-| Daily profile | 69 |
+| Daily profile | 68 |
 
 ## Skills
 
@@ -231,7 +231,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `web-design-guidelines` | Review UI code for compliance with Vercel's Web Interface Guidelines (fetched live from the source URL below). Use when the user asks to check a site against Vercel's web interf... | ON-DEMAND |
 | `web-perf` | Analyzes web performance using Chrome DevTools MCP. Measures Core Web Vitals (LCP, INP, CLS) and supplementary metrics (FCP, TBT, Speed Index), identifies render-blocking resour... | DAILY |
 | `web-search` | Web search and content extraction with Tavily and Exa via inference.sh CLI. Apps: Tavily Search, Tavily Extract, Exa Search, Exa Answer, Exa Extract. Capabilities: AI-powered se... | DAILY |
-| `web-to-markdown` | Converts webpage URLs to clean Markdown by calling the local web2md CLI (Puppeteer + Readability), suitable for JS-rendered pages. Use when converting a webpage or URL to Markdo... | DAILY |
 | `webapp-testing` | Verify web applications in a real browser with Playwright: user flows, layout, screenshots, logs, CI artifacts and flaky-test diagnosis. Use for browser testing and end-to-end f... | ON-DEMAND |
 | `why` | Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Discovers available MCPs and queries each evidence ... | ON-DEMAND |
 | `widgets-ui` | Declarative UI widgets from JSON for React/Next.js from ui.inference.sh. Render rich interactive UIs from structured agent responses. Capabilities: forms, buttons, cards, layout... | ON-DEMAND |

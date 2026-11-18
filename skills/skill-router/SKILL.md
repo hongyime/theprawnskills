@@ -150,7 +150,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Multi-step AI content or automation pipelines | `ai-content-pipeline`, `ai-automation-workflows`, `ai-rag-pipeline` |
 | inference.sh platform: run apps, build apps, SDKs | `infsh-cli`, `building-inferencesh-apps`, `python-sdk`, `javascript-sdk`, `python-executor`, `llm-models` |
 | Social content | `social-media-carousel`, `twitter-thread-creation`, `youtube-thumbnail-design`; `twitter-automation` for posting via API |
-| Web search, scraping and page extraction | `web-search`, `web-to-markdown`, `agent-browser` |
+| Web search, scraping and page extraction | `web-search`, `agent-browser` |
 | Claude API, model ids, pricing, tool use | `claude-api` |
 | Agent tooling and delegation | `cli-agent-router`, `claude-code-cli`, `opencode-cli`, `codex`, `agent-browser` |
 | OpenCode Bedrock provider auth, region pinning, per-agent model override | `opencode-bedrock-config` |
