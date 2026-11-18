@@ -44,7 +44,7 @@ Ask only for missing inputs. Never prompt for `TARGET` during Phase 1. Never pro
 
 - **Zero Target Writes in Phase 1**: Phase 1 reads `SOURCE` and home agent folders, writing *only* to the PACK file.
 - **No-ownership mode**: `SOURCE` may be a repo Bryan does not own. Never commit, push, open a PR, or write anything in `SOURCE`. Read-only: `git log`, `gh pr` / `gh issue` reads, local clone reads. If the remote is gone or unreachable, harvest from the local clone only and record the access level in the PACK. If there is no local clone and no `gh` access, stop and report — do not guess.
-- **STORE is not TARGET**: filing the PACK into `STORE` is not adopting. Adopt writes into `TARGET` only when Bryan names it and has write access.
+- **Temp clones are scratch**: when `SOURCE` was cloned to a temp dir for the harvest (remote exists, no local copy), delete the temp clone after the PACK is filed — or after the run, if filing is skipped. The PACK in `STORE` is the durable record, not the clone. When the remote is gone, there is no temp clone: harvest from the local clone, which may be the only copy.
 - **Strict Boundary in Phase 2**: Phase 2 writes *only* inside `STORE` (filing) and `TARGET` (adopting).
 - **Absolute Secret Exclusion**: Never copy secrets, keys, or credentials. Skip `.env*`, `*.pem`, `*.key`, `auth.json`, `tokens.json`, and cookies. Variable names are allowed. Scrub any credential-like string from session logs.
 - **Graceful Permission Degradation**: If a folder cannot be read (sandbox, permissions), report the path and continue without aborting.
