@@ -1,3 +1,16 @@
+# Skill consolidations — 2026-11-18 (committed e01ff06, fleet rolled out, CI green run 44256442840)
+
+- Bryan (2026-11-18): "yes agree.. merge thos / i dont need azure or qwen image lol / idk waht to do about the preset" + tapped yes to add the 3 version lines. Full-send covers the edits.
+- Preset: kept `skills/preset` as canonical, deleted the 2 nested copies (`skills/deploy-model/preset`, `skills/microsoft-foundry/models/deploy-model/preset` — content identical, only relative link depth differed). Fixed path links in deploy-model + foundry deploy-model SKILL.md and both capacity files (foundry capacity needs 4 ups: `../../../../preset/SKILL.md`). Test `test_preset_variants_have_identical_self_contained_helpers` deleted (it asserted the 3 variants' helper scripts identical — only 1 variant left); VARIANTS reduced to `("skills/preset",)`.
+- agent-tools deleted (infsh-cli kept — the newer copy: extra `belt app list` row, Seedance 2.0 vs 1.5). Foundry `agent-tools.md` / `azd ai toolbox agent-tools` mentions are a different thing (Foundry tool file / toolbox name), left alone.
+- azure-kubernetes-automatic-readiness deleted BOTH copies (Bryan doesn't need Azure); azure-messaging deleted. Fixed hand-offs in azure-kubernetes/SKILL.md, app-deploy description + body, safeguards.md (source-of-truth pointer to the deleted constraint-spec removed), azure-storage description. azure-diagnostics/azure-upgrade `azure-messaging-*` hits are SDK package names, left alone.
+- ai-product-photography / ai-marketing-videos / ai-social-media-content deleted (belt-app wrappers; covered by product-photography, ai-image-generation, google-veo/seedance). Fixed npx lines in ai-automation-workflows + content-repurposing, router rows.
+- qwen-image-2 + qwen-image-2-pro deleted (Bryan doesn't need Qwen image).
+- Version lines added: shadcn 4.23.0, @remotion/cli 4.0.544 (both npm latest, VM, 2026-11-18), VirtualBox 7.2.16 (T14, 2026-11-18). Remaining unverifiable: belt (install route unclear), az/azd, web-perf, web2md (project not found on VM/L390/3410/T14 — ask Bryan where it lives).
+- Library 273 → 262 definitions (11 SKILL.md files removed). INDEX regenerated + agrees; quick_validate 14/14 edited skills; resources Missing 0; platforms OK (262, 13 exceptions); text safety 0; full suite OK (skipped=10).
+- Fleet: all 5 primaries at e01ff06. Windows: skill-router + shadcn xcopy'd to .codex\skills (hash-verified); 11 dirs deleted from T14 OneDrive .agents (hook never deletes — manual step; E14 via OneDrive sync). Gotcha: PowerShell Copy-Item of a dir into an existing dir NESTS it (`skills\skill-router\skill-router`) — copy with `\*` instead.
+- NOT done: full Azure removal (deploy-model tree, microsoft-foundry tree, azure-prepare hand-offs) — bigger job, only if Bryan asks.
+
 # Full skills vet (agy + codex, all 273) — 2026-11-18 (committed a4ae37a, fleet rolled out, CI green run 44247478429)
 
 - Bryan (2026-11-17): "Double check sanity check. Ask agy and codex to vet alll our skills in prawnskills. Then make edits where necessary. Then push to whole fleet." Full-send confirmed 2026-11-18 13:04 — no per-item approval.
