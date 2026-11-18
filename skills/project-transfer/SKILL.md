@@ -1,11 +1,12 @@
 ---
 name: project-transfer
 description: >-
-  One-time, on-demand transfer of proven lessons from a finished project (SOURCE)
-  to another project (TARGET), even across different languages or stacks. Extracts
-  rules, skills, lint/check intent, hooks and workflows from code, dot files, dot
-  folders and agent session logs, then adapts them to the target. Trigger on
-  "transfer lessons", "harvest this project", "reuse what worked from X".
+  One-time, on-demand harvest of proven lessons from any project (SOURCE) —
+  owned or not — into a learnings store or another project (TARGET). Mines git
+  history (commits, PRs, review comments, issues, closed branches) plus code,
+  dot files, dot folders and agent session logs, then files the reviewed PACK
+  or adapts lessons into the target. Trigger on "transfer lessons", "harvest
+  this project", "reuse what worked from X", "collate learnings from X".
 license: MIT
 metadata:
   author: Local setup
@@ -16,12 +17,15 @@ metadata:
 # Project Transfer
 
 Transfer proven developer and agent lessons from a completed project (`SOURCE`)
-into a new or existing target project (`TARGET`), adapting across different
-languages, frameworks, and agent harnesses.
+into a learnings store or a new or existing target project (`TARGET`), adapting
+across different languages, frameworks, and agent harnesses. `SOURCE` may be a
+repo Bryan does not own; `TARGET` may differ from the store.
 
-Work proceeds in two discrete phases with a human-reviewable PACK file in between:
-- **Phase 1 (Harvest)**: Audits `SOURCE` and agent session logs; writes only the PACK.
-- **Phase 2 (Adopt)**: Reads the reviewed PACK and adapts lessons into `TARGET`.
+Work proceeds in discrete phases with a human-reviewable PACK file in between:
+- **Phase 1 (Harvest)**: Mines git history plus code, dot files and agent session logs; writes only the PACK.
+- **Phase 2 (File and Adopt)**: Files the reviewed PACK into `STORE` (default
+  `hongyime/theprawnlearnings`, one folder per source repo), and optionally
+  adapts lessons into `TARGET`.
 
 Different agents or sessions can run Phase 1 and Phase 2 independently.
 
@@ -29,16 +33,19 @@ Different agents or sessions can run Phase 1 and Phase 2 independently.
 
 | Input | Required | Default | Notes |
 |---|---|---|---|
-| `SOURCE` path | Yes (Phase 1) | Prompt user if missing | Path to completed codebase |
+| `SOURCE` path or repo slug | Yes (Phase 1) | Prompt user if missing | Local path, or `owner/repo` — clone read-only to a temp dir if no local copy exists |
+| `STORE` path | Optional | `hongyime/theprawnlearnings` (private) | Where the reviewed PACK is filed; one folder per source repo. Overridable per run |
 | `PACK` path | Optional | `<source-folder>-lessons.md` next to `SOURCE` | Intermediate review file |
-| `TARGET` path | Yes (Phase 2) | Prompt user before Phase 2 | Destination repository |
+| `TARGET` path | Only for Adopt | Prompt user before Adopt | Destination repository for adapted lessons. May differ from `STORE`; needs write access |
 
-Ask only for missing inputs. Never prompt for `TARGET` during Phase 1.
+Ask only for missing inputs. Never prompt for `TARGET` during Phase 1. Never prompt for `STORE` — the default applies unless the user names another.
 
 ## Ground Rules
 
 - **Zero Target Writes in Phase 1**: Phase 1 reads `SOURCE` and home agent folders, writing *only* to the PACK file.
-- **Strict Boundary in Phase 2**: Phase 2 writes *only* inside `TARGET`.
+- **No-ownership mode**: `SOURCE` may be a repo Bryan does not own. Never commit, push, open a PR, or write anything in `SOURCE`. Read-only: `git log`, `gh pr` / `gh issue` reads, local clone reads. If the remote is gone or unreachable, harvest from the local clone only and record the access level in the PACK. If there is no local clone and no `gh` access, stop and report — do not guess.
+- **STORE is not TARGET**: filing the PACK into `STORE` is not adopting. Adopt writes into `TARGET` only when Bryan names it and has write access.
+- **Strict Boundary in Phase 2**: Phase 2 writes *only* inside `STORE` (filing) and `TARGET` (adopting).
 - **Absolute Secret Exclusion**: Never copy secrets, keys, or credentials. Skip `.env*`, `*.pem`, `*.key`, `auth.json`, `tokens.json`, and cookies. Variable names are allowed. Scrub any credential-like string from session logs.
 - **Graceful Permission Degradation**: If a folder cannot be read (sandbox, permissions), report the path and continue without aborting.
 - **Evidence Requirement**: No evidence, no entry. Speculative or unverified rules must not be added to the PACK.
@@ -67,7 +74,34 @@ Read in this prioritized order:
 5. **Environment & Editor configs**:
    - `.env.example` (variable names only), `.vscode/settings.json`, `.vscode/tasks.json`.
 
-### 1.2 Agent Session Logs (Home Folders)
+### 1.2 Git history (commits, PRs, issues, closed branches)
+
+Mine the history, not just the current tree. Work read-only; prefer `gh` for
+anything GitHub holds and `git log` for what the clone holds.
+
+```bash
+git log --oneline --all --since=<window>        # commit subjects, authors, dates
+git log --all --grep="revert" --oneline         # reverts: a direction that failed
+gh pr list --state all --limit 200              # every PR: open, merged, closed
+gh pr view <N> --comments                       # review discussion and decisions
+gh issue list --state all --limit 200           # every issue: open and closed
+git branch -a                                   # live + remote-tracking branches
+```
+
+Extract, with evidence cited as `commit <sha>`, `PR #N`, or `issue #N`:
+- **Decisions**: what was chosen, who decided, when — from merged PR titles/bodies and review comments that settled an argument.
+- **Reverts**: a reverted commit is evidence a direction failed; record what was tried and why it was undone.
+- **Recurring bugs**: the same failure fixed in more than one PR or commit.
+- **Review corrections**: "don't do X", "use Y instead" in review comments — the same class as user corrections in session logs.
+- **Closed branches**: a deleted branch survives through its PR (branch name, merged/closed state, discussion). A branch with no PR leaves only its commits in `git log --all` until pruned.
+
+Access ladder — record the level in the PACK and degrade, never guess:
+- **full**: local clone + `gh` access (PRs, issues, comments available).
+- **clone-only**: local clone, remote gone or unreachable (no PRs/issues; branches and log only).
+- **gh-only**: no local clone, `gh` reads work (PRs/issues available; no working-tree or session-log harvest).
+- **none**: no clone and no `gh` access — stop and report.
+
+### 1.3 Agent Session Logs (Home Folders)
 
 Search agent session logs for mentions of `SOURCE`'s absolute path or folder name.
 Because session logs can be massive, use `rg` (ripgrep) or targeted file searches first.
@@ -102,7 +136,7 @@ From matched logs, extract surrounding context (3-5 lines) focusing on:
 - **Loop-ending fixes**: The key breakthrough or fix that resolved a prolonged debugging session.
 - **Repeated manual steps**: Commands or setup steps the user repeatedly ran or asked the agent to execute.
 
-### 1.3 Extract and Generalize
+### 1.4 Extract and Generalize
 
 For every potential lesson, record four attributes:
 
@@ -111,20 +145,20 @@ For every potential lesson, record four attributes:
 - **Evidence**: The file path, session timestamp, or recurrence count proving this was needed.
 - **Verification**: How an agent or tool can verify adherence in a target repository.
 
-### 1.4 Classification Rubric
+### 1.5 Classification Rubric
 
 Categorize each generalized item into one of six standard types:
 
 | Category | Definition | Target Destination |
 |---|---|---|
-| `convention` | Style or architectural preference | `AGENTS.md` guidelines |
-| `procedure` | Step-by-step workflow used 2+ times | Agent skill (`.agents/skills/<name>/SKILL.md`) |
+| `convention` | Style or architectural preference | `AGENTS.md` guidelines (TARGET) or filed learning (STORE) |
+| `procedure` | Step-by-step workflow used 2+ times | Agent skill (`.agents/skills/<name>/SKILL.md`) — in theprawnskills or TARGET, decided at review |
 | `rule` | Hard constraint that must never break | Automated check script or strict linter rule |
 | `hook` | Triggered event (pre-commit, tool hook) | Check script wired to agent hook / git hook |
 | `workflow` | CI, release, build, or review pipeline | CI action, Makefile, or runner recipe |
 | `mistake-to-avoid` | Recurrent trap or anti-pattern | `AGENTS.md` "Avoid" bullet with rationale |
 
-### 1.5 Write the PACK File
+### 1.6 Write the PACK File
 
 Write the output file (default `<source-folder>-lessons.md` next to `SOURCE`). Use this exact markdown structure:
 
@@ -134,7 +168,10 @@ Write the output file (default `<source-folder>-lessons.md` next to `SOURCE`). U
 - **Date:** <YYYY-MM-DD>
 - **Source Path:** `<SOURCE_PATH>`
 - **Source Stack:** <Language, framework, tools>
+- **Source Access:** full | clone-only | gh-only
+- **Store:** `<STORE path, default hongyime/theprawnlearnings>`
 - **Logs Inspected:** <List of agents whose logs were reviewed>
+- **History Inspected:** <Commit count, PR count, issue count reviewed>
 
 ## Summary Table
 
@@ -163,9 +200,24 @@ Present the summary table to the user and prompt them to review, modify, or prun
 
 ---
 
-## Phase 2: Adopt (in TARGET)
+## Phase 2: File and Adopt (in STORE, optionally in TARGET)
 
-### 2.1 Inspect TARGET
+### 2.1 File into STORE
+
+After the user reviews the PACK, file it into `STORE` (default
+`hongyime/theprawnlearnings`):
+
+1. Clone `STORE` if not already present; work on main.
+2. Folder per source repo: `<owner>-<repo>/` (e.g. `bchuminx-healthkaki-pov/`).
+3. Copy the reviewed PACK to `<owner>-<repo>/packs/<YYYY-MM-DD>-lessons.md`.
+4. Merge its items into `<owner>-<repo>/lessons.md` (one consolidated file per
+   source repo): add new items, update changed ones, never silently drop an old
+   item — supersede it with a dated note and a link to the newer PACK.
+5. Commit and push. The commit message names the source repo and the PACK date.
+
+Filing needs no `TARGET`. If the user wants no filing (PACK only), stop here.
+
+### 2.2 Inspect TARGET
 
 Before making any modifications:
 1. Identify `TARGET` stack: language, package managers, test runners, linters, CI systems, and task runners.
@@ -173,7 +225,7 @@ Before making any modifications:
 3. Check existing scripts (`scripts/`, `checks/`, `bin/`) and skills (`.agents/skills/`, `.claude/skills/`).
 4. Note which PACK items are already covered or partially addressed in `TARGET`.
 
-### 2.2 Decide for Each Item: Adopt, Adapt, or Skip
+### 2.3 Decide for Each Item: Adopt, Adapt, or Skip
 
 - **adopt**: Apply directly as-is (e.g. universal markdown guidelines, stack-independent git practices).
 - **adapt**: Translate the item's *intent* and *verification* into `TARGET`'s native tooling (e.g. convert a Python flake8 rule to an ESLint plugin, or a bash script to a PowerShell / npm script).
@@ -181,7 +233,7 @@ Before making any modifications:
 
 Never copy raw syntax from `SOURCE` if `TARGET` uses a different paradigm. Translate the underlying intent.
 
-### 2.3 Present Plan and Write
+### 2.4 Present Plan and Write
 
 Present a decision table to the user:
 
@@ -208,17 +260,17 @@ Wait for user approval before writing. Once approved:
 5. **Conflict Prevention**:
    - Never overwrite existing files without confirmation. Merge additions cleanly.
 
-### 2.4 Verification
+### 2.5 Verification
 
 Execute each newly introduced check script once within `TARGET`:
 - Confirm the script runs and reports pass/fail without syntax errors.
 - Fix any environment setup issues.
 - Do not modify existing codebase logic in `TARGET` unless explicitly instructed.
 
-### 2.5 Handoff Report
+### 2.6 Handoff Report
 
 Conclude with a clear adoption summary:
-- Files created and modified in `TARGET`.
+- Files created and modified in `STORE` and `TARGET`.
 - Items adapted and their new locations.
 - Items skipped and reasons.
 - Next steps or manual decisions required from the user.
