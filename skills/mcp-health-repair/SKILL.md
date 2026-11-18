@@ -1,6 +1,6 @@
 ---
 name: mcp-health-repair
-description: "Troubleshoot OpenCode MCP failures fast. USE FOR: /status failures, timeout errors, connection closed, broken MCP command args, intermittent MCP flapping. DO NOT USE FOR: feature implementation unrelated to MCP health."
+description: "Troubleshoot OpenCode MCP failures fast. Use when OpenCode MCP fails: /status failures, timeout errors, connection closed, broken MCP command args, intermittent MCP flapping. DO NOT USE FOR: feature implementation unrelated to MCP health."
 metadata:
   author: Local setup
   version: "1.0.0"
@@ -8,6 +8,7 @@ metadata:
 ---
 
 # MCP Health Repair
+Matches OpenCode CLI 1.18.34 (verified on the VM, 2026-11-18)
 
 ## Purpose
 Stabilize MCP servers and remove recurring `/status` failures.

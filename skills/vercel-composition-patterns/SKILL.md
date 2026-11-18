@@ -14,6 +14,7 @@ metadata:
 ---
 
 # React Composition Patterns
+Matches React 19 (verified on the VM, 2026-11-18)
 
 Composition patterns for building flexible, maintainable React components. Avoid
 boolean prop proliferation by using compound components, lifting state, and
@@ -74,8 +75,8 @@ Reference these guidelines when:
 Read individual rule files for detailed explanations and code examples:
 
 ```
-rules/architecture-avoid-boolean-props.md
-rules/state-context-interface.md
+./rules/architecture-avoid-boolean-props.md
+./rules/state-context-interface.md
 ```
 
 Each rule file contains:
@@ -87,4 +88,4 @@ Each rule file contains:
 
 ## Full Compiled Document
 
-For the complete guide with all rules expanded: `AGENTS.md`
+For the complete guide with all rules expanded: `./AGENTS.md`

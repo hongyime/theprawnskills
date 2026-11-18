@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # HappyHorse 1.0 Video Generation
 
@@ -181,7 +180,8 @@ belt app search "happyhorse"
 npx skills add inference-sh/skills@infsh-cli
 
 # All video generation models
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Seedance 2.0
 npx skills add inference-sh/skills@seedance

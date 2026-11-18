@@ -117,11 +117,11 @@ Projects in <region>:
 
 Before presenting any deployment options (SKU, capacity), always validate both of these:
 
-1. **Model supports the SKU** — query the model catalog to confirm the selected model+version supports the target SKU:
+1. **Model supports the SKU** — query the model catalog to confirm the selected model+version supports the target SKU. This step queries the location catalog (`az cognitiveservices model list`, no account needed). The preset/customize sub-skills instead use `az cognitiveservices account list-models` (account-scoped, needs the project account) after the project is verified — different command, different scope, same model data.
    ```bash
    az cognitiveservices model list --location <region> --subscription <sub-id> -o json
    ```
-   Filter for the model, extract `.model.skus[].name` to get supported SKUs.
+   Match the item where `.model.name` and `.model.version` equal the selected model and version, then extract `.skus[].name` to get supported SKUs.
 
 2. **Subscription has available quota** — check that the user's subscription has unallocated quota for the SKU+model combination:
    ```bash

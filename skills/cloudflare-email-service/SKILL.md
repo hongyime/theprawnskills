@@ -28,7 +28,7 @@ Cloudflare Email Service lets you send transactional emails and route incoming e
 
 Before writing any email code, verify the basics are in place:
 
-1. **Domain onboarded?** Run `npx wrangler email sending list` to see which domains have email sending enabled. If the domain isn't listed, run `npx wrangler email sending enable userdomain.com` or see [cli-and-mcp.md](references/cli-and-mcp.md) for full setup instructions.
+1. **Domain onboarded?** There is no `wrangler email sending list` command — check the Cloudflare Dashboard (Email → Email Sending) for which domains have sending enabled. If the domain isn't listed, run `npx wrangler email sending enable userdomain.com` or see [cli-and-mcp.md](references/cli-and-mcp.md) for full setup instructions.
 2. **Binding configured?** Look for `send_email` in `wrangler.jsonc` (for Workers)
 3. **postal-mime installed?** Run `npm ls postal-mime` (only needed for receiving/parsing emails)
 

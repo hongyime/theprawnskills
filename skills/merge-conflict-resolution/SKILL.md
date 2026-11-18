@@ -14,6 +14,7 @@ metadata:
 ---
 
 # Merge Conflict Resolution
+Matches git 2.43.0 (verified on the VM, 2026-11-18)
 
 Resolve conflicts by understanding BOTH sides' intent, then reconstructing what
 the code should be — never by picking a side blindly or deleting markers.

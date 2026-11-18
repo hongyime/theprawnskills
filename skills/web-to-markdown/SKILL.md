@@ -1,6 +1,6 @@
 ---
 name: web-to-markdown
-description: "Use ONLY when the user explicitly says: 'use the skill web-to-markdown ...' (or 'use a skill web-to-markdown ...'). Converts webpage URLs to clean Markdown by calling the local web2md CLI (Puppeteer + Readability), suitable for JS-rendered pages."
+description: "Converts webpage URLs to clean Markdown by calling the local web2md CLI (Puppeteer + Readability), suitable for JS-rendered pages. Use when converting a webpage or URL to Markdown, or when the user asks for a page as Markdown."
 metadata:
   version: 0.1.0
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
@@ -9,14 +9,6 @@ metadata:
 # web-to-markdown
 
 Convert web pages to clean Markdown by driving a locally installed browser (via `web2md`).
-
-## Hard trigger gate (must enforce)
-
-This skill MUST NOT be used unless the user explicitly wrote **exactly** a phrase like:
-- `use the skill web-to-markdown ...`
-- `use a skill web-to-markdown ...`
-
-If the user did not explicitly request this skill by name, stop and ask them to re-issue the request including: `use the skill web-to-markdown`.
 
 ## What this skill does
 
@@ -48,14 +40,13 @@ If the user did not explicitly request this skill by name, stop and ask them to 
 
 ## Workflow
 
-1) Confirm the user explicitly invoked the skill (`use the skill web-to-markdown`).
-2) Validate URL(s) start with `http://` or `https://`.
-3) Ensure `web2md` is installed:
+1) Validate URL(s) start with `http://` or `https://`.
+2) Ensure `web2md` is installed:
    - Run: `command -v web2md`
-   - If missing, instruct the user to install it (assume the project exists at `~/workspace/softaworks/projects/web2md`):
-     - `cd ~/workspace/softaworks/projects/web2md && npm install && npm run build && npm link`
-     - Or: `cd ~/workspace/softaworks/projects/web2md && npm install && npm run build && npm install -g .`
-4) Convert:
+   - If missing, ask the user for the web2md project location — it is a local project, not a published package — then, with their approval:
+     - `cd <project-dir> && npm install && npm run build && npm link`
+     - Or: `cd <project-dir> && npm install && npm run build && npm install -g .`
+3) Convert:
    - Single URL → file:
      - `web2md '<url>' --out ./page.md`
    - Single URL → auto-named file in directory:
@@ -67,9 +58,9 @@ If the user did not explicitly request this skill by name, stop and ask them to 
      - `web2md '<url>' --print`
    - Multiple URLs (batch):
      - Create output dir (e.g. `./out/`) then run one `web2md` command per URL using `--out ./out/`
-5) Validate output:
+4) Validate output:
    - If writing files, verify they exist and are non-empty (e.g. `ls -la <path>` and `wc -c <path>`).
-6) Return:
+5) Return:
    - The saved file path(s), or the Markdown (stdout mode).
 
 ## Defaults (recommended)

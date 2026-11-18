@@ -56,7 +56,7 @@ yet.
   instead of guessing, and offer to run it or write a quick test to find out.
 - Do not change any code until the user approves a specific fix. Do not
   refactor unrelated code. Do not commit or push unless the user says so.
-- Keep the running record in `docs/user-stories.md` (create it if missing).
+- Keep the running record in `docs/user-stories.md` — create it only with the user's approval (repo rule: no new Markdown files without an explicit request); if the user has not approved a new file, keep the record in the conversation instead.
   If it already exists, read it first and resume where it left off.
 - Annotation packets are the human feedback channel: the user annotates
   the render in plain words, the agent turns each note into a packet
@@ -153,7 +153,7 @@ Then run one annotation round:
   the recommendations and ask the user to annotate it — plain words are
   fine ("header nav feels tight").
 - Build one packet per note (see below) and record it in
-  `docs/annotations.md`. Fix the packets in severity order, then
+  `docs/annotations.md` — create that file only with the user's approval (same rule as `docs/user-stories.md`: no new Markdown files without an explicit request); if not approved, keep the packets in the conversation instead. Fix the packets in severity order, then
   re-render once so the user can confirm. One round per feature by
   default — a second round only if the user asks for it.
 

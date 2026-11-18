@@ -13,6 +13,7 @@ metadata:
 ---
 
 # Statechart
+Matches Pele 1.9.0 (verified on the VM, 2026-11-18)
 
 The chart shows how a system moves between states, in the words of the person who reads it. That person, the reader, decides whether the behavior is right.
 
@@ -26,7 +27,7 @@ Work in a scratch folder outside the repo. Write a TLA+ spec and its config. The
 
 `scripts/statechart.ts` is TypeScript, so run it with a runtime that can execute TypeScript.
 
-The first run installs TLC and Java with mise and needs the network.
+If `java` and TLC are already installed, the first run uses them. Otherwise it installs TLC and Java with `mise` and needs the network — install `mise` first, or install Java and TLC yourself and make sure they are on `PATH`.
 
 ## Write the spec
 

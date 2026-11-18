@@ -9,6 +9,7 @@ description: "Assess Kubernetes workloads and cluster configuration for AKS Auto
 ---
 
 # AKS Automatic Readiness Assessment
+Matches bundled constraint spec v1.1.1 (2026-03-15) (verified on the VM, 2026-11-18)
 
 > **AUTHORITATIVE GUIDANCE — MANDATORY COMPLIANCE**
 >

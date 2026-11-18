@@ -37,14 +37,14 @@ This is the paradigm shift from "training AI" to "educating AI" — like a hot-s
 
 ### The Core Formula
 
-> **Good Skill = Expert-only Knowledge − What Claude Already Knows**
+> **Good Skill = Expert-only Knowledge − What the Agent Already Knows**
 
 A Skill's value is measured by its **knowledge delta** — the gap between what it provides and what the model already knows.
 
 - **Expert-only knowledge**: Decision trees, trade-offs, edge cases, anti-patterns, domain-specific thinking frameworks — things that take years of experience to accumulate
-- **What Claude already knows**: Basic concepts, standard library usage, common programming patterns, general best practices
+- **What the agent already knows**: Basic concepts, standard library usage, common programming patterns, general best practices
 
-When a Skill explains "what is PDF" or "how to write a for-loop", it's compressing knowledge Claude already has. This is **token waste** — context window is a public resource shared with system prompts, conversation history, other Skills, and user requests.
+When a Skill explains "what is PDF" or "how to write a for-loop", it's compressing knowledge the agent already has. This is **token waste** — context window is a public resource shared with system prompts, conversation history, other Skills, and user requests.
 
 ### Tool vs Skill
 
@@ -61,7 +61,7 @@ Skills inject knowledge — without frontend-design Skill, model produces generi
 General Agent + Excellent Skill = Domain Expert Agent
 ```
 
-Same Claude model, different Skills loaded, becomes different experts.
+Same model, different Skills loaded, becomes different experts.
 
 ### Three Types of Knowledge in Skills
 
@@ -69,9 +69,9 @@ When evaluating, categorize each section:
 
 | Type | Definition | Treatment |
 |------|------------|-----------|
-| **Expert** | Claude genuinely doesn't know this | Must keep — this is the Skill's value |
-| **Activation** | Claude knows but may not think of | Keep if brief — serves as reminder |
-| **Redundant** | Claude definitely knows this | Should delete — wastes tokens |
+| **Expert** | The agent genuinely doesn't know this | Must keep — this is the Skill's value |
+| **Activation** | The agent knows but may not think of | Keep if brief — serves as reminder |
+| **Redundant** | The agent definitely knows this | Should delete — wastes tokens |
 
 The art of Skill design is maximizing Expert content, using Activation sparingly, and eliminating Redundant ruthlessly.
 
@@ -98,7 +98,7 @@ The most important dimension. Does the Skill add genuine expert knowledge?
 
 | Score | Criteria |
 |-------|----------|
-| 0-5 | Explains basics Claude knows (what is X, how to write code, standard library tutorials) |
+| 0-5 | Explains basics the agent knows (what is X, how to write code, standard library tutorials) |
 | 6-10 | Mixed: some expert knowledge diluted by obvious content |
 | 11-15 | Mostly expert knowledge with minimal redundancy |
 | 16-20 | Pure knowledge delta — every paragraph earns its tokens |
@@ -118,8 +118,8 @@ The most important dimension. Does the Skill add genuine expert knowledge?
 - Domain-specific thinking frameworks
 
 **Evaluation questions**:
-1. For each section, ask: "Does Claude already know this?"
-2. If explaining something, ask: "Is this explaining TO Claude or FOR Claude?"
+1. For each section, ask: "Does the agent already know this?"
+2. If explaining something, ask: "Is this explaining TO the agent or FOR the agent?"
 3. Count paragraphs that are Expert vs Activation vs Redundant
 
 ---
@@ -128,24 +128,24 @@ The most important dimension. Does the Skill add genuine expert knowledge?
 
 Does the Skill transfer expert **thinking patterns** along with **necessary domain-specific procedures**?
 
-The difference between experts and novices isn't "knowing how to operate" — it's "how to think about the problem." But thinking patterns alone aren't enough when Claude lacks domain-specific procedural knowledge.
+The difference between experts and novices isn't "knowing how to operate" — it's "how to think about the problem." But thinking patterns alone aren't enough when the agent lacks domain-specific procedural knowledge.
 
 **Key distinction**:
 | Type | Example | Value |
 |------|---------|-------|
 | **Thinking patterns** | "Before designing, ask: What makes this memorable?" | High — shapes decision-making |
-| **Domain-specific procedures** | "OOXML workflow: unpack → edit XML → validate → pack" | High — Claude may not know this |
-| **Generic procedures** | "Step 1: Open file, Step 2: Edit, Step 3: Save" | Low — Claude already knows |
+| **Domain-specific procedures** | "OOXML workflow: unpack → edit XML → validate → pack" | High — the agent may not know this |
+| **Generic procedures** | "Step 1: Open file, Step 2: Edit, Step 3: Save" | Low — the agent already knows |
 
 | Score | Criteria |
 |-------|----------|
-| 0-3 | Only generic procedures Claude already knows |
+| 0-3 | Only generic procedures the agent already knows |
 | 4-7 | Has domain procedures but lacks thinking frameworks |
 | 8-11 | Good balance: thinking patterns + domain-specific workflows |
-| 12-15 | Expert-level: shapes thinking AND provides procedures Claude wouldn't know |
+| 12-15 | Expert-level: shapes thinking AND provides procedures the agent wouldn't know |
 
 **What counts as valuable procedures**:
-- Workflows Claude hasn't been trained on (new tools, proprietary systems)
+- Workflows the agent hasn't been trained on (new tools, proprietary systems)
 - Correct ordering that's non-obvious (e.g., "validate BEFORE packing, not after")
 - Critical steps that are easy to miss (e.g., "MUST recalculate formulas after editing")
 - Domain-specific sequences (e.g., MCP server's 4-phase development process)
@@ -165,7 +165,7 @@ Before [action], ask yourself:
 
 **Valuable domain procedures look like**:
 ```markdown
-### Redlining Workflow (Claude wouldn't know this sequence)
+### Redlining Workflow (The agent wouldn't know this sequence)
 1. Convert to markdown: `pandoc --track-changes=all`
 2. Map text to XML: grep for text in document.xml
 3. Implement changes in batches of 3-10
@@ -181,8 +181,8 @@ Step 4: Save and test
 ```
 
 **The test**:
-1. Does it tell Claude WHAT to think about? (thinking patterns)
-2. Does it tell Claude HOW to do things it wouldn't know? (domain procedures)
+1. Does it tell the agent WHAT to think about? (thinking patterns)
+2. Does it tell the agent HOW to do things it wouldn't know? (domain procedures)
 
 A good Skill provides both when needed.
 
@@ -194,7 +194,7 @@ Does the Skill have effective NEVER lists?
 
 **Why this matters**: Half of expert knowledge is knowing what NOT to do. A senior designer sees purple gradient on white background and instinctively cringes — "too AI-generated." This intuition for "what absolutely not to do" comes from stepping on countless landmines.
 
-Claude hasn't stepped on these landmines. It doesn't know Inter font is overused, doesn't know purple gradients are the signature of AI-generated content. Good Skills must explicitly state these "absolute don'ts."
+The agent hasn't stepped on these landmines. It doesn't know Inter font is overused, doesn't know purple gradients are the signature of AI-generated content. Good Skills must explicitly state these "absolute don'ts."
 
 | Score | Criteria |
 |-------|----------|
@@ -269,14 +269,14 @@ Does the Skill follow official format requirements? **Special focus on descripti
 ```yaml
 description: "Comprehensive document creation, editing, and analysis with support
 for tracked changes, comments, formatting preservation, and text extraction.
-When Claude needs to work with professional documents (.docx files) for:
+When the agent needs to work with professional documents (.docx files) for:
 (1) Creating new documents, (2) Modifying or editing content,
 (3) Working with tracked changes, (4) Adding comments, or any other document tasks"
 ```
 
 Analysis:
 - WHAT: creation, editing, analysis, tracked changes, comments
-- WHEN: "When Claude needs to work with... for: (1)... (2)... (3)..."
+- WHEN: "When the agent needs to work with... for: (1)... (2)... (3)..."
 - KEYWORDS: .docx files, tracked changes, professional documents
 
 **Poor description** (missing elements):
@@ -513,12 +513,12 @@ Consider edge cases.
 ### Step 1: First Pass — Knowledge Delta Scan
 
 Read SKILL.md completely and for each section ask:
-> "Does Claude already know this?"
+> "Does the agent already know this?"
 
 Mark each section as:
-- **[E] Expert**: Claude genuinely doesn't know this — value-add
-- **[A] Activation**: Claude knows but brief reminder is useful — acceptable
-- **[R] Redundant**: Claude definitely knows this — should be deleted
+- **[E] Expert**: The agent genuinely doesn't know this — value-add
+- **[A] Activation**: The agent knows but a brief reminder is useful — acceptable
+- **[R] Redundant**: The agent definitely knows this — should be deleted
 
 Calculate rough ratio: E:A:R
 - Good Skill: >70% Expert, <20% Activation, <10% Redundant
@@ -606,7 +606,7 @@ Max = 120 points
 ```
 Symptom: Explains what PDF is, how Python works, basic library usage
 Root cause: Author assumes Skill should "teach" the model
-Fix: Claude already knows this. Delete all basic explanations.
+Fix: The agent already knows this. Delete all basic explanations.
      Focus on expert decisions, trade-offs, and anti-patterns.
 ```
 
@@ -698,7 +698,7 @@ Fix: High freedom for creative (principles, not steps)
 │  MINDSET + PROCEDURES:                                                  │
 │    [ ] Transfers thinking patterns (how to think about problems)        │
 │    [ ] Has "Before doing X, ask yourself..." frameworks                 │
-│    [ ] Includes domain-specific procedures Claude wouldn't know         │
+│    [ ] Includes domain-specific procedures the agent wouldn't know         │
 │    [ ] Distinguishes valuable procedures from generic ones              │
 │                                                                         │
 │  ANTI-PATTERNS:                                                         │
@@ -743,11 +743,11 @@ When evaluating any Skill, always return to this fundamental question:
 > **'Yes, this captures knowledge that took me years to learn'?"**
 
 If the answer is yes → the Skill has genuine value.
-If the answer is no → it's compressing what Claude already knows.
+If the answer is no → it's compressing what the agent already knows.
 
 The best Skills are **compressed expert brains** — they take a designer's 10 years of aesthetic accumulation and compress it into 43 lines, or a document expert's operational experience into a 200-line decision tree.
 
-What gets compressed must be things Claude doesn't have. Otherwise, it's garbage compression.
+What gets compressed must be things the agent doesn't have. Otherwise, it's garbage compression.
 
 ---
 
@@ -755,7 +755,7 @@ What gets compressed must be things Claude doesn't have. Otherwise, it's garbage
 
 This Skill (skill-judge) should itself pass evaluation:
 
-- **Knowledge Delta**: Provides specific evaluation criteria Claude wouldn't generate on its own
+- **Knowledge Delta**: Provides specific evaluation criteria the agent wouldn't generate on its own
 - **Mindset**: Shapes how to think about Skill quality, not just checklist items
 - **Anti-Patterns**: "NEVER Do When Evaluating" section with specific don'ts
 - **Specification**: Valid frontmatter with comprehensive description

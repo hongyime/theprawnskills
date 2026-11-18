@@ -45,7 +45,7 @@ Creating a high-quality MCP server involves four main phases:
 #### 1.1 Understand Modern MCP Design
 
 **API Coverage vs. Workflow Tools:**
-Balance comprehensive API endpoint coverage with specialized workflow tools. Workflow tools can be more convenient for specific tasks, while comprehensive coverage gives agents flexibility to compose operations. Performance varies by client—some clients benefit from code execution that combines basic tools, while others work better with higher-level workflows. When uncertain, prioritize comprehensive API coverage.
+Balance comprehensive API endpoint coverage with specialized workflow tools. Workflow tools can be more convenient for specific tasks, while comprehensive coverage gives agents flexibility to compose operations. Performance varies by client—some clients benefit from code execution that combines basic tools, while others work better with higher-level workflows. When uncertain, prioritize the smallest workflow-oriented tool set that supports real tasks; add API coverage only when a realistic task needs it.
 
 **Tool Naming and Discoverability:**
 Clear, descriptive tool names help agents find the right tools quickly. Use consistent prefixes (e.g., `github_create_issue`, `github_list_repos`) and action-oriented naming.
@@ -93,7 +93,7 @@ Key pages to review:
 Review the service's API documentation to identify key endpoints, authentication requirements, and data models. Use web search and WebFetch as needed.
 
 **Tool Selection:**
-Prioritize comprehensive API coverage. List endpoints to implement, starting with the most common operations.
+Prioritize the smallest workflow-oriented tool set that supports real end-to-end tasks. List the realistic tasks first, then the endpoints they need, starting with the most common operations.
 
 ---
 

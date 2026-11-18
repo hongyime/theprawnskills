@@ -25,6 +25,8 @@ A toolkit providing utilities and knowledge for creating animated GIFs optimized
 
 ## Core Workflow
 
+The `core/` package lives in this skill's directory (`skills/slack-gif-creator/`). Run the snippets from that directory, or add it to `sys.path` first (`sys.path.insert(0, '<path-to-skill>')`) — otherwise `from core.gif_builder import ...` fails with `ModuleNotFoundError` from a project directory.
+
 ```python
 from core.gif_builder import GIFBuilder
 from PIL import Image, ImageDraw

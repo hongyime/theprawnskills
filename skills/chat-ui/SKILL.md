@@ -7,7 +7,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Chat UI Components
 
@@ -132,8 +131,6 @@ npx skills add inference-sh/skills@agent-ui
 # Declarative widgets
 npx skills add inference-sh/skills@widgets-ui
 
-# Markdown rendering
-npx skills add inference-sh/skills@markdown-ui
 ```
 
 ## Documentation

@@ -16,6 +16,7 @@ metadata:
 ---
 
 # Agent Machine Bootstrap
+Matches oh-my-openagent 4.19.4 (verified on the VM, 2026-11-18)
 
 Bring a bare machine to a verified coding-agent environment. Detect before
 installing, install in dependency order, and prove the result with real usage

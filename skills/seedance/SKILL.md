@@ -8,9 +8,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Seedance 2.0 Video Generation
+Matches Seedance 2.0 (verified on the VM, 2026-11-18)
 
 Generate videos with synchronized audio using ByteDance's Seedance 2.0 via [inference.sh](https://inference.sh) CLI.
 
@@ -235,7 +235,8 @@ belt app search "seedance"
 npx skills add inference-sh/skills@infsh-cli
 
 # All video generation models
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Google Veo
 npx skills add inference-sh/skills@google-veo

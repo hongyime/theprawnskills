@@ -1,6 +1,6 @@
 ---
 name: twitter-automation
-description: "Automate Twitter/X with posting, engagement, and user management via inference.sh CLI. Apps: x/post-tweet, x/post-create (with media), x/post-like, x/post-retweet, x/dm-send, x/user-follow. Capabilities: post tweets, schedule content, like posts, retweet, send DMs, follow users, get profiles. Use for: social media automation, content scheduling, engagement bots, audience growth, X API. Triggers: twitter api, x api, tweet automation, post to twitter, twitter bot, social media automation, x automation, tweet scheduler, twitter integration, post tweet, twitter post, x post, send tweet"
+description: "Automate Twitter/X with posting, engagement, and user management via inference.sh CLI. Apps: x/post-tweet, x/post-create (with media), x/post-like, x/post-retweet, x/dm-send, x/user-follow. Capabilities: post tweets, like posts, retweet, send DMs, follow users, get profiles. Use for: social media automation, engagement bots, audience growth, X API. Triggers: automate tweet posting, X API bot, programmatic X posting, post tweet via API, twitter api, x api, tweet automation, post to twitter, twitter bot, social media automation, x automation, twitter integration, send tweet"
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup
@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Twitter/X Automation
 
@@ -145,7 +144,8 @@ npx skills add inference-sh/skills@infsh-cli
 npx skills add inference-sh/skills@ai-image-generation
 
 # Video generation (create videos to post)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # AI avatars (create presenter videos)
 npx skills add inference-sh/skills@ai-avatar-video

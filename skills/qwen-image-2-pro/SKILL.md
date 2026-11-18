@@ -8,9 +8,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Qwen-Image Pro - Professional Image Generation
+Matches Qwen-Image-2.0-Pro (verified on the VM, 2026-11-18)
 
 Generate images with Alibaba Qwen-Image-2.0-Pro via [inference.sh](https://inference.sh) CLI. Best for professional text rendering and complex designs.
 
@@ -193,7 +193,7 @@ for update in client.run({
 
 ```bash
 # Standard Qwen-Image (faster, general use)
-npx skills add inference-sh/skills@qwen-image
+npx skills add inference-sh/skills@qwen-image-2
 
 # Full platform skill (all apps)
 npx skills add inference-sh/skills@infsh-cli

@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # App Store Screenshots
 
@@ -24,8 +23,8 @@ belt login
 # Generate a device mockup scene
 belt app run falai/flux-dev-lora --input '{
   "prompt": "iPhone 15 Pro showing a clean modern app interface with analytics dashboard, floating at slight angle, soft gradient background, professional product photography, subtle shadow, marketing mockup style",
-  "width": 1024,
-  "height": 1536
+  "width": 1290,
+  "height": 2796
 }'
 ```
 
@@ -142,8 +141,8 @@ UI screenshot with arrows/circles pointing to specific features.
 # Clean device mockup with hero feature
 belt app run falai/flux-dev-lora --input '{
   "prompt": "modern iPhone showing a beautiful fitness tracking app with activity rings and workout summary, device floating at slight angle against soft purple gradient background, professional product shot, clean minimal composition, subtle reflection",
-  "width": 1024,
-  "height": 1536
+  "width": 1290,
+  "height": 2796
 }'
 ```
 
@@ -163,8 +162,8 @@ belt app run bytedance/seedream-4-5 --input '{
 # Device in real-world setting
 belt app run falai/flux-dev-lora --input '{
   "prompt": "person holding iPhone showing a cooking recipe app, kitchen background with ingredients, warm natural lighting, over-the-shoulder perspective, lifestyle photography, authentic feeling",
-  "width": 1024,
-  "height": 1536
+  "width": 1290,
+  "height": 2796
 }'
 ```
 
@@ -265,7 +264,8 @@ Google Play Console supports store listing experiments:
 
 ```bash
 npx skills add inference-sh/skills@ai-image-generation
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 npx skills add inference-sh/skills@image-upscaling
 npx skills add inference-sh/skills@prompt-engineering
 ```

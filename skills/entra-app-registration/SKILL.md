@@ -8,6 +8,8 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
+# Microsoft Entra App Registration
+
 ## Request template
 
 ```text
@@ -72,7 +74,7 @@ It's highly recommended to use the IaC to manage Entra app registration if you a
 Set up authentication settings based on your application type.
 
 - **Web Apps**: Add redirect URIs, enable ID tokens if needed
-- **SPAs**: Add redirect URIs, enable implicit grant flow if necessary
+- **SPAs**: Add redirect URIs, use authorization code flow with PKCE (MSAL.js v2+); do not enable implicit grant flow — it is deprecated and insecure for new apps
 - **Mobile/Desktop**: Use `http://localhost` or custom URI scheme
 - **Services**: No redirect URI needed for client credentials flow
 

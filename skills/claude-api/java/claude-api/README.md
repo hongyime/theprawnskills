@@ -33,7 +33,7 @@ Write from this table instead of `javap`/jar inspection. Endpoint column tells y
 | Strict tool use | non-beta | `Tool`, `Tool.InputSchema` |
 | Task budgets | beta | `.outputConfig(BetaOutputConfig.builder().taskBudget(BetaTokenTaskBudget.builder()...))` |
 | Tool search | non-beta | `.addTool(ToolSearchToolRegex20251119.builder()...)` from `com.anthropic.models.messages` |
-| Web search | non-beta | `WebSearchTool20260209` from `com.anthropic.models.messages` — the latest variant with dynamic filtering (Claude Fable 5 + Claude Opus 5 + Opus 4.8/4.7/4.6 + Claude Sonnet 5 + Sonnet 4.6). For older models or Vertex, use `WebSearchTool20250305` |
+| Web search | non-beta | `WebSearchTool20260209` from `com.anthropic.models.messages` — the latest variant with dynamic filtering (Claude Fable 5.1 + Claude Opus 5 + Opus 4.8/4.7/4.6 + Claude Sonnet 5 + Sonnet 4.6). For older models or Vertex, use `WebSearchTool20250305` |
 
 ### Discovering type and member names
 
@@ -216,7 +216,7 @@ response.stopDetails().ifPresent(details -> {
 });
 ```
 
-**Refusal fallbacks (Claude Fable 5) — opt in by default.** Fallbacks are opt-in: without them a refused request simply stops. New `claude-fable-5` code should include the server-side `fallbacks` parameter (beta header `server-side-fallback-2026-06-01`, fallback model `claude-opus-4-8`, on the beta messages call) by default. The exact Java builder methods (and the client-side middleware for providers without server-side support) are not documented here — WebFetch the Java SDK repo's `examples/` from `shared/live-sources.md`; full semantics in `shared/model-migration.md` → Migrating to Claude Fable 5 → `refusal` stop reason.
+**Refusal fallbacks (Claude Fable 5.1) — opt in by default.** Fallbacks are opt-in: without them a refused request simply stops. New `claude-fable-5-1` code should include the server-side `fallbacks` parameter (beta header `server-side-fallback-2026-06-01`, fallback model `claude-opus-4-8`, on the beta messages call) by default. The exact Java builder methods (and the client-side middleware for providers without server-side support) are not documented here — WebFetch the Java SDK repo's `examples/` from `shared/live-sources.md`; full semantics in `shared/model-migration.md` → Migrating to Claude Fable 5.1 → `refusal` stop reason.
 
 ---
 

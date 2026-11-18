@@ -8,6 +8,7 @@ metadata:
 ---
 
 # React TypeScript
+Matches React 18–19 (verified on the VM, 2026-11-18)
 
 Type-safe React = compile-time guarantees = confident refactoring.
 

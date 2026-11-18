@@ -1,6 +1,6 @@
 ---
 name: web-design-guidelines
-description: Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+description: Review UI code for compliance with Vercel's Web Interface Guidelines (fetched live from the source URL below). Use when the user asks to check a site against Vercel's web interface guidelines. For general design review use design-taste-frontend; for accessibility audits use better-accessibility.
 metadata:
   author: vercel
   version: "1.0.0"
@@ -27,7 +27,7 @@ Fetch fresh guidelines before each review:
 https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md
 ```
 
-Use WebFetch to retrieve the latest rules. The fetched content contains all the rules and output format instructions.
+Use the agent's available web tool (e.g. `curl`, the harness's web fetch) to retrieve the latest rules — do not assume a `WebFetch` tool exists. The fetched content contains all the rules and output format instructions. If offline or the fetch fails, do not guess the rules: route design review to `design-taste-frontend` and accessibility checks to `better-accessibility` instead.
 
 ## Usage
 

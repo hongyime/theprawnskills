@@ -3,8 +3,8 @@ name: fleet-skill-audit
 description: >-
   Generic, fault-tolerant audit of agent skills discovery and health across all
   fleet machines. Verifies that agents (OpenCode, Codex, Claude Code, Kiro, Cursor,
-  DeepSeek) discover profile skills on disk with valid frontmatter, intact links,
-  and zero secret leaks without requiring active agent logins. Gracefully skips
+  DeepSeek) discover profile skills on disk with valid frontmatter and intact links,
+  without requiring active agent logins. Gracefully skips
   unreachable hosts. Trigger on "audit fleet skills", "check all machine skills",
   "verify agent skills across machines".
 license: MIT
@@ -96,8 +96,8 @@ python scripts\audit_fleet_skills.py
 
 For every discovered agent root, the audit verifies:
 1. **Directory Presence**: Root exists and is accessible.
-2. **Profile Completeness**: Number of matching skills from `default-profile.toml` present vs. expected (e.g. `66/66`).
-3. **Frontmatter Integrity**: Every skill directory contains a readable `SKILL.md` with valid YAML frontmatter and a `name` tag. Broken skills (missing `SKILL.md` or unparseable headers) are flagged.
+2. **Profile Completeness**: Number of matching skills from `default-profile.toml` present vs. expected (e.g. `69/69`).
+3. **Frontmatter Integrity**: Every skill directory contains a readable `SKILL.md` with a YAML frontmatter block and a `name` tag. The local audit checks this (reads the first 500 bytes, requires a `---` header and a `name:` tag); remote probes check `SKILL.md` presence only — a remote skill with unparseable frontmatter is reported present, not broken. Run `quick_validate.py` for full frontmatter validation.
 4. **Custom Skills Segregation**: Non-profile skills (e.g. local experimental tools or vendor plugins) are identified as `Custom (N skills)` without generating false missing-profile warnings.
 
 ---
@@ -110,14 +110,14 @@ The output produces a clear ASCII table:
 ==================================================================================================
 HOST                 OS         STATUS       DISCOVERY ROOT                         STATUS / SKILLS
 --------------------------------------------------------------------------------------------------
-node-1 (local)       linux      ONLINE       Shared (.agents: OpenCode/Codex/Cursor) OK (66/66)     
-                                             Kiro                                   OK (66/66)     
+node-1 (local)       linux      ONLINE       Shared (.agents: OpenCode/Codex/Cursor) OK (69/69)     
+                                             Kiro                                   OK (69/69)     
                                              Claude Code                            Custom (26 skills)
-node-2               windows    ONLINE       Shared (.agents: OpenCode)             OK (66/66)     
-                                             Codex CLI                              OK (66/66)     
-                                             Claude Code                            OK (66/66)     
-node-3               linux      ONLINE       Shared (.agents: OpenCode/Codex/Cursor) OK (66/66)     
-                                             Kiro                                   OK (66/66)     
+node-2               windows    ONLINE       Shared (.agents: OpenCode)             OK (69/69)     
+                                             Codex CLI                              OK (69/69)     
+                                             Claude Code                            OK (69/69)     
+node-3               linux      ONLINE       Shared (.agents: OpenCode/Codex/Cursor) OK (69/69)     
+                                             Kiro                                   OK (69/69)     
 node-4               windows    OFFLINE      -                                      (Ping / SSH timed out)
 ==================================================================================================
 Fleet Summary: 3/4 nodes reachable. Fault-tolerant audit complete.

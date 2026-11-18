@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Video Prompting Guide
 
@@ -228,7 +227,8 @@ belt app run google/veo-3-1-fast --input '{
 
 ```bash
 # Generate videos
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Google Veo specific
 npx skills add inference-sh/skills@google-veo

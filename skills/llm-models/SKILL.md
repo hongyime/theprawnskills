@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # LLM Models via OpenRouter
 
@@ -126,7 +125,8 @@ npx skills add inference-sh/skills@web-search
 npx skills add inference-sh/skills@ai-image-generation
 
 # Video generation
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 ```
 
 Browse all apps: `belt app list`

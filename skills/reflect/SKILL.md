@@ -52,9 +52,9 @@ Never edit an installed copy of a skill. Edit the skill in the library clone and
 Follow each approved row's Routing exactly:
 
 - Trivial existing-skill edit (a one-line bullet, a tightened sentence, a stale fact corrected): the parent does it directly.
-- Substantive existing-skill edit (a new section, a new pattern table, more than ~10 lines): use the `skill-create` skill's draft / test / iterate loop.
-- `tune description: <skill path>` (the skill exists but didn't trigger when it should have): use `skill-create` and run its description-optimization loop.
-- `new skill via create-skill: <kebab-name>`: hand creation to `skill-create`. Do not invent the shape ad hoc.
+- Substantive existing-skill edit (a new section, a new pattern table, more than ~10 lines): use the `skill-creator` skill's draft / test / iterate loop.
+- `tune description: <skill path>` (the skill exists but didn't trigger when it should have): use `skill-creator` and run its description-optimization loop.
+- `new skill via skill-creator: <kebab-name>`: hand creation to `skill-creator`. Do not invent the shape ad hoc.
 
 Run `skills/skill-creator/scripts/quick_validate.py` on every touched skill before declaring done.
 

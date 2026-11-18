@@ -4,7 +4,6 @@ description: Implement security best practices for web applications and infrastr
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
   tags: security, HTTPS, CORS, XSS, SQL-injection, CSRF, OWASP, rate-limiting
-  platforms: Claude, ChatGPT, Gemini
 ---
 
 
@@ -119,23 +118,28 @@ app.post('/api/users', async (req, res) => {
 
 ### Step 3: Prevent CSRF
 
+Do NOT use the `csurf` package — it is deprecated and archived (2022) and has known flaws. Use SameSite cookies plus a double-submit token instead:
+
 **CSRF Token**:
 ```typescript
-import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
+import crypto from 'node:crypto';
 
 app.use(cookieParser());
 
-// CSRF protection
-const csrfProtection = csrf({ cookie: true });
-
-// Provide CSRF token
-app.get('/api/csrf-token', csrfProtection, (req, res) => {
-  res.json({ csrfToken: req.csrfToken() });
+// Issue a random token as a readable cookie; the client echoes it back in a header.
+// A cross-site form cannot read the cookie, so it cannot supply the matching header.
+app.get('/api/csrf-token', (req, res) => {
+  const token = crypto.randomBytes(32).toString('hex');
+  res.cookie('csrfToken', token, { sameSite: 'strict', path: '/' });
+  res.json({ csrfToken: token });
 });
 
 // Validate CSRF on all POST/PUT/DELETE requests
-app.post('/api/*', csrfProtection, (req, res, next) => {
+app.post('/api/*', (req, res, next) => {
+  if (req.cookies.csrfToken !== req.get('CSRF-Token')) {
+    return res.status(403).send('CSRF token mismatch');
+  }
   next();
 });
 

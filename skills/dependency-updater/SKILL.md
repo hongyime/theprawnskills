@@ -1,6 +1,6 @@
 ---
 name: dependency-updater
-description: Smart dependency management for any language. Auto-detects project type, applies safe updates automatically, prompts for major versions, diagnoses and fixes dependency issues.
+description: Smart dependency management for any language. Auto-detects project type, applies safe updates automatically, prompts for major versions, diagnoses and fixes dependency issues. Use when updating dependencies, fixing an outdated dependency or dependency conflict, bumping packages, or running npm update or pip upgrade.
 license: MIT
 metadata:
   version: 1.0.0
@@ -239,6 +239,8 @@ When dependencies are broken, run diagnosis:
 | **Duplicate Deps** | Multiple versions installed | Run `npm dedupe` or equivalent |
 
 ### Emergency Fixes
+
+**Ask first — these commands delete files (`node_modules`, `package-lock.json`, `venv`, `go.sum`). Confirm with the user before running them.**
 
 ```bash
 # Node.js - Nuclear reset

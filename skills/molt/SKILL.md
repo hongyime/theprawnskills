@@ -42,8 +42,9 @@ when pausing mid-task:
 
 Rules: save at every phase boundary or stop point, so a credit-out loses
 at most one phase. Commit `.agents/` together with related code and push
-before switching agents — a handoff file alone does not transfer
-uncommitted code. Never write secrets into state files; reference them by
+before switching agents — but only when the user has authorized commit/push;
+without that approval, keep the state local and say the code is uncommitted
+(a handoff file alone does not transfer uncommitted code). Never write secrets into state files; reference them by
 name only.
 
 ## Provenance

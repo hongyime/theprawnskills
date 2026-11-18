@@ -1,6 +1,6 @@
 ---
 name: mcp-security-hygiene
-description: "Harden MCP configuration security. USE FOR: removing inline secrets, env-var migration, log redaction, least-privilege MCP defaults. DO NOT USE FOR: unrelated auth implementations."
+description: "Harden MCP configuration security. Use when securing MCP configuration: removing inline secrets, env-var migration, log redaction, least-privilege MCP defaults. DO NOT USE FOR: unrelated auth implementations."
 metadata:
   author: Local setup
   version: "1.0.0"
@@ -8,6 +8,7 @@ metadata:
 ---
 
 # MCP Security Hygiene
+Matches OpenCode CLI 1.18.34 (verified on the VM, 2026-11-18)
 
 ## Purpose
 Reduce accidental secret leakage and risky MCP defaults.

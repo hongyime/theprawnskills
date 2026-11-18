@@ -104,7 +104,7 @@ az cognitiveservices model list \
   --subscription $SUBSCRIPTION_ID -o json
 ```
 
-Filter: `model.name == $MODEL_NAME && model.version == $MODEL_VERSION`, extract `model.skus[].name`.
+Filter: `.model.name == $MODEL_NAME and .model.version == $MODEL_VERSION`, extract `.skus[].name`.
 
 **Step B — Check subscription quota per SKU:**
 ```bash

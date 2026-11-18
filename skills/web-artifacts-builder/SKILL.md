@@ -1,6 +1,6 @@
 ---
 name: web-artifacts-builder
-description: Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
+description: Suite of tools for creating elaborate, multi-component interactive HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
 license: Complete terms in LICENSE.txt
 metadata:
   author: Local setup
@@ -10,8 +10,10 @@ metadata:
 
 # Web Artifacts Builder
 
-To build powerful frontend claude.ai artifacts, follow these steps:
-1. Initialize the frontend repo using `scripts/init-artifact.sh`
+Set `SKILL_DIR` to the absolute folder containing this SKILL.md (the skill's directory) — all script paths below are relative to it.
+
+To build powerful frontend web artifacts, follow these steps:
+1. Initialize the frontend repo using `$SKILL_DIR/scripts/init-artifact.sh`
 2. Develop your artifact by editing the generated code
 3. Bundle all code into a single HTML file using `scripts/bundle-artifact.sh`
 4. Display artifact to user
@@ -27,9 +29,11 @@ VERY IMPORTANT: To avoid what is often referred to as "AI slop", avoid using exc
 
 ### Step 1: Initialize Project
 
+Requires pnpm — the script exits with install instructions if it is missing; do not install it globally without the user's approval.
+
 Run the initialization script to create a new React project:
 ```bash
-bash scripts/init-artifact.sh <project-name>
+bash "$SKILL_DIR/scripts/init-artifact.sh" <project-name>
 cd <project-name>
 ```
 
@@ -48,12 +52,14 @@ To build the artifact, edit the generated files. See **Common Development Tasks*
 
 ### Step 3: Bundle to Single HTML File
 
+Confirm with the user first — the script adds Parcel devDependencies to the project.
+
 To bundle the React app into a single HTML artifact:
 ```bash
-bash scripts/bundle-artifact.sh
+bash "$SKILL_DIR/scripts/bundle-artifact.sh"
 ```
 
-This creates `bundle.html` - a self-contained artifact with all JavaScript, CSS, and dependencies inlined. This file can be directly shared in Claude conversations as an artifact.
+This creates `bundle.html` - a self-contained artifact with all JavaScript, CSS, and dependencies inlined. This file can be directly shared in chat as an artifact.
 
 **Requirements**: Your project must have an `index.html` in the root directory.
 

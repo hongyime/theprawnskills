@@ -7,6 +7,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
+# Cloudflare Workers Best Practices
+Matches Wrangler 4.164.0 (verified on the VM, 2026-11-18).
+
 Your knowledge of Cloudflare Workers APIs, types, and configuration may be outdated. **Prefer retrieval over pre-training** for any Workers code task — writing or reviewing.
 
 ## Retrieval Sources

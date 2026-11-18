@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Image to Video
 
@@ -238,7 +237,8 @@ belt app run falai/wan-2-5-i2v --input '{
 ## Related Skills
 
 ```bash
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 npx skills add inference-sh/skills@ai-image-generation
 npx skills add inference-sh/skills@p-video
 npx skills add inference-sh/skills@video-prompting-guide

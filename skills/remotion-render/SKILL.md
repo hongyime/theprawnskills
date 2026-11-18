@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Remotion Render
 
@@ -192,11 +191,9 @@ for update in client.run({
 ## Related Skills
 
 ```bash
-# Remotion best practices (component patterns)
-npx skills add remotion-dev/skills@remotion-best-practices
-
 # AI video generation (for AI-generated clips)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Image generation (for video assets)
 npx skills add inference-sh/skills@ai-image-generation

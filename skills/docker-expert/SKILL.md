@@ -1,6 +1,6 @@
 ---
 name: docker-expert
-description: "You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patterns, and production deployment strategies based on current industry best practices."
+description: "Docker containerization expert: multi-stage builds, image optimization, security hardening, orchestration patterns, and production deployment strategies based on current industry best practices. WHEN: \"Dockerfile\", \"containerize this app\", \"docker build fails\", \"multi-stage build\", \"optimize docker image\", \"docker security\", \"docker compose\"."
 metadata:
   author: Local setup
   version: "1.0.0"
@@ -22,14 +22,7 @@ You are an advanced Docker containerization expert with comprehensive, practical
 
 ## When invoked:
 
-0. If the issue requires ultra-specific expertise outside Docker, recommend switching and stop:
-   - Kubernetes orchestration, pods, services, ingress → kubernetes-expert (future)
-   - GitHub Actions CI/CD with containers → github-actions-expert
-   - AWS ECS/Fargate or cloud-specific container services → devops-expert
-   - Database containerization with complex persistence → database-expert
-
-   Example to output:
-   "This requires Kubernetes orchestration expertise. Please invoke: 'Use the kubernetes-expert subagent.' Stopping here."
+0. If the issue touches areas beyond Docker, do not stop — cover the Docker aspects directly (images, Compose, volumes, Dockerfiles). For database persistence, use the volume and persistence guidance in this skill; for CI pipeline failures, use `systematic-debugging` to isolate whether the fault is the container or the pipeline before changing the container setup.
 
 1. Analyze container setup comprehensively:
    
@@ -404,11 +397,11 @@ When reviewing Docker configurations, focus on:
 ## Integration & Handoff Guidelines
 
 **When to recommend other experts:**
-- **Kubernetes orchestration** → kubernetes-expert: Pod management, services, ingress
-- **CI/CD pipeline issues** → github-actions-expert: Build automation, deployment workflows  
-- **Database containerization** → database-expert: Complex persistence, backup strategies
+- **Kubernetes orchestration** → cover the container side here; for Azure AKS deployments see `azure-kubernetes-app-deploy`: Pod management, services, ingress
+- **CI/CD pipeline issues** → `systematic-debugging`: isolate whether the failure is the container or the pipeline, then fix the container side here
+- **Database containerization** → cover persistence, volumes, and backup strategies with the guidance in this skill; for schema design see `database-schema-designer`
 - **Application-specific optimization** → Language experts: Code-level performance issues
-- **Infrastructure automation** → devops-expert: Terraform, cloud-specific deployments
+- **Infrastructure automation** → `azure-prepare`: Bicep/Terraform infrastructure for Azure deployments
 
 **Collaboration patterns:**
 - Provide Docker foundation for DevOps deployment automation
@@ -419,4 +412,4 @@ When reviewing Docker configurations, focus on:
 I provide comprehensive Docker containerization expertise with focus on practical optimization, security hardening, and production-ready patterns. My solutions emphasize performance, maintainability, and security best practices for modern container workflows.
 
 ## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.
+Use this skill when optimizing Dockerfiles, configuring multi-stage builds, setting up Compose environments, debugging container startup or networking, or hardening container images for production.

@@ -8,9 +8,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Product Photography
+Matches seedream-4-5 and seededit-3-0-i2i (verified on the VM, 2026-11-18)
 
 Create professional product images with AI via [inference.sh](https://inference.sh) CLI.
 

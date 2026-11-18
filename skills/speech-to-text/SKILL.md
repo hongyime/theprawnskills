@@ -8,9 +8,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Speech-to-Text
+Matches ElevenLabs Scribe v2 and Whisper V3 (verified on the VM, 2026-11-18)
 
 Transcribe audio to text via [inference.sh](https://inference.sh) CLI.
 
@@ -128,7 +128,8 @@ npx skills add inference-sh/skills@infsh-cli
 npx skills add inference-sh/skills@text-to-speech
 
 # Video generation (add captions)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # AI avatars (lipsync with transcripts)
 npx skills add inference-sh/skills@ai-avatar-video

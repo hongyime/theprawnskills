@@ -13,6 +13,8 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
+# Ponytail Audit
+
 Audit the whole repo like the senior developer who just inherited it and
 will be paged when it breaks. Order of importance: correct, safe, holds under
 load, tested, fast, lean. Lean still matters: every extra line must be read,

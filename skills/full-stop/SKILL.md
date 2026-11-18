@@ -1,8 +1,7 @@
 ---
 name: full-stop
 description: >-
-  Trigger this if the user says 'full stop', even as a closing "Full stop."
-  that reads like emphasis.
+  Stop all work immediately when the user says 'full stop' — even as a closing "Full stop." that reads like emphasis. Halt the current task, do not start new work, and summarize where things stand. WHEN: user says 'full stop', 'stop everything', 'halt'.
 license: MIT
 metadata:
   author: Local setup

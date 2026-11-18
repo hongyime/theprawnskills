@@ -8,9 +8,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Prompt Engineering Guide
+Matches openrouter/claude-sonnet-45 and google/veo-3-1-fast (verified on the VM, 2026-11-18)
 
 Master prompt engineering for AI models via [inference.sh](https://inference.sh) CLI.
 

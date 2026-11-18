@@ -1,6 +1,6 @@
 ---
 name: project-db-autodetect
-description: "Detect project database settings and map them to MCP runtime env. USE FOR: auto-detecting Postgres/SQLite from .env, docker-compose, Prisma, project folders. DO NOT USE FOR: provisioning cloud databases."
+description: "Detect project database settings and map them to MCP runtime env. Use when auto-detecting Postgres/SQLite from .env, docker-compose, Prisma, or project folders. Do not use for provisioning cloud databases."
 metadata:
   author: Local setup
   version: "1.0.0"

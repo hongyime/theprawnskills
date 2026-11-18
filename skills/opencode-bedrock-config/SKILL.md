@@ -14,6 +14,7 @@ metadata:
 ---
 
 # OpenCode With AWS Bedrock
+Matches OpenCode CLI 1.18.34 (verified on the VM, 2026-11-18)
 
 Two settings cause most Bedrock failures: a missing `profile` and an
 unpinned region. A third causes confusing subagent failures: plugin-supplied

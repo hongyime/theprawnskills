@@ -7,7 +7,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Agent Component
 
@@ -51,7 +50,7 @@ export default function Page() {
   return (
     <Agent
       proxyUrl="/api/inference/proxy"
-      agentConfig={{
+      config={{
         core_app: { ref: 'openrouter/claude-haiku-45@0fkg6xwb' },
         description: 'a helpful ai assistant',
         system_prompt: 'you are helpful.',

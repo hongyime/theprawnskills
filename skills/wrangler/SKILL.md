@@ -8,6 +8,7 @@ metadata:
 ---
 
 # Wrangler CLI
+Matches Wrangler 4.164.0 (verified on the VM, 2026-11-18)
 
 Your knowledge of Wrangler CLI flags, config fields, and subcommands may be outdated. **Prefer retrieval over pre-training** for any Wrangler task.
 
@@ -29,11 +30,7 @@ Check if Wrangler is installed by running:
 wrangler --version  # Requires v4.x+
 ```
 
-If Wrangler is not installed, you should install it by running:
-
-```bash
-npm install -D wrangler@latest
-```
+If Wrangler is not installed, ask the user before installing it — either install as a dev dependency (`npm install -D wrangler@latest`) or run it once without adding a dependency (`npx wrangler@latest`). Do not add the dependency without approval.
 
 Wherever possible, you should use Wrangler instead of manually constructing API requests.
 
@@ -891,7 +888,7 @@ curl http://localhost:8787/__scheduled
 
 | Issue | Solution |
 |-------|----------|
-| `command not found: wrangler` | Install: `npm install -D wrangler` |
+| `command not found: wrangler` | Ask the user first, then install: `npm install -D wrangler` (or run once via `npx wrangler@latest`) |
 | Auth errors | Run `wrangler login` |
 | Startup time limit exceeded | Run `wrangler check startup` to profile startup and generate CPU profiles |
 | Type errors after config change | Run `wrangler types` |

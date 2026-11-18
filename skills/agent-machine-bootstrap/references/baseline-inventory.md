@@ -40,14 +40,17 @@ it was created with, so prove this on a new session.
 No hosts, account ids, or credentials belong in this file. The operator
 supplies IAM credentials on the target. Do not copy them from another machine.
 
+Values in the tables below are EXAMPLES — fill in from your own local
+inventory; they are not fleet defaults.
+
 | Piece | Value |
 |---|---|
 | Agent | opencode only, unless the operator asks for more |
-| Provider | `amazon-bedrock` |
-| Region | `us-east-1` |
-| Auth | IAM via the process environment: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION=us-east-1`. Not `opencode auth login`. A bearer token in `AWS_BEARER_TOKEN_BEDROCK`, if set, overrides IAM |
-| Plugin | `oh-my-openagent` pinned at `4.19.4`, listed in both `opencode.jsonc` and `tui.json` |
-| Default model | `amazon-bedrock/global.anthropic.claude-fable-5-1` |
+| Provider | `<provider>` (example: `amazon-bedrock`) |
+| Region | `<region>` (example: `us-east-1`) |
+| Auth | IAM via the process environment: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION=<region>`. Not `opencode auth login`. A bearer token in `AWS_BEARER_TOKEN_BEDROCK`, if set, overrides IAM |
+| Plugin | `oh-my-openagent` pinned at the version in the local inventory (example: `4.19.4`), listed in both `opencode.jsonc` and `tui.json` |
+| Default model | `<provider>/<model-id>` (example: `amazon-bedrock/global.anthropic.claude-fable-5-1`) |
 | Thinking cap | `variant`, `reasoning`, and `reasoningEffort` all `xhigh`. Never `max` |
 
 Write the same model on every named agent in both files. The status bar reads
@@ -56,20 +59,20 @@ the top-level `model` in `opencode.jsonc`. The agent picker reads
 spawns a subagent. Setting only one file leaves the other path on the old
 default.
 
-| Agents | Model id, after `amazon-bedrock/` |
+| Agents | Model id, after `<provider>/` |
 |---|---|
-| sisyphus, prometheus, metis, plan | `global.anthropic.claude-fable-5-1` |
-| atlas, sisyphus-junior | `global.anthropic.claude-sonnet-5` |
-| hephaestus, oracle, librarian, explore, momus, multimodal-looker | `global.openai.gpt-6-astra` |
+| default agents (planner, implementer, reviewer) | `<model-id>` (example: `global.anthropic.claude-fable-5-1`) |
+| fast agents (quick tasks, juniors) | `<model-id>` (example: `global.anthropic.claude-sonnet-5`) |
+| research agents (explore, librarian, oracle) | `<model-id>` (example: `global.openai.gpt-6-astra`) |
 
 Categories live only in `oh-my-openagent.json`. They do not appear in the
 agent picker.
 
-| Categories | Model id, after `amazon-bedrock/` |
+| Categories | Model id, after `<provider>/` |
 |---|---|
-| visual-engineering, artistry, unspecified-high | `global.anthropic.claude-fable-5-1` |
-| quick, writing | `global.anthropic.claude-sonnet-5` |
-| ultrabrain, deep, unspecified-low | `global.openai.gpt-6-astra` |
+| high-effort categories (e.g. visual-engineering, artistry) | `<model-id>` (example: `global.anthropic.claude-fable-5-1`) |
+| quick categories (e.g. quick, writing) | `<model-id>` (example: `global.anthropic.claude-sonnet-5`) |
+| deep-research categories (e.g. ultrabrain, deep) | `<model-id>` (example: `global.openai.gpt-6-astra`) |
 
 Do not set `fallback_models`. The plugin uses that list at spawn time as
 "first model present in the local catalog", not only after an error. An older
@@ -84,8 +87,9 @@ ralph-loop, security-guidance, typescript-lsp, explanatory-output-style,
 learning-output-style, pr-review-toolkit, commit-commands, feature-dev.
 A machine that is OpenCode-only skips this list.
 
-Prove it: a new Sisyphus session must call Fable 5.1, and an explore subagent
-it spawns must call Astra, not an older default.
+Prove it: a new session on the default agent must call the configured default
+model, and a subagent it spawns must call its configured model, not an older
+default.
 
 ## Sizing before committing to a machine or paid tier
 

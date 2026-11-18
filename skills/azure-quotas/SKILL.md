@@ -20,12 +20,12 @@ metadata:
 Azure quotas (also called service limits) are the maximum number of resources you can deploy in a subscription. Quotas:
 - Prevent accidental over-provisioning
 - Ensure fair resource distribution across Azure
-- Represent **available capacity** in each region
+- Cap how many resources a subscription can deploy in each region (a subscription limit, not a capacity guarantee)
 - Can be increased (adjustable quotas) or are fixed (non-adjustable)
 
-**Key Concept:** **Quotas = Resource Availability**
+**Key Concept:** **Quotas ≠ Regional Capacity**
 
-If you don't have quota, you cannot deploy resources. Always check quotas when planning deployments or selecting regions.
+Quota is a subscription limit; a region can have quota headroom yet no capacity for a specific SKU, and a region can have capacity while a subscription is quota-blocked. Check quota for limits, and check regional capacity separately — capacity constraints can exist even without quota enforcement (see [commands.md](./references/commands.md)).
 
 ## When to Use This Skill
 
@@ -35,7 +35,7 @@ Invoke this skill when:
 - **Selecting an Azure region** - Compare quota availability across regions
 - **Troubleshooting quota exceeded errors** - Check current usage vs limits
 - **Requesting quota increases** - Submit increase requests via CLI or Portal
-- **Comparing regional capacity** - Find regions with available quota
+- **Comparing quota headroom** - Find regions with available quota (then confirm SKU capacity separately)
 - **Validating provisioning limits** - Ensure deployment won't exceed quotas
 
 ## Quick Reference
@@ -48,7 +48,7 @@ Invoke this skill when:
 | **Complete CLI Reference** | [commands.md](./references/commands.md) |
 | **Azure Portal** | [My quotas](https://portal.azure.com/#blade/Microsoft_Azure_Capacity/QuotaMenuBlade/myQuotas) - Use only as fallback |
 | **REST API** | Microsoft.Quota provider - **Unreliable, do NOT use first** |
-| **MCP Server** | `azure-quota` MCP server — **NEVER use this. It is unreliable. Always use `az quota` CLI instead.** |
+| **MCP Server** | `azure-quota` MCP server — use only for region-availability lookups in validation workflows (see `azure-validate`); for quota management, increases, and usage checks, always use `az quota` CLI instead. |
 | **Required Permission** | Reader (view) or Quota Request Operator (manage) |
 
 > **⚠️ ALWAYS USE CLI FIRST**

@@ -8,6 +8,7 @@ metadata:
 ---
 
 # Supabase
+Matches Supabase CLI 2.119.0 (verified on the VM, 2026-11-18)
 
 ## Core Principles
 

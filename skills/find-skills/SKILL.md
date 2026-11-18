@@ -35,6 +35,8 @@ The Skills CLI (`npx skills`) is the package manager for the open agent skills e
 
 **Browse skills at:** https://skills.sh/
 
+> Library note: in this library, skills are managed through the theprawnskills repo and `../../scripts/install_skills.py` — do NOT install an external skill with `npx skills add`. If the user wants an external skill, propose adding it to the library (see `skill-creator`) instead.
+
 ## How to Help Users Find Skills
 
 ### Step 1: Understand What They Need

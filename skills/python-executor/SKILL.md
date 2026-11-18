@@ -8,9 +8,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Python Code Executor
+Matches Python 3.10 (verified on the VM, 2026-11-18)
 
 Execute Python code in a safe, sandboxed environment with 100+ pre-installed libraries.
 
@@ -177,7 +177,8 @@ belt app run infsh/python-executor@high_memory --input input.json
 npx skills add inference-sh/skills@ai-image-generation
 
 # AI video generation (for ML-based videos)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # LLM models (for text generation)
 npx skills add inference-sh/skills@llm-models

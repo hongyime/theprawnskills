@@ -1,6 +1,6 @@
 ---
 name: nano-banana
-description: "Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input. Triggers: nano banana, gemini image, gemini 3 pro image, gemini 2.5 flash image, google image generation, native image generation, gemini native image"
+description: "Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input. Triggers: nano banana, gemini image, gemini 3 pro image, gemini 2.5 flash image, native image generation, gemini native image"
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup
@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Nano Banana - Gemini Native Image Generation
 
@@ -138,7 +137,8 @@ npx skills add inference-sh/skills@infsh-cli
 npx skills add inference-sh/skills@ai-image-generation
 
 # Video generation (for image-to-video)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 ```
 
 Browse all image apps: `belt app list --category image`

@@ -1,6 +1,6 @@
 ---
 name: related-skill
-description: "Discover and install related skills from inference.sh skill registry. Helps find complementary skills for your AI workflow. Use for: skill discovery, workflow expansion, capability exploration. Triggers: related skills, find skills, skill discovery, complementary skills, expand workflow, more capabilities, similar skills, skill suggestions"
+description: "Install complementary inference.sh skills from the external registry. Use when the user asks to install an inference.sh skill that is not in this library yet. For skills already in this library use `skill-router`. To add an external skill to the library permanently, propose it via `skill-creator` instead of installing it ad hoc. Triggers: inference.sh skill, install external skill, complementary inference.sh skill"
 allowed-tools: Bash(npx skills *)
 metadata:
   author: Local setup
@@ -8,11 +8,12 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Related Skills Discovery
 
-Find and install complementary skills to expand your AI agent's capabilities.
+Find and install complementary inference.sh skills to expand your AI agent's capabilities.
+
+Skills already in this library are installed via `../../scripts/install_skills.py` — do NOT install them with `npx skills add`. Use the commands below only for inference.sh skills that are not in this library yet.
 
 ![Related Skills Discovery](https://cloud.inference.sh/app/files/u/4mg21r6ta37mpaz6ktzwtt8krr/01kgvftjwhby36trvaj66bwzcf.jpeg)
 
@@ -38,7 +39,6 @@ npx skills add inference-sh/skills@ai-image-generation
 | **Images** | `flux-image` | FLUX image models |
 | **Images** | `image-upscaling` | Upscale and enhance images |
 | **Images** | `background-removal` | Remove backgrounds from images |
-| **Video** | `ai-video-generation` | Generate videos with AI |
 | **Video** | `ai-avatar-video` | Create avatar videos |
 | **Video** | `google-veo` | Google Veo video generation |
 | **Audio** | `text-to-speech` | Convert text to speech |
@@ -53,7 +53,8 @@ npx skills add inference-sh/skills@ai-image-generation
 ### Media Generation
 ```bash
 npx skills add inference-sh/skills@ai-image-generation
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 npx skills add inference-sh/skills@ai-music-generation
 ```
 
@@ -93,7 +94,8 @@ npx skills add inference-sh/skills@llm-models
 ### Content Creator
 ```bash
 npx skills add inference-sh/skills@ai-image-generation
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 npx skills add inference-sh/skills@text-to-speech
 ```
 

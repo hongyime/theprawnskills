@@ -1,6 +1,6 @@
 ---
 name: technical-blog-writing
-description: "Technical blog post writing with structure, code examples, and developer audience conventions. Covers post types, code formatting, explanation depth, and developer-specific engagement patterns. Use for: engineering blogs, dev tutorials, technical writing, developer content, documentation posts. Triggers: technical blog, dev blog, engineering blog, technical writing, developer tutorial, tech post, code tutorial, programming blog, developer content, technical article, engineering post, coding tutorial, technical content"
+description: "Technical blog post writing with structure, code examples, and developer audience conventions. Covers post types, code formatting, explanation depth, and developer-specific engagement patterns. Use for: engineering blogs, dev tutorials, developer blog posts, technical blog articles. Triggers: technical blog, dev blog, engineering blog, developer tutorial, tech post, code tutorial, programming blog, developer content, technical article, engineering post, coding tutorial, technical content"
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup
@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Technical Blog Writing
 
@@ -152,10 +151,11 @@ Structure:
 | Include error handling in examples | Real code handles errors |
 | Pin dependency versions | "Works with React 18.2" not "React" |
 
-```
 Good code block format:
 
 ```python
+import random
+
 # What this code does (one line)
 def calculate_retry_delay(attempt: int, base_delay: float = 1.0) -> float:
     """Exponential backoff with jitter."""
@@ -165,7 +165,6 @@ def calculate_retry_delay(attempt: int, base_delay: float = 1.0) -> float:
 
 # Usage
 delay = calculate_retry_delay(attempt=3)  # ~8.0-8.8 seconds
-```
 ```
 
 ### Explanation Depth

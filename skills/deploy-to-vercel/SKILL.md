@@ -8,6 +8,7 @@ metadata:
 ---
 
 # Deploy to Vercel
+Matches Vercel CLI 63.1.2 (verified on the VM, 2026-11-18)
 
 Deploy any project to Vercel. **Always deploy as preview** (not production) unless the user explicitly asks for production.
 

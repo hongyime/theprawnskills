@@ -1,6 +1,6 @@
 ---
 name: requesting-code-review
-description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+description: Dispatches a focused code reviewer in a fresh agent session with the baseline git diff and task acceptance criteria. Use when completing tasks, implementing major features, or before merging to verify work meets requirements
 metadata:
   author: Local setup
   version: "1.0.0"
@@ -40,7 +40,7 @@ HEAD_SHA=$(git rev-parse HEAD)
 
 **2. Dispatch code reviewer subagent:**
 
-Use Task tool with `general-purpose` type, fill template at `code-reviewer.md`.
+Use a fresh agent session (Codex, agy, OpenCode, or Muse) as the code reviewer, fill template at `code-reviewer.md`.
 
 **If subagents are unavailable or flaky on this setup** (e.g. provider network
 errors), run the SAME review inline instead: open a fresh context (new session
@@ -117,7 +117,7 @@ You: [Fix progress indicators]
 - Show code/tests that prove it works
 - Request clarification
 
-See template at: requesting-code-review/code-reviewer.md
+See template at: `code-reviewer.md` (in this skill's directory)
 
 ## Related Skills
 

@@ -8,6 +8,7 @@ metadata:
 ---
 
 # Cloudflare Sandbox SDK
+Matches Cloudflare Sandbox base image 0.7.0 (verified on the VM, 2026-11-18)
 
 Build secure, isolated code execution environments on Cloudflare Workers.
 
@@ -159,7 +160,7 @@ The SDK provides helpers for OpenAI Agents at `@cloudflare/sandbox/openai`:
 import { Shell, Editor } from '@cloudflare/sandbox/openai';
 ```
 
-See `examples/openai-agents` for complete integration pattern.
+See `references/examples.md` (the `openai-agents` row; upstream examples at https://github.com/cloudflare/sandbox-sdk/tree/main/examples) for the complete integration pattern.
 
 ## Sandbox Lifecycle
 

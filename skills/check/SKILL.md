@@ -6,7 +6,7 @@ description: |
   the spec or build skills but never invokes them. Triggers when the user
   asks to check drift, audit the spec, verify invariants, or ask whether
   code still matches the spec. Phrasings: "check drift", "audit the spec",
-  "does the code still match §V", "check invariants", "spec vs code".
+  "does the code still match §I", "check invariants", "spec vs code".
 metadata:
   author: Local setup
   version: "1.0.0"
@@ -21,12 +21,12 @@ Pure diagnostic. Reports violations. Writes nothing. User decides remedy.
 
 1. Read `SPEC.md`. If missing → "no spec, nothing to check." Stop.
 2. Parse invocation args:
-   - `§V` → check invariants only (default)
-   - `§I` → check interfaces
+   - `§I` → check invariants only (default)
+   - `§C` → check contracts
    - `§T` → audit task status vs code
    - `--all` → all three
 
-## CHECK §V — invariants
+## CHECK §I — invariants
 
 For each V<n>:
 
@@ -35,16 +35,16 @@ For each V<n>:
 3. Classify: **HOLD** / **VIOLATE** / **UNVERIFIABLE**.
 4. Record address + file:line evidence.
 
-## CHECK §I — interfaces
+## CHECK §C — contracts
 
-For each I item:
+For each C item:
 
 1. Locate implementation.
 2. Classify:
    - **MATCH** — shape in code = shape in spec.
    - **DRIFT** — impl exists, shape differs.
    - **MISSING** — impl absent.
-   - **EXTRA** — code exposes surface not in §I.
+   - **EXTRA** — code exposes surface not in §C.
 
 ## CHECK §T — tasks
 
@@ -60,13 +60,13 @@ For each T<n>:
 Caveman. Grouped by severity.
 
 ```
-## §V drift
+## §I drift
 V2 VIOLATE: auth/mw.go:47 uses `<` not `≤`. see §B.1.
 V5 UNVERIFIABLE: no test covers ∀ req path.
 
-## §I drift
-I.api DRIFT: POST /x returns `{result}` not `{id}`. route.go:112.
-I.cmd MISSING: `foo bar` absent from cli/*.go.
+## §C drift
+C.api DRIFT: POST /x returns `{result}` not `{id}`. route.go:112.
+C.cmd MISSING: `foo bar` absent from cli/*.go.
 
 ## §T drift
 T3 STALE: status `x`, no middleware file exists.
@@ -82,7 +82,7 @@ End report with one-line hint per class:
 - VIOLATE / DRIFT → invoke spec skill `bug: <V.n>` or fix code.
 - MISSING → invoke build skill on `§T.n` if task exists; else spec skill `amend §T`.
 - STALE → spec skill `amend §T` to uncheck.
-- EXTRA → spec skill `amend §I` to document, or delete code.
+- EXTRA → spec skill `amend §C` to document, or delete code.
 
 Never invoke fixes. Report only.
 

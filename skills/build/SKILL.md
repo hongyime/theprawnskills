@@ -16,7 +16,7 @@ metadata:
 
 # build — implement spec
 
-Single-thread native plan→execute. You are main Claude. No swarm.
+Single-thread native plan→execute. You are the main agent. No swarm.
 
 ## LOAD
 

@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Pruna P-Video-Avatar
 
@@ -144,7 +143,7 @@ English (US), English (UK), Spanish, French, German, Italian, Portuguese (Brazil
 | `video_prompt` | string | "The person is talking." | Control avatar behavior and background |
 | `voice_prompt` | string | "Say the following." | Control tone, pacing, emotion |
 | `seed` | int | random | Reproducible generation |
-| `disable_safety_filter` | bool | true | Disable content filter |
+| `disable_safety_filter` | bool | false | Disable content filter |
 | `disable_prompt_upsampling` | bool | false | Skip prompt enhancement |
 
 ## Pricing
@@ -155,10 +154,6 @@ English (US), English (UK), Spanish, French, German, Italian, Portuguese (Brazil
 | 1080p | $0.045 per second of output video |
 
 Example: 30-second 720p video = $0.75
-
-### Free Launch Weekend
-
-**P-Video-Avatar is completely free from Thursday May 1, 2026 4:00 PM CET through Sunday May 4, 2026 11:59 PM CET.** All costs are on us during this window — no billing, no limits on resolution.
 
 ## Competitive Advantage
 
@@ -215,7 +210,8 @@ npx skills add inference-sh/skills@p-video
 npx skills add inference-sh/skills@p-image
 
 # All video generation models
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Image generation (for creating portraits)
 npx skills add inference-sh/skills@ai-image-generation

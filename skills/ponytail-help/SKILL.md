@@ -17,6 +17,8 @@ write flag files, or persist anything.
 
 ## Levels
 
+Slash commands (`/ponytail ...`) work in Claude Code and OpenCode. In Codex use `$ponytail:ponytail`; in other harnesses invoke the skill by naming it in plain words.
+
 | Level | Trigger | What change |
 |-------|---------|-------------|
 | **Lite** | `/ponytail lite` | Build what was asked, name the smaller option in one line. |

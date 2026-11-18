@@ -1,6 +1,6 @@
 ---
 name: break
-description: Renders a component you choose under every scenario that can reach it on a temporary page and stress tests it.
+description: Renders a component you choose under every scenario that can reach it on a temporary page and stress tests it. Use when stress-testing a component, rendering a scenario harness, or finding edge-case visual breaks.
 license: MIT
 metadata:
   author: Local setup

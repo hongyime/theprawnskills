@@ -9,7 +9,7 @@ metadata:
 
 # Claude Code CLI Skill
 
-Matches Claude Code 2.1.296 (verified on 3410, 2026-11-16). If the installed version moves, update this line.
+Matches Claude Code 2.1.296 (verified on a Debian host, 2026-11-16). If the installed version moves, update this line.
 
 Delegate coding tasks to Claude Code by spawning it as a **hidden background PowerShell process**. Output tee'd to a temp file so you can poll for completion and read results. You can tail the file with `Get-Content -Wait` to watch live.
 

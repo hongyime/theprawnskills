@@ -16,9 +16,13 @@ if [ ! -f "index.html" ]; then
   exit 1
 fi
 
-# Install bundling dependencies
-echo "📦 Installing bundling dependencies..."
-pnpm add -D parcel @parcel/config-default parcel-resolver-tspaths html-inline
+# Install bundling dependencies (only if not already present — this adds
+# devDependencies to the project, so confirm with the user first)
+echo "📦 Checking bundling dependencies..."
+if ! grep -q '"parcel"' package.json; then
+  echo "📦 Installing bundling dependencies..."
+  pnpm add -D parcel @parcel/config-default parcel-resolver-tspaths html-inline
+fi
 
 # Create Parcel config with tspaths resolver
 if [ ! -f ".parcelrc" ]; then
@@ -31,9 +35,10 @@ if [ ! -f ".parcelrc" ]; then
 EOF
 fi
 
-# Clean previous build
+# Clean previous build (dist only — bundle.html is recreated by the build below,
+# so deleting it first would lose the last good artifact if the build fails)
 echo "🧹 Cleaning previous build..."
-rm -rf dist bundle.html
+rm -rf dist
 
 # Build with Parcel
 echo "🔨 Building with Parcel..."

@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Pruna P-Video Generation
 
@@ -133,7 +132,8 @@ belt app list --namespace pruna
 npx skills add inference-sh/skills@infsh-cli
 
 # All video generation models
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Image-to-video guide
 npx skills add inference-sh/skills@image-to-video

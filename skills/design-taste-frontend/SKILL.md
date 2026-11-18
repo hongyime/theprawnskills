@@ -21,7 +21,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-# tasteskill 2.5
+# tasteskill 2.5.1
+
+Matches tasteskill 2.5.1 (verified on the VM, 2026-11-14).
 
 Build the website a good company would ship: it says plainly what is sold, shows the real thing on
 every screen, and looks made for this client, not from a template and not like an art piece.

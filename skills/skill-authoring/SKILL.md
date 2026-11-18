@@ -99,8 +99,7 @@ trigger words, body has no dangling skill refs, no secrets, INDEX regenerated.
 
 ## Backup
 
-After any library change, commit and push to the private remote
-the private remote (see ENVIRONMENT.md at the .agents
-root for exact commands. OneDrive is transport, not a backup.
+After any library change, commit and push to the private remote (see ENVIRONMENT.md at the .agents
+root for exact commands). OneDrive is transport, not a backup.
 
 Machine-specific values in this document use privacy placeholders.

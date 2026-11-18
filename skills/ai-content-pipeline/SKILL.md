@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # AI Content Pipeline
 
@@ -236,7 +235,8 @@ belt app run infsh/media-merger --input '{
 
 ```bash
 # Video generation models
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Image generation
 npx skills add inference-sh/skills@ai-image-generation

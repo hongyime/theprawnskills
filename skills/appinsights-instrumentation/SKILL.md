@@ -37,6 +37,8 @@ The app in the workspace must be one of these kinds
 
 - An ASP.NET Core app hosted in Azure
 - A Node.js app hosted in Azure
+- A Python app hosted in Azure
+- A Java app hosted in Azure
 
 ## Guidelines
 
@@ -50,11 +52,11 @@ If the app is a C# ASP.NET Core app hosted in Azure App Service, use [AUTO guide
 
 ### Manually instrument
 
-Manually instrument the app by creating the AppInsights resource and update the app's code. 
+Manual instrumentation involves creating the AppInsights resource and updating the app's code. These are the reference steps azure-prepare follows — do not execute them from this skill; azure-prepare orchestrates the actual changes.
 
 #### Create AppInsights resource
 
-Use one of the following options that fits the environment.
+The options are:
 
 - Add AppInsights to existing Bicep template. See [examples/appinsights.bicep](examples/appinsights.bicep) for what to add. This is the best option if there are existing Bicep template files in the workspace.
 - Use Azure CLI. See [scripts/appinsights.ps1](scripts/appinsights.ps1) for what Azure CLI command to execute to create the App Insights resource.

@@ -139,6 +139,5 @@ first commit. Confirm remote visibility with `gh repo view` before reporting don
 
 ## Related Skills
 
-- `crafting-effective-readmes` - README quality beyond identity block
 - `cross-harness-state` - where compliance reports live (.agents/)
 - `commit-work`, `git-commit` - committing standardization changes cleanly

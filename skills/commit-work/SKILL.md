@@ -1,6 +1,6 @@
 ---
 name: commit-work
-description: "Create high-quality git commits: review/stage intended changes, split into logical commits, and write clear commit messages (including Conventional Commits). Use when the user asks to commit, craft a commit message, stage changes, or split work into multiple commits."
+description: "Create high-quality git commits: review/stage intended changes, split into logical commits, and write clear commit messages (including Conventional Commits). Use when the user asks to commit, craft a commit message, stage changes, or split work into multiple commits. For a single quick commit use `git-commit`."
 metadata:
   author: Local setup
   version: "1.0.0"
@@ -30,6 +30,7 @@ Make commits that are easy to review and safe to ship:
    - If changes are mixed in one file, plan to use patch staging.
 3) Stage only what belongs in the next commit
    - Prefer patch staging for mixed changes: `git add -p`
+     - Headless (no TTY): `git add -p` cannot run interactively — use `git add <path>` for the hunks you need instead.
    - To unstage a hunk/file: `git restore --staged -p` or `git restore --staged <path>`
 4) Review what will actually be committed
    - `git diff --cached`
@@ -47,6 +48,7 @@ Make commits that are easy to review and safe to ship:
      - body (what/why, not implementation diary)
      - footer (BREAKING CHANGE) if needed
    - Prefer an editor for multi-line messages: `git commit -v`
+     - Headless (no TTY): `git commit -v` needs an editor — write the message to a file and use `git commit -F <file>` instead.
    - Use `references/commit-message-template.md` if helpful.
 7) Run the smallest relevant verification
    - Run the repo's fastest meaningful check (unit tests, lint, or build) before moving on.

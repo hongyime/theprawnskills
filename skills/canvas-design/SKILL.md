@@ -8,7 +8,7 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.
+These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files. Render the canvas with the agent's available tools — e.g. build the design as an HTML page and screenshot/print it to PDF/PNG, or generate the image — and never claim a .pdf/.png exists until the file is actually written to disk.
 
 Complete this in two steps:
 1. Design Philosophy Creation (.md file)
@@ -50,7 +50,7 @@ To capture the VISUAL essence, express how the philosophy manifests through:
 **CRITICAL GUIDELINES:**
 - **Avoid redundancy**: Each design aspect should be mentioned once. Avoid repeating points about color theory, spatial relationships, or typographic principles unless adding new depth.
 - **Emphasize craftsmanship REPEATEDLY**: The philosophy MUST stress multiple times that the final work should appear as though it took countless hours to create, was labored over with care, and comes from someone at the absolute top of their field. This framing is essential - repeat phrases like "meticulously crafted," "the product of deep expertise," "painstaking attention," "master-level execution."
-- **Leave creative space**: Remain specific about the aesthetic direction, but concise enough that the next Claude has room to make interpretive choices also at a extremely high level of craftmanship.
+- **Leave creative space**: Remain specific about the aesthetic direction, but concise enough that the next agent has room to make interpretive choices also at a extremely high level of craftmanship.
 
 The philosophy must guide the next version to express ideas VISUALLY, not through text. Information lives in design, not paragraphs.
 
@@ -82,7 +82,7 @@ Visual expression: Grid-based precision, bold photography or stark graphics, dra
 - **VISUAL PHILOSOPHY**: Create an aesthetic worldview to be expressed through design
 - **MINIMAL TEXT**: Always emphasize that text is sparse, essential-only, integrated as visual element - never lengthy
 - **SPATIAL EXPRESSION**: Ideas communicate through space, form, color, composition - not paragraphs
-- **ARTISTIC FREEDOM**: The next Claude interprets the philosophy visually - provide creative room
+- **ARTISTIC FREEDOM**: The next agent interprets the philosophy visually - provide creative room
 - **PURE DESIGN**: This is about making ART OBJECTS, not documents with decoration
 - **EXPERT CRAFTSMANSHIP**: Repeatedly emphasize the final work must look meticulously crafted, labored over with care, the product of countless hours by someone at the top of their field
 

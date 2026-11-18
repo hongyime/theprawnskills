@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Case Study Writing
 
@@ -23,7 +22,7 @@ belt login
 
 # Research the customer's industry
 belt app run tavily/search-assistant --input '{
-  "query": "SaaS customer onboarding challenges 2024 statistics"
+  "query": "SaaS customer onboarding challenges 2026 statistics"
 }'
 ```
 
@@ -167,7 +166,7 @@ belt app run infsh/python-executor --input '{
 ```bash
 # Industry benchmarks
 belt app run tavily/search-assistant --input '{
-  "query": "average e-commerce order processing time industry benchmark 2024"
+  "query": "average e-commerce order processing time industry benchmark 2026"
 }'
 
 # Competitor landscape

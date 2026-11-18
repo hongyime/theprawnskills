@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # [inference.sh](https://inference.sh)
 
@@ -34,7 +33,7 @@ belt login
 > sha256sum -c checksums.txt --ignore-missing
 > # Extract and install
 > tar -xzf inferencesh-cli-*.tar.gz
-> mv inferencesh-cli-* ~/.local/bin/inferencesh
+> mv inferencesh-cli-* ~/.local/bin/belt
 > ```
 
 ## Quick Examples
@@ -109,7 +108,8 @@ belt app run x/post-create --input '{"text": "Check this out!", "media": "./scre
 npx skills add inference-sh/skills@ai-image-generation
 
 # Video generation (Veo, Seedance, Wan, OmniHuman)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # LLMs (Claude, Gemini, Kimi, GLM via OpenRouter)
 npx skills add inference-sh/skills@llm-models

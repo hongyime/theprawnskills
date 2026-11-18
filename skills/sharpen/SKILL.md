@@ -1,13 +1,15 @@
 ---
 name: sharpen
 description: >-
-  Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen.
+  Make a task deeper, not bigger, then rewrite the prompt. Use when deepening a task, sharpening a prompt, or refining vague instructions. Triggers: deepen task, sharpen prompt, refine prompt, /sharpen.
 license: MIT
 metadata:
   author: Local setup
   version: "1.0.0"
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
+
+# Sharpen
 
 I want a deeper version of this task, not a bigger one. Before rewriting it, do four things:
 

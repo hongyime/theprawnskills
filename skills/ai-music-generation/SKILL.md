@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # AI Music Generation
 
@@ -125,7 +124,8 @@ npx skills add inference-sh/skills@infsh-cli
 npx skills add inference-sh/skills@text-to-speech
 
 # Video generation (add music to videos)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 
 # Speech-to-text
 npx skills add inference-sh/skills@speech-to-text

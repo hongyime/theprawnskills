@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Data Visualization
 
@@ -36,7 +35,7 @@ belt app run infsh/python-executor --input '{
 |------------------|-----------|-----------|
 | **Change over time** | Line chart | Pie chart |
 | **Comparing categories** | Bar chart (horizontal for many categories) | Line chart |
-| **Part of a whole** | Stacked bar, treemap | Pie chart (controversial but: bar is always clearer) |
+| **Part of a whole** | Stacked bar, treemap | Pie chart (bar is usually clearer) |
 | **Distribution** | Histogram, box plot | Bar chart |
 | **Correlation** | Scatter plot | Bar chart |
 | **Ranking** | Horizontal bar chart | Vertical bar, pie |
@@ -53,7 +52,7 @@ Pie charts are almost always the wrong choice:
 ❌ Pie chart problems:
    - Hard to compare similar-sized slices
    - Can't show more than 5-6 categories
-   - 3D pie charts are always wrong
+   - 3D pie charts distort proportions — avoid them
    - Impossible to read exact values
 
 ✅ Use instead:
@@ -69,7 +68,7 @@ Pie charts are almost always the wrong choice:
 
 | Rule | Why |
 |------|-----|
-| Always start Y-axis at 0 (bar charts) | Prevents misleading visual |
+| Always start Y-axis at 0 for bar charts | Prevents misleading visual |
 | Line charts CAN start above 0 | When showing change, not absolute values |
 | Label both axes | Reader shouldn't have to guess units |
 | Remove unnecessary gridlines | Reduce visual noise |
@@ -195,14 +194,14 @@ belt app run infsh/python-executor --input '{
 
 | Mistake | Problem | Fix |
 |---------|---------|-----|
-| Pie charts | Hard to compare, always misleading | Use bar charts or treemaps |
+| Pie charts | Hard to compare, often misleading | Use bar charts or treemaps |
 | Y-axis not starting at 0 (bar charts) | Exaggerates differences | Start at 0 for bars, OK to truncate for lines |
 | Too many colors | Visual noise, confusing | Max 5-7 colors, highlight only what matters |
 | No title or generic title | Reader doesn't know the insight | Title = the takeaway, not the data type |
-| 3D charts | Distorts data, looks unprofessional | Always use 2D |
+| 3D charts | Distorts data, looks unprofessional | Prefer 2D |
 | Dual Y-axes | Misleading, hard to read | Use two separate charts |
 | Alphabetical sort on bar charts | Hides the story | Sort by value (largest first) |
-| No labels on axes | Reader can't interpret | Always label with units |
+| No labels on axes | Reader can't interpret | Label axes with units |
 | Chartjunk (decorative elements) | Distracts from data | Remove everything that doesn't convey information |
 | Red/green only for color coding | Colorblind users can't read | Use shapes, patterns, or colorblind-safe palettes |
 

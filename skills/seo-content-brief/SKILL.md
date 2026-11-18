@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # SEO Content Brief
 
@@ -278,7 +277,6 @@ belt app run infsh/html-to-image --input '{
 ## Related Skills
 
 ```bash
-npx skills add inference-sh/skills@seo
 npx skills add inference-sh/skills@technical-blog-writing
 npx skills add inference-sh/skills@web-search
 ```

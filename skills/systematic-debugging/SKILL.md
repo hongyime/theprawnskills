@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+description: Four-phase root-cause investigation protocol covering reproduce, isolate, fix, and verify. Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
 metadata:
   author: Local setup
   version: "1.0.0"
@@ -94,11 +94,11 @@ You MUST complete each phase before proceeding to the next.
    ```bash
    # Layer 1: Workflow
    echo "=== Secrets available in workflow: ==="
-   echo "IDENTITY: ${IDENTITY:+SET}${IDENTITY:-UNSET}"
+   if [ -n "${IDENTITY:-}" ]; then echo "IDENTITY: SET"; else echo "IDENTITY: UNSET"; fi
 
    # Layer 2: Build script
    echo "=== Env vars in build script: ==="
-   env | grep IDENTITY || echo "IDENTITY not in environment"
+   env | grep -q '^IDENTITY=' && echo "IDENTITY is set" || echo "IDENTITY not in environment"
 
    # Layer 3: Signing script
    echo "=== Keychain state: ==="
@@ -243,9 +243,9 @@ If you catch yourself thinking:
 
 **ALL of these mean: STOP. Return to Phase 1.**
 
-**If 3+ fixes failed:** Question the architecture (see Phase 4.5)
+**If 3+ fixes failed:** Question the architecture — stop and return to Phase 1.
 
-## your human partner's Signals You're Doing It Wrong
+## User Signals You're Doing It Wrong
 
 **Watch for these redirections:**
 - "Is that not happening?" - You assumed without verifying
@@ -298,7 +298,7 @@ These techniques are part of systematic debugging and available in this director
 - **`condition-based-waiting.md`** - Replace arbitrary timeouts with condition polling
 
 **Related skills:**
-- **test-driven-development** discipline - for creating failing test case (Phase 4, Step 1)
+- **tdd** discipline - for creating failing test case (Phase 4, Step 1)
 - `bug-diagnosis` - structured diagnosis document when root cause is elusive
 - `backprop` - convert confirmed causes into recurrence-preventing invariants
 - `merge-conflict-resolution` - conflicts that surface as mysterious breakage

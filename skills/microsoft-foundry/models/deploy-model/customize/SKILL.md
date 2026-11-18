@@ -57,7 +57,7 @@ Use this skill when you need **precise control** over deployment configuration:
 
 ## Workflow Overview
 
-### Complete Flow (14 Phases)
+### Complete Flow (13 Phases)
 
 ```
 1. Verify Authentication
@@ -67,7 +67,7 @@ Use this skill when you need **precise control** over deployment configuration:
 5. List Model Versions → User Selects
 6. List SKUs for Version → User Selects
 7. Get Capacity Range → User Configures
-   7b. If no capacity: Cross-Region Fallback → Query all regions → User selects region/project
+   7b. (Conditional branch of Phase 7 — only if no capacity) Cross-Region Fallback → Query all regions → User selects region/project
 8. List RAI Policies → User Selects
 9. Configure Advanced Options (if applicable)
 10. Configure Version Upgrade Policy

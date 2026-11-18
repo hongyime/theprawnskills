@@ -1,6 +1,6 @@
 ---
 name: finetuning
-description: "Fine-tune models on Microsoft Foundry using SFT (supervised), DPO (preference), or RFT (reinforcement with graders). Covers dataset preparation, training job submission, deployment, and evaluation. USE FOR: fine-tune, SFT, DPO, RFT, training data, grader, distillation, fine-tuned model, training job, large file upload, calibrate grader, deploy fine-tuned model, evaluate fine-tuned model. DO NOT USE FOR: general model deployment without fine-tuning (use deploy-model), agent creation (use agents), prompt optimization without training (use prompt-optimizer)."
+description: "Fine-tune models on Microsoft Foundry using SFT (supervised), DPO (preference), or RFT (reinforcement with graders). Covers dataset preparation, training job submission, deployment, and evaluation. USE FOR: fine-tune, SFT, DPO, RFT, training data, grader, distillation, fine-tuned model, training job, large file upload, calibrate grader, deploy fine-tuned model, evaluate fine-tuned model. DO NOT USE FOR: general model deployment without fine-tuning (use deploy-model), agent creation (use foundry-agent), prompt optimization without training (use prompt-engineering)."
 license: MIT
 metadata:
   author: Microsoft
@@ -25,7 +25,7 @@ Use this sub-skill when the user asks about:
 - Large file uploads for training data
 - Cleaning up fine-tuning resources (files, deployments)
 
-**Do NOT use for:** General model deployment without fine-tuning (use deploy-model), agent creation (use agents), prompt optimization without training (use prompt-optimizer).
+**Do NOT use for:** General model deployment without fine-tuning (use deploy-model), agent creation (use foundry-agent), prompt optimization without training (use prompt-engineering).
 
 ## Workflows
 

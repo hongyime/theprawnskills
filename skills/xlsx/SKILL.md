@@ -9,6 +9,7 @@ metadata:
 ---
 
 # XLSX creation, editing, and analysis
+Matches LibreOffice 24.2.7.2, openpyxl 3.1.2, pandas 2.1.4 (verified on the VM, 2026-11-18; markitdown not installed here — install on demand).
 
 | Task | Approach |
 |---|---|

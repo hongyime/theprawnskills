@@ -8,9 +8,9 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Qwen-Image - Alibaba Image Generation
+Matches Qwen-Image-2.0 (verified on the VM, 2026-11-18)
 
 Generate and edit images with Alibaba Qwen-Image-2.0 models via [inference.sh](https://inference.sh) CLI.
 
@@ -177,7 +177,8 @@ npx skills add inference-sh/skills@infsh-cli
 npx skills add inference-sh/skills@ai-image-generation
 
 # Video generation (for image-to-video)
-npx skills add inference-sh/skills@ai-video-generation
+npx skills add inference-sh/skills@google-veo
+npx skills add inference-sh/skills@seedance
 ```
 
 Browse all image apps: `belt app list --category image`

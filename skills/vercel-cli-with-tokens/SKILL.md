@@ -8,6 +8,7 @@ metadata:
 ---
 
 # Vercel CLI with Tokens
+Matches Vercel CLI 63.1.2 (verified on the VM, 2026-11-18)
 
 Deploy and manage projects on Vercel using the CLI with token-based authentication, without relying on `vercel login`.
 
@@ -34,18 +35,18 @@ Before running any Vercel CLI commands, identify where the token is coming from.
 ### A) `VERCEL_TOKEN` is already set in the environment
 
 ```bash
-printenv VERCEL_TOKEN
+if [ -n "${VERCEL_TOKEN:-}" ]; then echo "VERCEL_TOKEN is set"; else echo "VERCEL_TOKEN is not set"; fi
 ```
 
-If this returns a value, you're ready. Skip to Step 2.
+If it says the token is set, you're ready. Skip to Step 2.
 
 ### B) Token is in a `.env` file under `VERCEL_TOKEN`
 
 ```bash
-grep '^VERCEL_TOKEN=' .env 2>/dev/null
+grep -q '^VERCEL_TOKEN=' .env 2>/dev/null && echo "VERCEL_TOKEN is set in .env" || echo "VERCEL_TOKEN not found in .env"
 ```
 
-If found, export it:
+If found, load it into the environment (this does not print the value — never echo it):
 
 ```bash
 export VERCEL_TOKEN=$(grep '^VERCEL_TOKEN=' .env | cut -d= -f2-)
@@ -56,7 +57,7 @@ export VERCEL_TOKEN=$(grep '^VERCEL_TOKEN=' .env | cut -d= -f2-)
 Look for any variable that looks like a Vercel token (Vercel tokens typically start with `vca_`):
 
 ```bash
-grep -i 'vercel' .env 2>/dev/null
+grep -i 'vercel' .env 2>/dev/null | cut -d= -f1  # names only, never values
 ```
 
 Inspect the output to identify which variable holds the token, then export it as `VERCEL_TOKEN`:
@@ -92,7 +93,7 @@ printenv VERCEL_PROJECT_ID
 printenv VERCEL_ORG_ID
 
 # Or check .env
-grep -i 'vercel' .env 2>/dev/null
+grep -i 'vercel' .env 2>/dev/null | cut -d= -f1  # names only, never values
 ```
 
 **If you have a project URL** (e.g. `https://vercel.com/my-team/my-project`), extract the team slug:
@@ -113,10 +114,9 @@ Note: `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` must be set together — setting o
 
 ## CLI Setup
 
-Ensure the Vercel CLI is installed and up to date:
+If the Vercel CLI is not installed, ask the user before installing it — install globally (`npm install -g vercel`) only with their approval, or run it once without installing (`npx vercel`).
 
 ```bash
-npm install -g vercel
 vercel --version
 ```
 
@@ -331,8 +331,8 @@ Full details: https://vercel.com/docs/plans/pro-plan
 Check the environment and any `.env` files present:
 
 ```bash
-printenv | grep -i vercel
-grep -i vercel .env 2>/dev/null
+printenv | grep -i vercel | cut -d= -f1  # names only, never values
+grep -i 'vercel' .env 2>/dev/null | cut -d= -f1  # names only, never values
 ```
 
 ### Authentication error

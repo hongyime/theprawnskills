@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Content Repurposing
 
@@ -121,7 +120,7 @@ done
 
 **Why it matters:** [1 sentence connecting to reader's work/life]
 
-→ [Read the full post](link)
+→ [Read the full post](<url>)
 ```
 
 ### Blog Post -> Short-Form Video Script

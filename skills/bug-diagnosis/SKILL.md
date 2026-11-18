@@ -124,7 +124,7 @@ Date: YYYY-MM-DD | Repo: <path> | Status: CONFIRMED | SUSPECTED | BLOCKED
 How we will prove the fix works and did not break neighbors.
 
 ## Recurrence Guard
-Should this become an invariant/test? If yes -> hand to `backprop` / spec §V.
+Should this become an invariant/test? If yes -> hand to `backprop` / spec §I.
 ```
 
 ### 5. Hand Off
@@ -132,7 +132,7 @@ Should this become an invariant/test? If yes -> hand to `backprop` / spec §V.
 | Situation | Next |
 |---|---|
 | Fix agreed | implement per Verification Plan (`build` skill if SPEC-driven) |
-| Recurring class of bug | `backprop` to add a §V invariant |
+| Recurring class of bug | `backprop` to add a §I invariant |
 | Ambiguity about intended behavior | ask user before coding |
 | Fix is large/multi-part | `to-spec` or `to-tickets` |
 

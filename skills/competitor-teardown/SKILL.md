@@ -8,7 +8,6 @@ metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
-> **Install the belt CLI skill:** `npx skills add belt-sh/cli`
 
 # Competitor Teardown
 
@@ -23,7 +22,7 @@ belt login
 
 # Research competitor landscape
 belt app run tavily/search-assistant --input '{
-  "query": "top project management tools comparison 2024 market share"
+  "query": "top project management tools comparison 2026 market share"
 }'
 
 # Screenshot competitor's website
@@ -55,7 +54,7 @@ belt app run infsh/agent-browser --input '{
 ```bash
 # General intelligence
 belt app run tavily/search-assistant --input '{
-  "query": "CompetitorX company overview funding team size 2024"
+  "query": "CompetitorX company overview funding team size 2026"
 }'
 
 # Funding and financials
@@ -65,7 +64,7 @@ belt app run exa/search --input '{
 
 # Recent news
 belt app run tavily/search-assistant --input '{
-  "query": "CompetitorX latest news announcements 2024"
+  "query": "CompetitorX latest news announcements 2026"
 }'
 ```
 
@@ -84,7 +83,7 @@ belt app run tavily/extract --input '{
 
 # User reviews
 belt app run tavily/search-assistant --input '{
-  "query": "CompetitorX reviews G2 Capterra pros cons 2024"
+  "query": "CompetitorX reviews G2 Capterra pros cons 2026"
 }'
 ```
 
@@ -246,7 +245,7 @@ belt app run infsh/python-executor --input '{
 ```bash
 # Mine G2 reviews
 belt app run tavily/search-assistant --input '{
-  "query": "CompetitorX G2 reviews complaints issues 2024"
+  "query": "CompetitorX G2 reviews complaints issues 2026"
 }'
 
 # Reddit sentiment

@@ -116,7 +116,8 @@ pointers stay valid.
   sync conflicts after simultaneous edits on two machines — resolve by newest
   verified content, then re-append a journal line about the conflict. On
   Debian/Linux the same state travels through git instead — commit and push
-  before switching machines.
+  before switching machines, when the user has authorized it; otherwise the
+  state stays local until they do.
 
 ## Related Skills
 

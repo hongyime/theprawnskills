@@ -32,13 +32,15 @@ fi
 
 # Check if pnpm is installed
 if ! command -v pnpm &> /dev/null; then
-  echo "📦 pnpm not found. Installing pnpm..."
-  npm install -g pnpm
+  echo "❌ pnpm is required but not installed."
+  echo "   Install it first: corepack enable && corepack prepare pnpm@latest --activate"
+  echo "   (or: npm install -g pnpm)"
+  exit 1
 fi
 
 # Check if project name is provided
 if [ -z "$1" ]; then
-  echo "❌ Usage: ./create-react-shadcn-complete.sh <project-name>"
+  echo "❌ Usage: ./init-artifact.sh <project-name>"
   exit 1
 fi
 
@@ -67,6 +69,10 @@ $SED_INPLACE 's/<title>.*<\/title>/<title>'"$PROJECT_NAME"'<\/title>/' index.htm
 
 echo "📦 Installing base dependencies..."
 pnpm install
+
+# Pin React 18 (the skill's stated stack) — create-vite latest scaffolds React 19
+echo "📌 Pinning React 18..."
+pnpm add react@18 react-dom@18
 
 # Pin Vite version for Node 18
 if [ "$NODE_VERSION" -lt 20 ]; then

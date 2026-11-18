@@ -106,8 +106,8 @@ Reference these guidelines when:
 Read individual rule files for detailed explanations and code examples:
 
 ```
-rules/list-performance-virtualize.md
-rules/animation-gpu-properties.md
+./rules/list-performance-virtualize.md
+./rules/animation-gpu-properties.md
 ```
 
 Each rule file contains:
@@ -119,4 +119,4 @@ Each rule file contains:
 
 ## Full Compiled Document
 
-For the complete guide with all rules expanded: `AGENTS.md`
+For the complete guide with all rules expanded: `./AGENTS.md`

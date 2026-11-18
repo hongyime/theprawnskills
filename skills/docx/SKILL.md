@@ -18,7 +18,7 @@ A `.docx` is a ZIP archive of XML files. Choose your approach by task:
 | **Edit** an existing document | `unzip` → edit `word/document.xml` → `zip` (docx-js cannot open existing files) |
 | **Read** content | `pandoc -t markdown file.docx` |
 
-> Script paths below are relative to this skill's directory.
+> Script paths below are relative to this skill's directory — run `soffice.py` from the skill directory, or pass its full path. From the project directory the relative path resolves against the project, not the skill.
 
 ## Creating with docx-js — gotchas
 
@@ -41,7 +41,7 @@ A `.docx` is a ZIP archive of XML files. Choose your approach by task:
 After writing a `.docx`, render it and look at it:
 
 ```bash
-python scripts/office/soffice.py --headless --convert-to pdf output.docx
+python <skill-dir>/scripts/office/soffice.py --headless --convert-to pdf output.docx
 pdftoppm -jpeg -r 100 output.pdf page
 ls page-*.jpg   # then Read the images
 ```
@@ -50,7 +50,7 @@ ls page-*.jpg   # then Read the images
 
 ## Editing existing documents
 
-Legacy `.doc` files must be converted first: `python scripts/office/soffice.py --headless --convert-to docx file.doc`.
+Legacy `.doc` files must be converted first: `python <skill-dir>/scripts/office/soffice.py --headless --convert-to docx file.doc`.
 
 ```bash
 unzip -q doc.docx -d unpacked/
