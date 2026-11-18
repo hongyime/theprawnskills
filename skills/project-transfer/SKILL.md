@@ -94,6 +94,14 @@ Extract, with evidence cited as `commit <sha>`, `PR #N`, or `issue #N`:
 - **Recurring bugs**: the same failure fixed in more than one PR or commit.
 - **Review corrections**: "don't do X", "use Y instead" in review comments — the same class as user corrections in session logs.
 - **Closed branches**: a deleted branch survives through its PR (branch name, merged/closed state, discussion). A branch with no PR leaves only its commits in `git log --all` until pruned.
+- **Per-author ownership**: always use `git log --all` — a single branch's log undercounts contributors (in the trial, Ben showed 157 commits on one branch vs 312 across all refs). For each author, record commit count, date range, top files, and representative subjects. The result is an ownership map: who owns which area. Authors who appear only on branches (never on the main branch) still count.
+
+```bash
+git log --all --format="%an" | sort | uniq -c | sort -rn
+git log --all --author="<name>" --format="%ad %s" --date=short | head -8
+git log --all --author="<name>" --pretty=format: --name-only | sort | uniq -c | sort -rn | head -5
+git for-each-ref --format="%(refname:short) | %(committerdate:short) | %(authorname) | %(subject)" refs/remotes/origin/ | grep -v HEAD
+```
 
 Access ladder — record the level in the PACK and degrade, never guess:
 - **full**: local clone + `gh` access (PRs, issues, comments available).
@@ -101,7 +109,23 @@ Access ladder — record the level in the PACK and degrade, never guess:
 - **gh-only**: no local clone, `gh` reads work (PRs/issues available; no working-tree or session-log harvest).
 - **none**: no clone and no `gh` access — stop and report.
 
-### 1.3 Agent Session Logs (Home Folders)
+### 1.3 Working tree (uncommitted work)
+
+`git log` cannot see uncommitted work, and uncommitted work exists on one
+machine only. Capture it or it is lost to the harvest:
+
+```bash
+git status --porcelain | wc -l
+git diff --stat | tail -3
+git status --porcelain | grep "^??" | head -20
+```
+
+- Record the diff stat and the untracked inventory (paths only, not file contents unless a file is the lesson itself, e.g. an analysis doc).
+- Flag every uncommitted item as machine-local: it exists only on that machine's clone until committed. Note which machine's tree was captured.
+- If clones exist on several machines, compare working trees: same HEAD with different dirt means divergent local work — record both.
+- A large uncommitted change (new modules, guides, test suites) is itself a finding: work that was never committed is work with no review trail.
+
+### 1.4 Agent Session Logs (Home Folders)
 
 Search agent session logs for mentions of `SOURCE`'s absolute path or folder name.
 Because session logs can be massive, use `rg` (ripgrep) or targeted file searches first.
@@ -136,7 +160,7 @@ From matched logs, extract surrounding context (3-5 lines) focusing on:
 - **Loop-ending fixes**: The key breakthrough or fix that resolved a prolonged debugging session.
 - **Repeated manual steps**: Commands or setup steps the user repeatedly ran or asked the agent to execute.
 
-### 1.4 Extract and Generalize
+### 1.5 Extract and Generalize
 
 For every potential lesson, record four attributes:
 
@@ -145,7 +169,7 @@ For every potential lesson, record four attributes:
 - **Evidence**: The file path, session timestamp, or recurrence count proving this was needed.
 - **Verification**: How an agent or tool can verify adherence in a target repository.
 
-### 1.5 Classification Rubric
+### 1.6 Classification Rubric
 
 Categorize each generalized item into one of six standard types:
 
@@ -158,7 +182,7 @@ Categorize each generalized item into one of six standard types:
 | `workflow` | CI, release, build, or review pipeline | CI action, Makefile, or runner recipe |
 | `mistake-to-avoid` | Recurrent trap or anti-pattern | `AGENTS.md` "Avoid" bullet with rationale |
 
-### 1.6 Write the PACK File
+### 1.7 Write the PACK File
 
 Write the output file (default `<source-folder>-lessons.md` next to `SOURCE`). Use this exact markdown structure:
 
@@ -172,6 +196,8 @@ Write the output file (default `<source-folder>-lessons.md` next to `SOURCE`). U
 - **Store:** `<STORE path, default hongyime/theprawnlearnings>`
 - **Logs Inspected:** <List of agents whose logs were reviewed>
 - **History Inspected:** <Commit count, PR count, issue count reviewed>
+- **Authors:** <Count, top authors with commit counts — always --all>
+- **Working Tree:** <clean | N files changed + M untracked on <machine>>
 
 ## Summary Table
 
