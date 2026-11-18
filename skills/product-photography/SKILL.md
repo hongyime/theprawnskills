@@ -11,6 +11,7 @@ metadata:
 
 # Product Photography
 Matches seedream-4-5 and seededit-3-0-i2i (verified on the VM, 2026-11-18)
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Create professional product images with AI via [inference.sh](https://inference.sh) CLI.
 

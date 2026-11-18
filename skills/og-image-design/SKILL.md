@@ -10,6 +10,7 @@ metadata:
 
 
 # OG Image Design
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Create social sharing images (Open Graph) via [inference.sh](https://inference.sh) CLI.
 

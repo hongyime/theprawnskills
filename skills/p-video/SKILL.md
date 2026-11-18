@@ -10,6 +10,7 @@ metadata:
 
 
 # Pruna P-Video Generation
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Generate videos with Pruna's optimized video models via [inference.sh](https://inference.sh) CLI.
 

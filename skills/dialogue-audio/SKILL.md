@@ -10,6 +10,7 @@ metadata:
 
 
 # Dialogue Audio
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Create realistic multi-speaker dialogue with Dia TTS via [inference.sh](https://inference.sh) CLI.
 

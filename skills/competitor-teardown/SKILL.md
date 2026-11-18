@@ -10,6 +10,7 @@ metadata:
 
 
 # Competitor Teardown
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Structured competitive analysis with research and screenshots via [inference.sh](https://inference.sh) CLI.
 

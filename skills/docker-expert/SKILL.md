@@ -397,11 +397,10 @@ When reviewing Docker configurations, focus on:
 ## Integration & Handoff Guidelines
 
 **When to recommend other experts:**
-- **Kubernetes orchestration** → cover the container side here; for Azure AKS deployments see `azure-kubernetes-app-deploy`: Pod management, services, ingress
+- **Kubernetes orchestration** → cover the container side here: Pod management, services, ingress
 - **CI/CD pipeline issues** → `systematic-debugging`: isolate whether the failure is the container or the pipeline, then fix the container side here
 - **Database containerization** → cover persistence, volumes, and backup strategies with the guidance in this skill; for schema design see `database-schema-designer`
 - **Application-specific optimization** → Language experts: Code-level performance issues
-- **Infrastructure automation** → `azure-prepare`: Bicep/Terraform infrastructure for Azure deployments
 
 **Collaboration patterns:**
 - Provide Docker foundation for DevOps deployment automation

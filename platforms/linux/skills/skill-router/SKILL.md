@@ -38,7 +38,7 @@ following relative references. Never install the full library just to search it.
 | Documents, spreadsheets, presentations | pdf, docx, xlsx, pptx |
 | Frontend design | frontend-design, web-design-guidelines, shadcn |
 | Cloudflare | cloudflare, wrangler, workers-best-practices |
-| Azure / Supabase / Vercel | azure-prepare, supabase, deploy-to-vercel |
+| Supabase / Vercel | supabase, deploy-to-vercel |
 | Images, video, audio | ai-image-generation, image-to-video, text-to-speech |
 | Writing and marketing | technical-blog-writing, case-study-writing, content-repurposing |
 | Session continuity across agents | cross-harness-state; session-handoff; molt |

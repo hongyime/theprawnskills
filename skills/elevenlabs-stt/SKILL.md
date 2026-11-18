@@ -10,6 +10,7 @@ metadata:
 
 
 # ElevenLabs Speech-to-Text
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 High-accuracy transcription with Scribe models via [inference.sh](https://inference.sh) CLI.
 

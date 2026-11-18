@@ -10,6 +10,7 @@ metadata:
 
 
 # AI Automation Workflows
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Build automated AI workflows via [inference.sh](https://inference.sh) CLI.
 

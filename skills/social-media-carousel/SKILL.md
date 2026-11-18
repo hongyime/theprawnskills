@@ -10,6 +10,7 @@ metadata:
 
 
 # Social Media Carousel
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Design high-engagement carousel posts via [inference.sh](https://inference.sh) CLI.
 

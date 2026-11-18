@@ -11,6 +11,7 @@ metadata:
 
 # Seedance 2.0 Video Generation
 Matches Seedance 2.0 (verified on the VM, 2026-11-18)
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Generate videos with synchronized audio using ByteDance's Seedance 2.0 via [inference.sh](https://inference.sh) CLI.
 

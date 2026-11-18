@@ -8,6 +8,7 @@ metadata:
 ---
 
 # Web Performance Audit
+Matches chrome-devtools-mcp 1.13.0 (npm latest, verified on the VM, 2026-11-18)
 
 Your knowledge of web performance metrics, thresholds, and tooling APIs may be outdated. **Prefer retrieval over pre-training** when citing specific numbers or recommendations.
 

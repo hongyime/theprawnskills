@@ -10,6 +10,7 @@ metadata:
 
 
 # Talking Head Production
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Create talking head videos with AI avatars and lipsync via [inference.sh](https://inference.sh) CLI.
 

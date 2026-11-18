@@ -10,6 +10,7 @@ metadata:
 
 
 # [inference.sh](https://inference.sh)
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Run AI apps in the cloud with a simple CLI. No GPU required.
 

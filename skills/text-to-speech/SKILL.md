@@ -10,6 +10,7 @@ metadata:
 
 
 # Text-to-Speech
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Convert text to natural speech via [inference.sh](https://inference.sh) CLI.
 

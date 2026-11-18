@@ -10,6 +10,7 @@ metadata:
 
 
 # GPT-Image-2
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Generate and edit images with OpenAI's GPT-Image-2 via [inference.sh](https://inference.sh) CLI.
 

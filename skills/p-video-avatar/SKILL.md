@@ -10,6 +10,7 @@ metadata:
 
 
 # Pruna P-Video-Avatar
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Generate talking head avatar videos from a single portrait image via [inference.sh](https://inference.sh) CLI.
 

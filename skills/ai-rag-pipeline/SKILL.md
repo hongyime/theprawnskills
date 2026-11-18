@@ -10,6 +10,7 @@ metadata:
 
 
 # AI RAG Pipeline
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Build RAG (Retrieval Augmented Generation) pipelines via [inference.sh](https://inference.sh) CLI.
 

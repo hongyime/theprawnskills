@@ -101,7 +101,7 @@ Default-installed skills should stay small and high-signal:
 
 Treat `default-profile.toml` as the source of truth for this default baseline.
 
-Media, writing, document, presentation, Azure, Supabase, and Vercel skills are
+Media, writing, document, presentation, Supabase, and Vercel skills are
 normally on-demand unless the user promotes one.
 
 Machine-specific values in this document use privacy placeholders.

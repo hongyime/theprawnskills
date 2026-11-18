@@ -10,6 +10,7 @@ metadata:
 
 
 # Storyboard Creation
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Create visual storyboards with AI image generation via [inference.sh](https://inference.sh) CLI.
 

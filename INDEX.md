@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 248 |
-| All definitions, including nested skills and portable variants | 262 |
+| Top-level skills | 223 |
+| All definitions, including nested skills and portable variants | 230 |
 | Portable variants | 7 |
 | Daily profile | 69 |
 
@@ -30,30 +30,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `ai-podcast-creation` | Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DIA TTS, Chatterbox, AI music generation, media merger. Capabilities: multi-voice co... | ON-DEMAND |
 | `ai-rag-pipeline` | Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: ... | ON-DEMAND |
 | `ai-voice-cloning` | AI voice generation, text-to-speech, and voice synthesis via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion/non-verbal steering), Inworld TTS 1.5 (ultra-low la... | ON-DEMAND |
-| `airunway-aks-setup` | Set up AI Runway on AKS — from bare cluster to running model. Covers cluster verification, controller install, GPU assessment, provider setup, and first deployment. WHEN: "setup... | ON-DEMAND |
 | `algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithm... | ON-DEMAND |
 | `api-contracts` | Design and verify API contracts shared by consumers and providers. Use for request/response drift, contract-first implementation, compatibility reviews, schema evolution, genera... | ON-DEMAND |
 | `app-store-screenshots` | App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dimensions, gallery ordering, device mockups, and preview videos. Use for: app store ... | ON-DEMAND |
-| `appinsights-instrumentation` | Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references. WHEN: how to instrument app, App Insigh... | ON-DEMAND |
 | `architecture-decision-records` | Record or explain significant architectural decisions with context, alternatives, consequences and proposed/accepted/superseded status. Use for ADRs, record this decision, why d... | ON-DEMAND |
-| `azure-ai` | Use for Azure AI: Search, Speech, OpenAI, Document Intelligence. Helps with search, vector/hybrid search, speech-to-text, text-to-speech, transcription, OCR. WHEN: AI Search, qu... | ON-DEMAND |
-| `azure-aigateway` | Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: semantic caching, token limit, content safety, load balancing, AI model governance, M... | ON-DEMAND |
-| `azure-cloud-migrate` | Assess and migrate cross-cloud workloads to Azure with reports and code conversion. Supports Lambda→Functions, Beanstalk/Heroku/App Engine→App Service, Fargate/Kubernetes/Cloud ... | ON-DEMAND |
-| `azure-compliance` | Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security... | ON-DEMAND |
-| `azure-compute` | Azure VM/VMSS router. WHEN: create / provision / deploy / spin-up VM, recommend VM size, compare VM pricing, VMSS, scale set, autoscale, burstable, lightweight server, website, ... | ON-DEMAND |
-| `azure-cost` | Azure cost management: query costs, forecast spending, optimize to reduce waste. WHEN: "Azure costs", "Azure bill", "cost breakdown", "how much am I spending", "forecast spendin... | ON-DEMAND |
-| `azure-deploy` | Execute Azure deployments for ALREADY-PREPARED applications that have existing .azure/deployment-plan.md and infrastructure files. DO NOT use this skill when the user asks to CR... | ON-DEMAND |
-| `azure-diagnostics` | Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. WHEN: debug production issues, troubleshoot app service, app service high ... | ON-DEMAND |
-| `azure-enterprise-infra-planner` | Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, complian... | ON-DEMAND |
-| `azure-kubernetes` | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private ... | ON-DEMAND |
-| `azure-kusto` | Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetry, and time series analysis. WHEN: KQL queries, Kusto database queries, Azure Data... | ON-DEMAND |
-| `azure-prepare` | Prepare azd-based Azure projects for deployment: generates azure.yaml, infrastructure (Bicep/Terraform), and Dockerfiles for the Azure Developer CLI (azd) workflow. USE ONLY whe... | ON-DEMAND |
-| `azure-quotas` | Check/manage Azure quotas and usage across providers. For deployment planning, capacity validation, region selection. WHEN: "check quotas", "service limits", "current usage", "r... | ON-DEMAND |
-| `azure-resource-lookup` | List, find, and show Azure resources across subscriptions or resource groups. Handles prompts like "list the websites in my subscription", "list my web apps", "show my app servi... | ON-DEMAND |
-| `azure-resource-visualizer` | Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. WHEN: create architecture diagram, visu... | ON-DEMAND |
-| `azure-storage` | Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and Data Lake. Answers questions about storage access tiers (hot, cool, cold, archive),... | ON-DEMAND |
-| `azure-upgrade` | Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code. WHEN: upgrade Consumption to Flex Consumption, upgrade Azur... | ON-DEMAND |
-| `azure-validate` | Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), RBAC role assignments, managed identity permissions, and pr... | ON-DEMAND |
 | `babysit-pr` | Monitor a pull request through review and CI. Use when the user asks to monitor, watch, or babysit a PR. | ON-DEMAND |
 | `background-removal` | Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparen... | ON-DEMAND |
 | `backprop` | Bug-to-invariant protocol. When a bug is confirmed or a test fails, trace the root cause, then decide whether a new §I invariant would prevent recurrence and file it into SPEC.m... | ON-DEMAND |
@@ -98,7 +78,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `data-visualization` | Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, scatter, heatmap), axes rules, and storytelling with data. U... | ON-DEMAND |
 | `database-schema-designer` | Design robust, scalable database schemas for SQL and NoSQL databases. Provides normalization guidelines, indexing strategies, migration patterns, constraint design, and performa... | DAILY |
 | `dependency-updater` | Smart dependency management for any language. Auto-detects project type, applies safe updates automatically, prompts for major versions, diagnoses and fixes dependency issues. U... | DAILY |
-| `deploy-model` | Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI polic... | ON-DEMAND |
 | `deploy-to-vercel` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a pre... | ON-DEMAND |
 | `design-taste-frontend` | tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one sectio... | ON-DEMAND |
 | `dialogue-audio` | Multi-speaker dialogue audio creation with Dia TTS (fal.ai). Covers speaker tags, emotion control, pacing, conversation flow, and post-production. Use for: podcasts, audiobooks,... | ON-DEMAND |
@@ -116,8 +95,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `elevenlabs-voice-changer` | ElevenLabs voice changer - transform any voice to a different voice while preserving speech content and emotion via inference.sh CLI. Models: eleven_multilingual_sts_v2 (70+ lan... | ON-DEMAND |
 | `elevenlabs-voice-isolator` | ElevenLabs voice isolator - remove background noise and isolate vocals from audio via inference.sh CLI. Capabilities: noise removal, voice extraction, audio cleanup, background ... | ON-DEMAND |
 | `email-design` | Email marketing design with layout patterns, subject line formulas, and deliverability rules. Covers welcome sequences, promotional emails, transactional templates, and mobile o... | ON-DEMAND |
-| `entra-agent-id` | Provision Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agent Identities via Microsoft Graph, and configure OAuth 2.0 token exchange (fmi_path... | ON-DEMAND |
-| `entra-app-registration` | Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up auth... | ON-DEMAND |
 | `explainer-video-guide` | Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script formulas, pacing rules, scene planning, and multi-tool pipelines. Use for: product d... | ON-DEMAND |
 | `figure-it-out` | Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task,... | ON-DEMAND |
 | `file-pr` | File a concise pull request. Use when the user asks to file, open, or create a PR. | ON-DEMAND |
@@ -150,7 +127,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `mcp-health-repair` | Troubleshoot OpenCode MCP failures fast. Use when OpenCode MCP fails: /status failures, timeout errors, connection closed, broken MCP command args, intermittent MCP flapping. DO... | DAILY |
 | `mcp-security-hygiene` | Harden MCP configuration security. Use when securing MCP configuration: removing inline secrets, env-var migration, log redaction, least-privilege MCP defaults. DO NOT USE FOR: ... | DAILY |
 | `merge-conflict-resolution` | Resolve git merge/rebase conflicts systematically without losing either side's intent. Use when the user says fix this merge conflict, resolve the rebase, there are conflicts, g... | ON-DEMAND |
-| `microsoft-foundry` | Deploy, evaluate, fine-tune, and manage Foundry agents end-to-end with azd: hosted agent scaffold/run/deploy, prompt agent create, batch eval, continuous eval, prompt optimizer,... | ON-DEMAND |
 | `modernize` | For getting old prs up to date. Use when asked to rebase a pr or "modernize". | ON-DEMAND |
 | `molt` | Carry work across agents and machines with MOLT-style persistent state in a repo's .agents/ folder: STATE.md for now, JOURNAL.md for history, handoff docs for deep recovery. Use... | DAILY |
 | `nano-banana` | Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, mult... | ON-DEMAND |
@@ -175,7 +151,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `postgres-mcp-onboarding` | Enable PostgreSQL MCP correctly across providers. Use when setting up Postgres MCP: local Docker Postgres, Supabase, Railway, Neon, managed Postgres URLs. DO NOT USE FOR: SQL qu... | DAILY |
 | `postplan-upload` | Use this when generating a substantial execution plan, architecture spec, refactoring blueprint, implementation plan, visual draft report, PR review summary, or when the user as... | DAILY |
 | `pptx` | Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, pa... | ON-DEMAND |
-| `preset` | Intelligently deploys Azure OpenAI models to optimal regions by analyzing capacity across all available regions. Automatically checks current region first and shows alternatives... | ON-DEMAND |
 | `press-release-writing` | Press release writing in AP style with inverted pyramid structure. Covers formatting, datelines, quotes, boilerplates, and fact-checking. Use for: product launches, funding anno... | ON-DEMAND |
 | `product-changelog` | Product changelog and release notes that users actually read. Covers categorization, user-facing language, visuals, and distribution. Use for: release notes, changelogs, product... | ON-DEMAND |
 | `product-hunt-launch` | Product Hunt launch optimization with specific specs, timing, and gallery strategy. Covers taglines, gallery images, maker comments, and launch day tactics. Use for: product lau... | ON-DEMAND |

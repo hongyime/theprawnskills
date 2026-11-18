@@ -108,5 +108,5 @@ file and summarize outcomes + follow-ups.
 ## Related Skills
 
 - `question` tool - the primary asking mechanism
-- `azure-prepare`, `wrangler`, `postgres-mcp-onboarding` - common wizard targets
+- `wrangler`, `postgres-mcp-onboarding` - common wizard targets
 - `cross-harness-state` - where wizard state lives relative to other .agents files

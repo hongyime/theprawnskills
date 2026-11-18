@@ -10,6 +10,7 @@ metadata:
 
 
 # Image Upscaling
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Upscale and enhance images via [inference.sh](https://inference.sh) CLI.
 

@@ -11,6 +11,7 @@ metadata:
 
 # Speech-to-Text
 Matches ElevenLabs Scribe v2 and Whisper V3 (verified on the VM, 2026-11-18)
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Transcribe audio to text via [inference.sh](https://inference.sh) CLI.
 

@@ -11,6 +11,7 @@ metadata:
 
 # Python Code Executor
 Matches Python 3.10 (verified on the VM, 2026-11-18)
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Execute Python code in a safe, sandboxed environment with 100+ pre-installed libraries.
 

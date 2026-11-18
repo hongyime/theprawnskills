@@ -10,6 +10,7 @@ metadata:
 
 
 # HappyHorse 1.0 Video Generation
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Generate and edit physically realistic videos with Alibaba's HappyHorse 1.0 models via [inference.sh](https://inference.sh) CLI.
 

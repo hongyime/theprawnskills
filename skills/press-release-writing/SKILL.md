@@ -10,6 +10,7 @@ metadata:
 
 
 # Press Release Writing
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Write professional press releases with research and fact-checking via [inference.sh](https://inference.sh) CLI.
 

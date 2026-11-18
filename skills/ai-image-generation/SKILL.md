@@ -10,6 +10,7 @@ metadata:
 
 
 # AI Image Generation
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Generate images with 50+ AI models via [inference.sh](https://inference.sh) CLI.
 

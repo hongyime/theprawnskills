@@ -10,6 +10,7 @@ metadata:
 
 
 # ElevenLabs Dubbing
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Automatically dub audio and video into 29 languages via [inference.sh](https://inference.sh) CLI.
 

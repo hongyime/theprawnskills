@@ -10,6 +10,7 @@ metadata:
 
 
 # Product Changelog
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Write changelogs and release notes that users read and care about via [inference.sh](https://inference.sh) CLI.
 

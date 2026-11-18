@@ -119,7 +119,7 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Explain visually, diagrams, flows, UML/C4, comparisons, HTML reports | `visual-explainer`; `postplan-upload` for hosted delivery |
 | Prototypes / feasibility spikes | `prototype`, `wayfinder` |
 | Large ambiguous initiatives | `wayfinder`, `domain-modeling`, `codebase-design` |
-| Guided step-by-step setup | `wizard`, `azure-prepare`, `wrangler` |
+| Guided step-by-step setup | `wizard`, `wrangler` |
 | Session continuity across agents | `cross-harness-state`, `session-handoff`, `molt` |
 | Transfer lessons, harvest rules or reuse workflows from another project | `project-transfer`; `cross-harness-state` for active sessions |
 | Repo standardization and compliance | `repo-standardization`, `shell` |
@@ -137,12 +137,6 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Web performance and Core Web Vitals | `web-perf` |
 | Cloudflare and Workers | `cloudflare`, `wrangler`, `workers-best-practices`, `durable-objects`, `agents-sdk`, `turnstile-spin`; `cloudflare-email-service` for email, `sandbox-sdk` for sandboxed execution |
 | Cloudflare Zero Trust / SASE | `cloudflare-one`; `cloudflare-one-migrations` for migrating off another vendor |
-| Azure: apps, deploy, diagnose, cost | `azure-prepare`, `azure-deploy`, `azure-validate`, `azure-diagnostics`, `azure-cost`, `azure-ai`, `microsoft-foundry` |
-| Azure: infrastructure, compute, storage, quotas, inventory | `azure-enterprise-infra-planner`, `azure-compute`, `azure-storage`, `azure-quotas`, `azure-resource-lookup`, `azure-resource-visualizer`, `azure-upgrade`, `azure-cloud-migrate`, `azure-compliance` |
-| Azure: Kubernetes and AI gateway | `azure-kubernetes`, `airunway-aks-setup`, `azure-aigateway` |
-| Azure: data, messaging, telemetry | `azure-kusto`, `appinsights-instrumentation` |
-| Microsoft Entra identity and app registration | `entra-app-registration`; `entra-agent-id` for agent identities |
-| Azure OpenAI model deployment and capacity | `deploy-model`, `preset` |
 | Supabase or Postgres | `supabase`, `supabase-postgres-best-practices`, `postgres-mcp-onboarding` |
 | Vercel | `deploy-to-vercel`, `vercel-react-best-practices`, `vercel-cli-with-tokens` |
 | Documents, PDFs, spreadsheets, decks | `docx`, `pdf`, `xlsx`, `pptx`; `pitch-deck-visuals` for investor decks |
@@ -197,7 +191,7 @@ Keep default-installed skills lean:
   visual overview -> details -> next steps; publish when hosting is authorized.
 - Keep essential coding, review, debugging, Cloudflare, and local setup skills
   installed when the user wants automatic discovery.
-- Leave media, writing, document, presentation, Azure, Supabase, and Vercel
+- Leave media, writing, document, presentation, Supabase, and Vercel
   skills on demand unless the user asks to make one default again.
 
 Use `default-profile.toml` as the source of truth for default profile

@@ -10,6 +10,7 @@ metadata:
 
 
 # Agentic Browser
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Browser automation for AI agents via [inference.sh](https://inference.sh). Uses Playwright under the hood with a simple `@e` ref system for element interaction.
 

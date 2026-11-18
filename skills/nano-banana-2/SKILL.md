@@ -10,6 +10,7 @@ metadata:
 
 
 # Nano Banana 2 - Gemini 3.1 Flash Image Preview
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Generate images with Google Gemini 3.1 Flash Image Preview via [inference.sh](https://inference.sh) CLI.
 

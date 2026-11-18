@@ -10,6 +10,7 @@ metadata:
 
 
 # Technical Blog Writing
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Write developer-focused technical blog posts via [inference.sh](https://inference.sh) CLI.
 

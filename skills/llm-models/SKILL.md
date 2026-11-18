@@ -10,6 +10,7 @@ metadata:
 
 
 # LLM Models via OpenRouter
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Access 100+ language models via [inference.sh](https://inference.sh) CLI.
 

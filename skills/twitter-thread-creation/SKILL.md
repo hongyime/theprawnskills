@@ -10,6 +10,7 @@ metadata:
 
 
 # Twitter/X Thread Creation
+Matches belt 1.29.5 (verified on the VM, 2026-11-18)
 
 Write high-engagement Twitter/X threads via [inference.sh](https://inference.sh) CLI.
 
