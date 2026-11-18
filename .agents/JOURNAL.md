@@ -173,3 +173,5 @@
 - 2026-11-18: Consolidation (e01ff06) CI green — Skill library run 44256442840, all 3 jobs success; LFS Guard, TruffleHog, Bandit, Semgrep, CodeQL also success.
 - 2026-11-18: Full Azure removal (Bryan: yes remove azure) — e1d85b9: 25 dirs deleted (all azure-*, entra-*, airunway-aks-setup, deploy-model, microsoft-foundry, preset, appinsights-instrumentation); 814 files. Library 262 → 230. Belt 1.29.5 installed on VM; version line on all 69 belt skills; web-perf chrome-devtools-mcp 1.13.0. Suite 129 tests OK. Fleet all at e1d85b9.
 - 2026-11-18: Azure removal (e1d85b9) CI green — Skill library run 44262752694, all 3 jobs success; LFS Guard, TruffleHog, Bandit, Semgrep, CodeQL also success.
+- 2026-11-18: web-to-markdown deleted (Bryan: delete web2md lol) — 483e82a: skill + router row + profile 69 → 68 + test count 69 → 68. Library 230 → 229. Belt verified still installed on VM (v1.29.5). Suite 129 tests OK. Fleet all at 483e82a.
+- 2026-11-18: web-to-markdown deletion (483e82a) CI green — Skill library run 44265136638, all 3 jobs success; LFS Guard, TruffleHog, Bandit, Semgrep, CodeQL also success.

@@ -1,3 +1,10 @@
+# web-to-markdown deleted — 2026-11-18 (committed 483e82a, fleet rolled out, CI green run 44265136638)
+
+- Bryan (2026-11-18): "delete web2md lol". The skill depended on his local softaworks web2md project, which is not on any fleet machine (checked VM, L390, 3410, T14, E14) — deleted instead of chasing the project.
+- Deleted skills/web-to-markdown; router row fixed; default-profile.toml 69 → 68; tests/test_install_skills.py:251 69 → 68 (tripwire by design). Library 230 → 229 definitions. Suite 129 tests OK (skipped=9).
+- Belt: already installed on the VM (belt v1.29.5, /home/hatch/.local/bin/belt; .bashrc PATH line present) — Bryan's "sure install belt" needed no action, verified live. Web-perf: kept, version line chrome-devtools-mcp 1.13.0 already in place.
+- Fleet: all 5 primaries at 483e82a. Windows: skill-router xcopy'd to .codex\skills (hash-verified); web-to-markdown removed from both .codex\skills roots + T14 OneDrive .agents.
+
 # Full Azure removal — 2026-11-18 (committed e1d85b9, fleet rolled out, CI green run 44262752694)
 
 - Bryan (2026-11-18): "yes remove azure". Full-send covers the edits.
