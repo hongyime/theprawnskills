@@ -9,6 +9,7 @@ metadata:
 ---
 
 # shadcn/ui
+Matches shadcn 4.23.0 (npm latest, verified on the VM, 2026-11-18)
 
 A framework for building ui, components and design systems. Components are added as source code to the user's project via the CLI.
 

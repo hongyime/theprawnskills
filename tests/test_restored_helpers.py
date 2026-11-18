@@ -11,7 +11,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 BASH = str(Path(os.environ.get("ProgramFiles", "C:/Program Files")) / "Git/bin/bash.exe") if os.name == "nt" else shutil.which("bash")
 PWSH = shutil.which("pwsh")
-VARIANTS = ("skills/preset", "skills/deploy-model/preset", "skills/microsoft-foundry/models/deploy-model/preset")
+VARIANTS = ("skills/preset",)
 
 
 class RestoredHelpersTests(unittest.TestCase):
@@ -19,12 +19,6 @@ class RestoredHelpersTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix="restored-helpers-")
         self.addCleanup(self.temp.cleanup)
         self.cwd = Path(self.temp.name)
-
-    def test_preset_variants_have_identical_self_contained_helpers(self):
-        for suffix in ("sh", "ps1"):
-            contents = [(ROOT / variant / f"scripts/generate_deployment_name.{suffix}").read_bytes() for variant in VARIANTS]
-            self.assertEqual(contents[0], contents[1])
-            self.assertEqual(contents[1], contents[2])
 
     @unittest.skipUnless(BASH and Path(BASH).exists(), "Bash not available")
     def test_bash_preset_collisions_and_query_failure(self):

@@ -14,6 +14,7 @@ metadata:
 ---
 
 # VirtualBox Linux Guest Access
+Matches VirtualBox 7.2.16 (verified on T14, 2026-11-18)
 
 Two independent channels reach a guest. Pick deliberately: SSH is fast but
 depends on guest networking; `guestcontrol` is slow but survives a broken

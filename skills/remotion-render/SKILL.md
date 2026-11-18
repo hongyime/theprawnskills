@@ -10,6 +10,7 @@ metadata:
 
 
 # Remotion Render
+Matches @remotion/cli 4.0.544 (npm latest, verified on the VM, 2026-11-18)
 
 Render videos from React/Remotion component code via [inference.sh](https://inference.sh) CLI.
 

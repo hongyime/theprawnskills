@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 256 |
-| All definitions, including nested skills and portable variants | 273 |
+| Top-level skills | 248 |
+| All definitions, including nested skills and portable variants | 262 |
 | Portable variants | 7 |
 | Daily profile | 69 |
 
@@ -20,19 +20,15 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `agent-account-isolation` | Run two or more accounts of the same coding-agent CLI on one machine without cross-contamination. Use for "it used my other account", "wrong account", separating work and person... | ON-DEMAND |
 | `agent-browser` | Browser automation for AI agents via inference.sh. Navigate web pages, interact with elements using @e refs, take screenshots, record video. Capabilities: web scraping, form fil... | DAILY |
 | `agent-machine-bootstrap` | Bootstrap any new, rebuilt or virtual machine into a working coding-agent environment: sizing, base tooling, runtimes, agent CLIs, model credentials, agent config, plugins, MCP ... | ON-DEMAND |
-| `agent-tools` | Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, ... | ON-DEMAND |
 | `agent-ui` | Batteries-included agent component for React/Next.js from ui.inference.sh. One component with runtime, tools, streaming, approvals, and widgets built in. Capabilities: drop-in a... | ON-DEMAND |
 | `agents-sdk` | Build AI agents on Cloudflare Workers using the Agents SDK. Load when creating stateful agents, durable workflows, real-time WebSocket apps, scheduled tasks, MCP servers, chat a... | DAILY |
 | `ai-automation-workflows` | Build automated AI workflows combining multiple models and services. Patterns: batch processing, scheduled tasks, event-driven pipelines, agent loops. Tools: inference.sh CLI, b... | ON-DEMAND |
 | `ai-avatar-video` | Create AI avatar and talking head videos via inference.sh CLI. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also: OmniHuman, Fabric, PixVerse. Audio: Inworld T... | ON-DEMAND |
 | `ai-content-pipeline` | Build multi-step AI content creation pipelines combining image, video, audio, and text. Workflow examples: generate image → animate → add voiceover → merge with music. Tools: FL... | ON-DEMAND |
 | `ai-image-generation` | Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.sh CLI. Models: GPT-Image-2, FLUX Dev LoRA, FLUX.2 Klein LoRA, Gemini 3 Pro ... | ON-DEMAND |
-| `ai-marketing-videos` | Create AI marketing videos for ads, promos, product launches, and brand content. Models: Veo, Seedance, Wan, FLUX for visuals, Kokoro for voiceover. Types: product demos, testim... | ON-DEMAND |
 | `ai-music-generation` | Generate AI music and songs with ElevenLabs, Diffrythm, Tencent Song Generation via inference.sh CLI. Models: ElevenLabs Music (up to 10 min, commercial license), Diffrythm (fas... | ON-DEMAND |
 | `ai-podcast-creation` | Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DIA TTS, Chatterbox, AI music generation, media merger. Capabilities: multi-voice co... | ON-DEMAND |
-| `ai-product-photography` | Generate professional AI product photography and commercial images. Models: FLUX, Imagen 3, Grok, Seedream for product shots, lifestyle images, mockups. Capabilities: studio lig... | ON-DEMAND |
 | `ai-rag-pipeline` | Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: ... | ON-DEMAND |
-| `ai-social-media-content` | Create AI-powered social media content for TikTok, Instagram, YouTube, Twitter/X. Generate: images, videos, reels, shorts, thumbnails, captions, hashtags. Tools: FLUX, Veo, Seed... | ON-DEMAND |
 | `ai-voice-cloning` | AI voice generation, text-to-speech, and voice synthesis via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion/non-verbal steering), Inworld TTS 1.5 (ultra-low la... | ON-DEMAND |
 | `airunway-aks-setup` | Set up AI Runway on AKS — from bare cluster to running model. Covers cluster verification, controller install, GPU assessment, provider setup, and first deployment. WHEN: "setup... | ON-DEMAND |
 | `algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithm... | ON-DEMAND |
@@ -50,9 +46,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `azure-diagnostics` | Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. WHEN: debug production issues, troubleshoot app service, app service high ... | ON-DEMAND |
 | `azure-enterprise-infra-planner` | Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, complian... | ON-DEMAND |
 | `azure-kubernetes` | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private ... | ON-DEMAND |
-| `azure-kubernetes-automatic-readiness` | Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to A... | ON-DEMAND |
 | `azure-kusto` | Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetry, and time series analysis. WHEN: KQL queries, Kusto database queries, Azure Data... | ON-DEMAND |
-| `azure-messaging` | Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK c... | ON-DEMAND |
 | `azure-prepare` | Prepare azd-based Azure projects for deployment: generates azure.yaml, infrastructure (Bicep/Terraform), and Dockerfiles for the Azure Developer CLI (azd) workflow. USE ONLY whe... | ON-DEMAND |
 | `azure-quotas` | Check/manage Azure quotas and usage across providers. For deployment planning, capacity validation, region selection. WHEN: "check quotas", "service limits", "current usage", "r... | ON-DEMAND |
 | `azure-resource-lookup` | List, find, and show Azure resources across subscriptions or resource groups. Handles prompts like "list the websites in my subscription", "list my web apps", "show my app servi... | ON-DEMAND |
@@ -193,8 +187,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `python-executor` | Execute Python code in a safe sandboxed environment via [inference.sh](https://inference.sh). Pre-installed: NumPy, Pandas, Matplotlib, requests, BeautifulSoup, Selenium, Playwr... | ON-DEMAND |
 | `python-sdk` | Python SDK for inference.sh - run AI apps, build agents, and integrate with 250+ models. Package: inferencesh (pip install inferencesh). Supports sync/async, streaming, file upl... | DAILY |
 | `python-testing` | Design and repair Python tests using the project's unittest or pytest setup. Use for Python fixtures, parametrization, mocks, async tests, boundary cases, regression tests and t... | ON-DEMAND |
-| `qwen-image-2` | Generate and edit images with Alibaba Qwen-Image-2.0 models via inference.sh CLI. Models: Qwen-Image-2.0 (fast), Qwen-Image-2.0-Pro (professional text rendering). Capabilities: ... | ON-DEMAND |
-| `qwen-image-2-pro` | Generate images with Alibaba Qwen-Image-2.0-Pro via inference.sh CLI. Professional text rendering, fine-grained realism, enhanced semantic adherence. Ideal for posters, banners,... | ON-DEMAND |
 | `react-dev` | This skill should be used when building React components with TypeScript, typing hooks, handling events, or when React TypeScript, React 19, Server Components are mentioned. Cov... | DAILY |
 | `react-testing` | Write and repair React component and hook tests with Testing Library and the project's Jest or Vitest runner. Use for form behavior, async state, network mocks, accessible queri... | ON-DEMAND |
 | `react-useeffect` | React useEffect best practices from official docs. Use when writing/reviewing useEffect, useState for derived values, data fetching, or state synchronization. Teaches when NOT t... | DAILY |

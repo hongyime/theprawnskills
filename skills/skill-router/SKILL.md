@@ -139,8 +139,8 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Cloudflare Zero Trust / SASE | `cloudflare-one`; `cloudflare-one-migrations` for migrating off another vendor |
 | Azure: apps, deploy, diagnose, cost | `azure-prepare`, `azure-deploy`, `azure-validate`, `azure-diagnostics`, `azure-cost`, `azure-ai`, `microsoft-foundry` |
 | Azure: infrastructure, compute, storage, quotas, inventory | `azure-enterprise-infra-planner`, `azure-compute`, `azure-storage`, `azure-quotas`, `azure-resource-lookup`, `azure-resource-visualizer`, `azure-upgrade`, `azure-cloud-migrate`, `azure-compliance` |
-| Azure: Kubernetes and AI gateway | `azure-kubernetes`, `azure-kubernetes-automatic-readiness`, `airunway-aks-setup`, `azure-aigateway` |
-| Azure: data, messaging, telemetry | `azure-kusto`, `azure-messaging`, `appinsights-instrumentation` |
+| Azure: Kubernetes and AI gateway | `azure-kubernetes`, `airunway-aks-setup`, `azure-aigateway` |
+| Azure: data, messaging, telemetry | `azure-kusto`, `appinsights-instrumentation` |
 | Microsoft Entra identity and app registration | `entra-app-registration`; `entra-agent-id` for agent identities |
 | Azure OpenAI model deployment and capacity | `deploy-model`, `preset` |
 | Supabase or Postgres | `supabase`, `supabase-postgres-best-practices`, `postgres-mcp-onboarding` |
@@ -149,13 +149,13 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Writing and communication | `technical-blog-writing`, `press-release-writing`, `case-study-writing`, `newsletter-curation`; `internal-comms` for internal updates, `doc-coauthoring` for structured docs, `product-changelog` for release notes |
 | Marketing and launch content | `seo-content-brief`, `product-hunt-launch`, `linkedin-content`, `content-repurposing`; `customer-persona` for audience research |
 | Prompt engineering and model prompting technique | `prompt-engineering`; `video-prompting-guide` for video models |
-| Image generation or editing | `ai-image-generation`, `gpt-image`, `flux-image`, `background-removal`, `image-upscaling`, `product-photography`, `ai-product-photography`; model-specific: `nano-banana`, `nano-banana-2`, `qwen-image-2`, `qwen-image-2-pro`, `p-image` |
+| Image generation or editing | `ai-image-generation`, `gpt-image`, `flux-image`, `background-removal`, `image-upscaling`, `product-photography`; model-specific: `nano-banana`, `nano-banana-2`, `p-image` |
 | Video generation | `image-to-video`, `google-veo`, `seedance`, `happyhorse`, `p-video`, `remotion-render`; `video-prompting-guide` for prompting, `video-ad-specs` for platform specs, `storyboard-creation` and `explainer-video-guide` for planning |
 | Talking-head and avatar video | `ai-avatar-video`, `talking-head-production`, `p-video-avatar` |
 | Speech, voice and music | `text-to-speech`, `speech-to-text`, `ai-voice-cloning`, `ai-music-generation`, `dialogue-audio`, `ai-podcast-creation`; ElevenLabs-specific: `elevenlabs-tts`, `elevenlabs-stt`, `elevenlabs-dialogue`, `elevenlabs-dubbing`, `elevenlabs-music`, `elevenlabs-sound-effects`, `elevenlabs-voice-changer`, `elevenlabs-voice-isolator` |
-| Multi-step AI content or automation pipelines | `ai-content-pipeline`, `ai-automation-workflows`, `ai-rag-pipeline`, `ai-marketing-videos` |
-| inference.sh platform: run apps, build apps, SDKs | `infsh-cli`, `agent-tools`, `building-inferencesh-apps`, `python-sdk`, `javascript-sdk`, `python-executor`, `llm-models` |
-| Social content | `ai-social-media-content`, `social-media-carousel`, `twitter-thread-creation`, `youtube-thumbnail-design`; `twitter-automation` for posting via API |
+| Multi-step AI content or automation pipelines | `ai-content-pipeline`, `ai-automation-workflows`, `ai-rag-pipeline` |
+| inference.sh platform: run apps, build apps, SDKs | `infsh-cli`, `building-inferencesh-apps`, `python-sdk`, `javascript-sdk`, `python-executor`, `llm-models` |
+| Social content | `social-media-carousel`, `twitter-thread-creation`, `youtube-thumbnail-design`; `twitter-automation` for posting via API |
 | Web search, scraping and page extraction | `web-search`, `web-to-markdown`, `agent-browser` |
 | Claude API, model ids, pricing, tool use | `claude-api` |
 | Agent tooling and delegation | `cli-agent-router`, `claude-code-cli`, `opencode-cli`, `codex`, `agent-browser` |

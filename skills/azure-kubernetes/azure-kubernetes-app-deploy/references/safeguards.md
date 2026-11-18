@@ -1,12 +1,6 @@
 # AKS Deployment Safeguards Reference
 
-> **Source of truth:** the Deployment Safeguards policy initiative is defined
-> once in
-> `../../azure-kubernetes-automatic-readiness/references/constraint-spec-v1.yaml`
-> (initiative `c047ea8e-…`). This file is the **deploy-time checklist**: which
-> rules the app-deploy workflow auto-fixes vs. warns on, and how. When the
-> policy set changes, update the constraint spec; only the app-deploy-specific
-> fix behavior below is maintained here.
+This file is the deploy-time checklist: which rules the app-deploy workflow auto-fixes vs. warns on, and how.
 
 This checklist maps each safeguard to how the quick-deploy workflow handles it.
 

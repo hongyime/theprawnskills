@@ -400,9 +400,6 @@ npx skills add inference-sh/skills@ai-content-pipeline
 # RAG pipelines
 npx skills add inference-sh/skills@ai-rag-pipeline
 
-# Social media automation
-npx skills add inference-sh/skills@ai-social-media-content
-
 # Full platform skill
 npx skills add inference-sh/skills@infsh-cli
 ```

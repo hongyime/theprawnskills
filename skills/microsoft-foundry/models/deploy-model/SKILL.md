@@ -18,7 +18,7 @@ Unified entry point for all Azure OpenAI model deployment workflows. Analyzes us
 
 | Mode | When to Use | Sub-Skill |
 |------|-------------|-----------|
-| **Preset** | Quick deployment, no customization needed | [preset/SKILL.md](preset/SKILL.md) |
+| **Preset** | Quick deployment, no customization needed | [preset/SKILL.md](../../../preset/SKILL.md) |
 | **Customize** | Full control: version, SKU, capacity, RAI policy | [customize/SKILL.md](customize/SKILL.md) |
 | **Capacity Discovery** | Find where you can deploy with specific capacity | [capacity/SKILL.md](capacity/SKILL.md) |
 
@@ -142,6 +142,6 @@ All deployment modes require:
 
 ## Sub-Skills
 
-- **[preset/SKILL.md](preset/SKILL.md)** — Quick deployment to optimal region with sensible defaults
+- **[preset/SKILL.md](../../../preset/SKILL.md)** — Quick deployment to optimal region with sensible defaults
 - **[customize/SKILL.md](customize/SKILL.md)** — Interactive guided flow with full configuration control
 - **[capacity/SKILL.md](capacity/SKILL.md)** — Discover available capacity across regions and projects
