@@ -65,9 +65,7 @@ jobs:
             BASE="${{ github.event.before }}"
           fi
           CHANGED=$(git diff --name-only "$BASE"...HEAD -- 'skills/*/SKILL.md' 'skillevaluator-policy.yaml' 'skillevaluator-pii-waivers.yaml' || true)
-          echo "changed<<EOF" >> "$GITHUB_OUTPUT"
-          echo "$CHANGED" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "$CHANGED" > changed.txt
           if echo "$CHANGED" | grep -qE '^(skillevaluator-policy\.yaml|skillevaluator-pii-waivers\.yaml)$'; then
             echo "mode=full" >> "$GITHUB_OUTPUT"
           elif [ -z "$CHANGED" ]; then
@@ -82,9 +80,10 @@ jobs:
           set +e
           FAILED=0
           mkdir -p reports
-          for f in ${{ steps.scope.outputs.changed }}; do
+          while IFS= read -r f; do
             case "$f" in skills/*/SKILL.md) ;; *) continue ;; esac
             SKILL_DIR=$(dirname "$f")
+            [ -d "$SKILL_DIR" ] || continue
             SKILL=$(basename "$SKILL_DIR")
             echo "=== $SKILL ==="
             skillevaluator validate "$SKILL_DIR" --type skill --tiers 1 --no-llm \
@@ -92,7 +91,7 @@ jobs:
               --policy ./skillevaluator-policy.yaml \
               --pii-waivers ./skillevaluator-pii-waivers.yaml \
               -r json -o "reports/$SKILL" || FAILED=1
-          done
+          done < changed.txt
           exit $FAILED
 
       - name: Validate full catalog
