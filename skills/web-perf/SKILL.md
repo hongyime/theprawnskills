@@ -46,7 +46,7 @@ Ask the user to add this to their MCP config:
 ```json
 "chrome-devtools": {
   "type": "local",
-  "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+  "command": ["npx", "-y", "chrome-devtools-mcp@1.13.0"]
 }
 ```
 
