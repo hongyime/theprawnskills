@@ -1,0 +1,121 @@
+# SkillEvaluator Tier 1 checks for changed skills (and the full catalog on
+# policy/waiver changes or push to main).
+#
+# Why not the upstream reusable workflow (NVIDIA/SkillEvaluator
+# skill-checks.yml)? It runs the default OSS policy only. This repo needs
+# its policy overlay (skillevaluator-policy.yaml: claude reserved-word
+# names, Anthropic proprietary license on docx/pdf/pptx/xlsx, house
+# "Use this skill whenever" phrasing) and its reviewed PII waivers
+# (skillevaluator-pii-waivers.yaml), so the gate runs the CLI directly.
+#
+# Security + dependency checks are EXCLUDED until SkillSpector is
+# provisioned (needs an approved `uv tool install` — see step 1 of the
+# SkillEvaluator plan). The `--checks` list below is the full Tier 1 set
+# minus those two. When SkillSpector lands, add `security` and
+# `dependency` to the list and drop this comment.
+#
+# Verified locally 2026-11-21: the exact command below passes on
+# claude-api, cloudflare-one and hill-climb (overall_passed: true).
+name: SkillEvaluator checks
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'skillevaluator-policy.yaml'
+      - 'skillevaluator-pii-waivers.yaml'
+      - '.github/workflows/skill-checks.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'skillevaluator-policy.yaml'
+      - 'skillevaluator-pii-waivers.yaml'
+      - '.github/workflows/skill-checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install SkillEvaluator
+        run: pip install 'skillevaluator==1.0.1'
+
+      - name: Determine scope
+        id: scope
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE="${{ github.event.before }}"
+          fi
+          CHANGED=$(git diff --name-only "$BASE"...HEAD -- 'skills/*/SKILL.md' 'skillevaluator-policy.yaml' 'skillevaluator-pii-waivers.yaml' || true)
+          echo "changed<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+          if echo "$CHANGED" | grep -qE '^(skillevaluator-policy\.yaml|skillevaluator-pii-waivers\.yaml)$'; then
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+          elif [ -z "$CHANGED" ]; then
+            echo "mode=none" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=changed" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate changed skills
+        if: steps.scope.outputs.mode == 'changed'
+        run: |
+          set +e
+          FAILED=0
+          mkdir -p reports
+          for f in ${{ steps.scope.outputs.changed }}; do
+            case "$f" in skills/*/SKILL.md) ;; *) continue ;; esac
+            SKILL_DIR=$(dirname "$f")
+            SKILL=$(basename "$SKILL_DIR")
+            echo "=== $SKILL ==="
+            skillevaluator validate "$SKILL_DIR" --type skill --tiers 1 --no-llm \
+              --checks schema,version,quality,harness,pii,license,unicode,lint,code-integrity \
+              --policy ./skillevaluator-policy.yaml \
+              --pii-waivers ./skillevaluator-pii-waivers.yaml \
+              -r json -o "reports/$SKILL" || FAILED=1
+          done
+          exit $FAILED
+
+      - name: Validate full catalog
+        if: steps.scope.outputs.mode == 'full'
+        run: |
+          skillevaluator validate ./skills --type skill --tiers 1 --no-llm \
+            --checks schema,version,quality,harness,pii,license,unicode,lint,code-integrity \
+            --policy ./skillevaluator-policy.yaml \
+            --pii-waivers ./skillevaluator-pii-waivers.yaml \
+            --continue-on-failure -r json -o reports/full
+          python3 -c "
+          import json, glob
+          path = glob.glob('reports/full/skillevaluator-output-*.json')[0]
+          d = json.load(open(path))
+          passed = d.get('overall_passed')
+          print('overall_passed:', passed)
+          raise SystemExit(0 if passed else 1)
+          "
+
+      - name: Upload reports
+        if: always() && steps.scope.outputs.mode != 'none'
+        uses: actions/upload-artifact@v4
+        with:
+          name: skillevaluator-reports
+          path: reports/
+          if-no-files-found: ignore
