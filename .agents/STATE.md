@@ -6,7 +6,26 @@
 - Step 4 fix pass COMMITTED 2b7f6c1 (49 files) + CI pin 31b4452 (ubuntu-latest → 24.04; Playwright 1.59.1 has no 26.04 chromium — pre-existing infra break, not the fix). CI on 31b4452: Skill library run 44872743797 completed success (all 3 OSes). Fleet: all 5 primaries at 31b4452; 14 edited profiled skills hash-verified in T14/E14 .codex\skills; T14 OneDrive mirror verified via hook.
 - Step 5 Muse-as-judge DONE 2026-11-21: all 41 judged (pilot 10 + flagged 32), ALL PASS ≥70, zero security issues. Top: hill-climb 93, claude-api 92, virtualbox/pptx 91. Lowest: caveman-stats 70 (stub by design), postgres-mcp-onboarding + web-design-guidelines 72. Patterns: error_handling weakest in 24/41; example_quality second; trigger over-claim in cloudflare/react-dev/press-release-writing. Stale content found (not fixed yet): fleet-skill-audit "69/69" (profile is 68), claude-code-cli Gemini comparison + hermes- temp path, security-best-practices empty Examples + stale metadata block. Report: ~/workspace/skillevaluator-reports/step5-rubric-pilot10.md.
 - Step 6 Tier 2 dedup DONE 2026-11-21: Ollama on L390 (nomic-embed-text) via SSH tunnel; 196 pairs above threshold — 1 critical (nano-banana ↔ nano-banana-2, 0.951 exact dupe), 6 high, 189 medium. Triage: ~/workspace/skillevaluator-reports/tier2-TRIAGE.md. Merges are Bryan's call — options widget sent 2026-11-21 ~13:53, awaiting his pick. Tunnel died in the ~14:16 runtime restart; nothing pending needs it.
-- PENDING: steps 7–8 (Tier 3 hand pilot, CI workflow). Tier 2 note: similarity-check full run failed once ("Embedding connection failed" after retries, 283s) — tunnel + Ollama were alive; retry pending. Env gotcha: strip NO_PROXY/no_proxy + proxy vars or httpx dies InvalidURL (VM egress quirk).
+- Step 7 Tier 3 hand pilot DONE 2026-11-21 (4 helps, 1 neutral, 0 hurts;
+  n=1 per skill, judge is Muse): caveman -77% words; docx helps weakly
+  (2 latent gotchas avoided, both validate); xlsx helps (None cached
+  total -> 40300 after recalc); press-release-writing helps (8
+  superlatives + 2 exclamations + I-quote + missing dateline/contact ->
+  all clean); skill-router neutral (same 5 picks with/without — Muse
+  knows the library). Side findings: docx "preinstalled" claim false on
+  the VM (installed to /tmp for the pilot); validate.py needs defusedxml
+  + lxml, undocumented in the skill's Dependencies. Report:
+  ~/workspace/skillevaluator-reports/step7-tier3-pilot.md.
+- Step 8 CI workflow IN PROGRESS 2026-11-21: own workflow
+  .github/workflows/skill-checks.yml (upstream reusable workflow runs
+  the default OSS policy only — cannot take our policy overlay +
+  waivers). PR = changed skills; push to main / policy-waiver change /
+  dispatch = full catalog. Command verified locally first on claude-api,
+  cloudflare-one, hill-climb (overall_passed: true). Commit 33aedb1
+  pushed; its push-triggered run 44875446202 went green but in mode=none
+  (only the workflow file changed — nothing to validate). Full-catalog
+  dispatch run 44875525912 in progress — verify it green before closing
+  step 8.
 
 # web-to-markdown deleted — 2026-11-18 (committed 483e82a, fleet rolled out, CI green run 44265136638)
 
