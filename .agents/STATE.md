@@ -16,16 +16,36 @@
   the VM (installed to /tmp for the pilot); validate.py needs defusedxml
   + lxml, undocumented in the skill's Dependencies. Report:
   ~/workspace/skillevaluator-reports/step7-tier3-pilot.md.
-- Step 8 CI workflow IN PROGRESS 2026-11-21: own workflow
-  .github/workflows/skill-checks.yml (upstream reusable workflow runs
-  the default OSS policy only — cannot take our policy overlay +
-  waivers). PR = changed skills; push to main / policy-waiver change /
-  dispatch = full catalog. Command verified locally first on claude-api,
-  cloudflare-one, hill-climb (overall_passed: true). Commit 33aedb1
-  pushed; its push-triggered run 44875446202 went green but in mode=none
-  (only the workflow file changed — nothing to validate). Full-catalog
-  dispatch run 44875525912 in progress — verify it green before closing
-  step 8.
+- Step 8 CI workflow DONE 2026-11-21: .github/workflows/skill-checks.yml
+  (own pip-based workflow — upstream reusable runs default OSS policy
+  only). PR = changed skills; push/policy-waiver change/dispatch = full
+  catalog. Two real bugs caught by CI itself and fixed: (1) full-catalog
+  gate globbed `reports/full/*.json` but the tool writes per-skill dirs
+  (run 44875525912 failed on IndexError while validation passed 222/222
+  — fixed 182b962, dispatch 44876017275 green); (2) changed-skills
+  `for f in ${{ outputs.changed }}` broke on multiline substitution —
+  bash for-lists cannot span lines (reproduced locally, exit 2) — fixed
+  to while-read from changed.txt + skip deleted dirs (e1feace); loop
+  verified locally (3 skills pass, 2 deleted skipped, FAILED=0).
+  Full dispatch 44876466141 in progress at last check.
+- Tier 2 merges DONE 2026-11-21 (Bryan: "merge all that needs to be
+  merged", green-lit 14:31 SGT): verified all 7 critical/high + 10
+  medium pairs by reading the skills. MERGED 2 (commit 7708383):
+  nano-banana-2 -> nano-banana (3-model table, Output table, Python SDK
+  folded in; quality 87.0 B) and ai-voice-cloning -> text-to-speech
+  (Kokoro library, voice examples, multi-voice, chunking, pacing, best
+  practices folded in; quality 89.5 B). Library 229 -> 227. KEPT with
+  reasons: commit-work/git-commit (designed split-vs-single pair),
+  avatar trio (catalog vs production vs single-tool), music + TTS/STT
+  pairs (chooser vs single-tool pattern), spec/to-spec (format vs
+  process), skill-cleanup/remove (audit vs execute), skill-create/creator
+  (thin workflow vs 530-line guide + Linux twin), dialogue-audio/
+  elevenlabs-dialogue (craft vs tool), skill-judge/reviewer, bug-diagnosis/
+  systematic-debugging, ponytail-audit/review, aliases (shell/molt),
+  siblings (p-image/p-video, docx/xlsx, elevenlabs family). Fleet: all 5
+  primaries at e1feace; skill-router copied to T14/E14 .codex\skills (fc
+  clean both); T14 OneDrive deleted dirs removed + router mirror verified
+  via hook; E14 OneDrive via sync (async).
 
 # web-to-markdown deleted — 2026-11-18 (committed 483e82a, fleet rolled out, CI green run 44265136638)
 
