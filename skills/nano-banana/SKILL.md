@@ -1,6 +1,6 @@
 ---
 name: nano-banana
-description: "Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input. Triggers: nano banana, gemini image, gemini 3 pro image, gemini 2.5 flash image, native image generation, gemini native image"
+description: "Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 3.1 Flash Image Preview (Nano Banana 2), Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input (up to 14 images), Google Search grounding. Triggers: nano banana, nano banana 2, nanobanana 2, gemini image, gemini 3 pro image, gemini 3.1 flash image, gemini 2.5 flash image, native image generation, gemini native image, google image generation"
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup
@@ -32,7 +32,10 @@ belt app run google/gemini-3-pro-image-preview --input '{"prompt": "a banana in 
 | Model | App ID | Speed | Quality |
 |-------|--------|-------|---------|
 | Gemini 3 Pro Image | `google/gemini-3-pro-image-preview` | Slower | Best |
+| Gemini 3.1 Flash Image Preview (Nano Banana 2) | `google/gemini-3-1-flash-image-preview` | Fast | Excellent |
 | Gemini 2.5 Flash Image | `google/gemini-2-5-flash-image` | Fast | Excellent |
+
+All examples below use Gemini 3 Pro Image; swap the app ID for 3.1 Flash Image Preview or 2.5 Flash Image to use the other models.
 
 ## Search Gemini Image Apps
 
@@ -100,12 +103,20 @@ belt app run google/gemini-3-pro-image-preview --input '{
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `prompt` | string | **Required.** What to generate or change |
-| `images` | array | Input images for editing (up to 14) |
+| `images` | array | Input images for editing (up to 14). Supported: JPEG, PNG, WebP |
 | `num_images` | integer | Number of images to generate |
 | `aspect_ratio` | string | Output ratio: "1:1", "16:9", "9:16", "4:3", "3:4", "auto" |
-| `resolution` | string | "1K", "2K", "4K" (Gemini 3 Pro only) |
+| `resolution` | string | "1K", "2K", "4K" (4K on Gemini 3 Pro only; default 1K) |
 | `output_format` | string | Output format for images |
-| `enable_google_search` | boolean | Enable real-time info grounding |
+| `enable_google_search` | boolean | Enable real-time info grounding (weather, news, etc.) |
+
+## Output
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `images` | array | The generated or edited images |
+| `description` | string | Text description or response from the model |
+| `output_meta` | object | Metadata about inputs/outputs for pricing |
 
 ## Prompt Tips
 
@@ -126,6 +137,35 @@ belt app sample google/gemini-3-pro-image-preview --save input.json
 # 2. Edit the prompt
 # 3. Run
 belt app run google/gemini-3-pro-image-preview --input input.json
+```
+
+## Python SDK
+
+```python
+from inferencesh import inference
+
+client = inference()
+
+# Basic generation
+result = client.run({
+    "app": "google/gemini-3-1-flash-image-preview@0c7ma1ex",
+    "input": {
+        "prompt": "A banana in space, photorealistic"
+    }
+})
+print(result["output"])
+
+# Stream live updates
+for update in client.run({
+    "app": "google/gemini-3-1-flash-image-preview@0c7ma1ex",
+    "input": {
+        "prompt": "A futuristic cityscape at sunset"
+    }
+}, stream=True):
+    if update.get("progress"):
+        print(f"progress: {update['progress']}%")
+    if update.get("output"):
+        print(f"output: {update['output']}")
 ```
 
 ## Related Skills
@@ -149,4 +189,3 @@ Browse all image apps: `belt app list --category image`
 - [Running Apps](https://inference.sh/docs/apps/running) - How to run apps via CLI
 - [Streaming Results](https://inference.sh/docs/api/sdk/streaming) - Real-time progress updates
 - [File Handling](https://inference.sh/docs/api/sdk/files) - Working with images
-

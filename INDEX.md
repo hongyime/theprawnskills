@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 222 |
-| All definitions, including nested skills and portable variants | 229 |
+| Top-level skills | 220 |
+| All definitions, including nested skills and portable variants | 227 |
 | Portable variants | 7 |
 | Daily profile | 68 |
 
@@ -29,7 +29,6 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `ai-music-generation` | Generate AI music and songs with ElevenLabs, Diffrythm, Tencent Song Generation via inference.sh CLI. Models: ElevenLabs Music (up to 10 min, commercial license), Diffrythm (fas... | ON-DEMAND |
 | `ai-podcast-creation` | Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DIA TTS, Chatterbox, AI music generation, media merger. Capabilities: multi-voice co... | ON-DEMAND |
 | `ai-rag-pipeline` | Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: ... | ON-DEMAND |
-| `ai-voice-cloning` | AI voice generation, text-to-speech, and voice synthesis via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion/non-verbal steering), Inworld TTS 1.5 (ultra-low la... | ON-DEMAND |
 | `algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithm... | ON-DEMAND |
 | `api-contracts` | Design and verify API contracts shared by consumers and providers. Use for request/response drift, contract-first implementation, compatibility reviews, schema evolution, genera... | ON-DEMAND |
 | `app-store-screenshots` | App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dimensions, gallery ordering, device mockups, and preview videos. Use for: app store ... | ON-DEMAND |
@@ -129,8 +128,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `merge-conflict-resolution` | Resolve git merge/rebase conflicts systematically without losing either side's intent. Use when the user says fix this merge conflict, resolve the rebase, there are conflicts, g... | ON-DEMAND |
 | `modernize` | For getting old prs up to date. Use when asked to rebase a pr or "modernize". | ON-DEMAND |
 | `molt` | Carry work across agents and machines with MOLT-style persistent state in a repo's .agents/ folder: STATE.md for now, JOURNAL.md for history, handoff docs for deep recovery. Use... | DAILY |
-| `nano-banana` | Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, mult... | ON-DEMAND |
-| `nano-banana-2` | Generate images with Google Gemini 3.1 Flash Image Preview (Nano Banana 2) via inference.sh CLI. Capabilities: text-to-image, image editing, multi-image input (up to 14 images),... | ON-DEMAND |
+| `nano-banana` | Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 3.1 Flash Image Preview (Nano Banana 2), Gemini 2.5 Flash Image. ... | ON-DEMAND |
 | `newsletter-curation` | Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. ... | ON-DEMAND |
 | `og-image-design` | Open Graph and social sharing image design with platform specs, text placement, and branding. Covers OG meta tags, Twitter cards, LinkedIn previews, and dynamic generation. Use ... | ON-DEMAND |
 | `openapi-to-typescript` | Converts OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type guards. This skill should be used when the user asks to generate types from OpenAPI, convert schema to TS, creat... | DAILY |
