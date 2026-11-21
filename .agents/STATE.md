@@ -27,7 +27,9 @@
   bash for-lists cannot span lines (reproduced locally, exit 2) — fixed
   to while-read from changed.txt + skip deleted dirs (e1feace); loop
   verified locally (3 skills pass, 2 deleted skipped, FAILED=0).
-  Full dispatch 44876466141 in progress at last check.
+  Full dispatch 44876466141 green (completed success 2026-11-21
+  ~14:48 SGT); Skill library on merge commit 7708383 green all 3 OSes
+  (run 44876267732). Step 8 CLOSED.
 - Tier 2 merges DONE 2026-11-21 (Bryan: "merge all that needs to be
   merged", green-lit 14:31 SGT): verified all 7 critical/high + 10
   medium pairs by reading the skills. MERGED 2 (commit 7708383):
