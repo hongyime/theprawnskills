@@ -105,11 +105,13 @@ jobs:
             --continue-on-failure -r json -o reports/full
           python3 -c "
           import json, glob
-          path = glob.glob('reports/full/skillevaluator-output-*.json')[0]
-          d = json.load(open(path))
-          passed = d.get('overall_passed')
-          print('overall_passed:', passed)
-          raise SystemExit(0 if passed else 1)
+          files = glob.glob('reports/full/*/skillevaluator-output-*.json')
+          assert files, 'no per-skill reports found'
+          failed = [f for f in files if not json.load(open(f)).get('overall_passed')]
+          print(f'{len(files) - len(failed)}/{len(files)} skills passed')
+          if failed:
+              print('failed:', *failed, sep='\n  ')
+          raise SystemExit(0 if not failed else 1)
           "
 
       - name: Upload reports
