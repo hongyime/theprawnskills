@@ -1,0 +1,17 @@
+# SkillEvaluator policy overlay for theprawnskills.
+# Each override is a deliberate, documented house decision (2026-11-21).
+# Our own CI (quick_validate, text safety, resource audit, platform audit,
+# 129 tests) still enforces frontmatter correctness, and the agy+codex vet
+# process covers quality correctness. Revisit yearly.
+severity_overrides:
+  # claude-api, claude-code-cli: "claude" is a reserved word in skill names,
+  # but the names are accurate (Claude API / Claude Code CLI). Renaming would
+  # break the router, default profile, installer roots, and hand-offs.
+  SCHEMA.frontmatter_field: info
+  QUALITY.quality_correctness: info
+  # docx, pdf, pptx, xlsx: Anthropic (c) 2025 proprietary skills, kept as-is
+  # under their LICENSE.txt. Must NOT be relabeled MIT.
+  LICENSE.blocked_license: info
+  # House descriptions use "Use this skill whenever ..." (trigger phrases
+  # front-loaded), not the tool's literal "Use when" prefix.
+  SCHEMA.description_trigger: info

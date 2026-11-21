@@ -78,12 +78,6 @@
       "target": "scripts/snapshot.sh",
       "kind": "resource",
       "reason": "Illustrative work-log row in prose; snapshot.sh is an example helper name, not a shipped script (the skill ships log.sh)."
-    },
-    {
-      "source": "skills/why/references/synthesizer-prompt.md",
-      "target": "url",
-      "kind": "link",
-      "reason": "Template placeholder [PR #123](url) in a synthesizer prompt template; the agent fills in the real URL at use time."
     }
   ]
 }

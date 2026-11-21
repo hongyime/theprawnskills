@@ -199,7 +199,7 @@ Breaking changes need special treatment:
 - March 1: v1 returns deprecation warnings
 - March 15: v1 stops working
 
-If you need help migrating, contact support@company.com.
+If you need help migrating, contact support@example.com.
 ```
 
 ## Distribution Channels

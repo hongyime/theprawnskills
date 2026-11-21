@@ -82,7 +82,7 @@ echo $RESULT | jq '.elements_text'
 
 # Fill Google email
 belt app run agent-browser --function interact --session $SESSION --input '{
-  "action": "fill", "ref": "@e1", "text": "user@gmail.com"
+  "action": "fill", "ref": "@e1", "text": "user@example.com"
 }'
 
 # Click Next

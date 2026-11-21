@@ -47,7 +47,7 @@ curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<account_id>/realtim
 import { RtkMeeting } from '@cloudflare/realtimekit-react-ui';
 
 function App() {
-  return <RtkMeeting authToken="<participant_auth_token>" onLeave={() => {}} />;
+  return <RtkMeeting authToken={participantAuthToken} onLeave={() => {}} />;
 }
 ```
 

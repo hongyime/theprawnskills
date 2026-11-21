@@ -121,7 +121,7 @@ npx wrangler dev
 curl -X POST 'http://localhost:8787/__email' \
   --header 'content-type: message/rfc822' \
   --data 'From: test@example.com
-To: you@yourdomain.com
+To: you@example.com
 Subject: Test
 
 Body'

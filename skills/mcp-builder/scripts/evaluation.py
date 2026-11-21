@@ -10,7 +10,7 @@ import re
 import sys
 import time
 import traceback
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET  # safe drop-in; pip install defusedxml
 from pathlib import Path
 from typing import Any
 

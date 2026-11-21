@@ -12,7 +12,7 @@ Export an `email()` function from your Worker. No special wrangler binding neede
 export default {
   async email(message, env, ctx): Promise<void> {
     console.log(`Email from ${message.from} to ${message.to}`);
-    await message.forward("team@company.com");
+    await message.forward("team@example.com");
   },
 } satisfies ExportedHandler<Env>;
 ```
@@ -36,10 +36,10 @@ The `message` parameter is a `ForwardableEmailMessage`. Run `npx wrangler types`
 ### Forward
 
 ```typescript
-await message.forward("team@company.com");
+await message.forward("team@example.com");
 
 // With custom headers
-await message.forward("team@company.com", new Headers({
+await message.forward("team@example.com", new Headers({
   "X-Original-Recipient": message.to,
 }));
 ```
@@ -66,7 +66,7 @@ async email(message, env, ctx) {
     html: "<p>Thanks! We'll respond shortly.</p>",
     text: "Thanks! We'll respond shortly.",
   });
-  await message.forward("team@company.com");
+  await message.forward("team@example.com");
 }
 ```
 
@@ -80,12 +80,12 @@ async email(message, env, ctx) {
   const msg = createMimeMessage();
   const messageId = message.headers.get("Message-ID");
   if (messageId) msg.setHeader("In-Reply-To", messageId);
-  msg.setSender({ name: "Support", addr: "support@yourdomain.com" });
+  msg.setSender({ name: "Support", addr: "support@example.com" });
   msg.setRecipient(message.from);
   msg.setSubject("Re: " + (message.headers.get("subject") || ""));
   msg.addMessage({ contentType: "text/plain", data: "Thanks for reaching out!" });
 
-  await message.reply(new EmailMessage("support@yourdomain.com", message.from, msg.asRaw()));
+  await message.reply(new EmailMessage("support@example.com", message.from, msg.asRaw()));
 }
 ```
 

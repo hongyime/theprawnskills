@@ -157,7 +157,7 @@ Types are inferred from PHP type hints. Use `#[Constrained(description: '...')]`
 $message = $client->messages->create(
     model: 'claude-opus-5',
     maxTokens: 16000,
-    messages: [['role' => 'user', 'content' => 'Extract: John (john@co.com), Enterprise plan']],
+    messages: [['role' => 'user', 'content' => 'Extract: John (john@example.com), Enterprise plan']],
     outputConfig: [
         'format' => [
             'type' => 'json_schema',

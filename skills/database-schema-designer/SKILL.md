@@ -367,7 +367,7 @@ CREATE INDEX idx_orders_status_date ON orders(status, created_at);
 | Type | Best For | Example |
 |------|----------|---------|
 | B-Tree | Ranges, equality | `price > 100` |
-| Hash | Exact matches only | `email = 'x@y.com'` |
+| Hash | Exact matches only | `email = 'x@example.com'` |
 | Full-text | Text search | `MATCH AGAINST` |
 | Partial | Subset of rows | `WHERE is_active = true` |
 

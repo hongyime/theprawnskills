@@ -13,7 +13,7 @@ When you onboard a domain, Cloudflare auto-configures:
 - **Suppression lists** — Hard-bounced addresses automatically blocked
 - **Feedback loops** — ISP complaint signals processed and acted on
 
-Consider adding a **DMARC** record if you don't have one: `v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@yourdomain.com`
+Consider adding a **DMARC** record if you don't have one: `v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@example.com`
 
 ## Bounce Handling
 
@@ -31,7 +31,7 @@ See the [suppressions docs](https://developers.cloudflare.com/email-service/conc
 
 ### Content
 - Include both HTML and plain text versions
-- Use a recognizable sender name: `{ email: "noreply@app.com", name: "My App" }`
+- Use a recognizable sender name: `{ email: "noreply@example.com", name: "My App" }`
 - Write honest subject lines — avoid ALL CAPS, excessive punctuation
 - Include `List-Unsubscribe` headers for recurring emails
 - Use full URLs from your domain — avoid URL shorteners
@@ -63,8 +63,8 @@ Every send (REST API or Workers binding) returns immediate delivery feedback. Ch
 {
   "result": {
     "delivered": ["user@example.com"],
-    "permanent_bounces": ["bad@nonexistent.com"],
-    "queued": ["slow@recipient.com"]
+    "permanent_bounces": ["bad@example.com"],
+    "queued": ["slow@example.com"]
   }
 }
 ```

@@ -7,6 +7,7 @@ metadata:
   version: "1.0.0"
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
+# Canvas Design
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files. Render the canvas with the agent's available tools — e.g. build the design as an HTML page and screenshot/print it to PDF/PNG, or generate the image — and never claim a .pdf/.png exists until the file is actually written to disk.
 

@@ -158,7 +158,7 @@ app.post('/api/*', (req, res, next) => {
 **.env (never commit)**:
 ```bash
 # Database
-DATABASE_URL=postgresql://user:password@localhost:5432/mydb
+DATABASE_URL=$DATABASE_URL
 
 # JWT
 ACCESS_TOKEN_SECRET=your-super-secret-access-token-key-min-32-chars
@@ -177,7 +177,7 @@ metadata:
   name: myapp-secrets
 type: Opaque
 stringData:
-  database-url: postgresql://user:password@postgres:5432/mydb
+  database-url: $DATABASE_URL
   jwt-secret: your-jwt-secret
 ```
 

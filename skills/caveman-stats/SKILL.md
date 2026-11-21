@@ -10,6 +10,7 @@ metadata:
   version: "1.0.0"
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
+# Caveman Stats
 
 This library contains the instruction only. The external Caveman plugin supplies
 `caveman-stats.js` and `caveman-mode-tracker.js` and registers them with Claude

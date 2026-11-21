@@ -148,7 +148,7 @@ Keep to 3-4 sentences. Consistent across all press releases.
 Media Contact:
 Jane Doe
 PR Manager, Company X
-jane@companyx.com
+jane@example.com
 (555) 123-4567
 ```
 

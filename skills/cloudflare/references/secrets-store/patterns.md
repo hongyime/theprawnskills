@@ -174,8 +174,7 @@ export default {
       const configStr = await env.DB_CONFIG.get();
       const config: DbConfig = JSON.parse(configStr);
       
-      // Use parsed config
-      const dbUrl = `postgres://${config.username}:${config.password}@${config.host}:${config.port}`;
+      // Use parsed config to connect (credentials stay in Secrets Store, never in code)
       
       return Response.json({ connected: true });
     } catch (error) {

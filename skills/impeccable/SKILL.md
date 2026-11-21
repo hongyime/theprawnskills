@@ -7,10 +7,7 @@ metadata:
   version: "1.0.0"
   upstream-version: "4.9.0"
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
-allowed-tools:
-  - Bash(npx impeccable *)
-  - Bash(node .agents/skills/impeccable/scripts/*)
-  - Bash(node .agent/skills/impeccable/scripts/*)
+allowed-tools: Bash(npx impeccable *) Bash(node .agents/skills/impeccable/scripts/*) Bash(node .agent/skills/impeccable/scripts/*)
 ---
 
 # Impeccable

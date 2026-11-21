@@ -89,7 +89,7 @@ async () => {
     path: `/accounts/${accountId}/email/sending/send`,
     body: {
       to: "user@example.com",
-      from: { address: "notifications@yourdomain.com", name: "My App" },
+      from: { address: "notifications@example.com", name: "My App" },
       subject: "Deployment Complete",
       html: "<h1>Deployed!</h1>",
       text: "Deployed!"
@@ -104,8 +104,8 @@ GraphQL analytics queries also work through `execute` — see [deliverability.md
 
 ```bash
 npx wrangler email sending send \
-  --from "agent@yourdomain.com" \
-  --to "developer@company.com" \
+  --from "agent@example.com" \
+  --to "developer@example.com" \
   --subject "Deployment Complete" \
   --text "Your Worker was deployed successfully."
 ```
@@ -117,8 +117,8 @@ curl "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/ema
   --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{
-    "to": "developer@company.com",
-    "from": {"address": "agent@yourdomain.com", "name": "Build Agent"},
+    "to": "developer@example.com",
+    "from": {"address": "agent@example.com", "name": "Build Agent"},
     "subject": "Deployment Complete",
     "text": "Your Worker was deployed successfully."
   }'

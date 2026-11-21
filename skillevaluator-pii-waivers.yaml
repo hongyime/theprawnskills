@@ -1,0 +1,61 @@
+# Reviewed PII waivers for theprawnskills (2026-11-21).
+# Each entry is one reviewed value at one place. API-route and doc-URL path
+# segments and a privacy-redaction regex, none of them a real person's path.
+# Expires 2027-11-21; re-review then. Never put credential waivers here:
+# credential checks cannot be waived (remove or rotate instead).
+version: 1
+waivers:
+  - id: PII-001
+    category: personal_paths
+    file: skills/cloudflare-one/SKILL.md
+    line: 55
+    evidence_sha256: 6f4ea2ee944d85a8ea163803a42f71d0a595b80b12dbdfcb7c765ecb8806ef07
+    reason: Cloudflare docs URL path segment /users/scim/, not a home directory
+    owner: bryanseah234
+    created: 2026-11-21
+    expires: 2027-11-21
+  - id: PII-002
+    category: personal_paths
+    file: skills/cloudflare-one/SKILL.md
+    line: 63
+    evidence_sha256: 8b23623440ba773d503da335fcf13a3d89d2e3221a77bf770dcab016dd3870db
+    reason: Cloudflare docs URL path segment /users/risk-score/, not a home directory
+    owner: bryanseah234
+    created: 2026-11-21
+    expires: 2027-11-21
+  - id: PII-003
+    category: personal_paths
+    file: skills/cloudflare-one/SKILL.md
+    line: 143
+    evidence_sha256: 6af285c497ff5f6281ba68c7fea2acecc7122ebc695ac8c466aef275cdf8e36d
+    reason: Cloudflare docs URL path segment /users/short-lived-certificates/, not a home directory
+    owner: bryanseah234
+    created: 2026-11-21
+    expires: 2027-11-21
+  - id: PII-004
+    category: personal_paths
+    file: skills/cloudflare-one-migrations/SKILL.md
+    line: 20
+    evidence_sha256: 6f4ea2ee944d85a8ea163803a42f71d0a595b80b12dbdfcb7c765ecb8806ef07
+    reason: Cloudflare docs URL path segment /users/scim/, not a home directory
+    owner: bryanseah234
+    created: 2026-11-21
+    expires: 2027-11-21
+  - id: PII-005
+    category: personal_paths
+    file: skills/react-dev/references/tanstack-router.md
+    line: 54
+    evidence_sha256: 67e67a10bdf1a670389bd9a94f2f271737cd8219f52c8b2504c7296aa9e9fcbd
+    reason: TanStack Router file-based route pattern /users/$userId/, not a home directory
+    owner: bryanseah234
+    created: 2026-11-21
+    expires: 2027-11-21
+  - id: PII-006
+    category: personal_paths
+    file: skills/fleet-skill-audit/scripts/audit_fleet_skills.py
+    line: 301
+    evidence_sha256: dd76c5e9a11174b9f568f44aa9751012574d82c94bcfa6bf83d9846acd0aff31
+    reason: Privacy-redaction regex matching macOS home dirs; the pattern itself, not a real path. Covered by tests/test_fleet_audit.py test_macos_remote_path_is_sanitized
+    owner: bryanseah234
+    created: 2026-11-21
+    expires: 2027-11-21

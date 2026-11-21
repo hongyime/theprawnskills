@@ -10,6 +10,7 @@ metadata:
   version: "1.0.0"
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
+# Caveman Commit
 
 Write commit messages terse and exact. Conventional Commits format. No fluff. Why over what.
 

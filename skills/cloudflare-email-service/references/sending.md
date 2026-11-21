@@ -32,7 +32,7 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const response = await env.EMAIL.send({
       to: "user@example.com",
-      from: { email: "welcome@yourdomain.com", name: "My App" },
+      from: { email: "welcome@example.com", name: "My App" },
       subject: "Welcome!",
       html: "<h1>Welcome!</h1><p>Thanks for signing up.</p>",
       text: "Welcome! Thanks for signing up.",
@@ -47,10 +47,10 @@ Multiple recipients (max 50 combined to + cc + bcc):
 ```typescript
 const response = await env.EMAIL.send({
   to: ["user1@example.com", "user2@example.com"],
-  cc: ["manager@company.com"],
-  bcc: ["archive@company.com"],
-  from: { email: "orders@yourdomain.com", name: "Orders" },
-  replyTo: "support@yourdomain.com",
+  cc: ["manager@example.com"],
+  bcc: ["archive@example.com"],
+  from: { email: "orders@example.com", name: "Orders" },
+  replyTo: "support@example.com",
   subject: "Order Confirmation #12345",
   html: "<h1>Your order is confirmed</h1>",
   text: "Your order is confirmed",
@@ -67,7 +67,7 @@ const response = await env.EMAIL.send({
 // Text file attachment — pass raw string content
 const response = await env.EMAIL.send({
   to: "customer@example.com",
-  from: "invoices@yourdomain.com",
+  from: "invoices@example.com",
   subject: "Your Report",
   html: "<h1>Report attached</h1>",
   text: "Report attached.",
@@ -83,7 +83,7 @@ const response = await env.EMAIL.send({
 const pdfBytes = await fetchPdfFromSomewhere(); // Returns ArrayBuffer
 const response = await env.EMAIL.send({
   to: "customer@example.com",
-  from: "invoices@yourdomain.com",
+  from: "invoices@example.com",
   subject: "Your Invoice",
   html: "<h1>Invoice attached</h1>",
   text: "Invoice attached.",
@@ -99,7 +99,7 @@ const response = await env.EMAIL.send({
 const imageBytes = await fetchImageFromSomewhere(); // Returns ArrayBuffer
 const response = await env.EMAIL.send({
   to: "user@example.com",
-  from: "marketing@yourdomain.com",
+  from: "marketing@example.com",
   subject: "New Product",
   html: '<img src="cid:product-hero" alt="Product" />',
   attachments: [{
@@ -121,11 +121,11 @@ Only whitelisted headers allowed. See the [headers reference](https://developers
 ```typescript
 const response = await env.EMAIL.send({
   to: "user@example.com",
-  from: "notifications@yourdomain.com",
+  from: "notifications@example.com",
   subject: "Your weekly digest",
   html: "<h1>Weekly Digest</h1>",
   headers: {
-    "In-Reply-To": "<original-message-id@yourdomain.com>",
+    "In-Reply-To": "<original-message-id@example.com>",
     "List-Unsubscribe": "<https://yourdomain.com/unsubscribe?id=abc123>",
     "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
     "X-Campaign-ID": "weekly-digest-2026-03",
@@ -142,12 +142,12 @@ import { EmailMessage } from "cloudflare:email";
 import { createMimeMessage } from "mimetext";
 
 const msg = createMimeMessage();
-msg.setSender({ name: "Sender", addr: "sender@yourdomain.com" });
+msg.setSender({ name: "Sender", addr: "sender@example.com" });
 msg.setRecipient("recipient@example.com");
 msg.setSubject("Hello");
 msg.addMessage({ contentType: "text/html", data: "<h1>Hello</h1>" });
 
-await env.EMAIL.send(new EmailMessage("sender@yourdomain.com", "recipient@example.com", msg.asRaw()));
+await env.EMAIL.send(new EmailMessage("sender@example.com", "recipient@example.com", msg.asRaw()));
 ```
 
 Requires `npm install mimetext` and `"nodejs_compat"` in compatibility flags.
@@ -163,7 +163,7 @@ Agents can receive and reply to emails natively via the Agents SDK.
     "bindings": [{ "name": "EmailAgent", "class_name": "EmailAgent" }]
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["EmailAgent"] }],
-  "send_email": [{ "name": "EMAIL", "destination_address": "reply@yourdomain.com" }]
+  "send_email": [{ "name": "EMAIL", "destination_address": "reply@example.com" }]
 }
 ```
 
@@ -246,7 +246,7 @@ Restrict which `from` addresses a binding can use:
 {
   "send_email": [{
     "name": "RESTRICTED_EMAIL",
-    "allowed_sender_addresses": ["noreply@yourdomain.com", "support@yourdomain.com"]
+    "allowed_sender_addresses": ["noreply@example.com", "support@example.com"]
   }]
 }
 ```

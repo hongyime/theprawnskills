@@ -49,7 +49,7 @@ curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/email/sending/s
   --header "Content-Type: application/json" \
   --data '{
     "to": "user@example.com",
-    "from": "welcome@yourdomain.com",
+    "from": "welcome@example.com",
     "subject": "Welcome!",
     "html": "<h1>Welcome!</h1><p>Thanks for signing up.</p>",
     "text": "Welcome! Thanks for signing up."
@@ -64,10 +64,10 @@ curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/email/sending/s
   --header "Content-Type: application/json" \
   --data '{
     "to": ["user1@example.com", "user2@example.com"],
-    "cc": ["manager@company.com"],
-    "bcc": ["archive@company.com"],
-    "from": { "address": "orders@yourdomain.com", "name": "Orders" },
-    "reply_to": "support@yourdomain.com",
+    "cc": ["manager@example.com"],
+    "bcc": ["archive@example.com"],
+    "from": { "address": "orders@example.com", "name": "Orders" },
+    "reply_to": "support@example.com",
     "subject": "Order Confirmation",
     "html": "<h1>Your order is confirmed</h1>",
     "text": "Your order is confirmed"
@@ -82,7 +82,7 @@ curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/email/sending/s
   --header "Content-Type: application/json" \
   --data '{
     "to": "customer@example.com",
-    "from": "invoices@yourdomain.com",
+    "from": "invoices@example.com",
     "subject": "Your Invoice",
     "html": "<h1>Invoice attached</h1>",
     "attachments": [
@@ -104,7 +104,7 @@ curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/email/sending/s
   --header "Content-Type: application/json" \
   --data '{
     "to": "user@example.com",
-    "from": "newsletter@yourdomain.com",
+    "from": "newsletter@example.com",
     "subject": "Check this out",
     "html": "<h1>Hello!</h1><img src=\"cid:logo\">",
     "attachments": [
@@ -131,7 +131,7 @@ curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/email/sending/s
   --header "Content-Type: application/json" \
   --data '{
     "to": "user@example.com",
-    "from": "notifications@yourdomain.com",
+    "from": "notifications@example.com",
     "subject": "Your weekly digest",
     "html": "<h1>Weekly Digest</h1>",
     "headers": {

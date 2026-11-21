@@ -222,6 +222,6 @@ export CLOUDFLARE_API_TOKEN="your_token_here"
 
 ### API Key (Legacy)
 ```bash
-export CLOUDFLARE_EMAIL="your@email.com"
+export CLOUDFLARE_EMAIL="your@example.com"
 export CLOUDFLARE_API_KEY="your_global_api_key"
 ``` 

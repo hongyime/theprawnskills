@@ -5,7 +5,7 @@ metadata:
   author: vercel
   version: "1.0.0"
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
-  argument-hint: <file-or-pattern>
+  argument-hint: file-or-pattern
 ---
 
 # Web Interface Guidelines

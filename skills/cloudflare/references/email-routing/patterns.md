@@ -4,12 +4,12 @@
 
 ```typescript
 // Allowlist
-const allowed = ["user@example.com", "trusted@corp.com"];
+const allowed = ["user@example.com", "trusted@example.com"];
 if (!allowed.includes(message.from)) {
   message.setReject("Not allowed");
   return;
 }
-await message.forward("inbox@corp.com");
+await message.forward("inbox@example.com");
 ```
 
 ## 2. Parse Email Body
@@ -33,7 +33,7 @@ export default {
       attachments: email.attachments.length
     });
     
-    await message.forward("inbox@corp.com");
+    await message.forward("inbox@example.com");
   }
 } satisfies ExportedHandler;
 ```
@@ -46,7 +46,7 @@ if (score > 5) {
   message.setReject("Spam detected");
   return;
 }
-await message.forward("inbox@corp.com");
+await message.forward("inbox@example.com");
 ```
 
 ## 4. Archive to R2
@@ -63,7 +63,7 @@ export default {
       httpMetadata: { contentType: "message/rfc822" }
     });
     
-    await message.forward("inbox@corp.com");
+    await message.forward("inbox@example.com");
   }
 } satisfies ExportedHandler<Env>;
 ```
@@ -89,7 +89,7 @@ export default {
     };
     
     await env.KV.put(`email:${Date.now()}`, JSON.stringify(metadata));
-    await message.forward("inbox@corp.com");
+    await message.forward("inbox@example.com");
   }
 } satisfies ExportedHandler<Env>;
 ```
@@ -102,13 +102,13 @@ export default {
     const subject = message.headers.get("subject")?.toLowerCase() || "";
     
     if (subject.includes("[urgent]")) {
-      await message.forward("oncall@corp.com");
+      await message.forward("oncall@example.com");
     } else if (subject.includes("[billing]")) {
-      await message.forward("billing@corp.com");
+      await message.forward("billing@example.com");
     } else if (subject.includes("[support]")) {
-      await message.forward("support@corp.com");
+      await message.forward("support@example.com");
     } else {
-      await message.forward("general@corp.com");
+      await message.forward("general@example.com");
     }
   }
 } satisfies ExportedHandler;
@@ -127,13 +127,13 @@ export default {
     const msgId = message.headers.get("message-id");
     
     if (msgId && await env.REPLIED.get(msgId)) {
-      await message.forward("archive@corp.com");
+      await message.forward("archive@example.com");
       return;
     }
     
     ctx.waitUntil((async () => {
       await env.EMAIL.send({
-        from: "noreply@yourdomain.com",
+        from: "noreply@example.com",
         to: message.from,
         subject: "Re: " + (message.headers.get("subject") || ""),
         text: "Thank you. We'll respond within 24h."
@@ -141,7 +141,7 @@ export default {
       if (msgId) await env.REPLIED.put(msgId, "1", { expirationTtl: 604800 });
     })());
     
-    await message.forward("support@corp.com");
+    await message.forward("support@example.com");
   }
 } satisfies ExportedHandler<Env>;
 ```
@@ -165,7 +165,7 @@ export default {
       });
     }
     
-    await message.forward("inbox@corp.com");
+    await message.forward("inbox@example.com");
   }
 } satisfies ExportedHandler<Env>;
 ```
@@ -188,7 +188,7 @@ export default {
         .run()
     );
     
-    await message.forward("inbox@corp.com");
+    await message.forward("inbox@example.com");
   }
 } satisfies ExportedHandler<Env>;
 ```

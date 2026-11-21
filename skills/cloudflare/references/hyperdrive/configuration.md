@@ -8,7 +8,7 @@ See [README.md](./README.md) for overview.
 ```bash
 # Basic
 npx wrangler hyperdrive create my-db \
-  --connection-string="postgres://user:pass@host:5432/db"
+  --connection-string="$DATABASE_URL"
 
 # Custom cache
 npx wrangler hyperdrive create my-db \
@@ -24,7 +24,7 @@ npx wrangler hyperdrive create my-db \
 **MySQL:**
 ```bash
 npx wrangler hyperdrive create my-db \
-  --connection-string="mysql://user:pass@host:3306/db"
+  --connection-string="$DATABASE_URL"
 ```
 
 ## wrangler.jsonc
@@ -37,7 +37,7 @@ npx wrangler hyperdrive create my-db \
     {
       "binding": "HYPERDRIVE",
       "id": "<HYPERDRIVE_ID>",
-      "localConnectionString": "postgres://user:pass@localhost:5432/dev"
+      "localConnectionString": "$DATABASE_URL"
     }
   ]
 }
@@ -135,7 +135,7 @@ npx wrangler hyperdrive create my-private-db \
 **Option 1: Local (RECOMMENDED):**
 ```bash
 # Env var (takes precedence)
-export CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="postgres://user:pass@localhost:5432/dev"
+export CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="$DATABASE_URL"
 npx wrangler dev
 
 # wrangler.jsonc
@@ -145,10 +145,10 @@ npx wrangler dev
 **Remote DB locally:**
 ```bash
 # PostgreSQL
-export CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="postgres://user:pass@remote:5432/db?sslmode=require"
+export CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="$DATABASE_URL"
 
 # MySQL
-export CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="mysql://user:pass@remote:3306/db?sslMode=REQUIRED"
+export CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="$DATABASE_URL"
 ```
 
 **Option 2: Remote execution:**

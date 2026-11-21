@@ -520,7 +520,7 @@ response = client.messages.parse(
     max_tokens=16000,
     messages=[{
         "role": "user",
-        "content": "Extract: Jane Doe (jane@co.com) wants Enterprise, interested in API and SDKs, wants a demo."
+        "content": "Extract: Jane Doe (jane@example.com) wants Enterprise, interested in API and SDKs, wants a demo."
     }],
     output_format=ContactInfo,
 )

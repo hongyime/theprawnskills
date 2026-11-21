@@ -249,7 +249,7 @@ Some proxies perform SSL inspection. If you see certificate errors:
 '{"proxy_url": "'"$PROXY_URL"'", "proxy_username": "'"$PROXY_USER"'"}'
 
 # Bad: Hardcoded
-'{"proxy_url": "http://user:pass@proxy.com:8080"}'
+'{"proxy_url": "http://user:pass@proxy.example.com:8080"}'
 ```
 
 ### 2. Test Proxy Before Automation

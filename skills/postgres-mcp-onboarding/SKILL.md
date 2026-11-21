@@ -13,8 +13,7 @@ metadata:
 Get Postgres MCP connected with minimal errors.
 
 ## Required Input
-A valid Postgres URL:
-`postgresql://user:password@host:5432/database`
+A valid Postgres URL, supplied via the `POSTGRES_MCP_URL` env var (never paste the URL into a command or file).
 
 ## Steps
 1. Set env var (preferred): `POSTGRES_MCP_URL`.

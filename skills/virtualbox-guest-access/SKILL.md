@@ -88,8 +88,8 @@ Generate a genuinely passphrase-less key from Windows. PowerShell mangles
 `BatchMode=yes`:
 
 ```powershell
-cmd /c 'ssh-keygen -t ed25519 -f "C:\Users\<user>\.ssh\id_ed25519_<guest>" -N "" -C "<host>-to-<guest>"'
-ssh-keygen -y -f "C:\Users\<user>\.ssh\id_ed25519_<guest>" -P ""
+cmd /c 'ssh-keygen -t ed25519 -f "%USERPROFILE%\.ssh\id_ed25519_<guest>" -N "" -C "<host>-to-<guest>"'
+ssh-keygen -y -f "%USERPROFILE%\.ssh\id_ed25519_<guest>" -P ""
 ```
 
 The second command must print the public key. If it reports an incorrect

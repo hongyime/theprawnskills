@@ -15,7 +15,7 @@ Agents receive and reply to emails via Cloudflare Email Routing.
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["EmailAgent"] }],
   "send_email": [
-    { "name": "SEB", "destination_address": "reply@yourdomain.com" }
+    { "name": "SEB", "destination_address": "reply@example.com" }
   ]
 }
 ```

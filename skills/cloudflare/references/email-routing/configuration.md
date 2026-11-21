@@ -53,7 +53,7 @@ npx wrangler dev
 curl -X POST 'http://localhost:8787/__email' \
   --header 'content-type: message/rfc822' \
   --data 'From: test@example.com
-To: you@yourdomain.com
+To: you@example.com
 Subject: Test
 
 Body'
@@ -147,7 +147,7 @@ export default {
     const parser = new PostalMime();
     const email = await parser.parse(await message.raw.arrayBuffer());
     console.log(email.subject);
-    await message.forward("inbox@corp.com");
+    await message.forward("inbox@example.com");
   }
 } satisfies ExportedHandler;
 ```
