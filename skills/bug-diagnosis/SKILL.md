@@ -75,13 +75,13 @@ On Windows/PowerShell, capture evidence as text so it can be quoted in the
 diagnosis:
 
 ```powershell
-command 2>&1 | Out-String | Set-Content "$env:TEMP\evidence-01.txt"
+your-command 2>&1 | Out-String | Set-Content "$env:TEMP\evidence-01.txt"
 ```
 
 On Debian/Linux (bash):
 
 ```bash
-command > /tmp/evidence-01.txt 2>&1
+your-command > /tmp/evidence-01.txt 2>&1
 ```
 
 ### 3. Form And Test Hypotheses
