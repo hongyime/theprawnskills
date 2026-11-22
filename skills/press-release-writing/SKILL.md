@@ -284,6 +284,8 @@ Over 800 words and editors won't read it. Under 400 and it lacks substance.
 - [ ] 500-800 words total
 - [ ] Read aloud for flow
 
+Also publish this press-release draft as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Related Skills
 
 ```bash

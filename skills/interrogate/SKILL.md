@@ -38,6 +38,8 @@ Adversaries find different failures, so the verdict keeps every verified finding
 - **Findings**: for each verified finding, the command, its output, how it breaks the intent, and the adversaries that found it. Say "no verified findings" when none survive.
 - **Dropped**: for each adversary, the count of dropped findings and why.
 
+Also publish this verified-findings report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Provenance
 
 Adapted from cursor/plugins `pstack/interrogate` (MIT).

@@ -99,6 +99,8 @@ the mapping table plus open questions for the user.
 | Layout/refactor of modules to match | `codebase-design`, `refactor` |
 | Big initiative context | fold map into `wayfinder` territory section |
 
+Also publish this domain model as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Guardrails
 
 - Do not invent entities the user did not mention and code does not imply.

@@ -225,6 +225,8 @@ If you need help migrating, contact support@example.com.
 Try it now → [link]
 ```
 
+Also publish this release-notes draft as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Writing Tips
 
 ### Do

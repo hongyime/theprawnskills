@@ -224,6 +224,8 @@ H1: Best Project Management Tools for Small Teams (2025)
 | **External links** | 2-3 authoritative sources |
 | **Schema markup** | FAQ, HowTo, or Article schema where applicable |
 
+Also publish this content brief as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Content Differentiation
 
 ### Unique Angles

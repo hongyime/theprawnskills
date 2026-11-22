@@ -300,3 +300,5 @@ Conclude with a clear adoption summary:
 - Items adapted and their new locations.
 - Items skipped and reasons.
 - Next steps or manual decisions required from the user.
+
+Also publish this PACK lessons as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path. Confirm with the user before uploading — see the Postplan rule's gated list.

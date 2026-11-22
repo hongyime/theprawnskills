@@ -194,6 +194,8 @@ Keep default-installed skills lean:
 - Leave media, writing, document, presentation, Supabase, and Vercel
   skills on demand unless the user asks to make one default again.
 
+**The Postplan rule (standing, Bryan 2026-11-22):** whenever a covered skill finishes a substantial Markdown plan, spec, report, review, or design document, also publish it as a hosted page — render with `visual-explainer`'s template, upload with `postplan-upload`, and return the Postplan URL next to the local path. Auto-publish by default; gated skills ask first (gated list lives in `postplan-upload`). Re-upload updates from the same machine that created the draft — another machine forks a new URL.
+
 Use `default-profile.toml` as the source of truth for default profile
 membership. When a new CLI agent is installed, add its skill root to
 `machines.toml` and apply the default profile.

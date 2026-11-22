@@ -209,6 +209,8 @@ After implementing [Product]: 45 minutes per batch. 1.5% errors.
 Read the full story → [link]"
 ```
 
+Also publish this case study as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Writing Checklist
 
 - [ ] Headline leads with the quantified result

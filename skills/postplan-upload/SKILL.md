@@ -15,12 +15,20 @@ metadata:
 
 # PostPlan Upload
 
+Matches postplan 0.0.6 (verified on E14, 2026-11-22).
+
 Use PostPlan to turn substantial plans, architecture notes, review summaries,
 and implementation blueprints into a shareable draft URL that can be opened from
 any terminal or machine.
 
 PostPlan is the publishing workflow. `visual-explainer` owns the shared design,
 diagram choices, and reusable template; this skill publishes the finished HTML.
+
+## The Postplan rule (standing, Bryan 2026-11-22)
+
+Whenever a covered skill finishes a substantial Markdown plan, spec, report, review, or design document, also publish it as a hosted page — render the HTML with `visual-explainer`'s template and upload it with `postplan-upload`, then return the Postplan URL alongside the local file path. Do this by default, without asking. **Never** upload content from the gated list (secrets, credentials, raw logs with sensitive values, unmasked fleet/infra identifiers, internal-only material) — for gated skills, show the draft and ask first. If the upload fails or Postplan is down, leave the local HTML in place and report the local path. Uploads are public by default; always pass `--description "<skill name> — <short title>"` so the dashboard stays usable. The draft-to-URL mapping lives per machine (`~/.postplan`): re-uploading the same file from a different machine creates a NEW draft URL instead of versioning — re-upload updates from the machine that created the draft.
+
+Gated skills (confirm before uploading): `internal-comms`, `cloudflare-one`, `why`, `session-handoff`, `project-transfer`, `repo-standardization`, `fleet-skill-audit`, `homelab-pihole-dns`.
 
 ## When To Use
 
@@ -87,7 +95,7 @@ also valid upload inputs when hosted delivery is requested or already authorized
 4. Upload with PostPlan:
 
    ```powershell
-   npx postplan upload ./plan.html --description "<short useful description>"
+   npx postplan@0.0.6 upload ./plan.html --description "<short useful description>"
    ```
 
 5. Present the resulting public draft URL directly to the user.
@@ -142,7 +150,7 @@ Do not use external scripts, forms, or iframes.
 
 Do not upload secrets, private credentials, environment files, tokens, or raw logs containing sensitive values. If the source material may contain secrets, summarize safely and omit the sensitive values.
 
-If `npx postplan upload` fails because PostPlan is unavailable, report the failure and leave the generated `plan.html` in place.
+If `npx postplan@0.0.6 upload` fails because PostPlan is unavailable, report the failure and leave the generated `plan.html` in place.
 
 ## Output
 

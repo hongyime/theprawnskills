@@ -124,6 +124,8 @@ Date | Tier: T1/T2/T3 | Verdict: PASS | FAIL | PARTIAL
 
 Every FAIL gets a fix row in the same report (what would resolve it).
 
+Also publish this compliance report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path. Confirm with the user before uploading — see the Postplan rule's gated list.
+
 ## New-Repo Scaffolding
 
 When creating a repo, apply in order: init + .gitignore -> README with identity

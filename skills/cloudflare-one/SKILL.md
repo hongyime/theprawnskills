@@ -164,6 +164,8 @@ Use these to avoid jumping straight to configuration. Ask only the prompts relev
 - Configuration work: prerequisites, exact resources to inspect/create/change, test cases, and rollback.
 - Troubleshooting: traffic path, likely failure point, evidence to collect, and next test.
 
+Also publish this design doc as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path. Confirm with the user before uploading — see the Postplan rule's gated list.
+
 ## Validation Prompts
 
 - Access: test authorized, unauthorized, posture-failing, service-token, and multi-IdP flows when applicable; inspect logs and policy precedence.

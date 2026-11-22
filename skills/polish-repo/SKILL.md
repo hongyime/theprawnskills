@@ -270,3 +270,5 @@ the next feature ([Name]), or wrap up here?" If the user picks the next
 feature, return to Phase 2 with it. The next feature continues on the
 same branch — Phase 7 checkpoints stay in its history; start a fresh
 branch only if the user asks. If they wrap up, stop.
+
+Also publish this polish report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.

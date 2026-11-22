@@ -93,6 +93,8 @@ and migration path. Then:
 | Concept confusion found underneath | `domain-modeling` first |
 | Verifying behavior preserved | `requesting-code-review` after each step |
 
+Also publish this design document as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Guardrails
 
 - Never propose a structure requiring simultaneous big-bang cutover unless user

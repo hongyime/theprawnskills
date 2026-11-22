@@ -1,3 +1,12 @@
+# Postplan rollout (hybrid, waves 1–3) — 2026-11-22 (Bryan: "yes full send wave 1 2 and 3 now do it for all fleet", "yes hybrid")
+
+- 42 skills wired to `postplan-upload` (41 routing-line edits + standing rule in `postplan-upload`, mirrored in `skill-router`); 6 already wired; coverage 48/220 (~22%). `shell` inherits via alias, no edit. skill-creator checklist gains the routing-line rule for new skills.
+- Standing rule (Bryan 2026-11-22): covered skills auto-publish their substantial .md deliverable as a hosted page by default (visual-explainer template + postplan-upload, URL next to local path). Gated 8 confirm first: internal-comms, cloudflare-one, why, session-handoff, project-transfer, repo-standardization, fleet-skill-audit, homelab-pihole-dns.
+- Pinned `npx postplan@0.0.6 upload` in postplan-upload + version line "Matches postplan 0.0.6 (verified on E14, 2026-11-22)". npm registry latest is 0.0.6.
+- Pre-flight (verified 2026-11-22, NOT assumed): postplan auth valid on L390/3410/T14/E14 (150 drafts, live uploads 1h ago); E14 has global postplan@0.0.6, others via npx. VM had neither — CLI installed to /home/hatch/.local/bin (npm through proxy works); VM LOGIN still needs Bryan (`postplan auth login` pastes an API key from the browser — credentials.json was NOT copied between machines). CSP: visual-explainer template degrades gracefully on Postplan (inline toggle script dead under script-src 'none', both diagram views render, controls stay hidden). URL stability: FORKED — same file re-uploaded from 3410 got a new draft ID (ccjj2avf3cah vs L390 k3uwz9yh3pjl); mapping is per-machine, rule says re-upload from the creating machine. Test drafts k3uwz9yh3pjl + ccjj2avf3cah are safe to delete (no CLI delete command; dashboard only).
+- House validation green: quick_validate 44/44, text safety 0, resources Missing 0, platforms OK, INDEX --check agrees, full suite OK (skipped=9).
+- Still to do after commit: fleet pull (5 primaries) + profiled-skill copies to T14/E14 .codex\skills; add postplan to setup-path docs (README + agent-machine-bootstrap) so future machine setups get it.
+
 # NVIDIA SkillEvaluator — 2026-11-21 (steps 1–8 DONE; SkillSpector close-out in progress)
 
 - Bryan (2026-11-21): "i want you to use this https://github.com/NVIDIA/SkillEvaluator and evaluate all our theprawnskills repo" + "can you help to full send the 8 tasks in plan and babysit until all complete now?" Muse does the work directly (this chat's no-delegation rule).

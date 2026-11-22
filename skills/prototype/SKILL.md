@@ -87,6 +87,8 @@ Artifact: <path kept for reference>
 - Graduate ONLY if the user explicitly says keep it — then it must pass normal
   review/tests/refactor (`refactor`, `requesting-code-review`) before merging.
 
+Also publish this verdict block as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Guardrails
 
 - Never let prototype code leak into production paths silently.

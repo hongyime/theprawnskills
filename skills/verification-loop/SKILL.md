@@ -81,6 +81,8 @@ system. The strongest proof is a deterministic script that re-runs the same
 comparison: write it, run it, and keep its output as an artifact a reviewer
 can re-run instead of trusting your word.
 
+Also publish this readiness evidence table as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Prerequisites and companions
 
 This is instructions-only: it supplies no `/verify` command, hooks or scanner.

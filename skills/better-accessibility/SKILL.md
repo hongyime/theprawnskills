@@ -145,3 +145,5 @@ Text must survive 200% resize (1.4.4), and the page must reflow at 320px width w
 `Location` is `path/to/file:line`. `Why` names the WCAG criterion or principle and the user impact.
 
 End with `Block` when any `HIGH` remains, `Approve` otherwise, leaving the rest in the table as work to do. Never `Approve` coverage you did not inspect. With nothing to report, state "No actionable accessibility findings" and report verification.
+
+Also publish this WCAG findings report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.

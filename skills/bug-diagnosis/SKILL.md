@@ -136,6 +136,8 @@ Should this become an invariant/test? If yes -> hand to `backprop` / spec §I.
 | Ambiguity about intended behavior | ask user before coding |
 | Fix is large/multi-part | `to-spec` or `to-tickets` |
 
+Also publish this diagnosis report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Guardrails
 
 - Do not write fix code while diagnosing. Diagnostic instrumentation only.

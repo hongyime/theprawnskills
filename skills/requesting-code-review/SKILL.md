@@ -62,6 +62,8 @@ memory of writing it.
 - Note Minor issues for later
 - Push back if reviewer is wrong (with reasoning)
 
+Also publish this review feedback as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Example
 
 ```

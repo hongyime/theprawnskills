@@ -109,6 +109,8 @@ one line on what you checked.
 
 One-shot report, changes no code.
 
+Also publish this audit report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Provenance
 
 Adapted from DietrichGebert/ponytail `ponytail-audit` (MIT).

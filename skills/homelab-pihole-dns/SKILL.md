@@ -70,6 +70,8 @@ post-change results and unresolved checks. A planned rollout, local success or
 OneDrive delivery is not an observed result on another machine. Do not claim
 all clients pass without testing them; honor the user's requested rollout scope.
 
+Also publish this diagnostic report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path. Confirm with the user before uploading — see the Postplan rule's gated list.
+
 ## Prerequisites and provenance
 
 Requires access to the relevant client's DNS tools and authorized host/container

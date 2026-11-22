@@ -34,5 +34,7 @@ To write any internal communication:
 
 If the communication type doesn't match any existing guideline, ask for clarification or more context about the desired format.
 
+Also publish this status, incident, or leadership report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path. Confirm with the user before uploading — see the Postplan rule's gated list.
+
 ## Keywords
 3P updates, company newsletter, company comms, weekly update, faqs, common questions, updates, internal comms

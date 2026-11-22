@@ -108,6 +108,8 @@ on what you checked.
 
 Lists findings, changes no code.
 
+Also publish this change review report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Provenance
 
 Adapted from DietrichGebert/ponytail `ponytail-review` (MIT).

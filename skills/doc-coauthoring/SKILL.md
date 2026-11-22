@@ -351,6 +351,8 @@ Announce document completion. Provide a few final tips:
 - Use appendices to provide depth without bloating the main doc
 - Update the doc as feedback is received from real readers
 
+Also publish this proposal, spec, or decision document as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Tips for Effective Guidance
 
 **Tone:**

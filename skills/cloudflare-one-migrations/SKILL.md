@@ -112,3 +112,5 @@ Pilot plan:
 Validation:
 Rollback:
 ```
+
+Also publish this migration assessment and mapping plan as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.

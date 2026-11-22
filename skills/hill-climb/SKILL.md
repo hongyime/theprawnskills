@@ -258,6 +258,8 @@ attempt.
    and the branch / checkpoint. Do not merge or deploy. That is a
    separate authorization.
 
+Also publish this rounds and scores report as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Escaping a Local Peak
 
 Hill climbing gets stuck. When the score is flat for 2 rounds, the

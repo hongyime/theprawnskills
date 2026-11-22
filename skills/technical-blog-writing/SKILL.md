@@ -276,6 +276,8 @@ belt app run x/post-create --input '{
 }'
 ```
 
+Also publish this blog draft as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path.
+
 ## Common Mistakes
 
 | Mistake | Problem | Fix |

@@ -167,6 +167,7 @@ Applies to every new skill and to any skill being improved. It is craft, not a t
 - **Description matches its INDEX.md row.** Two wordings of one skill is one skill described twice.
 - **One statement of each rule.** Before adding a sentence, check whether the file already says it somewhere else.
 - **A pruning pass, not a word ceiling.** Read each sentence and ask what it changes. A sentence that cannot be restated as an instruction, a fact, or a number is cut.
+- **Postplan routing line when the skill produces a document.** If the new skill's deliverable is a substantial Markdown plan, spec, report, review, or design document, add the routing line from `postplan-upload` ("Also publish this … as a hosted page…") to its Output/Handoff section — gated skills add the confirm-first suffix.
 
 **Where this library deliberately differs from jakubkrehel:**
 - **Descriptions keep trigger phrases.** Our frontmatter contract requires WHAT + WHEN with trigger phrases front-loaded. Their "no trigger list, one or two plain sentences" rule is NOT adopted — it contradicts that contract.

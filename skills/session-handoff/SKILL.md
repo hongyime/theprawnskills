@@ -251,6 +251,8 @@ Naming convention: `YYYY-MM-DD-HHMMSS-[slug].md`
 
 Example: `2024-01-15-143022-implementing-auth.md`
 
+Also publish this handoff document as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path. Confirm with the user before uploading — see the Postplan rule's gated list.
+
 ## Resources
 
 ### scripts/
