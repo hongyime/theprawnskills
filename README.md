@@ -87,6 +87,23 @@ If `py` is unavailable but `python --version` reports Python 3.11+, replace
 Do not run `Install-DefaultSkillProfile.ps1` for this standalone setup: that
 script is for the existing OneDrive-connected Windows machines.
 
+### Postplan (hosted publishing)
+
+Skills that publish hosted pages (`postplan-upload` and the 42 wired skills)
+need the Postplan CLI plus a login on each machine. `npx` downloads the CLI on
+first use, but install it so the command is on PATH and the version stays pinned:
+
+```bash
+npm install -g postplan@0.0.6
+npx postplan@0.0.6 auth login
+```
+
+The login pastes an API key from the Postplan dashboard in your browser. Keep
+the login local to that machine; do not copy `~/.postplan/credentials.json`
+from another machine. Re-uploading a draft from a different machine creates a
+new draft URL instead of versioning — update a draft from the machine that
+created it.
+
 ### What installation changes
 
 The default mode uses symlinks on macOS/Linux and ordinary copies on Windows.

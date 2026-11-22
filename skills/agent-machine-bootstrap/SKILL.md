@@ -157,6 +157,14 @@ The **order** is fixed; **membership is not**. Which items appear in layers 3,
 runtime may be a hard requirement on every machine and still belongs last in
 sequence, because it does not gate whether the agent environment works.
 
+Postplan (hosted publishing): after layer 7, install the Postplan CLI
+(`npm install -g postplan@0.0.6`) and log in (`npx postplan@0.0.6 auth login`,
+paste the API key from the browser). The library's `postplan-upload` skill and
+the 42 wired skills need it on every machine that publishes. Keep the login
+local to the machine — never copy `~/.postplan/credentials.json` from another
+host. Re-uploading a draft from a different machine creates a new draft URL
+instead of versioning.
+
 Layers 0 to 8 are structurally required for a remotely driven machine. A purely
 local machine can stop at 7. See
 [baseline inventory](references/baseline-inventory.md) for the operator's own

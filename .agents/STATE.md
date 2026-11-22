@@ -5,7 +5,8 @@
 - Pinned `npx postplan@0.0.6 upload` in postplan-upload + version line "Matches postplan 0.0.6 (verified on E14, 2026-11-22)". npm registry latest is 0.0.6.
 - Pre-flight (verified 2026-11-22, NOT assumed): postplan auth valid on L390/3410/T14/E14 (150 drafts, live uploads 1h ago); E14 has global postplan@0.0.6, others via npx. VM had neither — CLI installed to /home/hatch/.local/bin (npm through proxy works); VM LOGIN still needs Bryan (`postplan auth login` pastes an API key from the browser — credentials.json was NOT copied between machines). CSP: visual-explainer template degrades gracefully on Postplan (inline toggle script dead under script-src 'none', both diagram views render, controls stay hidden). URL stability: FORKED — same file re-uploaded from 3410 got a new draft ID (ccjj2avf3cah vs L390 k3uwz9yh3pjl); mapping is per-machine, rule says re-upload from the creating machine. Test drafts k3uwz9yh3pjl + ccjj2avf3cah are safe to delete (no CLI delete command; dashboard only).
 - House validation green: quick_validate 44/44, text safety 0, resources Missing 0, platforms OK, INDEX --check agrees, full suite OK (skipped=9).
-- Still to do after commit: fleet pull (5 primaries) + profiled-skill copies to T14/E14 .codex\skills; add postplan to setup-path docs (README + agent-machine-bootstrap) so future machine setups get it.
+- Setup-path docs DONE in the same round (second commit): README "### Postplan (hosted publishing)" + agent-machine-bootstrap layer note after layer 7 (install pinned CLI + login, never copy credentials.json, per-machine URL fork).
+- Still to do after commit: fleet pull (5 primaries) + profiled-skill copies to T14/E14 .codex\skills.
 
 # NVIDIA SkillEvaluator — 2026-11-21 (steps 1–8 DONE; SkillSpector close-out in progress)
 
