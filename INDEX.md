@@ -8,8 +8,8 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 220 |
-| All definitions, including nested skills and portable variants | 227 |
+| Top-level skills | 258 |
+| All definitions, including nested skills and portable variants | 265 |
 | Portable variants | 7 |
 | Daily profile | 68 |
 
@@ -31,7 +31,9 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `ai-rag-pipeline` | Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: ... | ON-DEMAND |
 | `algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithm... | ON-DEMAND |
 | `api-contracts` | Design and verify API contracts shared by consumers and providers. Use for request/response drift, contract-first implementation, compatibility reviews, schema evolution, genera... | ON-DEMAND |
+| `api-security-testing` | Security-test a REST, GraphQL, or gRPC API with Strix — autonomous agents that enumerate endpoints from an OpenAPI/GraphQL schema (or by crawling), then actually exploit the API... | ON-DEMAND |
 | `app-store-screenshots` | App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dimensions, gallery ordering, device mockups, and preview videos. Use for: app store ... | ON-DEMAND |
+| `application-security-testing` | Application security testing (AppSec) across a whole product with Strix — decide which asset needs which test (source code, running web app, API, CI pipeline), run it, and turn ... | ON-DEMAND |
 | `architecture-decision-records` | Record or explain significant architectural decisions with context, alternatives, consequences and proposed/accepted/superseded status. Use for ADRs, record this decision, why d... | ON-DEMAND |
 | `babysit-pr` | Monitor a pull request through review and CI. Use when the user asks to monitor, watch, or babysit a PR. | ON-DEMAND |
 | `background-removal` | Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparen... | ON-DEMAND |
@@ -57,6 +59,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `character-design-sheet` | Character consistency across AI-generated images with reference sheets and LoRA techniques. Covers turnaround views, expression sheets, color palettes, and style consistency tri... | ON-DEMAND |
 | `chat-ui` | Chat UI building blocks for React/Next.js from ui.inference.sh. Components: container, messages, input, typing indicators, avatars. Capabilities: chat interfaces, message lists,... | ON-DEMAND |
 | `check` | Read-only drift detector. Diffs SPEC.md against current code and reports violations grouped by severity. Writes nothing — suggests remedies via the spec or build skills but neve... | DAILY |
+| `ci-security-scanning-with-strix` | Add security scanning to CI/CD with Strix — GitHub Actions, GitLab CI, or any pipeline — so every pull request gets a diff-scoped AI pentest that blocks vulnerable code before i... | ON-DEMAND |
 | `claude-api` | Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER — read BEFORE open... | ON-DEMAND |
 | `claude-code-cli` | Delegate tasks to Claude Code CLI in a hidden background process. Use when the user asks to use Claude Code, or when a task needs multi-file reasoning, complex refactoring, or C... | DAILY |
 | `cli-agent-router` | Choose and launch an available CLI agent for authorized delegation, independent review or isolated implementation. Use for agent selection, host adapters, bounded parallel work,... | DAILY |
@@ -73,6 +76,17 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `content-repurposing` | Content atomization — turn one piece of content into many formats. Covers blog-to-thread, blog-to-carousel, podcast-to-blog, video-to-quotes, and more. Use for: content marketin... | ON-DEMAND |
 | `correct` | Find the mistakes agents keep repeating in this repo and make each one impossible. Try architecture first, then types, then a lint whose error names the fix, then a test, and wr... | ON-DEMAND |
 | `cross-harness-state` | Maintain MOLT-style persistent agent state in a repo's .agents/ folder so any harness (Codex, Claude Code, Cursor, OpenCode) can resume work with zero ambiguity. Use when starti... | DAILY |
+| `ctf-ai-ml` | Provides AI and machine learning techniques for CTF challenges. Use when attacking ML models, crafting adversarial examples, performing model extraction, prompt injection, membe... | ON-DEMAND |
+| `ctf-crypto` | Provides cryptography attack techniques for CTF challenges. Use when attacking encryption, hashing, signatures, ZKP, PRNG, or mathematical crypto problems involving RSA, AES, EC... | ON-DEMAND |
+| `ctf-forensics` | Provides digital forensics and signal analysis techniques for CTF challenges. Use when analyzing disk images, memory dumps, event logs, network captures, cryptocurrency transact... | ON-DEMAND |
+| `ctf-malware` | Provides malware analysis and network traffic techniques for CTF challenges. Use when analyzing obfuscated scripts, malicious packages, custom crypto protocols, C2 traffic, PE/.... | ON-DEMAND |
+| `ctf-misc` | Provides miscellaneous CTF challenge techniques for problems that do not cleanly fit the main categories. Use for encoding puzzles, pyjails, bash jails, RF/SDR, DNS oddities, un... | ON-DEMAND |
+| `ctf-osint` | Provides open source intelligence techniques for CTF challenges. Use when gathering information from public sources, social media, geolocation, DNS records, username enumeration... | ON-DEMAND |
+| `ctf-pwn` | Provides binary exploitation techniques for CTF challenges. Use when you already have a vulnerable native target or service and need to turn memory corruption or low-level primi... | ON-DEMAND |
+| `ctf-reverse` | Provides reverse engineering techniques for CTF challenges. Use when the main job is to understand how a compiled, obfuscated, packed, or virtualized target works before exploit... | ON-DEMAND |
+| `ctf-similar-search` | Searches for similar CTF challenge writeups using Tavily API for search and content extraction. Use when the user requests finding related challenges, when solve-challenge has f... | ON-DEMAND |
+| `ctf-web` | Provides web exploitation techniques for CTF challenges. Use when the target is primarily an HTTP application, API, browser client, template engine, identity flow, or smart-cont... | ON-DEMAND |
+| `ctf-writeup` | Generates a single standardized submission-style CTF writeup for competition handoff and organizer review. Use after solving a CTF challenge to document the solution steps, tool... | ON-DEMAND |
 | `customer-persona` | Research-backed customer persona creation with market data and avatar generation. Covers demographics, psychographics, jobs-to-be-done, journey mapping, and anti-personas. Use f... | ON-DEMAND |
 | `data-visualization` | Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, scatter, heatmap), axes rules, and storytelling with data. U... | ON-DEMAND |
 | `database-schema-designer` | Design robust, scalable database schemas for SQL and NoSQL databases. Provides normalization guidelines, indexing strategies, migration patterns, constraint design, and performa... | DAILY |
@@ -95,9 +109,15 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `elevenlabs-voice-isolator` | ElevenLabs voice isolator - remove background noise and isolate vocals from audio via inference.sh CLI. Capabilities: noise removal, voice extraction, audio cleanup, background ... | ON-DEMAND |
 | `email-design` | Email marketing design with layout patterns, subject line formulas, and deliverability rules. Covers welcome sequences, promotional emails, transactional templates, and mobile o... | ON-DEMAND |
 | `explainer-video-guide` | Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script formulas, pacing rules, scene planning, and multi-tool pipelines. Use for: product d... | ON-DEMAND |
+| `exploit-file-download` | Arbitrary file download vulnerability detection and exploitation using path traversal techniques, bypass methods, and sensitive file discovery. Use this skill when user needs to... | ON-DEMAND |
+| `exploit-lfi` | Local File Inclusion (LFI) vulnerability detection and exploitation using curl, ffuf, and custom scripts. Use this skill when the user needs to detect LFI vulnerabilities, test ... | ON-DEMAND |
+| `exploit-sqli` | SQL injection detection and exploitation using sqlmap, manual techniques, and custom payloads. Use this skill when user needs to test for SQL injection vulnerabilities, extract ... | ON-DEMAND |
+| `exploit-xss` | Cross-site scripting (XSS) vulnerability detection and exploitation. Supports reflected XSS, stored XSS, DOM-based XSS, and blind XSS testing. Use this skill when user mentions ... | ON-DEMAND |
 | `figure-it-out` | Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task,... | ON-DEMAND |
 | `file-pr` | File a concise pull request. Use when the user asks to file, open, or create a PR. | ON-DEMAND |
+| `find-security-vulnerabilities-in-code` | Find security vulnerabilities in a codebase or repository with Strix — a white-box AI security review that reads your source, reasons about the actual data flow and authorizatio... | ON-DEMAND |
 | `find-skills` | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extendin... | DAILY |
+| `fix-security-vulnerabilities-with-strix` | Fix security vulnerabilities found by a Strix pentest (open-source CLI or app.strix.ai cloud) — triage by severity, patch the root cause rather than the symptom, and re-run Stri... | ON-DEMAND |
 | `fleet-skill-audit` | Generic, fault-tolerant audit of agent skills discovery and health across all fleet machines. Verifies that agents (OpenCode, Codex, Claude Code, Kiro, Cursor, DeepSeek) discove... | ON-DEMAND |
 | `flux-image` | Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with custom style adaptation. Capabilities: text-to-image, im... | ON-DEMAND |
 | `frontend-design` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't ... | ON-DEMAND |
@@ -121,7 +141,9 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `leaving-pr-comments` | Adds required attribution callouts naming the model responding on behalf of the user, and formatting, to agent-authored comments on GitHub PRs. Use whenever leaving comments on ... | ON-DEMAND |
 | `linkedin-content` | LinkedIn post writing with hook formulas, formatting rules, and engagement patterns. Covers post types, algorithm signals, character limits, and content pillars. Use for: Linked... | ON-DEMAND |
 | `llm-models` | Access Claude, Gemini, Kimi, GLM and 100+ LLMs via inference.sh CLI using OpenRouter. Models: Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3 Pro, Kimi K2, GLM-4.... | ON-DEMAND |
+| `llm-testing` | Use when testing a large language model for bias, data leakage, alignment failures, or adversarial prompt resistance. Provides curated LLM security testing prompts covering bias... | ON-DEMAND |
 | `logo-design-guide` | Logo design principles and AI image generation best practices for creating logos. Covers logo types, prompting techniques, scalability rules, and iteration workflows. Use for: b... | ON-DEMAND |
+| `managed-pentesting-with-strix` | Run a managed pentest of a web app, API, repository, or local workspace on the app.strix.ai platform with the `strix cloud` CLI or REST API — no local Docker or LLM key needed. ... | ON-DEMAND |
 | `mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP serve... | DAILY |
 | `mcp-health-repair` | Troubleshoot OpenCode MCP failures fast. Use when OpenCode MCP fails: /status failures, timeout errors, connection closed, broken MCP command args, intermittent MCP flapping. DO... | DAILY |
 | `mcp-security-hygiene` | Harden MCP configuration security. Use when securing MCP configuration: removing inline secrets, env-var migration, log redaction, least-privilege MCP defaults. DO NOT USE FOR: ... | DAILY |
@@ -134,10 +156,13 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `openapi-to-typescript` | Converts OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type guards. This skill should be used when the user asks to generate types from OpenAPI, convert schema to TS, creat... | DAILY |
 | `opencode-bedrock-config` | Configure OpenCode to use AWS Bedrock models, and fix subagents pinned to a dead or unfunded provider. Use for "SigV4 authentication requires AWS credentials", Bedrock provider ... | ON-DEMAND |
 | `opencode-cli` | Delegate tasks to OpenCode CLI as a hidden background process. Use when the user asks to use OpenCode, or when a task needs Bedrock model access, or when an active OpenCode sess... | DAILY |
+| `owasp-top-10-testing` | Test an application against the OWASP Top 10 with Strix — autonomous AI agents that attempt real exploits for each category of the current OWASP Top 10:2025 (broken access contr... | ON-DEMAND |
 | `p-image` | Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA ... | ON-DEMAND |
 | `p-video` | Generate videos with Pruna P-Video and WAN models via inference.sh CLI. Models: P-Video, WAN-T2V, WAN-I2V. Capabilities: text-to-video, image-to-video, audio support, 720p/1080p... | ON-DEMAND |
 | `p-video-avatar` | Generate talking head avatar videos with Pruna P-Video-Avatar via inference.sh CLI. Turn a portrait image into a realistic speaking video with built-in TTS. 18x faster and 6x ch... | ON-DEMAND |
 | `pdf` | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, spl... | ON-DEMAND |
+| `penetration-testing-with-strix` | Pentest a web app, API, codebase, repository, URL, domain, or IP with Strix — autonomous AI penetration testing that exploits and proves vulnerabilities (OWASP Top 10 and beyond... | ON-DEMAND |
+| `pentest-report` | Generate penetration test reports in a standard format, including a project information table, vulnerability summary list, detailed findings (attribute table, description, repro... | ON-DEMAND |
 | `pitch-deck-visuals` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data presentation. Covers the 12-slide framework, chart types, team slides, and common inve... | ON-DEMAND |
 | `polish-repo` | Polish a somewhat-done repo with one command: map it, stress-test it, fix it with tests, tighten and secure it, improve the frontend, prove it, optionally climb the weakest area... | DAILY |
 | `ponytail` | Lazy senior dev mode: the smallest change that fully solves the task, and a reply a busy human understands in one read. Use on any coding task (writing, fixing, refactoring, rev... | ON-DEMAND |
@@ -163,14 +188,25 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `react-dev` | This skill should be used when building React components with TypeScript, typing hooks, handling events, or when React TypeScript, React 19, Server Components are mentioned. Cov... | DAILY |
 | `react-testing` | Write and repair React component and hook tests with Testing Library and the project's Jest or Vitest runner. Use for form behavior, async state, network mocks, accessible queri... | ON-DEMAND |
 | `react-useeffect` | React useEffect best practices from official docs. Use when writing/reviewing useEffect, useState for derived values, data fetching, or state synchronization. Teaches when NOT t... | DAILY |
+| `recon-dir-scan` | Directory and file enumeration using ffuf, gobuster, dirsearch, and feroxbuster. Use this skill when user needs to discover hidden directories, enumerate files, find backup file... | ON-DEMAND |
+| `recon-fingerprint` | Web fingerprinting and WAF detection using wafw00f, whatweb, nuclei, and httpx. Use this skill when user needs to identify web technologies, detect WAF/CDN, analyze server heade... | ON-DEMAND |
+| `recon-port-scan` | Port scanning and service identification using nmap, masscan, and rustscan. Use this skill when user needs to discover open ports, identify running services, detect service vers... | ON-DEMAND |
+| `recon-subdomain` | Subdomain enumeration and DNS reconnaissance using subfinder, amass, dnsx, and other tools. Use this skill when user needs to discover subdomains, perform DNS enumeration, gathe... | ON-DEMAND |
 | `refactor` | Surgical code refactoring to improve maintainability without changing behavior. Covers extracting functions, renaming variables, breaking down god functions, improving type safe... | DAILY |
 | `reflect` | Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect. | ON-DEMAND |
 | `related-skill` | Install complementary inference.sh skills from the external registry. Use when the user asks to install an inference.sh skill that is not in this library yet. For skills already... | ON-DEMAND |
 | `remotion-render` | Render videos from React/Remotion component code via inference.sh. Pass TSX code, get MP4. Supports all Remotion APIs: useCurrentFrame, useVideoConfig, spring, interpolate, Abso... | ON-DEMAND |
 | `repo-standardization` | Standardize repositories to a common baseline: repo tiers, Apache-2.0 LICENSE and NOTICE files, GitHub description/homepage/topics metadata, README identity block, secret/identi... | ON-DEMAND |
 | `requesting-code-review` | Dispatches a focused code reviewer in a fresh agent session with the baseline git diff and task acceptance criteria. Use when completing tasks, implementing major features, or b... | DAILY |
+| `results-storage` | SQLite-based persistent storage and reporting system for penetration testing results. Use this skill when user needs to store scan results, query vulnerabilities, generate repor... | ON-DEMAND |
 | `sandbox-sdk` | Build sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrus... | DAILY |
 | `security-best-practices` | Implement security best practices for web applications and infrastructure. Use when securing APIs, preventing common vulnerabilities, or implementing security policies. Handles ... | DAILY |
+| `security-fuzzing` | Use when fuzzing inputs for SQL injection, command injection, LDAP injection, or NoSQL injection during authorized vulnerability testing. Provides curated SecLists fuzzing paylo... | ON-DEMAND |
+| `security-passwords` | Use when testing credentials during authorized security testing, password spraying, or password policy validation. Provides curated SecLists password wordlists covering common p... | ON-DEMAND |
+| `security-patterns` | Use when searching code, logs, or network captures for sensitive data patterns such as API keys, credit cards, emails, SSNs, phone numbers, or IP addresses. Provides curated Sec... | ON-DEMAND |
+| `security-payloads` | Use when testing file upload handlers, anti-virus controls, or path traversal during authorized security testing. Provides curated SecLists exploitation payloads including the E... | ON-DEMAND |
+| `security-usernames` | Use when enumerating usernames, testing default credentials, or discovering accounts during authorized security testing. Provides curated SecLists username wordlists covering co... | ON-DEMAND |
+| `security-webshells` | Use when testing web shell detection, validating IDS or IPS signatures, or analyzing malware samples during authorized security research. Provides curated SecLists web shell sam... | ON-DEMAND |
 | `seedance` | Generate videos with ByteDance Seedance 2.0 via inference.sh CLI. Unified model for text-to-video, image-to-video, and reference-to-video with synchronized audio, up to 1080p, 4... | ON-DEMAND |
 | `seo-content-brief` | SEO content brief creation with keyword research, search intent analysis, and content structure. Covers SERP analysis, heading hierarchy, word count targets, and internal linkin... | ON-DEMAND |
 | `session-handoff` | Save and resume project work across agents or machines using verified Markdown handoffs. Use for create handoff, save state, pause this task, load handoff, resume from, or conti... | ON-DEMAND |
@@ -190,6 +226,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `skill-update` | Update one skill or improve the skill library by learning from current coding practices, agent configs, project conventions, failures, or new preferences. Use when the user says... | DAILY |
 | `slack-gif-creator` | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for ... | ON-DEMAND |
 | `social-media-carousel` | Multi-slide carousel design for Instagram, LinkedIn, and Twitter/X with layout rules and hooks. Covers slide structure, text hierarchy, swipe psychology, and platform-specific s... | ON-DEMAND |
+| `solve-challenge` | Solves CTF challenges by performing first-pass triage, identifying the dominant category, and routing execution to the right specialized ctf-* skill. Use when the user gives you... | ON-DEMAND |
 | `spec` | Create, amend, or maintain SPEC.md at repo root: goals, contracts, invariants, tasks, and backpropped bugs. Sole mutator of the project spec. Triggers when the user asks to writ... | ON-DEMAND |
 | `speech-to-text` | Transcribe audio to text with ElevenLabs Scribe and Whisper models via inference.sh CLI. Models: ElevenLabs Scribe v2 (98%+ accuracy, diarization), Fast Whisper Large V3, Whispe... | ON-DEMAND |
 | `statechart` | Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it as a Mermaid statechart. The report gives the shortest pa... | ON-DEMAND |
@@ -225,6 +262,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `virtualbox-guest-access` | Operate a VirtualBox Linux guest VM from its host over SSH or VBoxManage guestcontrol. Use for guest VM access, "cannot SSH into the VM", host-only networking, guestcontrol comm... | ON-DEMAND |
 | `visual-explainer` | Explain ideas, plans, architecture, code changes, comparisons, audits, and workflows with consistent standalone HTML and useful diagrams. Use proactively for most answers where ... | DAILY |
 | `wayfinder` | Navigate large, ambiguous initiatives where the destination or path is unclear. Use when the user says figure out how to approach this, this is too vague to spec, help me find a... | ON-DEMAND |
+| `web-app-penetration-testing` | Pentest a web app or website end to end — black-box testing of a live URL, staging environment, or local dev server that finds and exploits real vulnerabilities (auth bypass, br... | ON-DEMAND |
 | `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component interactive HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifa... | ON-DEMAND |
 | `web-design-guidelines` | Review UI code for compliance with Vercel's Web Interface Guidelines (fetched live from the source URL below). Use when the user asks to check a site against Vercel's web interf... | ON-DEMAND |
 | `web-perf` | Analyzes web performance using Chrome DevTools MCP. Measures Core Web Vitals (LCP, INP, CLS) and supplementary metrics (FCP, TBT, Speed Index), identifies render-blocking resour... | DAILY |
