@@ -27,6 +27,15 @@ Work proceeds in discrete phases with a human-reviewable PACK file in between:
   `hongyime/theprawnlearnings`, one folder per source repo), and optionally
   adapts lessons into `TARGET`.
 
+**Execution Modes:**
+- **Single-repo mode (default)**: Pause after Phase 1 for user review of the summary table before running Phase 2.
+- **Sweep mode (multi-repo list, Phase 1 + 2.1 only)**: When the user authorizes a batch harvest into `STORE` with no `TARGET`:
+  1. Maintain a persistent ledger (`<STORE>/_sweep-state.md` or user-specified path) recording `repo | status (done|thin|skipped|failed) | head_sha | lessons_count | date | note` after *each* repo so interrupted runs resume cleanly.
+  2. Pre-flight via `gh repo view <slug> --json isEmpty,isArchived,isFork,parent,defaultBranchRef,pushedAt,diskUsage,hasIssuesEnabled` before cloning.
+  3. Skip empty repos (`isEmpty: true`) and unmodified forks (`0` commits ahead of parent and `0` fork PRs/issues); log `skipped` in the ledger without creating a `STORE` folder.
+  4. If cloning fails (retry once) or `SOURCE` yields `0` valid lessons, record `failed` or `skipped (0 lessons)` in the ledger, delete any temp clone, and continue to the next repo.
+  5. Commit each repo to `STORE` as it finishes, push in batches of 5–10 repos, and report a batch summary. Skip Phases 2.2–2.6 and `postplan-upload` unless explicitly requested.
+
 Different agents or sessions can run Phase 1 and Phase 2 independently.
 
 ## Inputs & Defaults
@@ -46,7 +55,7 @@ Ask only for missing inputs. Never prompt for `TARGET` during Phase 1. Never pro
 - **No-ownership mode**: `SOURCE` may be a repo Bryan does not own. Never commit, push, open a PR, or write anything in `SOURCE`. Read-only: `git log`, `gh pr` / `gh issue` reads, local clone reads. If the remote is gone or unreachable, harvest from the local clone only and record the access level in the PACK. If there is no local clone and no `gh` access, stop and report — do not guess.
 - **Temp clones are scratch**: when `SOURCE` was cloned to a temp dir for the harvest (remote exists, no local copy), delete the temp clone after the PACK is filed — or after the run, if filing is skipped. The PACK in `STORE` is the durable record, not the clone. When the remote is gone, there is no temp clone: harvest from the local clone, which may be the only copy.
 - **Strict Boundary in Phase 2**: Phase 2 writes *only* inside `STORE` (filing) and `TARGET` (adopting).
-- **Absolute Secret Exclusion**: Never copy secrets, keys, or credentials. Skip `.env*`, `*.pem`, `*.key`, `auth.json`, `tokens.json`, and cookies. Variable names are allowed. Scrub any credential-like string from session logs.
+- **Absolute Secret Exclusion**: Never copy secrets, keys, tokens, or credentials from *any* source (working tree, git diffs/commits, PR/issue comments, or session logs). Skip `.env*` (except `.env.example`), `*.pem`, `*.key`, `*.p12`, `*.pfx`, `*.session`, `auth.json`, `tokens.json`, `credentials*.json`, `service-account*.json`, `.npmrc`, `.pypirc`, `id_rsa*`, and cookies. Variable names are allowed; redact any token/password/URL-with-auth literal as `<REDACTED>` before writing `Original Form` or `Evidence`.
 - **Graceful Permission Degradation**: If a folder cannot be read (sandbox, permissions), report the path and continue without aborting.
 - **Evidence Requirement**: No evidence, no entry. Speculative or unverified rules must not be added to the PACK.
 
@@ -56,8 +65,12 @@ Ask only for missing inputs. Never prompt for `TARGET` during Phase 1. Never pro
 
 ### 1.1 Codebase & Dot-File Inventory
 
-Inspect all files in `SOURCE`, including hidden dot-files and folders.
-Skip `node_modules/`, `.venv/`, `venv/`, `dist/`, `build/`, `target/`, and `.git/` internals.
+Before reading files, check provenance:
+- **Forks (`isFork: true`)**: Identify the fork-only delta first (`gh pr list`, fork-author commits, and diff against `parent` if reachable). Harvest *only* Bryan's / fork-specific changes; do not mine upstream history or upstream-owned files.
+- **Bulk-synced templates**: Check `git log -n 10 --stat` for sync commits (e.g. from `theprawntemplate` / `sourcerepo` or mass `AGENTS.md` / `STANDARDS.md` / `.github/` drops). Ignore files touched *only* by template-sync commits unless the repo modified or actively references them in its own code/PRs.
+
+Inspect repo-native files in `SOURCE`, including hidden dot-files and folders.
+Skip `node_modules/`, `.venv/`, `venv/`, `dist/`, `build/`, `target/`, `vendor/`, `__pycache__/`, `.next/`, `.pytest_cache/`, binary/media/dataset blobs, and `.git/` internals.
 
 Read in this prioritized order:
 
@@ -79,14 +92,17 @@ Read in this prioritized order:
 Mine the history, not just the current tree. Work read-only; prefer `gh` for
 anything GitHub holds and `git log` for what the clone holds.
 
+When cloning for harvest, use a treeless clone (`git clone --filter=blob:none --no-single-branch <url>`) so `git log --all` is complete without downloading historical binary blobs. If `git log --all` fails (0 commits), classify `Source Access` as `empty`.
+
 ```bash
-git log --oneline --all --since=<window>        # commit subjects, authors, dates
-git log --all --grep="revert" --oneline         # reverts: a direction that failed
-gh pr list --state all --limit 200              # every PR: open, merged, closed
-gh pr view <N> --comments                       # review discussion and decisions
-gh issue list --state all --limit 200           # every issue: open and closed
+git log --oneline --all --no-merges -n 200      # recent/bounded commit subjects; drop -n 200 only for deep audit
+git log --all -i --grep="revert" --oneline      # case-insensitive reverts (matches "Revert ...")
+gh pr list --state all --limit 100              # PRs (ignore gracefully if 403/disabled)
+gh issue list --state all --limit 100           # skip if hasIssuesEnabled == false
 git branch -a                                   # live + remote-tracking branches
 ```
+
+Cap deep inspection to protect context: inspect comments (`gh pr view <N> --comments` / `gh issue view <N> --comments`) on at most the **20 most relevant PRs/issues** (prioritizing closed/merged PRs with review comments, reverts, and bugs over dependency bumps).
 
 Extract, with evidence cited as `commit <sha>`, `PR #N`, or `issue #N`:
 - **Decisions**: what was chosen, who decided, when — from merged PR titles/bodies and review comments that settled an argument.
@@ -97,22 +113,23 @@ Extract, with evidence cited as `commit <sha>`, `PR #N`, or `issue #N`:
 - **Per-author ownership**: always use `git log --all` — a single branch's log undercounts contributors (in the trial, Ben showed 157 commits on one branch vs 312 across all refs). For each author, record commit count, date range, top files, and representative subjects. The result is an ownership map: who owns which area. Authors who appear only on branches (never on the main branch) still count.
 
 ```bash
-git log --all --format="%an" | sort | uniq -c | sort -rn
-git log --all --author="<name>" --format="%ad %s" --date=short | head -8
-git log --all --author="<name>" --pretty=format: --name-only | sort | uniq -c | sort -rn | head -5
+git log --all --no-merges --format="%an <%ae>" | grep -vE '\[bot\]|dependabot|renovate|github-actions' | sort | uniq -c | sort -rn
+git log --all --no-merges --author="<name>" --format="%ad %s" --date=short | head -8
+git log --all --no-merges --author="<name>" --pretty=format: --name-only | sort | uniq -c | sort -rn | head -5
 git for-each-ref --format="%(refname:short) | %(committerdate:short) | %(authorname) | %(subject)" refs/remotes/origin/ | grep -v HEAD
 ```
+Note email aliases belonging to the same person in `Authors` rather than splitting them, and on forks list fork-only author counts separately from upstream.
 
 Access ladder — record the level in the PACK and degrade, never guess:
 - **full**: local clone + `gh` access (PRs, issues, comments available).
 - **clone-only**: local clone, remote gone or unreachable (no PRs/issues; branches and log only).
 - **gh-only**: no local clone, `gh` reads work (PRs/issues available; no working-tree or session-log harvest).
+- **empty**: 0 commits — nothing to mine; record `skipped (empty)` in the sweep ledger, do not create a `STORE` folder.
 - **none**: no clone and no `gh` access — stop and report.
 
 ### 1.3 Working tree (uncommitted work)
 
-`git log` cannot see uncommitted work, and uncommitted work exists on one
-machine only. Capture it or it is lost to the harvest:
+If inspecting an existing local developer checkout, capture uncommitted work (skip this step and record `N/A — fresh temp clone` when harvesting a fresh remote clone):
 
 ```bash
 git status --porcelain | wc -l
@@ -144,8 +161,8 @@ Do not read entire log files into context without filtering.
 #### Fast Grep Patterns
 
 ```bash
-# Linux / macOS
-rg -l "SOURCE_NAME" ~/.claude/projects ~/.codex/sessions ~/.gemini -g "*.json" -g "*.jsonl" -g "*.md"
+# Linux / macOS — filter by repo path or owner/repo where possible to avoid short-name collisions and sweep meta-logs
+rg -l -F -e "<owner>/<repo>" -e "/<SOURCE_NAME>" ~/.claude/projects ~/.codex/sessions ~/.gemini ~/.local/share/opencode -g "*.json" -g "*.jsonl" -g "*.md" -g "!*transcript*" 2>/dev/null | head -20
 ```
 
 ```powershell
@@ -154,19 +171,24 @@ $logs = "$HOME\.claude\projects", "$HOME\.codex\sessions", "$HOME\.gemini"
 rg -l "SOURCE_NAME" $logs -g "*.json" -g "*.jsonl" -g "*.md"
 ```
 
-From matched logs, extract surrounding context (3-5 lines) focusing on:
+From matched logs, extract surrounding context (3-5 lines). When inspecting matched `.jsonl` files, parse/truncate each matched line (`cut -c1-400`) instead of printing raw `rg -C 5` context, so single-line JSON records do not flood context. Ignore meta-logs from the current harvest sweep itself. If no local logs exist on this host, record `none on this host` rather than claiming none ever existed. Focus on:
 - **User corrections**: "no", "don't", "instead", "again", "I told you", "stop doing".
 - **Recurring errors**: The same compilation, lint, or runtime bug encountered multiple times.
 - **Loop-ending fixes**: The key breakthrough or fix that resolved a prolonged debugging session.
 - **Repeated manual steps**: Commands or setup steps the user repeatedly ran or asked the agent to execute.
 
-### 1.5 Extract and Generalize
+### 1.5 Extract, Filter, and Generalize
 
-For every potential lesson, record four attributes:
+Apply a strict inclusion bar before keeping a candidate:
+- **Drop routine hygiene**: Standard `.gitignore` entries, boilerplate READMEs, default framework scaffolding, and unmotivated style configs are *not* lessons unless linked to a concrete bug, revert, review correction, or 2+ recurrences.
+- **Check staleness**: Verify the pattern is not contradicted or deleted later in `git log` and still applies (for archived/legacy repos, tag the era/version in `Intent` if tied to an old runtime).
+- **Budget**: Target 5–10 high-signal lessons for active repos, 1–4 for small/thin repos, and `0` (stop and skip `STORE` filing) if nothing passes the bar.
 
-- **Intent**: What this rule prevents or makes easy, stated purely in stack-agnostic terms. If the intent cannot be expressed without project-specific names or domain logic, drop it.
-- **Original Form**: The concrete code snippet, config flag, script, or instruction from `SOURCE`.
-- **Evidence**: The file path, session timestamp, or recurrence count proving this was needed.
+For every kept lesson, record four attributes:
+
+- **Intent**: What this rule prevents or makes easy. Generalize universal practices into stack-agnostic terms; keep concrete library/API gotchas explicitly named (e.g. rate limits, TLS/SDK quirks) rather than bleaching them into vague platitudes. Drop pure domain/business logic with no reusable engineering lesson.
+- **Original Form**: The concrete code snippet, config flag, script, or instruction from `SOURCE` (scrubbed of any secrets).
+- **Evidence**: Exact file path, `commit <sha>`, `PR #N`, `issue #N`, or session timestamp + recurrence count proving this was needed.
 - **Verification**: How an agent or tool can verify adherence in a target repository.
 
 ### 1.6 Classification Rubric
@@ -184,15 +206,16 @@ Categorize each generalized item into one of six standard types:
 
 ### 1.7 Write the PACK File
 
-Write the output file (default `<source-folder>-lessons.md` next to `SOURCE`). Use this exact markdown structure:
+Write the output file (for local `SOURCE`: `<source-folder>-lessons.md` next to `SOURCE`; for temp clones: directly to a staging path outside the temp clone or `<STORE>/<owner>-<repo>/packs/<YYYY-MM-DD>-lessons.md` so deleting the clone never deletes the PACK). Include `Source HEAD` and omit/set `Target Recommendation` to `Filed learning (STORE)` when no `TARGET` is given:
 
 ````markdown
 # Lessons PACK: <SOURCE_NAME>
 
 - **Date:** <YYYY-MM-DD>
 - **Source Path:** `<SOURCE_PATH>`
+- **Source HEAD:** `<short-sha>` (`<default-branch>`) | `N/A (gh-only)` | `empty`
 - **Source Stack:** <Language, framework, tools>
-- **Source Access:** full | clone-only | gh-only
+- **Source Access:** full | clone-only | gh-only | empty
 - **Store:** `<STORE path, default hongyime/theprawnlearnings>`
 - **Logs Inspected:** <List of agents whose logs were reviewed>
 - **History Inspected:** <Commit count, PR count, issue count reviewed>
@@ -233,15 +256,15 @@ Present the summary table to the user and prompt them to review, modify, or prun
 After the user reviews the PACK, file it into `STORE` (default
 `hongyime/theprawnlearnings`):
 
-1. Clone `STORE` if not already present; work on main.
+1. Clone or update `STORE` (`git pull --ff-only` on `main`); verify clean working tree before editing.
 2. Folder per source repo: `<owner>-<repo>/` (e.g. `bchuminx-healthkaki-pov/`).
-3. Copy the reviewed PACK to `<owner>-<repo>/packs/<YYYY-MM-DD>-lessons.md`.
-4. Merge its items into `<owner>-<repo>/lessons.md` (one consolidated file per
-   source repo): add new items, update changed ones, never silently drop an old
-   item — supersede it with a dated note and a link to the newer PACK.
+3. Copy the reviewed PACK to `<owner>-<repo>/packs/<YYYY-MM-DD>-lessons.md`. If `<YYYY-MM-DD>-lessons.md` already exists from a same-day rerun, overwrite only if re-harvesting the same `HEAD`, or write `<YYYY-MM-DD>-r2-lessons.md`.
+4. Merge into `<owner>-<repo>/lessons.md`:
+   - Update header metadata (`Date`, `Source HEAD`, `History Inspected`, `Working Tree`).
+   - Match existing items by title/intent: add new items, update changed evidence/details with a `Updated <YYYY-MM-DD> (packs/<file>)` note, and for retired items keep the heading with status **`[SUPERSEDED <YYYY-MM-DD> — see packs/<file>: <reason>]`** instead of deleting it.
 5. Commit and push. The commit message names the source repo and the PACK date.
 
-Filing needs no `TARGET`. If the user wants no filing (PACK only), stop here.
+Filing needs no `TARGET`. If the user wants PACK-only (no filing), stop after 1.7. If the user wants STORE-filing only (no `TARGET`), stop here — do not inspect `TARGET` or run 2.2–2.6.
 
 ### 2.2 Inspect TARGET
 
