@@ -1,6 +1,10 @@
 ---
 name: talking-head-production
-description: "Talking head video production with AI avatars, lipsync, and voiceover. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also covers OmniHuman, PixVerse, Fabric. Portrait requirements, audio quality, production workflows. Use for: spokesperson videos, course content, social media, presentations, demos. Triggers: talking head, avatar video, lipsync, lip sync, ai spokesperson, virtual presenter, ai presenter, omnihuman, talking avatar, video presenter, ai talking head, presenter video, ai face video, p-video-avatar"
+description: >-
+  When to read: a spokesperson video, course content, or talking head video is needed. Use for:
+  talking head video production with AI avatars, lipsync, and voiceover. Does: recommends
+  P-Video-Avatar (fastest, cheapest, built-in TTS); also covers OmniHuman, PixVerse, and Fabric,
+  with portrait requirements, audio quality, and production workflows.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

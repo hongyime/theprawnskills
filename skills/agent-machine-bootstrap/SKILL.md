@@ -1,13 +1,10 @@
 ---
 name: agent-machine-bootstrap
 description: >-
-  Bootstrap any new, rebuilt or virtual machine into a working coding-agent
-  environment: sizing, base tooling, runtimes, agent CLIs, model credentials,
-  agent config, plugins, MCP servers, skill library, remote access and
-  verification. Use for "set up a new machine", "fresh install", "replicate my
-  setup", "move my agents to another machine", "what do I need on a new box",
-  or reprovisioning after a wipe. OS-agnostic; covers physical, VM and VPS
-  targets, driven remotely or run locally.
+  When to read: 'set up a new machine', 'fresh install', 'replicate my setup', or reprovisioning
+  after a wipe. Use for: bootstrapping a new, rebuilt, or virtual machine into a working
+  coding-agent environment. Does: sizes, installs base tooling, runtimes, agent CLIs,
+  credentials, MCP servers, and the skill library, then verifies with real usage.
 license: MIT
 metadata:
   author: Local setup

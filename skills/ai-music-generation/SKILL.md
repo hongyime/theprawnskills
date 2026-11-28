@@ -1,6 +1,9 @@
 ---
 name: ai-music-generation
-description: "Generate AI music and songs with ElevenLabs, Diffrythm, Tencent Song Generation via inference.sh CLI. Models: ElevenLabs Music (up to 10 min, commercial license), Diffrythm (fast song generation), Tencent Song Generation (full songs with vocals). Capabilities: text-to-music, song generation, instrumental, lyrics to song, soundtrack creation. Use for: background music, social media content, game soundtracks, podcasts, royalty-free music. Triggers: music generation, ai music, generate song, ai composer, text to music, song generator, create music with ai, suno alternative, udio alternative, ai song, ai soundtrack, generate soundtrack, ai jingle, music ai, beat generator, elevenlabs music, eleven labs music"
+description: >-
+  When to read: background music, a soundtrack, or a song is needed. Use for: generating AI
+  music and songs via inference.sh CLI. Does: text-to-music and full song generation with
+  ElevenLabs Music, Diffrythm, and Tencent Song Generation.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

@@ -1,6 +1,10 @@
 ---
 name: recon-subdomain
-description: Subdomain enumeration and DNS reconnaissance using subfinder, amass, dnsx, and other tools. Use this skill when user needs to discover subdomains, perform DNS enumeration, gather DNS records, or find hidden subdomains of a target domain.
+description: >-
+  When to read: discovering subdomains, DNS enumeration, or finding hidden subdomains of a
+  target domain. Use for: subdomain enumeration and DNS reconnaissance with subfinder, amass,
+  dnsx, and other tools. Does: gathers DNS records and enumerates subdomains. Authorized testing
+  only — written permission, defined scope.
 license: Apache-2.0
 metadata:
   author: "Local setup"

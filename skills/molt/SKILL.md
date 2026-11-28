@@ -1,11 +1,11 @@
 ---
 name: molt
 description: >-
-  Carry work across agents and machines with MOLT-style persistent state in a
-  repo's .agents/ folder: STATE.md for now, JOURNAL.md for history, handoff
-  docs for deep recovery. Use when the user says save progress, create
-  handoff, resume from state, switch agents, run out of credits, or what
-  were we doing.
+  When to read: 'save progress', 'create handoff', 'resume from state', 'switch agents', or
+  'what were we doing'. Use for: carrying work across agents and machines with MOLT-style
+  persistent state in a repo's .agents/ folder. Does: keeps STATE.md for now, JOURNAL.md for
+  history, and handoff docs for deep recovery — any agent on any machine resumes from files, not
+  chat.
 license: MIT
 metadata:
   author: Local setup

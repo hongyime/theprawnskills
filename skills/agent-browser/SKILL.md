@@ -1,6 +1,9 @@
 ---
 name: agent-browser
-description: "Browser automation for AI agents via inference.sh. Navigate web pages, interact with elements using @e refs, take screenshots, record video. Capabilities: web scraping, form filling, clicking, typing, drag-drop, file upload, JavaScript execution. Use for: web automation, data extraction, testing, agent browsing, research. Triggers: browser, web automation, scrape, navigate, click, fill form, screenshot, browse web, playwright, headless browser, web agent, surf internet, record video"
+description: >-
+  When to read: browser automation, web scraping, or testing a web flow. Use for: navigating
+  pages, clicking, filling forms, screenshots, and video via the inference.sh Playwright agent
+  browser. Does: drives the browser with @e element refs and returns page state.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

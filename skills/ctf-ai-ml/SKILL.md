@@ -1,6 +1,10 @@
 ---
 name: ctf-ai-ml
-description: Provides AI and machine learning techniques for CTF challenges. Use when attacking ML models, crafting adversarial examples, performing model extraction, prompt injection, membership inference, training data poisoning, fine-tuning manipulation, neural network analysis, LoRA adapter exploitation, LLM jailbreaking, or solving AI-related puzzles.
+description: >-
+  When to read: a CTF challenge attacks ML models or LLMs. Use for: AI/ML techniques for CTF —
+  adversarial examples, model extraction, prompt injection, membership inference, training data
+  poisoning, LoRA exploitation, and LLM jailbreaking. Does: one-liner per technique; full
+  details in supporting files.
 license: MIT
 compatibility: Requires filesystem-based agent (Claude Code or similar) with bash, Python 3, and internet access for tool installation.
 allowed-tools: Bash Read Write Edit Glob Grep Task WebFetch WebSearch

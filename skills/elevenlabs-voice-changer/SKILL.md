@@ -1,6 +1,10 @@
 ---
 name: elevenlabs-voice-changer
-description: "ElevenLabs voice changer - transform any voice to a different voice while preserving speech content and emotion via inference.sh CLI. Models: eleven_multilingual_sts_v2 (70+ languages), eleven_english_sts_v2. Capabilities: speech-to-speech, voice transformation, accent change, voice disguise. Use for: content creation, voice acting, privacy, dubbing, character voices. Triggers: voice changer, speech to speech, voice transformation, change voice, voice swap, voice conversion, voice disguise, eleven labs voice changer, elevenlabs sts, transform voice, ai voice changer, voice modifier"
+description: >-
+  When to read: changing a voice, voice disguise, or character voices are needed. Use for:
+  ElevenLabs voice changing via inference.sh CLI — transform any voice to a different voice
+  while preserving speech content and emotion. Does: speech-to-speech transformation and accent
+  change in 70+ languages.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

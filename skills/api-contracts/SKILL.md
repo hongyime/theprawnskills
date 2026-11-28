@@ -1,9 +1,10 @@
 ---
 name: api-contracts
 description: >-
-  Design and verify API contracts shared by consumers and providers. Use for
-  request/response drift, contract-first implementation, compatibility reviews,
-  schema evolution, generated clients, and validating serialized API responses.
+  When to read: request/response drift, contract-first work, or validating serialized API
+  responses. Use for: designing and verifying API contracts shared by consumers and providers.
+  Does: makes consumers, providers, and mocks agree on one explicit boundary contract, with
+  compatibility reviews and generated clients.
 license: MIT; see LICENSE.txt
 metadata:
   author: Local setup

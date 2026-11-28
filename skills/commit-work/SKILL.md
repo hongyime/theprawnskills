@@ -1,6 +1,10 @@
 ---
 name: commit-work
-description: "Create high-quality git commits: review/stage intended changes, split into logical commits, and write clear commit messages (including Conventional Commits). Use when the user asks to commit, craft a commit message, stage changes, or split work into multiple commits. For a single quick commit use `git-commit`."
+description: >-
+  When to read: the user asks to commit, stage changes, or split work into multiple commits. Use
+  for: creating high-quality git commits. Does: reviews/stages intended changes, splits into
+  logical commits, and writes clear messages including Conventional Commits; for a single quick
+  commit use git-commit.
 metadata:
   author: Local setup
   version: "1.0.0"

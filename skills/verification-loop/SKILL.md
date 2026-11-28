@@ -1,9 +1,10 @@
 ---
 name: verification-loop
 description: >-
-  Verify a completed change with the project's actual build, type, lint, test and
-  diff checks before reporting readiness. Use for verify this change, ready for
-  review, prove this works, or completion checks across any supported harness.
+  When to read: 'verify this change', 'ready for review', 'prove this works', or any completion
+  check. Use for: verifying a completed change with the project's actual build, type, lint,
+  test, and diff checks before reporting readiness. Does: turns a completion claim into evidence
+  tied to the actual change, across any supported harness.
 license: MIT
 metadata:
   author: Local setup, adapted from ECC

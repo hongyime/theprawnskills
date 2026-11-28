@@ -1,11 +1,10 @@
 ---
 name: spec
 description: >-
-  Create, amend, or maintain SPEC.md at repo root: goals, contracts, invariants,
-  tasks, and backpropped bugs. Sole mutator of the project spec. Triggers when
-  the user asks to write a spec, start a new spec, add invariants, amend
-  sections, or record a bug. Companion skills: build (executes §T), check
-  (audits drift), backprop (files bugs into §B).
+  When to read: writing a spec, starting a new spec, adding invariants, or recording a bug. Use
+  for: creating, amending, or maintaining SPEC.md at repo root. Does: owns goals, contracts,
+  invariants, tasks, and backpropped bugs; sole mutator of the project spec. Companions: build
+  executes §T, check audits drift, backprop files bugs into §B.
 license: MIT
 metadata:
   author: Local setup

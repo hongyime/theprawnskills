@@ -1,8 +1,9 @@
 ---
 name: skill-create
 description: >-
-  Create a new reusable skill in a standalone Prawn Skills Git clone. Use when
-  asked to create a skill, teach an agent a workflow, or make future agents know it.
+  When to read: asked to create a skill or teach an agent a workflow. Use for: creating a
+  reusable skill in a standalone Prawn Skills Git clone. Does: scaffolds the skill, writes
+  SKILL.md to convention, and validates it.
 license: MIT
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"

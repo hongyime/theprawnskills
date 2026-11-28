@@ -1,8 +1,9 @@
 ---
 name: skill-cleanup
 description: >-
-  Audit and explain duplicate, broken, default, and on-demand skills in a standalone
-  Prawn Skills installation. Use for messy skills or requests to clean up the library.
+  When to read: the skill library is messy or a cleanup is requested. Use for: auditing
+  duplicate, broken, default, and on-demand skills in a standalone install. Does: explains what
+  is duplicated, broken, or unused and what to prune.
 license: MIT
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"

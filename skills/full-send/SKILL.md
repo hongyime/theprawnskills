@@ -1,9 +1,9 @@
 ---
 name: full-send
 description: >-
-  Takes a change to a merged PR with nobody watching: proves it, reviews it,
-  files it, babysits it, and merges it once the merge gate passes. Use only
-  when the user explicitly says 'full send'.
+  When to read: ONLY when the user explicitly says 'full send'. Use for: taking a change to a
+  merged PR with nobody watching. Does: proves it, reviews it, files it, babysits it, and merges
+  it once the merge gate passes; updates go unread until long after it stops.
 license: MIT
 metadata:
   author: Local setup

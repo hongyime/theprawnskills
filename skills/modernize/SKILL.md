@@ -1,8 +1,9 @@
 ---
 name: modernize
 description: >-
-  For getting old prs up to date. Use when asked to rebase a pr or
-  "modernize".
+  When to read: asked to rebase a PR or 'modernize' an old PR. Use for: getting old PRs up to
+  date. Does: modernizes the idea, not just the branch — a clean rebase does not prove the PR
+  still belongs in the product.
 license: MIT
 metadata:
   author: Local setup

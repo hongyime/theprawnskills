@@ -1,6 +1,10 @@
 ---
 name: skill-reviewer
-description: "Review skill PRs with structured severity-rated feedback covering token budgets, routing conflicts, required sections, and repo conventions. WHEN: \"review skill\", \"review skill PR\", \"review skill changes\", \"check skill quality\", \"skill PR feedback\"."
+description: >-
+  When to read: 'review skill', 'review skill PR', or 'check skill quality'. Use for: reviewing
+  skill PRs with structured severity-rated feedback. Does: covers token budgets, routing
+  conflicts, required sections, and repo conventions, with severity-classified findings and a
+  summary table.
 license: MIT
 metadata:
   author: Local setup (adapted from the imported Microsoft skill)

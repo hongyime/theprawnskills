@@ -1,6 +1,10 @@
 ---
 name: ai-avatar-video
-description: "Create AI avatar and talking head videos via inference.sh CLI. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also: OmniHuman, Fabric, PixVerse. Audio: Inworld TTS-2 (100+ languages, emotion steering for characters), ElevenLabs, Kokoro. Capabilities: audio-driven avatars, text-to-avatar, lipsync videos, talking head generation, virtual presenters, UGC content. Use for: AI presenters, explainer videos, virtual influencers, dubbing, marketing videos, UGC ads, gaming avatars, NPC dialogue. Triggers: ai avatar, talking head, lipsync, avatar video, virtual presenter, ai spokesperson, audio driven video, heygen alternative, synthesia alternative, talking avatar, lip sync, video avatar, ai presenter, digital human, ugc, ugc video, ugc ad, avatar ugc"
+description: >-
+  When to read: an AI presenter, talking head, lipsync, or avatar video is needed. Use for:
+  creating AI avatar and talking head videos via inference.sh CLI. Does: audio-driven avatars,
+  text-to-avatar, and lipsync with P-Video-Avatar, OmniHuman, Fabric, PixVerse, and
+  Inworld/ElevenLabs/Kokoro voices.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

@@ -1,6 +1,9 @@
 ---
 name: dependency-updater
-description: Smart dependency management for any language. Auto-detects project type, applies safe updates automatically, prompts for major versions, diagnoses and fixes dependency issues. Use when updating dependencies, fixing an outdated dependency or dependency conflict, bumping packages, or running npm update or pip upgrade.
+description: >-
+  When to read: updating dependencies, fixing an outdated dependency, or a dependency conflict.
+  Use for: smart dependency management for any language. Does: auto-detects project type,
+  applies safe updates, prompts for major versions, and diagnoses/fixes dependency issues.
 license: MIT
 metadata:
   version: 1.0.0

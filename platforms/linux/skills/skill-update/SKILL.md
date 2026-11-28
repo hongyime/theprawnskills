@@ -1,8 +1,9 @@
 ---
 name: skill-update
 description: >-
-  Update or improve existing Prawn Skills in a standalone Git clone using observed
-  workflow evidence. Use when asked to refresh a skill or change its behavior.
+  When to read: asked to refresh a skill or change its behavior. Use for: updating or improving
+  existing Prawn Skills in a standalone Git clone using observed workflow evidence. Does:
+  applies the evidence-backed change and re-validates.
 license: MIT
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"

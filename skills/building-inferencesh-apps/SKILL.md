@@ -1,6 +1,9 @@
 ---
 name: building-inferencesh-apps
-description: "Build and deploy applications on inference.sh. Use when getting started, understanding the platform, creating apps, configuring resources, or needing an overview of inference.sh app development. Supports both Python and Node.js. Triggers: inference.sh app, belt app, inf.yml, inference.py, inference.js, deploy app, app development, build app, create app, GPU app, VRAM, app resources, app secrets, app integrations, multi-function app"
+description: >-
+  When to read: getting started with inference.sh apps, or building/deploying one. Use for:
+  building and deploying applications on inference.sh. Does: covers Python and Node.js apps,
+  resources, secrets, integrations, and multi-function apps.
 metadata:
   author: Local setup
   version: "1.0.0"

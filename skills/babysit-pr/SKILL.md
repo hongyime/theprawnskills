@@ -1,8 +1,9 @@
 ---
 name: babysit-pr
 description: >-
-  Monitor a pull request through review and CI. Use when the user asks to
-  monitor, watch, or babysit a PR.
+  When to read: asked to monitor, watch, or babysit a PR. Use for: monitoring a pull request
+  through review and CI. Does: tracks review comments and CI status until the PR lands or needs
+  action.
 license: MIT
 metadata:
   author: Local setup

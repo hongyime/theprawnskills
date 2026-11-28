@@ -1,10 +1,10 @@
 ---
 name: skill-update
 description: >-
-  Update one skill or improve the skill library by learning from current coding
-  practices, agent configs, project conventions, failures, or new preferences.
-  Use when the user says update this skill, improve my skills, make skills match
-  my coding style, refresh all skills, or change what a skill can do.
+  When to read: 'update this skill', 'improve my skills', or 'make skills match my coding
+  style'. Use for: updating one skill or improving the skill library from current coding
+  practices, agent configs, conventions, failures, or new preferences. Does: updates an existing
+  skill, a group of skills, or shared skill-management behavior.
 license: MIT
 metadata:
   author: Local setup

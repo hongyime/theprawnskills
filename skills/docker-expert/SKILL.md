@@ -1,6 +1,10 @@
 ---
 name: docker-expert
-description: "Docker containerization expert: multi-stage builds, image optimization, security hardening, orchestration patterns, and production deployment strategies based on current industry best practices. WHEN: \"Dockerfile\", \"containerize this app\", \"docker build fails\", \"multi-stage build\", \"optimize docker image\", \"docker security\", \"docker compose\"."
+description: >-
+  When to read: 'Dockerfile', 'containerize this app', 'docker build fails', or 'optimize docker
+  image'. Use for: Docker containerization — multi-stage builds, image optimization, security
+  hardening, orchestration, and production deployment. Does: applies current industry best
+  practices to real Dockerfiles and compose setups.
 metadata:
   author: Local setup
   version: "1.0.0"

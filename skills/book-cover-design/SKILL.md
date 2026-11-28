@@ -1,6 +1,9 @@
 ---
 name: book-cover-design
-description: "Book cover design with genre-specific conventions, typography rules, and AI image generation. Covers fiction and non-fiction genres, sizing, thumbnail testing, and iteration workflows. Use for: self-publishing, ebook covers, print covers, audiobook covers, cover mockups. Triggers: book cover, cover design, ebook cover, book art, novel cover, self publishing cover, kindle cover, audiobook cover, book jacket, cover illustration, fiction cover, nonfiction cover"
+description: >-
+  When to read: a book, ebook, or audiobook cover is needed. Use for: book cover design with
+  genre-specific conventions, typography, and AI image generation. Does: covers fiction and
+  non-fiction, sizing, thumbnail testing, and iteration for self-publishing.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

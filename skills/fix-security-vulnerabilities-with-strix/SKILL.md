@@ -1,6 +1,10 @@
 ---
 name: fix-security-vulnerabilities-with-strix
-description: Fix security vulnerabilities found by a Strix pentest (open-source CLI or app.strix.ai cloud) — triage by severity, patch the root cause rather than the symptom, and re-run Strix to prove each fix actually closes the exploit. Handles injection, XSS, SSRF, broken access control, IDOR, and other validated findings. Use after a Strix scan reports findings, or when the user asks to remediate, patch, or fix security issues from a strix_runs report, vulnerabilities.json, findings.sarif, or a cloud scan.
+description: >-
+  When to read: a Strix scan reports findings, or the user asks to remediate, patch, or fix
+  security issues. Use for: fixing vulnerabilities found by a Strix pentest (open-source CLI or
+  app.strix.ai cloud). Does: triages by severity, patches the root cause rather than the
+  symptom, and re-runs Strix to prove each fix closes the exploit.
 license: Apache-2.0
 metadata:
   author: Local setup

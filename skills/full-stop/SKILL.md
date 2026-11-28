@@ -1,7 +1,10 @@
 ---
 name: full-stop
 description: >-
-  Stop all work immediately when the user says 'full stop' — even as a closing "Full stop." that reads like emphasis. Halt the current task, do not start new work, and summarize where things stand. WHEN: user says 'full stop', 'stop everything', 'halt'.
+  When to read: the user says 'full stop', 'stop everything', or 'halt'. Use for: stopping all
+  work immediately. Does: halts the current task, starts no new work, and summarizes where
+  things stand. Same as full-send, but stops with the PR ready for the user to merge — never
+  merges it.
 license: MIT
 metadata:
   author: Local setup

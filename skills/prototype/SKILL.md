@@ -1,11 +1,10 @@
 ---
 name: prototype
 description: >-
-  Build small throwaway proofs that answer one technical question fast. Use
-  when the user says prototype this, spike it, try a quick proof of concept,
-  test if X is feasible, validate the approach, or when a design decision is
-  blocked on unknowns (library behavior, performance, API quirks). Output is a
-  verdict plus evidence, not production code.
+  When to read: 'prototype this', 'spike it', or a design decision blocked on unknowns. Use for:
+  building small throwaway proofs that answer one technical question fast. Does: outputs a
+  verdict plus evidence, not production code; answers with the cheapest runnable thing, then
+  throws the code away or graduates it deliberately.
 license: MIT
 metadata:
   author: Local setup

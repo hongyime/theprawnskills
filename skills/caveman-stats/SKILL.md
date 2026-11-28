@@ -1,10 +1,10 @@
 ---
 name: caveman-stats
-description: >
-  Show real token usage and estimated savings for the current session.
-  Requires the external Caveman Claude Code plugin and its registered hooks.
-  Triggers on /caveman-stats. Report unavailable when the runtime integration
-  is absent; never estimate token counts or claim hooks ran without evidence.
+description: >-
+  When to read: /caveman-stats, or token usage/savings for the session. Use for: showing real
+  token usage and estimated savings for the current session. Does: reports from the external
+  Caveman Claude Code plugin hooks; reports unavailable when the runtime integration is absent,
+  never estimates.
 metadata:
   author: Local setup
   version: "1.0.0"

@@ -1,6 +1,9 @@
 ---
 name: app-store-screenshots
-description: "App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dimensions, gallery ordering, device mockups, and preview videos. Use for: app store optimization, ASO, app screenshots, app preview, play store listing. Triggers: app store screenshots, aso, app store optimization, play store screenshots, app preview, app listing, ios screenshots, android screenshots, app store images, app mockup, device mockup, app gallery, store listing"
+description: >-
+  When to read: app store screenshots, ASO, or a Play Store listing. Use for: App Store and
+  Google Play screenshot creation with exact platform specs. Does: covers iOS/Android
+  dimensions, gallery ordering, device mockups, and preview videos.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

@@ -1,6 +1,10 @@
 ---
 name: javascript-sdk
-description: "JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate 250+ models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, human approval. Use for: JavaScript integration, TypeScript, Node.js, React, Next.js, frontend apps. Triggers: javascript sdk, typescript sdk, npm install, node.js api, js client, react ai, next.js ai, frontend sdk, @inferencesh/sdk, typescript agent, browser sdk, js integration"
+description: >-
+  When to read: JavaScript/TypeScript integration, Node.js, React, or Next.js AI work. Use for:
+  the inference.sh JavaScript/TypeScript SDK (@inferencesh/sdk) — run AI apps, build agents,
+  integrate 250+ models. Does: full TypeScript support, streaming, file uploads, agents with
+  template or ad-hoc patterns, tool builder API, skills, and human approval.
 allowed-tools: Bash(npm *), Bash(npx *), Bash(node *), Bash(pnpm *), Bash(yarn *)
 metadata:
   author: Local setup
@@ -13,13 +17,14 @@ metadata:
 
 Build AI applications with the [inference.sh](https://inference.sh) JavaScript/TypeScript SDK.
 
-![JavaScript SDK](https://cloud.inference.sh/app/files/u/4mg21r6ta37mpaz6ktzwtt8krr/01kgvftjwhby36trvaj66bwzcf.jpeg)
-
 ## Quick Start
 
 ```bash
 npm install @inferencesh/sdk
+# or: yarn add @inferencesh/sdk | pnpm add @inferencesh/sdk
 ```
+
+Requires Node.js 18+ (or modern browser with fetch).
 
 ```typescript
 import { inference } from '@inferencesh/sdk';
@@ -33,18 +38,6 @@ const result = await client.run({
 });
 console.log(result.output);
 ```
-
-## Installation
-
-```bash
-npm install @inferencesh/sdk
-# or
-yarn add @inferencesh/sdk
-# or
-pnpm add @inferencesh/sdk
-```
-
-**Requirements:** Node.js 18.0.0+ (or modern browser with fetch)
 
 ## Authentication
 
@@ -157,8 +150,6 @@ const file = await client.uploadFile(input.files[0]);
 
 ## Sessions (Stateful Execution)
 
-Keep workers warm across multiple calls:
-
 ```typescript
 // Start new session
 const result = await client.run({
@@ -180,9 +171,6 @@ const result2 = await client.run({
 ## Agent SDK
 
 ### Template Agents
-
-Use pre-built agents from your workspace:
-
 ```typescript
 const agent = client.agent('my-team/support-agent@latest');
 
@@ -201,9 +189,6 @@ const chat = await agent.getChat();
 ```
 
 ### Ad-hoc Agents
-
-Create custom agents programmatically:
-
 ```typescript
 import { tool, string, number, appTool } from '@inferencesh/sdk';
 
@@ -263,7 +248,6 @@ const address = obj({
 ```
 
 ### Client Tools (Run in Your Code)
-
 ```typescript
 const greet = tool('greet')
   .display('Greet User')
@@ -391,17 +375,6 @@ const agent = client.agent({
 
 ## Server Proxy (Frontend Apps)
 
-For browser apps, proxy through your backend to keep API keys secure:
-
-### Client Setup
-
-```typescript
-const client = inference({
-  proxyUrl: '/api/inference/proxy'
-  // No apiKey needed on frontend
-});
-```
-
 ### Next.js Proxy (App Router)
 
 ```typescript
@@ -429,15 +402,9 @@ app.use('/api/inference/proxy', createProxyMiddleware({
 
 ### Supported Frameworks
 
-- Next.js (App Router & Pages Router)
-- Express
-- Hono
-- Remix
-- SvelteKit
+Also: Hono, Remix, SvelteKit (Next.js and Express above) — see [Server Proxy](references/server-proxy.md).
 
 ## TypeScript Support
-
-Full type definitions included:
 
 ```typescript
 import type {

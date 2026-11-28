@@ -1,12 +1,10 @@
 ---
 name: wizard
 description: >-
-  Run a guided, step-by-step interactive workflow with the user: one question
-  or decision at a time, visible progress, resumable state. Use when the user
-  says walk me through this, guide me step by step, set this up with me,
-  help me decide interactively, or for multi-decision setups (configuring a
-  service, choosing options, filling forms, onboarding flows) where dumping one
-  giant form would overwhelm.
+  When to read: 'walk me through this', 'guide me step by step', or multi-decision setups. Use
+  for: running a guided, step-by-step interactive workflow with the user. Does: one question or
+  decision at a time, visible progress, resumable state; for configuring a service, choosing
+  options, filling forms, or onboarding flows.
 license: MIT
 metadata:
   author: Local setup

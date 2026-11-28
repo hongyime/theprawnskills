@@ -1,6 +1,10 @@
 ---
 name: recon-fingerprint
-description: Web fingerprinting and WAF detection using wafw00f, whatweb, nuclei, and httpx. Use this skill when user needs to identify web technologies, detect WAF/CDN, analyze server headers, or fingerprint web applications and frameworks.
+description: >-
+  When to read: identifying web technologies, detecting a WAF/CDN, or fingerprinting a web app.
+  Use for: web fingerprinting and WAF detection with wafw00f, whatweb, nuclei, and httpx. Does:
+  analyzes server headers and fingerprints frameworks. Authorized testing only — written
+  permission, defined scope.
 license: Apache-2.0
 metadata:
   author: "Local setup"

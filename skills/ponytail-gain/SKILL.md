@@ -1,9 +1,9 @@
 ---
 name: ponytail-gain
 description: >-
-  Show ponytail's measured savings (code, cost, speed) from the benchmark.
-  One-shot display. Use for /ponytail-gain, "what does ponytail save",
-  "ponytail impact".
+  When to read: /ponytail-gain, 'what does ponytail save', or 'ponytail impact'. Use for:
+  showing ponytail's measured savings (code, cost, speed) from the benchmark. Does: one-shot
+  display; does not change mode, write flag files, or persist anything.
 license: MIT
 metadata:
   author: Local setup

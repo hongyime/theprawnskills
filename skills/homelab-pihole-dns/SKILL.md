@@ -1,9 +1,10 @@
 ---
 name: homelab-pihole-dns
 description: >-
-  Diagnose and plan Pi-hole DNS changes in Docker homelabs with Windows clients
-  and Tailscale. Use for Pi-hole health, blocked domains, broken resolution,
-  DNS routing, v6 configuration and resolver rollout readiness.
+  When to read: Pi-hole health, blocked domains, broken resolution, or DNS routing in a Docker
+  homelab. Use for: diagnosing and planning Pi-hole DNS changes with Windows clients and
+  Tailscale. Does: separates container health, DNS service behavior, and the client's chosen
+  resolver; covers v6 config and rollout readiness.
 license: MIT
 metadata:
   author: Local setup, adapted from ECC

@@ -1,10 +1,10 @@
 ---
 name: figure-it-out
 description: >-
-  Design an auditable playbook when no narrower one fits: a large migration,
-  an ambitious multi-part change, or work a human reviews after stepping away.
-  Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use
-  for /figure-it-out or 'figure it out'.
+  When to read: /figure-it-out, or no narrower playbook fits — a large migration or multi-part
+  change a human reviews after stepping away. Use for: designing an auditable playbook when no
+  narrower one fits. Does: scales rigor to the task, runs a hypothesis loop, and logs decisions
+  in a trail a human can audit.
 license: MIT
 metadata:
   author: Local setup

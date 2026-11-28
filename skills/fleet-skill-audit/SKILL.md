@@ -1,12 +1,11 @@
 ---
 name: fleet-skill-audit
 description: >-
-  Generic, fault-tolerant audit of agent skills discovery and health across all
-  fleet machines. Verifies that agents (OpenCode, Codex, Claude Code, Kiro, Cursor,
-  DeepSeek) discover profile skills on disk with valid frontmatter and intact links,
-  without requiring active agent logins. Gracefully skips
-  unreachable hosts. Trigger on "audit fleet skills", "check all machine skills",
-  "verify agent skills across machines".
+  When to read: 'audit fleet skills', 'check all machine skills', or 'verify agent skills across
+  machines'. Use for: a generic, fault-tolerant audit of agent skill discovery and health across
+  all fleet machines. Does: verifies agents (OpenCode, Codex, Claude Code, Kiro, Cursor,
+  DeepSeek) discover profile skills with valid frontmatter and intact links, without requiring
+  agent logins; skips unreachable hosts.
 license: MIT
 metadata:
   author: Local setup

@@ -1,6 +1,9 @@
 ---
 name: brand-guidelines
-description: Applies Anthropic's official brand colors and typography when the user asks for Anthropic's look-and-feel on an artifact. Use it when the user explicitly wants Anthropic branding, brand colors, or Anthropic style guidelines — not as a default style for unrelated artifacts.
+description: >-
+  When to read: the user explicitly wants Anthropic branding on an artifact. Use for: applying
+  Anthropic's official brand colors and typography. Does: styles the artifact to Anthropic's
+  brand; never a default style for unrelated artifacts.
 license: Complete terms in LICENSE.txt
 metadata:
   author: Local setup

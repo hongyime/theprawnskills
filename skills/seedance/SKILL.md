@@ -1,6 +1,10 @@
 ---
 name: seedance
-description: "Generate videos with ByteDance Seedance 2.0 via inference.sh CLI. Unified model for text-to-video, image-to-video, and reference-to-video with synchronized audio, up to 1080p, 4-15s duration. Pro and Fast variants. Studio variants with private asset library for portrait consistency. Use for: social media videos, music videos, product demos, animated content, AI video with sound. Triggers: seedance, seedance 2, bytedance video, seedance t2v, seedance i2v, seedance r2v, video with audio, seedance 2.0, bytedance seedance, seedance studio"
+description: >-
+  When to read: social media videos, music videos, or AI video with sound. Use for: generating
+  videos with ByteDance Seedance 2.0 via inference.sh CLI. Does: unified text-to-video,
+  image-to-video, and reference-to-video with synchronized audio, up to 1080p, 4-15s; Pro and
+  Fast variants, Studio variants with a private asset library.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

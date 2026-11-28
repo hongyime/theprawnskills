@@ -1,6 +1,10 @@
 ---
 name: python-executor
-description: "Execute Python code in a safe sandboxed environment via [inference.sh](https://inference.sh). Pre-installed: NumPy, Pandas, Matplotlib, requests, BeautifulSoup, Selenium, Playwright, MoviePy, Pillow, OpenCV, trimesh, and 100+ more libraries. Use for: data processing, web scraping, image manipulation, video creation, 3D model processing, PDF generation, API calls, automation scripts. Triggers: python, execute code, run script, web scraping, data analysis, image processing, video editing, 3D models, automation, pandas, matplotlib"
+description: >-
+  When to read: running Python for data processing, scraping, image/video work, or automation.
+  Use for: executing Python code in a safe sandboxed environment via inference.sh. Does: 100+
+  pre-installed libraries (NumPy, Pandas, Matplotlib, requests, BeautifulSoup, Selenium,
+  Playwright, MoviePy, Pillow, OpenCV) for data, scraping, images, video, 3D, and PDFs.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

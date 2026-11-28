@@ -1,6 +1,10 @@
 ---
 name: security-patterns
-description: "Use when searching code, logs, or network captures for sensitive data patterns such as API keys, credit cards, emails, SSNs, phone numbers, or IP addresses. Provides curated SecLists grep and regex pattern lists for data discovery and validation during authorized security testing."
+description: >-
+  When to read: searching code, logs, or network captures for sensitive data patterns. Use for:
+  curated SecLists grep and regex pattern lists for data discovery. Does: covers API keys,
+  credit cards, emails, SSNs, phone numbers, and IP addresses for discovery and validation
+  during authorized testing.
 license: MIT
 metadata:
   author: Local setup

@@ -1,6 +1,10 @@
 ---
 name: mcp-security-hygiene
-description: "Harden MCP configuration security. Use when securing MCP configuration: removing inline secrets, env-var migration, log redaction, least-privilege MCP defaults. DO NOT USE FOR: unrelated auth implementations."
+description: >-
+  When to read: securing MCP configuration — inline secrets, env-var migration, log redaction,
+  or least-privilege defaults. Use for: hardening MCP configuration security. Does: removes
+  inline secrets, migrates to env vars, redacts logs, and sets least-privilege MCP defaults. Not
+  for unrelated auth implementations.
 metadata:
   author: Local setup
   version: "1.0.0"

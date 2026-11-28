@@ -1,6 +1,9 @@
 ---
 name: data-visualization
-description: "Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, scatter, heatmap), axes rules, and storytelling with data. Use for: charts, graphs, dashboards, reports, presentations, infographics, data stories. Triggers: data visualization, chart, graph, data chart, bar chart, line chart, scatter plot, data viz, visualization, dashboard chart, infographic data, data presentation, chart design, plot, heatmap, pie chart alternative"
+description: >-
+  When to read: charts, graphs, dashboards, or data stories are needed. Use for: data
+  visualization with chart selection, color theory, and annotation best practices. Does: covers
+  bar, line, scatter, and heatmap charts, axes rules, and storytelling with data.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

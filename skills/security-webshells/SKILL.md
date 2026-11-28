@@ -1,6 +1,10 @@
 ---
 name: security-webshells
-description: "Use when testing web shell detection, validating IDS or IPS signatures, or analyzing malware samples during authorized security research. Provides curated SecLists web shell samples in PHP, ASP, ASPX, JSP, CFM, and shell script for detection system testing."
+description: >-
+  When to read: testing web shell detection, validating IDS/IPS signatures, or analyzing malware
+  samples during authorized security research. Use for: curated SecLists web shell samples.
+  Does: provides PHP, ASP, ASPX, JSP, CFM, and shell script samples for detection system
+  testing.
 license: MIT
 metadata:
   author: Local setup

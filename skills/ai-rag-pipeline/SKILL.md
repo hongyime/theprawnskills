@@ -1,6 +1,9 @@
 ---
 name: ai-rag-pipeline
-description: "Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: research, fact-checking, grounded responses, knowledge retrieval. Use for: AI agents, research assistants, fact-checkers, knowledge bases. Triggers: rag, retrieval augmented generation, grounded ai, search and answer, research agent, fact checking, knowledge retrieval, ai research, search + llm, web grounded, perplexity alternative, ai with sources, citation, research pipeline"
+description: >-
+  When to read: grounded answers, research with citations, or a knowledge base are needed. Use
+  for: building RAG pipelines with web search and LLMs. Does: retrieves with Tavily/Exa, answers
+  with Claude, GPT-4, or Gemini via OpenRouter, and grounds responses in sources.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

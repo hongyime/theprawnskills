@@ -1,8 +1,9 @@
 ---
 name: ponytail-help
 description: >-
-  Quick reference for ponytail levels, skills and commands. One-shot display.
-  Use for /ponytail-help, "ponytail help", "how do I use ponytail".
+  When to read: /ponytail-help, 'ponytail help', or 'how do I use ponytail'. Use for: the quick
+  reference for ponytail levels, skills, and commands. Does: one-shot display; does not change
+  mode, write flag files, or persist anything.
 license: MIT
 metadata:
   author: Local setup

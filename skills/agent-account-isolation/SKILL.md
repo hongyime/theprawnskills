@@ -1,11 +1,10 @@
 ---
 name: agent-account-isolation
 description: >-
-  Run two or more accounts of the same coding-agent CLI on one machine without
-  cross-contamination. Use for "it used my other account", "wrong account",
-  separating work and personal agent identities, WSL versus host isolation,
-  per-account credentials, or proving which account a CLI is actually using.
-  Covers browser-login CLIs and cloud-credential CLIs, which fail differently.
+  When to read: 'it used my other account', 'wrong account', or two identities on one machine.
+  Use for: running two or more accounts of the same coding-agent CLI without
+  cross-contamination, including WSL vs host and per-account credentials. Does: isolates
+  accounts and proves which account a CLI is actually using.
 license: MIT
 metadata:
   author: Local setup

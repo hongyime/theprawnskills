@@ -1,6 +1,10 @@
 ---
 name: related-skill
-description: "Install complementary inference.sh skills from the external registry. Use when the user asks to install an inference.sh skill that is not in this library yet. For skills already in this library use `skill-router`. To add an external skill to the library permanently, propose it via `skill-creator` instead of installing it ad hoc. Triggers: inference.sh skill, install external skill, complementary inference.sh skill"
+description: >-
+  When to read: the user asks to install an inference.sh skill that is not in this library yet.
+  Use for: installing complementary inference.sh skills from the external registry. Does: finds
+  and installs the external skill. For skills already in this library use skill-router; to add
+  an external skill to the library permanently, propose it via skill-creator instead.
 allowed-tools: Bash(npx skills *)
 metadata:
   author: Local setup

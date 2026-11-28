@@ -1,6 +1,9 @@
 ---
 name: newsletter-curation
-description: "Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. Use for: email newsletters, link roundups, weekly digests, curated content, creator newsletters. Triggers: newsletter, email newsletter, newsletter curation, weekly digest, link roundup, curated newsletter, newsletter writing, newsletter format, subscriber growth, newsletter strategy, content curation, newsletter template"
+description: >-
+  When to read: a newsletter, link roundup, or weekly digest is needed. Use for: newsletter
+  curation with content sourcing, editorial structure, and subscriber growth. Does: covers issue
+  formatting, link roundups, commentary style, and sending cadence.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

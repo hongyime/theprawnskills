@@ -1,6 +1,13 @@
 ---
 name: impeccable
-description: Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Handles UX review, visual hierarchy, information architecture, cognitive load, accessibility, performance, responsive behavior, theming, anti-patterns, typography, fonts, spacing, layout, alignment, color, motion, micro-interactions, UX copy, error states, edge cases, i18n, and reusable design systems or tokens. Also use for bland designs that need to become bolder or more delightful, loud designs that should become quieter, live browser iteration on UI elements, or ambitious visual effects that should feel technically extraordinary. Not for backend-only or non-UI tasks.
+description: >-
+  When to read: designing, redesigning, critiquing, auditing, or polishing a frontend interface
+  — or a bland design that needs to become bolder, or a loud one that should become quieter. Use
+  for: improving frontend interfaces of any kind — websites, dashboards, product UI, components,
+  forms, onboarding, empty states. Does: covers UX review, hierarchy, information architecture,
+  accessibility, performance, responsive behavior, theming, typography, motion, and design
+  systems. Matches impeccable 4.9.0 (verified on the VM, 2026-11-14). Not for backend-only or
+  non-UI tasks.
 license: Apache 2.0
 metadata:
   author: Local setup

@@ -1,6 +1,10 @@
 ---
 name: recon-dir-scan
-description: Directory and file enumeration using ffuf, gobuster, dirsearch, and feroxbuster. Use this skill when user needs to discover hidden directories, enumerate files, find backup files, or map application structure through path fuzzing.
+description: >-
+  When to read: discovering hidden directories, backup files, or mapping app structure. Use for:
+  directory and file enumeration with ffuf, gobuster, dirsearch, and feroxbuster. Does: path
+  fuzzing to find hidden files and directories. Authorized testing only — written permission,
+  defined scope.
 license: Apache-2.0
 metadata:
   author: "Local setup"

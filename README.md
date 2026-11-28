@@ -1,8 +1,8 @@
 # The Prawn Skills
 
 A full skill library plus the daily profile in `default-profile.toml`.
-The library contains 215 top-level skills (225 `SKILL.md` files including
-nested skills), with 66 selected for daily use. The recovered originals remain
+The library contains 262 top-level skills (269 `SKILL.md` files including
+nested skills and portable variants), with 70 selected for daily use. The recovered originals remain
 available alongside the new daily `visual-explainer` skill.
 
 ## Your daily visual standard

@@ -1,8 +1,9 @@
 ---
 name: file-pr
 description: >-
-  File a concise pull request. Use when the user asks to file, open, or create
-  a PR.
+  When to read: the user asks to file, open, or create a PR. Use for: filing a concise pull
+  request. Does: checks whether a PR for the branch already exists, reviews the diff locally
+  against the base branch, and files the PR.
 license: MIT
 metadata:
   author: Local setup

@@ -1,6 +1,11 @@
 ---
 name: nano-banana
-description: "Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 3.1 Flash Image Preview (Nano Banana 2), Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input (up to 14 images), Google Search grounding. Triggers: nano banana, nano banana 2, nanobanana 2, gemini image, gemini 3 pro image, gemini 3.1 flash image, gemini 2.5 flash image, native image generation, gemini native image, google image generation"
+description: >-
+  When to read: generating or editing images with Gemini native image models. Use for:
+  generating images with Google Gemini native image models via inference.sh CLI. Does:
+  text-to-image, image editing, multi-image input (up to 14 images), and Google Search grounding
+  with Gemini 3 Pro Image, Gemini 3.1 Flash Image Preview (Nano Banana 2), and Gemini 2.5 Flash
+  Image.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

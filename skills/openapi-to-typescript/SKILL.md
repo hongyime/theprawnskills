@@ -1,6 +1,9 @@
 ---
 name: openapi-to-typescript
-description: Converts OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type guards. This skill should be used when the user asks to generate types from OpenAPI, convert schema to TS, create API interfaces, or generate TypeScript types from an API specification.
+description: >-
+  When to read: generating types from OpenAPI, converting a schema to TS, or creating API
+  interfaces. Use for: converting OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type
+  guards. Does: generates the interfaces and guards from the API specification.
 metadata:
   author: Local setup
   version: "1.0.0"

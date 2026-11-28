@@ -1,12 +1,10 @@
 ---
 name: why
 description: >-
-  Use for 'why does X work this way', 'why we picked Y', design rationale,
-  regressions, postmortems, or data-backed thresholds. Discovers available
-  MCPs and queries each evidence category (source control, issue tracker,
-  long-form docs, real-time chat, infrastructure observability, error
-  tracking, product analytics warehouse) in parallel, then returns a cited
-  read on decisions and tradeoffs. Use how for runtime behavior.
+  When to read: 'why does X work this way', 'why we picked Y', design rationale, regressions, or
+  postmortems. Use for: discovering the motivation and intent behind code. Does: queries source
+  control, issue tracker, docs, chat, observability, error tracking, and analytics in parallel,
+  then returns a cited read on decisions and tradeoffs. Use how for runtime behavior.
 license: MIT
 metadata:
   author: Local setup

@@ -1,12 +1,11 @@
 ---
 name: skill-authoring
 description: >-
-  Conventions for creating, editing, pruning, or auditing AI-agent skills on
-  this Windows dotagents setup. Canonical skills live under OneDrive
-  `01 SKILLS/.agents/skills`; PowerShell is preferred; secrets are excluded
-  from scans; use `dotagents install` not `dotagents sync`. Trigger strongly
-  for add a skill, make a skill, edit this skill, clean up skills, audit
-  frontmatter, or any SKILL.md surgery.
+  When to read: 'add a skill', 'make a skill', 'edit this skill', 'clean up skills', or any
+  SKILL.md surgery. Use for: the conventions for creating, editing, pruning, or auditing
+  AI-agent skills in the Git clone. Does: canonical skills live in the clone under skills/;
+  secrets are excluded from scans; use the installer, never dotagents sync. Trigger strongly for
+  frontmatter audits and skill surgery.
 license: MIT
 metadata:
   author: Local setup

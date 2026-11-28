@@ -1,11 +1,9 @@
 ---
 name: backprop
 description: >-
-  Bug-to-invariant protocol. When a bug is confirmed or a test fails, trace the
-  root cause, then decide whether a new §I invariant would prevent recurrence
-  and file it into SPEC.md §B via the spec skill. Triggers on test failure,
-  bug report, post-mortem, or after any systematic-debugging session confirms
-  a cause.
+  When to read: a bug is confirmed, a test fails, or a post-mortem is due. Use for: the
+  bug-to-invariant protocol. Does: traces the root cause, then decides whether a new SPEC.md
+  invariant would prevent recurrence and files it.
 license: MIT
 metadata:
   author: Local setup

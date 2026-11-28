@@ -1,9 +1,10 @@
 ---
 name: react-testing
 description: >-
-  Write and repair React component and hook tests with Testing Library and the
-  project's Jest or Vitest runner. Use for form behavior, async state, network
-  mocks, accessible queries, and deciding between component and browser tests.
+  When to read: React component or hook tests, form behavior, or async state. Use for: writing
+  and repairing React tests with Testing Library and the project's Jest or Vitest runner. Does:
+  asserts what users can observe, with network mocks and accessible queries; decides between
+  component and browser tests.
 license: MIT
 metadata:
   author: Local setup, adapted from ECC

@@ -1,10 +1,10 @@
 ---
 name: skill-create
 description: >-
-  Create a new local AI-agent skill from a requested capability or workflow.
-  Use when the user says create a skill, make a skill, new skill, future agents
-  should know, or teach agents how to do something. Installs the finished skill
-  through the machine registry when it should be default-visible.
+  When to read: 'create a skill', 'make a skill', 'new skill', or 'future agents should know'.
+  Use for: creating a new local AI-agent skill from a requested capability or workflow. Does:
+  creates the skill in the Git clone library and installs it through the machine registry when
+  it should be default-visible.
 license: MIT
 metadata:
   author: Local setup

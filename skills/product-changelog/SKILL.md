@@ -1,6 +1,9 @@
 ---
 name: product-changelog
-description: "Product changelog and release notes that users actually read. Covers categorization, user-facing language, visuals, and distribution. Use for: release notes, changelogs, product updates, feature announcements, versioning. Triggers: changelog, release notes, product update, version notes, what's new, feature announcement, product changelog, update log, release announcement, version release, product release, ship notes"
+description: >-
+  When to read: release notes, changelogs, or 'what's new' are needed. Use for: product
+  changelogs and release notes that users actually read. Does: covers categorization,
+  user-facing language, visuals, and distribution.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

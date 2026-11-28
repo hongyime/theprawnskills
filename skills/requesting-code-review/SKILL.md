@@ -1,6 +1,10 @@
 ---
 name: requesting-code-review
-description: Dispatches a focused code reviewer in a fresh agent session with the baseline git diff and task acceptance criteria. Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+description: >-
+  When to read: completing tasks, implementing major features, or before merging. Use for:
+  dispatching a focused code reviewer in a fresh agent session. Does: gives the reviewer the
+  baseline git diff and task acceptance criteria — never your session's history — so review
+  stays focused on the work product.
 metadata:
   author: Local setup
   version: "1.0.0"

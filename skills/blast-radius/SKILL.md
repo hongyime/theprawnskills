@@ -1,10 +1,9 @@
 ---
 name: blast-radius
 description: >-
-  Find what a change could break somewhere else before it ships, beyond the
-  diff, and prove the one fact it's safe because of by running real code
-  instead of writing it up. Use for 'blast radius of X', 'what could this
-  break', or reviewing a small diff you don't trust.
+  When to read: 'what could this break', 'blast radius of X', or a small diff you don't trust.
+  Use for: finding what a change could break elsewhere before it ships. Does: traces impact
+  beyond the diff and proves the one safety fact by running real code, not by writing it up.
 license: MIT
 metadata:
   author: Local setup

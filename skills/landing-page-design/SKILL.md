@@ -1,6 +1,9 @@
 ---
 name: landing-page-design
-description: "Landing page conversion optimization with layout rules, hero section design, and CTA psychology. Covers above-the-fold formula, social proof placement, mobile design, and F-pattern reading. Use for: startup landing pages, product pages, SaaS marketing, conversion optimization. Triggers: landing page, hero section, above the fold, conversion optimization, landing page design, cta button, hero image, landing page layout, saas landing page, product page design, conversion rate, landing page best practices"
+description: >-
+  When to read: a startup landing page, product page, or SaaS marketing page. Use for: landing
+  page conversion optimization with layout rules, hero design, and CTA psychology. Does: covers
+  the above-the-fold formula, social proof placement, mobile design, and F-pattern reading.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

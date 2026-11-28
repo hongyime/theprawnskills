@@ -1,12 +1,10 @@
 ---
 name: repo-standardization
 description: >-
-  Standardize repositories to a common baseline: repo tiers, Apache-2.0 LICENSE
-  and NOTICE files, GitHub description/homepage/topics metadata, README
-  identity block, secret/identity scanning, compliance reports, and new-repo
-  scaffolding. Use when the user says standardize this repo, make repos
-  compliant, add license and topics, audit my repos, scaffold a new repo,
-  SHELL check, or bring this repo to house standard.
+  When to read: 'standardize this repo', 'make repos compliant', 'audit my repos', or 'scaffold
+  a new repo'. Use for: standardizing repositories to a common baseline. Does: covers repo
+  tiers, Apache-2.0 LICENSE and NOTICE files, GitHub metadata, README identity block,
+  secret/identity scanning, compliance reports, and new-repo scaffolding.
 license: MIT
 metadata:
   author: Local setup

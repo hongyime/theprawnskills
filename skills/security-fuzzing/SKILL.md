@@ -1,6 +1,9 @@
 ---
 name: security-fuzzing
-description: "Use when fuzzing inputs for SQL injection, command injection, LDAP injection, or NoSQL injection during authorized vulnerability testing. Provides curated SecLists fuzzing payloads covering SQLi, NoSQL, LDAP, command injection, and special characters."
+description: >-
+  When to read: fuzzing inputs for SQL, command, LDAP, or NoSQL injection during authorized
+  vulnerability testing. Use for: curated SecLists fuzzing payloads. Does: provides SQLi, NoSQL,
+  LDAP, command injection, and special-character payloads for testing.
 license: MIT
 metadata:
   author: Local setup

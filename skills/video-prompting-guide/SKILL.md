@@ -1,6 +1,10 @@
 ---
 name: video-prompting-guide
-description: "Best practices and techniques for writing effective AI video generation prompts. Covers: Veo, Seedance, Wan, Grok, Kling, Runway, Pika, Sora prompting strategies. Learn: shot types, camera movements, lighting, pacing, style keywords, negative prompts. Use for: improving video quality, getting consistent results, professional video prompts. Triggers: video prompt, how to prompt video, veo prompts, video generation tips, better ai video, video prompt engineering, video prompt guide, video prompt template, ai video tips, video prompt best practices, video prompt examples, cinematography prompts"
+description: >-
+  When to read: improving video quality, getting consistent results, or writing professional
+  video prompts. Use for: best practices for writing effective AI video generation prompts.
+  Does: covers Veo, Seedance, Wan, Grok, Kling, Runway, Pika, and Sora prompting — shot types,
+  camera movements, lighting, pacing, style keywords, and negative prompts.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

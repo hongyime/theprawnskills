@@ -1,6 +1,10 @@
 ---
 name: elevenlabs-tts
-description: "ElevenLabs text-to-speech with 22+ premium voices, multilingual support, and voice tuning via inference.sh CLI. Models: eleven_multilingual_v2 (highest quality), eleven_turbo_v2_5 (low latency), eleven_flash_v2_5 (ultra-fast). Capabilities: text-to-speech, voice selection, stability/style control, 32 languages. Use for: voiceovers, audiobooks, video narration, podcasts, accessibility, IVR. Triggers: elevenlabs, eleven labs, elevenlabs tts, premium tts, professional voice, ai voice, high quality tts, multilingual tts, eleven labs voice, voice generation, natural speech, realistic voice, voice over, speech synthesis"
+description: >-
+  When to read: a voiceover, audiobook, video narration, or IVR voice is needed. Use for:
+  ElevenLabs text-to-speech with 22+ premium voices via inference.sh CLI. Does: multilingual_v2
+  (highest quality), turbo_v2_5 (low latency), flash_v2_5 (ultra-fast), with stability/style
+  control in 32 languages.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

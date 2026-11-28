@@ -1,6 +1,10 @@
 ---
 name: ctf-reverse
-description: Provides reverse engineering techniques for CTF challenges. Use when the main job is to understand how a compiled, obfuscated, packed, or virtualized target works before exploiting or solving it, including binaries, APKs, WASM, firmware, custom VMs, bytecode, game clients, malware-like loaders, and anti-debug or anti-analysis logic. Do not use it when the vulnerability is already understood and the remaining task is exploitation; use pwn instead. Do not use it for pure web workflows, log or disk forensics, or standalone crypto problems unless reversing the implementation is the real blocker.
+description: >-
+  When to read: the main job is understanding how a compiled, obfuscated, packed, or virtualized
+  target works. Use for: reverse engineering — binaries, APKs, WASM, firmware, custom VMs,
+  bytecode, game clients, and anti-debug logic. Does: one-liner per technique; full details in
+  supporting files. Not when the vulnerability is already understood (use pwn instead).
 license: MIT
 compatibility: Requires filesystem-based agent (Claude Code or similar) with bash, Python 3, and internet access for tool installation.
 allowed-tools: Bash Read Write Edit Glob Grep Task WebFetch WebSearch

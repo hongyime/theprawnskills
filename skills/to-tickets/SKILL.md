@@ -1,11 +1,10 @@
 ---
 name: to-tickets
 description: >-
-  Break an approved spec, plan, or large change into small ordered
-  implementation tickets with dependencies, file scope, and acceptance checks.
-  Use when the user says break this into tickets, turn the spec into tasks,
-  make a work breakdown, create the ticket list, or when work must span
-  multiple sessions or agents.
+  When to read: 'break this into tickets', 'turn the spec into tasks', or work spanning multiple
+  sessions or agents. Use for: breaking an approved spec, plan, or large change into small
+  ordered implementation tickets. Does: each ticket has dependencies, file scope, and acceptance
+  checks; sized for a single focused session.
 license: MIT
 metadata:
   author: Local setup

@@ -1,6 +1,9 @@
 ---
 name: image-upscaling
-description: "Upscale and enhance images with Real-ESRGAN, Thera, Topaz, FLUX Upscaler via inference.sh CLI. Models: Real-ESRGAN, Thera (any size), FLUX Dev Upscaler, Topaz Image Upscaler. Use for: enhance low-res images, upscale AI art, restore old photos, increase resolution. Triggers: upscale image, image upscaler, enhance image, increase resolution, real esrgan, ai upscale, super resolution, image enhancement, upscaling, enlarge image, higher resolution, 4k upscale, hd upscale"
+description: >-
+  When to read: enhancing a low-res image, upscaling AI art, or restoring an old photo. Use for:
+  upscaling and enhancing images via inference.sh CLI. Does: Real-ESRGAN, Thera, Topaz, and FLUX
+  Upscaler for higher resolution and restored detail.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

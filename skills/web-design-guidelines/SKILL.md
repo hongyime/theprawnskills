@@ -1,6 +1,10 @@
 ---
 name: web-design-guidelines
-description: Review UI code for compliance with Vercel's Web Interface Guidelines (fetched live from the source URL below). Use when the user asks to check a site against Vercel's web interface guidelines. For general design review use design-taste-frontend; for accessibility audits use better-accessibility.
+description: >-
+  When to read: checking a site against Vercel's Web Interface Guidelines. Use for: reviewing UI
+  code for compliance with Vercel's Web Interface Guidelines (fetched live from the source URL).
+  Does: checks the live guidelines against the code. For general design review use
+  design-taste-frontend; for accessibility audits use better-accessibility.
 metadata:
   author: vercel
   version: "1.0.0"

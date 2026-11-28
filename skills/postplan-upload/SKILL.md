@@ -1,11 +1,10 @@
 ---
 name: postplan-upload
 description: >-
-  Use this when generating a substantial execution plan, architecture spec,
-  refactoring blueprint, implementation plan, visual draft report, PR review
-  summary, or when the user asks to upload, publish, share, or make a clickable
-  plan. Use visual-explainer's shared dark/cyan style and diagrams to render
-  standalone HTML, then upload it with `npx postplan upload`.
+  When to read: generating a substantial plan, spec, report, or review, or the user asks to
+  upload, publish, or share one. Use for: publishing a document as a hosted page. Does: renders
+  standalone HTML in visual-explainer's shared dark/cyan style with diagrams, then uploads it
+  with npx postplan upload. Matches postplan 0.0.6 (verified on E14, 2026-11-22).
 license: MIT
 metadata:
   author: the maintainer local setup

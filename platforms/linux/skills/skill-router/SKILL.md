@@ -1,15 +1,22 @@
 ---
 name: skill-router
 description: >-
-  Find and load on-demand skills from a Prawn Skills Git clone on any supported OS.
-  Use for unfamiliar tooling, specialized tasks, skill discovery, or requests
-  involving documents, media, cloud platforms, writing, or skill maintenance.
+  When to read: a task may need a non-installed skill, or skill discovery is needed. Use for:
+  finding and loading on-demand skills from a Prawn Skills Git clone on any supported OS. Does:
+  searches the clone by name and description and reads the selected SKILL.md fully. Note: this
+  portable variant covers the 7 standalone management skills only.
 license: MIT
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Router for Standalone Installs
+
+Curated shortlist, not a mirror: this variant covers only the 7 standalone
+management skills (`skill-add`, `skill-authoring`, `skill-cleanup`,
+`skill-create`, `skill-remove`, `skill-router`, `skill-update`). For any
+other skill, use the main router in `skills/skill-router/SKILL.md` and the
+flat index `INDEX.md` at the repo root.
 
 Read `~/.config/theprawnskills/library.json` and use its `library` path as the
 repository root. If absent and this skill is a symlink, resolve it to locate

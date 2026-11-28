@@ -1,9 +1,9 @@
 ---
 name: reflect
 description: >-
-  Spawn three parallel review subagents over the active transcript, surface
-  learnings, and route each to a concrete edit on an existing skill. Use when
-  the user says reflect.
+  When to read: the user says 'reflect'. Use for: mining the current conversation for durable
+  learnings. Does: spawns three parallel review subagents over the active transcript, surfaces
+  learnings, and routes each to a concrete edit on an existing skill.
 license: MIT
 metadata:
   author: Local setup

@@ -1,6 +1,10 @@
 ---
 name: technical-blog-writing
-description: "Technical blog post writing with structure, code examples, and developer audience conventions. Covers post types, code formatting, explanation depth, and developer-specific engagement patterns. Use for: engineering blogs, dev tutorials, developer blog posts, technical blog articles. Triggers: technical blog, dev blog, engineering blog, developer tutorial, tech post, code tutorial, programming blog, developer content, technical article, engineering post, coding tutorial, technical content"
+description: >-
+  When to read: an engineering blog, dev tutorial, or technical article is needed. Use for:
+  technical blog post writing with structure, code examples, and developer audience conventions.
+  Does: covers post types, code formatting, explanation depth, and developer-specific engagement
+  patterns.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

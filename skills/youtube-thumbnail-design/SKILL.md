@@ -1,6 +1,10 @@
 ---
 name: youtube-thumbnail-design
-description: "YouTube thumbnail design with specific dimensions, contrast rules, and mobile preview optimization. Covers safe zones, text placement, face expression psychology, and A/B testing. Use for: YouTube thumbnails, video cover images, click-through optimization. Triggers: youtube thumbnail, thumbnail design, video thumbnail, click through rate, ctr optimization, youtube cover, video cover image, thumbnail maker, thumbnail tips, youtube design, video preview image"
+description: >-
+  When to read: a YouTube thumbnail, video cover, or click-through optimization. Use for:
+  YouTube thumbnail design with specific dimensions, contrast rules, and mobile preview
+  optimization. Does: covers safe zones, text placement, face expression psychology, and A/B
+  testing.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

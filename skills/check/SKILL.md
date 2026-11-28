@@ -1,12 +1,9 @@
 ---
 name: check
-description: |
-  Read-only drift detector. Diffs SPEC.md against current code and reports
-  violations grouped by severity. Writes nothing — suggests remedies via
-  the spec or build skills but never invokes them. Triggers when the user
-  asks to check drift, audit the spec, verify invariants, or ask whether
-  code still matches the spec. Phrasings: "check drift", "audit the spec",
-  "does the code still match §I", "check invariants", "spec vs code".
+description: >-
+  When to read: 'check drift', 'audit the spec', or 'does the code still match the spec'. Use
+  for: read-only drift detection between SPEC.md and current code. Does: diffs the spec against
+  code, reports violations grouped by severity, writes nothing; the user decides the remedy.
 metadata:
   author: Local setup
   version: "1.0.0"

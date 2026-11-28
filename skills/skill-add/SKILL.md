@@ -1,10 +1,11 @@
 ---
 name: skill-add
 description: >-
-  Add a skill from an upstream GitHub repository, URL, pasted markdown, pasted
-  instructions, or a described tool workflow. Use when the user says add this
-  skill, install this skill, from GitHub, from a link, from pasted text, or make
-  this into a skill.
+  When to read: 'add this skill', 'install this skill', 'from GitHub', 'from a link', or 'make
+  this into a skill'. Use for: adding a skill from an upstream GitHub repository, URL, pasted
+  markdown, pasted instructions, or a described tool workflow. Does: turns an external source or
+  pasted content into a canonical local skill, then optionally exposes it in enabled agent
+  roots.
 license: MIT
 metadata:
   author: Local setup

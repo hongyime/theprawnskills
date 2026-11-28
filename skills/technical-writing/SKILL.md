@@ -1,10 +1,10 @@
 ---
 name: technical-writing
 description: >-
-  Layered technical-writing standard: Diátaxis structure, Google developer
-  style sentences, STE instruction rules, Global English syntax. Use for
-  /technical-writing or when writing or reviewing docs, RFCs, readmes, PR
-  descriptions, or commit messages.
+  When to read: /technical-writing, or writing/reviewing docs, RFCs, readmes, PR descriptions,
+  or commit messages. Use for: the layered technical-writing standard — Diátaxis structure,
+  Google developer style sentences, STE instruction rules, Global English syntax. Does: writes
+  so a tired engineer understands on the first read; applies all four layers.
 license: MIT
 metadata:
   author: Local setup

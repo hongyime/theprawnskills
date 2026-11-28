@@ -1,11 +1,10 @@
 ---
 name: correct
 description: >-
-  Find the mistakes agents keep repeating in this repo and make each one
-  impossible. Try architecture first, then types, then a lint whose error
-  names the fix, then a test, and write docs last. Prove each check fails on a
-  real past mistake. Repeat this each time the operator corrects you. Use for
-  /correct.
+  When to read: /correct, or the operator keeps correcting the same mistake. Use for: finding
+  mistakes agents keep repeating in this repo and making each one impossible. Does: tries
+  architecture first, then types, then a lint whose error names the fix, then a test, docs last;
+  proves each check fails on a real past mistake.
 license: MIT
 metadata:
   author: Local setup

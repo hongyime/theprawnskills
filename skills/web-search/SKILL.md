@@ -1,6 +1,10 @@
 ---
 name: web-search
-description: "Web search and content extraction with Tavily and Exa via inference.sh CLI. Apps: Tavily Search, Tavily Extract, Exa Search, Exa Answer, Exa Extract. Capabilities: AI-powered search, content extraction, direct answers, research. Use for: Tavily or Exa search via belt, RAG pipelines, fact-checking, content aggregation. Triggers: tavily search, exa search, belt web search, inference.sh search, tavily, exa, search api, content extraction"
+description: >-
+  When to read: web search, content extraction, or fact-checking via Tavily or Exa. Use for: web
+  search and content extraction with Tavily and Exa via inference.sh CLI. Does: AI-powered
+  search, content extraction, direct answers, and research via Tavily Search/Extract and Exa
+  Search/Answer/Extract.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

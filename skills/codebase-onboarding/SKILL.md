@@ -1,9 +1,9 @@
 ---
 name: codebase-onboarding
 description: >-
-  Explain an unfamiliar repository using evidenced architecture, entry points,
-  request or job flow, test commands and conventions. Use for onboard me,
-  understand this repo, where do I start, or preparing a codebase orientation.
+  When to read: 'onboard me', 'understand this repo', or 'where do I start'. Use for: explaining
+  an unfamiliar repository with evidenced architecture. Does: maps entry points, request/job
+  flow, test commands, and conventions before proposing changes.
 license: MIT; see LICENSE.txt
 metadata:
   author: Local setup

@@ -1,6 +1,9 @@
 ---
 name: postgres-mcp-onboarding
-description: "Enable PostgreSQL MCP correctly across providers. Use when setting up Postgres MCP: local Docker Postgres, Supabase, Railway, Neon, managed Postgres URLs. DO NOT USE FOR: SQL query optimization itself."
+description: >-
+  When to read: setting up Postgres MCP — local Docker Postgres, Supabase, Railway, Neon, or
+  managed Postgres URLs. Use for: enabling PostgreSQL MCP correctly across providers. Does:
+  configures the MCP connection per provider. Not for SQL query optimization itself.
 metadata:
   author: Local setup
   version: "1.0.0"

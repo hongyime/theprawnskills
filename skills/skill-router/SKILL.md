@@ -1,16 +1,16 @@
 ---
 name: skill-router
 description: >-
-  Route user requests to on-demand skills in the OneDrive canonical skill
-  library. Use when a task sounds like it may need a non-installed skill, when
-  the user asks which skill to use, or when work involves media, documents,
-  presentations, writing, cloud platforms, agent setup, skill creation, or
-  unfamiliar specialized tooling.
+  When to read: a task may need a non-installed skill, or the user asks which skill to use. Use
+  for: routing user requests to on-demand skills in the Git clone library. Does: searches the
+  clone by name and description, picks the smallest relevant set, and reads each selected
+  SKILL.md fully; covers media, documents, presentations, writing, cloud platforms, agent setup,
+  skill creation, and unfamiliar tooling.
 license: MIT
 metadata:
   author: Local setup
   version: "1.0.0"
-  platform: "Codex, Claude, Cursor, OpenCode on Windows"
+  platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"
 ---
 
 # Skill Router
@@ -22,20 +22,50 @@ Debian/Linux variant (curated shortlist, not a mirror): `../../platforms/linux/s
 
 ## Source of Truth
 
-Canonical skill library:
-
-```text
-<user-home>\OneDrive\01 SKILLS\.agents\skills
-```
+Canonical skill library: the Git clone. On this VM: `~/workspace/theprawnskills`
+(repo `hongyime/theprawnskills`). On any machine, read
+`~/.config/theprawnskills/library.json` and use its `library` path as the
+repository root. If absent and this skill is a symlink, resolve it to locate
+the clone. For a copied installation, inspect the intended clone and repair
+the pointer through the installer; the installed copy is not the library.
+The repo root contains `default-profile.toml` and `skills/`.
 
 Skill file convention:
 
 ```text
-<user-home>\OneDrive\01 SKILLS\.agents\skills\<kebab-name>\SKILL.md
+<clone>/skills/<kebab-name>/SKILL.md
 ```
 
-Installed agent roots are only exposure targets. The canonical OneDrive
-`skills/` folder is the durable library.
+Legacy Windows-only mirror (not canonical): some Windows machines keep a
+OneDrive library at `<user-home>\OneDrive\01 SKILLS\.agents\skills`. It is a
+mirror for those machines only. The Git clone is the source of truth on every
+platform; if the mirror and the clone disagree, the clone wins.
+
+Linux portable variant (curated shortlist, not a mirror):
+`platforms/linux/skills/skill-router/SKILL.md` — the 7 standalone management
+skills only. Prefer a standalone variant when present.
+
+## Fleet Roles — Flat Index (One Level)
+
+One routing level, no hierarchy, no sub-routers. Role → flat index → `SKILL.md`.
+The flat index is `INDEX.md` at the repo root (all 258 top-level skills, purpose
++ DAILY/ON-DEMAND status). Each role below lists only its core skills; everything
+else stays on-demand via the flat index — search it, do not guess, do not
+build a second router per role.
+
+| Role | Machine / agent | Core skills (load these first) | Everything else |
+|---|---|---|---|
+| Muse orchestrator | VM, Muse | `skill-router`, `cross-harness-state`, `session-handoff`, `verification-loop`, `to-spec`, `to-tickets`, `check`, `skill-judge`, `project-transfer`, `competitive-upgrade`, `fleet-skill-audit`, `caveman` | Flat index (`INDEX.md`) |
+| Codex implementer | Fleet, Codex | `build`, `check`, `bug-diagnosis`, `systematic-debugging`, `to-spec`, `to-tickets`, `verification-loop`, `requesting-code-review`, `refactor`, `tdd`, `python-testing`, `react-testing`, `webapp-testing`, `skill-cleanup` | Flat index (`INDEX.md`) |
+| agy challenger | Fleet, agy | `requesting-code-review`, `interrogate`, `blast-radius`, `skill-judge`, `hill-climb`, `show-me-your-work`, `figure-it-out`, `skill-reviewer` | Flat index (`INDEX.md`) |
+| opencode (DeepSeek-only) | Fleet, opencode | `opencode-cli`, `build`, `check`, `verification-loop`, `bug-diagnosis`, `skill-router` | Flat index (`INDEX.md`) |
+| Herdr pane driver | Fleet, any agent in a pane | `cli-agent-router`, `bounded-agent-loop`, `cross-harness-state`, `session-handoff`, `skill-router`, `fleet-skill-audit` | Flat index (`INDEX.md`) |
+
+Roles come from `agents.toml` (claude, cursor, codex, vscode, opencode) plus
+the fleet roles in `AGENTS.md` (Muse orchestrator, agy challenger, Herdr pane
+driver). `machines.toml` in this repo is an example only — real devices live
+in ignored `machines.local.toml`; no role is missing from it, so neither file
+is edited by this spec.
 
 ## Routing Workflow
 
@@ -49,24 +79,17 @@ When the user's request may match an on-demand skill:
 5. If no skill clearly fits, continue normally and mention that no exact skill
    matched.
 
-Use PowerShell-compatible search from this machine:
+Search the clone with `rg` (Linux/macOS) or `rg` / PowerShell `Select-String`
+(Windows). Never search the OneDrive mirror as the source of truth.
 
-```powershell
-$root = "<user-home>\OneDrive\01 SKILLS\.agents\skills"
-Get-ChildItem -LiteralPath $root -Directory |
-  ForEach-Object {
-    $skill = Join-Path $_.FullName "SKILL.md"
-    if (Test-Path -LiteralPath $skill) {
-      Select-String -LiteralPath $skill -Pattern "description:|name:|# " -Context 0,2
-    }
-  }
+```bash
+# <clone> = repo root from library.json, e.g. ~/workspace/theprawnskills
+rg -n "deck|presentation|pptx|slides|pdf|image|video|azure|supabase|vercel" "<clone>/skills" -g "SKILL.md"
+rg -n --no-heading "description:" "<clone>/skills" -g "SKILL.md" | rg -i "<keyword>"
 ```
 
-Prefer `rg` for targeted text search:
-
-```powershell
-rg -n "deck|presentation|pptx|slides|pdf|image|video|azure|supabase|vercel" "<user-home>\OneDrive\01 SKILLS\.agents\skills" -g "SKILL.md"
-```
+On Windows, the same `rg` command works from PowerShell or cmd; if `rg` is
+absent, use `Select-String -Path "<clone>\skills\*\SKILL.md" -Pattern "<keyword>"`.
 
 Do not read secret files while routing. Skill folders should normally contain
 instructions, references, scripts, assets, templates, and examples, not secrets.

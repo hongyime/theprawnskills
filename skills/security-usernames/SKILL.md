@@ -1,6 +1,9 @@
 ---
 name: security-usernames
-description: "Use when enumerating usernames, testing default credentials, or discovering accounts during authorized security testing. Provides curated SecLists username wordlists covering common usernames, default system usernames, and common first and last names."
+description: >-
+  When to read: enumerating usernames, testing default credentials, or discovering accounts
+  during authorized security testing. Use for: curated SecLists username wordlists. Does: covers
+  common usernames, default system usernames, and common first and last names.
 license: MIT
 metadata:
   author: Local setup

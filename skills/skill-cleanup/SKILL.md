@@ -1,10 +1,10 @@
 ---
 name: skill-cleanup
 description: >-
-  Audit, prune, deduplicate, archive, or reorganize the local AI-agent skill
-  library. Use when the user says clean up skills, too many skills, prune
-  installed roots, remove unused skills, find redundant skills, or reduce skill
-  context. Produces a report before archiving canonical skills.
+  When to read: 'clean up skills', 'too many skills', 'prune installed roots', or 'reduce skill
+  context'. Use for: auditing, pruning, deduplicating, archiving, or reorganizing the local
+  AI-agent skill library. Does: produces a report before archiving canonical skills; cleans up
+  without losing recoverability.
 license: MIT
 metadata:
   author: Local setup

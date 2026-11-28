@@ -1,6 +1,10 @@
 ---
 name: ci-security-scanning-with-strix
-description: Add security scanning to CI/CD with Strix — GitHub Actions, GitLab CI, or any pipeline — so every pull request gets a diff-scoped AI pentest that blocks vulnerable code before it merges, with results as PR comments and SARIF uploaded to code scanning. Covers both the self-hosted open-source CLI (runs in your runner) and the managed app.strix.ai platform (GitHub/GitLab app or API, no runner infra). Use when the user asks to add security scanning, SAST/DAST, pentesting, vulnerability checks, or automated security review to their CI pipeline, pre-merge gate, or PR workflow.
+description: >-
+  When to read: adding security scanning, SAST/DAST, or a pre-merge gate to a CI pipeline. Use
+  for: adding security scanning to CI/CD with Strix (GitHub Actions, GitLab CI, any pipeline).
+  Does: diff-scoped AI pentest on every PR that blocks vulnerable code, with PR comments and
+  SARIF in code scanning; self-hosted CLI or managed app.strix.ai.
 license: Apache-2.0
 metadata:
   author: Local setup

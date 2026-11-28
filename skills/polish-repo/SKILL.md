@@ -1,13 +1,10 @@
 ---
 name: polish-repo
 description: >-
-  Polish a somewhat-done repo with one command: map it, stress-test it, fix
-  it with tests, tighten and secure it, improve the frontend, prove it,
-  optionally climb the weakest area until it scores 9/10, and open a PR.
-  Use when the user says polish this repo, give this project another pass,
-  or review and improve this project. Also works on an early-stage repo
-  with PRD/TDD docs and little code yet — Phases 1–2 give the second
-  opinion and log the gaps in docs/user-stories.md.
+  When to read: 'polish this repo', 'give this project another pass', or 'review and improve
+  this project'. Use for: polishing a somewhat-done repo with one command. Does: maps it,
+  stress-tests it, fixes it with tests, tightens and secures it, improves the frontend, proves
+  it, optionally climbs the weakest area to 9/10, and opens a PR.
 license: MIT
 metadata:
   author: Local setup

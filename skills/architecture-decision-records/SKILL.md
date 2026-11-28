@@ -1,9 +1,9 @@
 ---
 name: architecture-decision-records
 description: >-
-  Record or explain significant architectural decisions with context,
-  alternatives, consequences and proposed/accepted/superseded status. Use for
-  ADRs, record this decision, why did we choose this, or durable design rationale.
+  When to read: 'record this decision', 'why did we choose this', or durable design rationale.
+  Use for: recording or explaining significant architectural decisions. Does: captures context,
+  alternatives, consequences, and proposed/accepted/superseded status.
 license: MIT; see LICENSE.txt
 metadata:
   author: Local setup

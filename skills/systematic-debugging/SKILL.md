@@ -1,6 +1,10 @@
 ---
 name: systematic-debugging
-description: Four-phase root-cause investigation protocol covering reproduce, isolate, fix, and verify. Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+description: >-
+  When to read: debugging any bug, test failure, or unexpected behavior, before proposing fixes.
+  Use for: the four-phase systematic root-cause investigation protocol — reproduce, isolate,
+  fix, verify. Does: stops random fixes from wasting time and creating new bugs; quick patches
+  mask underlying issues.
 metadata:
   author: Local setup
   version: "1.0.0"

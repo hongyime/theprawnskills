@@ -1,6 +1,10 @@
 ---
 name: dialogue-audio
-description: "Multi-speaker dialogue audio creation with Dia TTS (fal.ai). Covers speaker tags, emotion control, pacing, conversation flow, and post-production. Use for: podcasts, audiobooks, explainers, character dialogue, conversational content. Triggers: dialogue audio, multi speaker, conversation audio, dia tts, two speakers, podcast audio, character voices, voice acting, dialogue generation, conversation tts, multi voice, speaker tags, dialogue recording"
+description: >-
+  When to read: multi-speaker dialogue, conversation audio, or podcast audio is needed. Use for:
+  multi-speaker dialogue audio creation with Dia TTS (fal.ai). Does: speaker tags, emotion
+  control, pacing, conversation flow, and post-production for podcasts, audiobooks, and
+  explainers.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

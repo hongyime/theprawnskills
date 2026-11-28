@@ -1,9 +1,10 @@
 ---
 name: python-testing
 description: >-
-  Design and repair Python tests using the project's unittest or pytest setup.
-  Use for Python fixtures, parametrization, mocks, async tests, boundary cases,
-  regression tests and test isolation. Preserve coursework and framework rules.
+  When to read: Python fixtures, mocks, async tests, boundary cases, or regression tests. Use
+  for: designing and repairing Python tests using the project's unittest or pytest setup. Does:
+  tests observable behavior with independent expectations and isolated fixtures; preserves
+  coursework and framework rules.
 license: MIT
 metadata:
   author: Local setup, adapted from ECC

@@ -1,6 +1,10 @@
 ---
 name: claude-code-cli
-description: Delegate tasks to Claude Code CLI in a hidden background process. Use when the user asks to use Claude Code, or when a task needs multi-file reasoning, complex refactoring, or Claude-quality analysis. Spawns claude in --print mode with no visible terminal — output tee'd to $env:TEMP\hermes-claude-out.txt.
+description: >-
+  When to read: the user asks to use Claude Code, or a task needs multi-file reasoning or
+  Claude-quality analysis. Use for: delegating tasks to the Claude Code CLI in a hidden
+  background process. Does: spawns claude in --print mode with no visible terminal; matches
+  Claude Code 2.1.296 (verified on Debian, 2026-11-16).
 metadata:
   author: Local setup
   version: "1.0.0"

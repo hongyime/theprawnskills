@@ -1,6 +1,9 @@
 ---
 name: security-payloads
-description: "Use when testing file upload handlers, anti-virus controls, or path traversal during authorized security testing. Provides curated SecLists exploitation payloads including the EICAR anti-virus test file, file-name exploits, null-byte names, and traversal samples."
+description: >-
+  When to read: testing file upload handlers, anti-virus controls, or path traversal during
+  authorized security testing. Use for: curated SecLists exploitation payloads. Does: provides
+  the EICAR anti-virus test file, file-name exploits, null-byte names, and traversal samples.
 license: MIT
 metadata:
   author: Local setup

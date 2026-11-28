@@ -1,7 +1,10 @@
 ---
 name: sharpen
 description: >-
-  Make a task deeper, not bigger, then rewrite the prompt. Use when deepening a task, sharpening a prompt, or refining vague instructions. Triggers: deepen task, sharpen prompt, refine prompt, /sharpen.
+  When to read: deepening a task, sharpening a prompt, or refining vague instructions. Use for:
+  making a task deeper, not bigger, then rewriting the prompt. Does: does four things before
+  rewriting — the deeper version, not a bigger one. Triggers: deepen task, sharpen prompt,
+  refine prompt, /sharpen.
 license: MIT
 metadata:
   author: Local setup

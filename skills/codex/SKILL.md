@@ -1,6 +1,10 @@
 ---
 name: codex
-description: Run the installed Codex CLI for user-requested analysis, review, implementation or resuming a specific task, using verified local flags and configured model defaults.
+description: >-
+  When to read: the user asks to run Codex for analysis, review, implementation, or resuming a
+  task. Use for: running the installed Codex CLI with verified local flags and configured model
+  defaults. Does: matches Codex CLI 0.167.2 (verified on the VM, 2026-11-16); update the version
+  line if the installed version moves.
 metadata:
   author: Local setup
   version: "1.0.0"

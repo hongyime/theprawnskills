@@ -1,9 +1,9 @@
 ---
 name: caveman-help
-description: >
-  Quick-reference card for all caveman modes, skills, and commands.
-  One-shot display, not a persistent mode. Trigger: /caveman-help,
-  "caveman help", "what caveman commands", "how do I use caveman".
+description: >-
+  When to read: /caveman-help, 'caveman help', or 'what caveman commands'. Use for: the
+  quick-reference card for all caveman modes, skills, and commands. Does: displays the reference
+  once; does not change mode or persist anything.
 metadata:
   author: Local setup
   version: "1.0.0"

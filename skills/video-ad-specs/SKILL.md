@@ -1,6 +1,10 @@
 ---
 name: video-ad-specs
-description: "Video ad creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, LinkedIn. Covers dimensions, duration limits, AIDA framework, and caption requirements. Use for: video ads, social media ads, paid media creative, video marketing, ad production. Triggers: video ad, social media ad, tiktok ad, instagram ad, youtube ad, facebook ad, linkedin ad, video creative, ad specs, paid media, video marketing, ad production, reels ad, stories ad, pre roll, bumper ad"
+description: >-
+  When to read: a video ad, social media ad, or paid media creative is needed. Use for: video ad
+  creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, and
+  LinkedIn. Does: covers dimensions, duration limits, the AIDA framework, and caption
+  requirements.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

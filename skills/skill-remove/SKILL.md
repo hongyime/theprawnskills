@@ -1,9 +1,9 @@
 ---
 name: skill-remove
 description: >-
-  Remove, archive, uninstall, or retire a skill from the canonical library and
-  installed agent roots. Use when the user says remove this skill, delete this
-  skill, uninstall a skill, retire a skill, or make a skill no longer available.
+  When to read: 'remove this skill', 'delete this skill', 'uninstall a skill', or 'retire a
+  skill'. Use for: removing, archiving, uninstalling, or retiring a skill from the canonical
+  library and installed agent roots. Does: archives without permanent deletion.
 license: MIT
 metadata:
   author: Local setup

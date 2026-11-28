@@ -1,12 +1,10 @@
 ---
 name: cross-harness-state
 description: >-
-  Maintain MOLT-style persistent agent state in a repo's .agents/ folder so any
-  harness (Codex, Claude Code, Cursor, OpenCode) can resume work with zero
-  ambiguity. Use when starting or ending significant work in a repo, when the
-  user says update the state, save progress, journal this, resume from state,
-  what were we doing, or when switching agents/machines mid-task and continuity
-  must survive.
+  When to read: starting or ending significant work, 'update the state', 'resume from state', or
+  switching agents/machines mid-task. Use for: maintaining MOLT-style persistent agent state in
+  a repo's .agents/ folder. Does: keeps durable, harness-agnostic state so any agent on any
+  machine resumes from files, not chat.
 license: MIT
 metadata:
   author: Local setup

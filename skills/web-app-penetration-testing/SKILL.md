@@ -1,6 +1,11 @@
 ---
 name: web-app-penetration-testing
-description: Pentest a web app or website end to end — black-box testing of a live URL, staging environment, or local dev server that finds and exploits real vulnerabilities (auth bypass, broken access control, IDOR, injection, XSS, SSRF, business logic) and proves each one with a working proof-of-concept instead of a signature match. Runs with Strix, either the self-hosted open-source CLI or the managed app.strix.ai cloud. Use when the user asks to pentest, hack, security-test, or audit their web app, website, web application, or staging site.
+description: >-
+  When to read: asked to pentest, hack, security-test, or audit a web app, website, or staging
+  site. Use for: pentesting a web app or website end to end with Strix. Does: black-box testing
+  of a live URL, staging environment, or local dev server; finds and exploits real
+  vulnerabilities (auth bypass, IDOR, injection, XSS, SSRF, business logic) and proves each with
+  a working proof-of-concept. Self-hosted CLI or managed app.strix.ai.
 license: Apache-2.0
 metadata:
   author: Local setup

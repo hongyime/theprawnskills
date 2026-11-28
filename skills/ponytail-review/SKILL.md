@@ -1,12 +1,10 @@
 ---
 name: ponytail-review
 description: >-
-  Quality review of a change: is the logic right, is it safe, does it hold
-  under real load, is risky code tested, is it fast enough, and is every line
-  needed. Reads the connected code, not only the diff. Each finding is
-  explained in plain English. Use for "review this", "code review", "review
-  the last commit", "review my PR", "is this over-engineered",
-  /ponytail-review.
+  When to read: 'review this', 'code review', 'review my PR', or 'is this over-engineered'. Use
+  for: a quality review of a change — logic, safety, load behavior, test coverage, speed, and
+  whether every line is needed. Does: reads the connected code, not only the diff; each finding
+  explained in plain English.
 license: MIT
 metadata:
   author: Local setup

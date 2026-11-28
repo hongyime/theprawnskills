@@ -1,11 +1,10 @@
 ---
 name: how
 description: >-
-  Use for "how does X work", code walkthroughs before changing something, and
-  placement / ownership / layering questions ("where should this live", "which
-  package owns this", "is this the right layer"). Explains subsystem
-  architecture, runtime flow, onboarding mental models. Use why for
-  motivation.
+  When to read: 'how does X work', a code walkthrough before changing something, or 'where
+  should this live'. Use for: explaining subsystem architecture, runtime flow, and onboarding
+  mental models. Does: explores the codebase and answers at senior-engineer level — enough for a
+  working mental model, not annotated source. Use why for motivation.
 license: MIT
 metadata:
   author: Local setup

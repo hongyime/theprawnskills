@@ -1,6 +1,10 @@
 ---
 name: widgets-ui
-description: "Declarative UI widgets from JSON for React/Next.js from ui.inference.sh. Render rich interactive UIs from structured agent responses. Capabilities: forms, buttons, cards, layouts, inputs, selects, checkboxes. Use for: agent-generated UIs, dynamic forms, data display, interactive cards. Triggers: widgets, declarative ui, json ui, widget renderer, agent widgets, dynamic ui, form widgets, card widgets, shadcn widgets, structured output ui"
+description: >-
+  When to read: agent-generated UIs, dynamic forms, or data display from structured responses.
+  Use for: declarative UI widgets from JSON for React/Next.js from ui.inference.sh. Does:
+  renders rich interactive UIs — forms, buttons, cards, layouts, inputs, selects, checkboxes —
+  from structured agent responses.
 metadata:
   author: Local setup
   version: "1.0.0"

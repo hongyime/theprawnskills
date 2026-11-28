@@ -1,10 +1,10 @@
 ---
 name: shell
 description: >-
-  Bring a repo to the SHELL house standard: tiers, Apache-2.0 license files,
-  GitHub metadata, README identity, secret scanning, and a compliance report.
-  Use when the user says shell check, standardize this repo, make repos
-  compliant, audit my repos, or bring this repo to house standard.
+  When to read: 'shell check', 'standardize this repo', or 'bring this repo to house standard'.
+  Use for: bringing a repo to the SHELL house standard. Does: tiers, Apache-2.0 license files,
+  GitHub metadata, README identity, secret scanning, and a compliance report. Alias for
+  repo-standardization; SHELL here is the house standard, not a terminal shell.
 license: MIT
 metadata:
   author: Local setup

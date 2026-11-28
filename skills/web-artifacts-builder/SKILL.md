@@ -1,6 +1,10 @@
 ---
 name: web-artifacts-builder
-description: Suite of tools for creating elaborate, multi-component interactive HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
+description: >-
+  When to read: complex artifacts requiring state management, routing, or shadcn/ui components.
+  Use for: creating elaborate, multi-component interactive HTML artifacts with React, Tailwind
+  CSS, and shadcn/ui. Does: suite of tools for stateful multi-component artifacts; not for
+  simple single-file HTML/JSX artifacts.
 license: Complete terms in LICENSE.txt
 metadata:
   author: Local setup

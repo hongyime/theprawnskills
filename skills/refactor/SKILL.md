@@ -1,6 +1,11 @@
 ---
 name: refactor
-description: 'Surgical code refactoring to improve maintainability without changing behavior. Covers extracting functions, renaming variables, breaking down god functions, improving type safety, eliminating code smells, and applying design patterns. Less drastic than polish-repo; use for gradual improvements.'
+description: >-
+  When to read: improving code structure without changing behavior — extracting functions,
+  renaming, breaking down god functions, or removing smells. Use for: surgical code refactoring
+  to improve maintainability. Does: extracts functions, renames variables, improves type safety,
+  and applies design patterns gradually; less drastic than polish-repo, never a rewrite from
+  scratch.
 license: MIT
 metadata:
   author: Local setup
@@ -10,21 +15,6 @@ metadata:
 
 # Refactor
 
-## Overview
-
-Improve code structure and readability without changing external behavior. Refactoring is gradual evolution, not revolution. Use this for improving existing code, not rewriting from scratch.
-
-## When to Use
-
-Use this skill when:
-
-- Code is hard to understand or maintain
-- Functions/classes are too large
-- Code smells need addressing
-- Adding features is difficult due to code structure
-- User asks "clean up this code", "refactor this", "improve this"
-
----
 
 ## Refactoring Principles
 
@@ -38,19 +28,15 @@ Use this skill when:
 
 ### When NOT to Refactor
 
-```
 - Code that works and won't change again (if it ain't broke...)
 - Critical production code without tests (add tests first)
 - When you're under a tight deadline
 - "Just because" - need a clear purpose
-```
 
----
 
 ## Common Code Smells & Fixes
 
 ### 1. Long Method/Function
-
 ```diff
 # BAD: 200-line function that does everything
 - async function processOrder(orderId) {
@@ -75,7 +61,6 @@ Use this skill when:
 ```
 
 ### 2. Duplicated Code
-
 ```diff
 # BAD: Same logic in multiple places
 - function calculateUserDiscount(user) {
@@ -106,7 +91,6 @@ Use this skill when:
 ```
 
 ### 3. Large Class/Module
-
 ```diff
 # BAD: God object that knows too much
 - class UserManager {
@@ -141,7 +125,6 @@ Use this skill when:
 ```
 
 ### 4. Long Parameter List
-
 ```diff
 # BAD: Too many parameters
 - function createUser(email, password, name, age, address, city, country, phone) {
@@ -172,7 +155,6 @@ Use this skill when:
 ```
 
 ### 5. Feature Envy
-
 ```diff
 # BAD: Method that uses another object's data more than its own
 - class Order {
@@ -204,7 +186,6 @@ Use this skill when:
 ```
 
 ### 6. Primitive Obsession
-
 ```diff
 # BAD: Using primitives for domain concepts
 - function sendEmail(to, subject, body) { /* ... */ }
@@ -240,7 +221,6 @@ Use this skill when:
 ```
 
 ### 7. Magic Numbers/Strings
-
 ```diff
 # BAD: Unexplained values
 - if (user.status === 2) { /* ... */ }
@@ -268,7 +248,6 @@ Use this skill when:
 ```
 
 ### 8. Nested Conditionals
-
 ```diff
 # BAD: Arrow code
 - function process(order) {
@@ -312,7 +291,6 @@ Use this skill when:
 ```
 
 ### 9. Dead Code
-
 ```diff
 # BAD: Unused code lingers
 - function oldImplementation() { /* ... */ }
@@ -327,7 +305,6 @@ Use this skill when:
 ```
 
 ### 10. Inappropriate Intimacy
-
 ```diff
 # BAD: One class reaches deep into another
 - class OrderProcessor {
@@ -346,70 +323,10 @@ Use this skill when:
 + }
 ```
 
----
-
-## Extract Method Refactoring
-
-### Before and After
-
-```diff
-# Before: One long function
-- function printReport(users) {
--   console.log('USER REPORT');
--   console.log('============');
--   console.log('');
--   console.log(`Total users: ${users.length}`);
--   console.log('');
--   console.log('ACTIVE USERS');
--   console.log('------------');
--   const active = users.filter(u => u.isActive);
--   active.forEach(u => {
--     console.log(`- ${u.name} (${u.email})`);
--   });
--   console.log('');
--   console.log(`Active: ${active.length}`);
--   console.log('');
--   console.log('INACTIVE USERS');
--   console.log('--------------');
--   const inactive = users.filter(u => !u.isActive);
--   inactive.forEach(u => {
--     console.log(`- ${u.name} (${u.email})`);
--   });
--   console.log('');
--   console.log(`Inactive: ${inactive.length}`);
-- }
-
-# After: Extracted methods
-+ function printReport(users) {
-+   printHeader('USER REPORT');
-+   console.log(`Total users: ${users.length}\n`);
-+   printUserSection('ACTIVE USERS', users.filter(u => u.isActive));
-+   printUserSection('INACTIVE USERS', users.filter(u => !u.isActive));
-+ }
-+
-+ function printHeader(title) {
-+   const line = '='.repeat(title.length);
-+   console.log(title);
-+   console.log(line);
-+   console.log('');
-+ }
-+
-+ function printUserSection(title, users) {
-+   console.log(title);
-+   console.log('-'.repeat(title.length));
-+   users.forEach(u => console.log(`- ${u.name} (${u.email})`));
-+   console.log('');
-+   console.log(`${title.split(' ')[0]}: ${users.length}`);
-+   console.log('');
-+ }
-```
-
----
 
 ## Introducing Type Safety
 
 ### From Untyped to Typed
-
 ```diff
 # Before: No types
 - function calculateDiscount(user, total, membership, date) {
@@ -464,12 +381,10 @@ Use this skill when:
 + }
 ```
 
----
 
 ## Design Patterns for Refactoring
 
 ### Strategy Pattern
-
 ```diff
 # Before: Conditional logic
 - function calculateShipping(order, method) {
@@ -511,7 +426,6 @@ Use this skill when:
 ```
 
 ### Chain of Responsibility
-
 ```diff
 # Before: Nested validation
 - function validate(user) {
@@ -558,41 +472,15 @@ Use this skill when:
 +   .setNext(new CountryValidator());
 ```
 
----
+
 
 ## Refactoring Steps
 
-### Safe Refactoring Process
-
-```
-1. PREPARE
-   - Ensure tests exist (write them if missing)
-   - Commit current state
-   - Create feature branch
-
-2. IDENTIFY
-   - Find the code smell to address
-   - Understand what the code does
-   - Plan the refactoring
-
-3. REFACTOR (small steps)
-   - Make one small change
-   - Run tests
-   - Commit if tests pass
-   - Repeat
-
-4. VERIFY
-   - All tests pass
-   - Manual testing if needed
-   - Performance unchanged or improved
-
-5. CLEAN UP
-   - Update comments
-   - Update documentation
-   - Final commit
-```
-
----
+1. **Prepare** — ensure tests exist (write them if missing), commit, create a branch.
+2. **Identify** — find the smell, understand the code, plan the change.
+3. **Refactor** — one small change, run tests, commit if green, repeat.
+4. **Verify** — all tests pass, manual check if needed, performance unchanged or improved.
+5. **Clean up** — comments, documentation, final commit.
 
 ## Refactoring Checklist
 
@@ -624,35 +512,3 @@ Use this skill when:
 - [ ] Tests cover edge cases
 - [ ] All tests pass
 
----
-
-## Common Refactoring Operations
-
-| Operation                                     | Description                           |
-| --------------------------------------------- | ------------------------------------- |
-| Extract Method                                | Turn code fragment into method        |
-| Extract Class                                 | Move behavior to new class            |
-| Extract Interface                             | Create interface from implementation  |
-| Inline Method                                 | Move method body back to caller       |
-| Inline Class                                  | Move class behavior to caller         |
-| Pull Up Method                                | Move method to superclass             |
-| Push Down Method                              | Move method to subclass               |
-| Rename Method/Variable                        | Improve clarity                       |
-| Introduce Parameter Object                    | Group related parameters              |
-| Replace Conditional with Polymorphism         | Use polymorphism instead of switch/if |
-| Replace Magic Number with Constant            | Named constants                       |
-| Decompose Conditional                         | Break complex conditions              |
-| Consolidate Conditional                       | Combine duplicate conditions          |
-| Replace Nested Conditional with Guard Clauses | Early returns                         |
-| Introduce Null Object                         | Eliminate null checks                 |
-| Replace Type Code with Class/Enum             | Strong typing                         |
-| Replace Inheritance with Delegation           | Composition over inheritance          |
-
----
-
-## Related Skills
-
-- `codebase-design` - when smells indicate structural boundaries are wrong, design first
-- `to-spec` - large refactors deserve a spec before execution
-- `merge-conflict-resolution` - resolving conflicts in refactored regions
-- `requesting-code-review` - review after each safe state

@@ -1,8 +1,9 @@
 ---
 name: skill-remove
 description: >-
-  Plan and carry out an explicitly requested standalone skill retirement with
-  recoverable backups. Use for uninstalling or archiving an exact named skill.
+  When to read: asked to uninstall, retire, or archive a named skill. Use for: explicitly
+  requested standalone skill retirement. Does: plans the retirement with recoverable backups and
+  removes the skill safely.
 license: MIT
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"

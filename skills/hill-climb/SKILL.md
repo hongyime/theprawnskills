@@ -1,7 +1,10 @@
 ---
 name: hill-climb
 description: >-
-  Hill climb any scoreable goal — code, research, or UI — by looping implement, judge, fix until a threshold or plateau. Use when the user says hill climb, hill climbing, climb the hill, iterate until it scores, or keep improving until it hits 9, or when they ask the agent to walk them through defining the goal and eval first. Generic, not UI-only.
+  When to read: 'hill climb', 'iterate until it scores', or 'keep improving until it hits 9'.
+  Use for: hill climbing any scoreable goal — code, research, or UI. Does: loops implement,
+  judge, fix until a threshold or plateau; one small change at a time, keep it only if the score
+  goes up.
 license: MIT
 metadata:
   author: Local setup

@@ -1,6 +1,9 @@
 ---
 name: linkedin-content
-description: "LinkedIn post writing with hook formulas, formatting rules, and engagement patterns. Covers post types, algorithm signals, character limits, and content pillars. Use for: LinkedIn posts, professional content, thought leadership, B2B content, personal branding. Triggers: linkedin post, linkedin content, linkedin writing, linkedin strategy, linkedin engagement, linkedin algorithm, linkedin hook, linkedin formatting, thought leadership, professional content, b2b content, linkedin growth"
+description: >-
+  When to read: a LinkedIn post, thought leadership, or B2B content. Use for: LinkedIn post
+  writing with hook formulas, formatting rules, and engagement patterns. Does: covers post
+  types, algorithm signals, character limits, and content pillars.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

@@ -1,11 +1,10 @@
 ---
 name: user-stories
 description: >-
-  Review a finished project with the user through user stories: map what a
-  user can actually do, find edge cases, and reconcile the user's mental model
-  with what the code really does, fixing mismatches with their approval. Use
-  when the user says user stories, review this project, is this what I built,
-  or wants a second pass over a somewhat-done project before polishing it.
+  When to read: 'user stories', 'review this project', or 'is this what I built'. Use for:
+  reviewing a finished project with the user through user stories. Does: maps what a user can
+  actually do, finds edge cases, and reconciles the user's mental model with what the code
+  really does, fixing mismatches with their approval.
 license: MIT
 metadata:
   author: Local setup

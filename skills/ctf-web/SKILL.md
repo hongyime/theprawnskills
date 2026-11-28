@@ -1,6 +1,11 @@
 ---
 name: ctf-web
-description: Provides web exploitation techniques for CTF challenges. Use when the target is primarily an HTTP application, API, browser client, template engine, identity flow, or smart-contract frontend/backend surface, including XSS, SQLi, SSTI, SSRF, XXE, JWT, auth bypass, file upload, request smuggling, OAuth/OIDC, SAML, prototype pollution, and similar web bugs. Do not use it for native binary memory corruption, reverse engineering of standalone executables, disk or memory forensics, or pure cryptanalysis unless the web flaw is still the main path to the flag.
+description: >-
+  When to read: the target is primarily an HTTP app, API, browser client, or template engine.
+  Use for: web exploitation — XSS, SQLi, SSTI, SSRF, XXE, JWT, auth bypass, file upload, request
+  smuggling, OAuth/OIDC, SAML, and prototype pollution. Does: maps the app and confirms the
+  trust boundary first, then dives into technique notes. Not for native binary corruption,
+  standalone RE, forensics, or pure cryptanalysis.
 license: MIT
 compatibility: Requires filesystem-based agent (Claude Code or similar) with bash, Python 3, and internet access for tool installation.
 allowed-tools: Bash Read Write Edit Glob Grep Task WebFetch WebSearch Skill

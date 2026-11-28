@@ -1,6 +1,10 @@
 ---
 name: bounded-agent-loop
-description: Run a user-authorized, bounded repair loop with explicit acceptance commands, isolated ownership, attempt and time limits, failure stop conditions, and a resumable handoff. Use for repeated agent repair work, not routine one-pass edits or unattended scheduling.
+description: >-
+  When to read: repeated agent repair work with a concrete deliverable and runnable acceptance
+  criteria. Use for: a user-authorized, bounded repair loop. Does: runs with explicit acceptance
+  commands, isolated ownership, attempt/time limits, failure stop conditions, and a resumable
+  handoff.
 license: MIT
 metadata:
   author: Local setup

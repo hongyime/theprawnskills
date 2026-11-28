@@ -1,9 +1,9 @@
 ---
 name: webapp-testing
 description: >-
-  Verify web applications in a real browser with Playwright: user flows, layout,
-  screenshots, logs, CI artifacts and flaky-test diagnosis. Use for browser
-  testing and end-to-end flows; use react-testing for isolated component tests.
+  When to read: browser testing and end-to-end flows. Use for: verifying web applications in a
+  real browser with Playwright. Does: covers user flows, layout, screenshots, logs, CI
+  artifacts, and flaky-test diagnosis; use react-testing for isolated component tests.
 license: Complete terms in LICENSE.txt; ECC-derived guidance also carries ECC-LICENSE.txt
 metadata:
   author: Local setup

@@ -1,6 +1,10 @@
 ---
 name: recon-port-scan
-description: Port scanning and service identification using nmap, masscan, and rustscan. Use this skill when user needs to discover open ports, identify running services, detect service versions, or fingerprint operating systems on target hosts.
+description: >-
+  When to read: discovering open ports, identifying services, or fingerprinting operating
+  systems on target hosts. Use for: port scanning and service identification with nmap, masscan,
+  and rustscan. Does: discovers open ports, identifies running services and versions, and
+  fingerprints OSes. Authorized testing only — port scanning without permission is illegal.
 license: Apache-2.0
 metadata:
   author: "Local setup"

@@ -1,6 +1,10 @@
 ---
 name: tools-ui
-description: "Tool lifecycle UI components for React/Next.js from ui.inference.sh. Display tool calls: pending, progress, approval required, results. Capabilities: tool status, progress indicators, approval flows, results display. Use for: showing agent tool calls, human-in-the-loop approvals, tool output. Triggers: tool ui, tool calls, tool status, tool approval, tool results, agent tools, mcp tools ui, function calling ui, tool lifecycle, tool pending"
+description: >-
+  When to read: showing agent tool calls, human-in-the-loop approvals, or tool output. Use for:
+  tool lifecycle UI components for React/Next.js from ui.inference.sh. Does: displays tool calls
+  — pending, progress, approval required, results — with status, progress indicators, approval
+  flows, and results display.
 metadata:
   author: Local setup
   version: "1.0.0"

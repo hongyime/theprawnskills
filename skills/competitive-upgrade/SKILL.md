@@ -1,15 +1,11 @@
 ---
 name: competitive-upgrade
 description: >-
-  Compare the current repo, app, or product against real live companies,
-  competitors, SaaS tools, and best-in-class examples using current web research,
-  then turn findings into repo-specific upgrade ideas, specs, tickets, or plans.
-  Use when the user says compare this project with competitors, learn from real
-  companies, what features are missing, upgrade this repo based on market research,
-  benchmark against live products, product capability gap, make this more like the
-  best tools, or find what we should build next. Do NOT use for pure marketing
-  teardowns (competitor-teardown) or ideation without research
-  (game-changing-features).
+  When to read: 'compare this project with competitors', 'what features are missing', or 'find
+  what we should build next'. Use for: comparing the current repo, app, or product against real
+  live companies and best-in-class examples with current web research. Does: turns findings into
+  repo-specific upgrade ideas, specs, tickets, or plans. Not for pure marketing teardowns
+  (competitor-teardown) or ideation without research.
 license: MIT
 metadata:
   author: Local setup

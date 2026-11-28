@@ -1,6 +1,10 @@
 ---
 name: cli-agent-router
-description: Choose and launch an available CLI agent for authorized delegation, independent review or isolated implementation. Use for agent selection, host adapters, bounded parallel work, and tmux/dmux worktree coordination.
+description: >-
+  When to read: choosing or launching a CLI agent for delegation, independent review, or
+  isolated implementation. Use for: agent selection, host adapters, bounded parallel work, and
+  tmux/dmux worktree coordination. Does: honors the user's selected agent, otherwise chooses by
+  verified local capability, auth, and task scope.
 metadata:
   author: Local setup
   version: "1.0.0"

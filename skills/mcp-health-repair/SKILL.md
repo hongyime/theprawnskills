@@ -1,6 +1,10 @@
 ---
 name: mcp-health-repair
-description: "Troubleshoot OpenCode MCP failures fast. Use when OpenCode MCP fails: /status failures, timeout errors, connection closed, broken MCP command args, intermittent MCP flapping. DO NOT USE FOR: feature implementation unrelated to MCP health."
+description: >-
+  When to read: OpenCode MCP fails — /status failures, timeouts, connection closed, broken MCP
+  command args, or intermittent flapping. Use for: troubleshooting OpenCode MCP failures fast.
+  Does: diagnoses the failure class and repairs it. Not for feature implementation unrelated to
+  MCP health.
 metadata:
   author: Local setup
   version: "1.0.0"

@@ -1,6 +1,10 @@
 ---
 name: llm-testing
-description: "Use when testing a large language model for bias, data leakage, alignment failures, or adversarial prompt resistance. Provides curated LLM security testing prompts covering bias detection, data leakage, memory recall, and divergence attacks for authorized AI safety research and red teaming."
+description: >-
+  When to read: testing an LLM for bias, data leakage, alignment failures, or adversarial prompt
+  resistance. Use for: LLM security testing for authorized AI safety research and red teaming.
+  Does: provides curated prompts covering bias detection, data leakage, memory recall, and
+  divergence attacks.
 license: MIT
 metadata:
   author: Local setup

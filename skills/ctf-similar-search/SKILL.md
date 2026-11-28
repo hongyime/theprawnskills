@@ -1,6 +1,9 @@
 ---
 name: ctf-similar-search
-description: Searches for similar CTF challenge writeups using Tavily API for search and content extraction. Use when the user requests finding related challenges, when solve-challenge has failed multiple times and needs reference solutions, or when first identifying a challenge type and seeking examples.
+description: >-
+  When to read: finding related CTF challenges, or solve-challenge has failed repeatedly and
+  needs reference solutions. Use for: searching similar CTF challenge writeups with the Tavily
+  API. Does: searches and extracts writeups to identify the challenge type and find examples.
 license: MIT
 compatibility: Requires filesystem-based agent (Claude Code or similar) with bash and Python 3 with requests and tavily packages.
 allowed-tools: Bash Read Write Glob Grep Skill

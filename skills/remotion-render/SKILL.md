@@ -1,6 +1,10 @@
 ---
 name: remotion-render
-description: "Render videos from React/Remotion component code via inference.sh. Pass TSX code, get MP4. Supports all Remotion APIs: useCurrentFrame, useVideoConfig, spring, interpolate, AbsoluteFill, Sequence. Configurable resolution, FPS, duration, codec. Use for: programmatic video generation, animated graphics, motion design, data-driven videos, React animations to video. Triggers: remotion, render video from code, tsx to video, react video, programmatic video, remotion render, code to video, animated video, motion graphics code, react animation video"
+description: >-
+  When to read: rendering video from React/Remotion code, or programmatic video generation. Use
+  for: rendering videos from React/Remotion component code via inference.sh. Does: passes TSX
+  code, gets MP4 — supports useCurrentFrame, useVideoConfig, spring, interpolate, AbsoluteFill,
+  and Sequence, with configurable resolution, FPS, duration, and codec.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

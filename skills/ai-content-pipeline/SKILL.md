@@ -1,6 +1,9 @@
 ---
 name: ai-content-pipeline
-description: "Build multi-step AI content creation pipelines combining image, video, audio, and text. Workflow examples: generate image → animate → add voiceover → merge with music. Tools: FLUX, Veo, Kokoro TTS, OmniHuman, media merger, upscaling. Use for: YouTube videos, social media content, marketing materials, automated content. Triggers: content pipeline, ai workflow, content creation, multi-step ai, content automation, ai video workflow, generate and edit, ai content factory, automated content creation, ai production pipeline, media pipeline, content at scale"
+description: >-
+  When to read: a multi-step AI content job — image, then video, then voiceover, then merge. Use
+  for: building multi-step AI content creation pipelines. Does: chains FLUX, Veo, Kokoro TTS,
+  OmniHuman, media merger, and upscaling into one pipeline.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

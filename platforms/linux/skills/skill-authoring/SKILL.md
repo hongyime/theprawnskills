@@ -1,8 +1,9 @@
 ---
 name: skill-authoring
 description: >-
-  Apply standalone conventions for creating, editing, validating, or auditing Prawn
-  Skills in a Git clone. Use for SKILL.md changes and skill library maintenance.
+  When to read: creating, editing, validating, or auditing a Prawn Skill. Use for: SKILL.md
+  changes and skill library maintenance in a Git clone. Does: applies the standalone authoring
+  conventions and validates frontmatter and structure.
 license: MIT
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"

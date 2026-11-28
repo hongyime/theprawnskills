@@ -1,6 +1,10 @@
 ---
 name: competitor-teardown
-description: "Structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review. Covers research frameworks, pricing comparison, review mining, and visual deliverables. Use for: market research, competitive intelligence, investor decks, product strategy, sales enablement. Triggers: competitor analysis, competitive analysis, competitor teardown, market research, competitive intelligence, swot analysis, competitor comparison, market landscape, competitor review, competitive landscape, feature comparison, market positioning"
+description: >-
+  When to read: market research, competitive intelligence, or a competitor comparison. Use for:
+  structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review.
+  Does: covers research frameworks, pricing comparison, review mining, and visual deliverables
+  for decks, product strategy, and sales.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

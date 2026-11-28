@@ -1,14 +1,10 @@
 ---
 name: cavecrew
-description: >
-  Decision guide for delegating to caveman-style subagents. Tells the main
-  thread WHEN to spawn `cavecrew-investigator` (locate code), `cavecrew-builder`
-  (1-2 file edit), or `cavecrew-reviewer` (diff review) instead of doing the
-  work inline or using vanilla `Explore`. Subagent output is caveman-compressed
-  so the tool-result injected back into main context is ~60% smaller — main
-  context lasts longer across long sessions.
-  Trigger: "delegate to subagent", "use cavecrew", "spawn investigator/builder/reviewer",
-  "save context", "compressed agent output".
+description: >-
+  When to read: 'delegate to subagent', 'use cavecrew', or 'save context'. Use for: deciding
+  when to spawn caveman-style subagents (investigator, builder, reviewer) instead of working
+  inline. Does: routes to the right preset so subagent output comes back caveman-compressed,
+  ~60% smaller in main context.
 metadata:
   author: Local setup
   version: "1.0.0"

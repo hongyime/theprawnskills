@@ -1,12 +1,10 @@
 ---
 name: project-transfer
 description: >-
-  One-time, on-demand harvest of proven lessons from any project (SOURCE) —
-  owned or not — into a learnings store or another project (TARGET). Mines git
-  history (commits, PRs, review comments, issues, closed branches) plus code,
-  dot files, dot folders and agent session logs, then files the reviewed PACK
-  or adapts lessons into the target. Trigger on "transfer lessons", "harvest
-  this project", "reuse what worked from X", "collate learnings from X".
+  When to read: 'transfer lessons', 'harvest this project', or 'reuse what worked from X'. Use
+  for: a one-time, on-demand harvest of proven lessons from any project (SOURCE) into a
+  learnings store or another project (TARGET). Does: mines git history, code, dot files, and
+  agent session logs, then files the reviewed PACK or adapts lessons into the target.
 license: MIT
 metadata:
   author: Local setup
@@ -23,9 +21,7 @@ repo Bryan does not own; `TARGET` may differ from the store.
 
 Work proceeds in discrete phases with a human-reviewable PACK file in between:
 - **Phase 1 (Harvest)**: Mines git history plus code, dot files and agent session logs; writes only the PACK.
-- **Phase 2 (File and Adopt)**: Files the reviewed PACK into `STORE` (default
-  `hongyime/theprawnlearnings`, one folder per source repo), and optionally
-  adapts lessons into `TARGET`.
+- **Phase 2 (File and Adopt)**: Files the reviewed PACK into `STORE` (default `hongyime/theprawnlearnings`, one folder per source repo), and optionally adapts lessons into `TARGET`.
 
 **Execution Modes:**
 - **Single-repo mode (default)**: Pause after Phase 1 for user review of the summary table before running Phase 2.
@@ -52,10 +48,10 @@ Ask only for missing inputs. Never prompt for `TARGET` during Phase 1. Never pro
 ## Ground Rules
 
 - **Zero Target Writes in Phase 1**: Phase 1 reads `SOURCE` and home agent folders, writing *only* to the PACK file.
-- **No-ownership mode**: `SOURCE` may be a repo Bryan does not own. Never commit, push, open a PR, or write anything in `SOURCE`. Read-only: `git log`, `gh pr` / `gh issue` reads, local clone reads. If the remote is gone or unreachable, harvest from the local clone only and record the access level in the PACK. If there is no local clone and no `gh` access, stop and report — do not guess.
-- **Temp clones are scratch**: when `SOURCE` was cloned to a temp dir for the harvest (remote exists, no local copy), delete the temp clone after the PACK is filed — or after the run, if filing is skipped. The PACK in `STORE` is the durable record, not the clone. When the remote is gone, there is no temp clone: harvest from the local clone, which may be the only copy.
+- **No-ownership mode**: `SOURCE` may be a repo Bryan does not own. Never commit, push, open a PR, or write anything in `SOURCE`. Read-only: `git log`, `gh pr` / `gh issue` reads, local clone reads. Remote gone/unreachable → harvest from the local clone only, record the access level in the PACK. No local clone and no `gh` access → stop and report, do not guess.
+- **Temp clones are scratch**: when `SOURCE` was cloned to a temp dir (remote exists, no local copy), delete the temp clone after the PACK is filed — or after the run, if filing is skipped. The PACK in `STORE` is the durable record, not the clone. When the remote is gone, there is no temp clone: harvest from the local clone, which may be the only copy.
 - **Strict Boundary in Phase 2**: Phase 2 writes *only* inside `STORE` (filing) and `TARGET` (adopting).
-- **Absolute Secret Exclusion**: Never copy secrets, keys, tokens, or credentials from *any* source (working tree, git diffs/commits, PR/issue comments, or session logs). Skip `.env*` (except `.env.example`), `*.pem`, `*.key`, `*.p12`, `*.pfx`, `*.session`, `auth.json`, `tokens.json`, `credentials*.json`, `service-account*.json`, `.npmrc`, `.pypirc`, `id_rsa*`, and cookies. Variable names are allowed; redact any token/password/URL-with-auth literal as `<REDACTED>` before writing `Original Form` or `Evidence`.
+- **Absolute Secret Exclusion**: Never copy secrets, keys, tokens, or credentials from *any* source (working tree, git diffs/commits, PR/issue comments, session logs). Skip `.env*` (except `.env.example`), `*.pem`, `*.key`, `*.p12`, `*.pfx`, `*.session`, `auth.json`, `tokens.json`, `credentials*.json`, `service-account*.json`, `.npmrc`, `.pypirc`, `id_rsa*`, and cookies. Variable names are allowed; redact any token/password/URL-with-auth literal as `<REDACTED>` before writing `Original Form` or `Evidence`.
 - **Graceful Permission Degradation**: If a folder cannot be read (sandbox, permissions), report the path and continue without aborting.
 - **Evidence Requirement**: No evidence, no entry. Speculative or unverified rules must not be added to the PACK.
 
@@ -66,31 +62,22 @@ Ask only for missing inputs. Never prompt for `TARGET` during Phase 1. Never pro
 ### 1.1 Codebase & Dot-File Inventory
 
 Before reading files, check provenance:
-- **Forks (`isFork: true`)**: Identify the fork-only delta first (`gh pr list`, fork-author commits, and diff against `parent` if reachable). Harvest *only* Bryan's / fork-specific changes; do not mine upstream history or upstream-owned files.
-- **Bulk-synced templates**: Check `git log -n 10 --stat` for sync commits (e.g. from `theprawntemplate` / `sourcerepo` or mass `AGENTS.md` / `STANDARDS.md` / `.github/` drops). Ignore files touched *only* by template-sync commits unless the repo modified or actively references them in its own code/PRs.
+- **Forks (`isFork: true`)**: fork-only delta first (`gh pr list`, fork-author commits, diff vs `parent` if reachable). Harvest *only* fork-specific changes; never mine upstream history or upstream-owned files.
+- **Bulk-synced templates**: `git log -n 10 --stat` for sync commits (e.g. `theprawntemplate` / `sourcerepo`, mass `AGENTS.md` / `STANDARDS.md` / `.github/` drops). Ignore files touched *only* by template-sync commits unless the repo modified them or actively references them in its own code/PRs.
 
-Inspect repo-native files in `SOURCE`, including hidden dot-files and folders.
-Skip `node_modules/`, `.venv/`, `venv/`, `dist/`, `build/`, `target/`, `vendor/`, `__pycache__/`, `.next/`, `.pytest_cache/`, binary/media/dataset blobs, and `.git/` internals.
+Inspect repo-native files in `SOURCE`, including hidden dot-files and folders. Skip `node_modules/`, `.venv/`, `venv/`, `dist/`, `build/`, `target/`, `vendor/`, `__pycache__/`, `.next/`, `.pytest_cache/`, binary/media/dataset blobs, and `.git/` internals.
 
 Read in this prioritized order:
 
-1. **Agent instructions & skills**:
-   - Instruction files: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `QWEN.md`, `.cursorrules`, `.windsurfrules`, `.clinerules`, `.github/copilot-instructions.md`.
-   - Tool/agent directories: `.agents/`, `.agent/`, `.claude/`, `.gemini/`, `.codex/`, `.opencode/`, `.cursor/`, `.kiro/`, `.windsurf/`, `.github/`.
-2. **Hooks & automation**:
-   - `.claude/settings*.json` (hooks), `.husky/`, `.pre-commit-config.yaml`.
-   - Build/task files: `Makefile`, `justfile`, `Taskfile`, CI workflows (`.github/workflows/`), `package.json` scripts, `pyproject.toml` tool sections, `scripts/`.
-3. **Quality & lint configuration**:
-   - Linters, formatters, type checkers, strict compiler flags, `.editorconfig`, test runner configurations.
-4. **Docs, notes, & ADRs**:
-   - `README.md`, `docs/`, `notes/`, Architecture Decision Records (ADRs), `TODO`/`FIXME` trends, `CHANGELOG.md`.
-5. **Environment & Editor configs**:
-   - `.env.example` (variable names only), `.vscode/settings.json`, `.vscode/tasks.json`.
+1. **Agent instructions & skills**: instruction files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `QWEN.md`, `.cursorrules`, `.windsurfrules`, `.clinerules`, `.github/copilot-instructions.md`); tool/agent directories (`.agents/`, `.agent/`, `.claude/`, `.gemini/`, `.codex/`, `.opencode/`, `.cursor/`, `.kiro/`, `.windsurf/`, `.github/`).
+2. **Hooks & automation**: `.claude/settings*.json` (hooks), `.husky/`, `.pre-commit-config.yaml`; build/task files (`Makefile`, `justfile`, `Taskfile`, CI workflows, `package.json` scripts, `pyproject.toml` tool sections, `scripts/`).
+3. **Quality & lint configuration**: linters, formatters, type checkers, strict compiler flags, `.editorconfig`, test runner configurations.
+4. **Docs, notes, & ADRs**: `README.md`, `docs/`, `notes/`, ADRs, `TODO`/`FIXME` trends, `CHANGELOG.md`.
+5. **Environment & Editor configs**: `.env.example` (variable names only), `.vscode/settings.json`, `.vscode/tasks.json`.
 
 ### 1.2 Git history (commits, PRs, issues, closed branches)
 
-Mine the history, not just the current tree. Work read-only; prefer `gh` for
-anything GitHub holds and `git log` for what the clone holds.
+Mine the history, not just the current tree. Work read-only; prefer `gh` for anything GitHub holds and `git log` for what the clone holds.
 
 When cloning for harvest, use a treeless clone (`git clone --filter=blob:none --no-single-branch <url>`) so `git log --all` is complete without downloading historical binary blobs. If `git log --all` fails (0 commits), classify `Source Access` as `empty`.
 
@@ -102,7 +89,7 @@ gh issue list --state all --limit 100           # skip if hasIssuesEnabled == fa
 git branch -a                                   # live + remote-tracking branches
 ```
 
-Cap deep inspection to protect context: inspect comments (`gh pr view <N> --comments` / `gh issue view <N> --comments`) on at most the **20 most relevant PRs/issues** (prioritizing closed/merged PRs with review comments, reverts, and bugs over dependency bumps).
+Cap deep inspection to protect context: inspect comments (`gh pr view <N> --comments` / `gh issue view <N> --comments`) on at most the **20 most relevant PRs/issues** (closed/merged PRs with review comments, reverts, and bugs first — not dependency bumps).
 
 Extract, with evidence cited as `commit <sha>`, `PR #N`, or `issue #N`:
 - **Decisions**: what was chosen, who decided, when — from merged PR titles/bodies and review comments that settled an argument.
@@ -110,7 +97,7 @@ Extract, with evidence cited as `commit <sha>`, `PR #N`, or `issue #N`:
 - **Recurring bugs**: the same failure fixed in more than one PR or commit.
 - **Review corrections**: "don't do X", "use Y instead" in review comments — the same class as user corrections in session logs.
 - **Closed branches**: a deleted branch survives through its PR (branch name, merged/closed state, discussion). A branch with no PR leaves only its commits in `git log --all` until pruned.
-- **Per-author ownership**: always use `git log --all` — a single branch's log undercounts contributors (in the trial, Ben showed 157 commits on one branch vs 312 across all refs). For each author, record commit count, date range, top files, and representative subjects. The result is an ownership map: who owns which area. Authors who appear only on branches (never on the main branch) still count.
+- **Per-author ownership**: always use `git log --all` — one branch undercounts (trial: Ben 157 commits on one branch vs 312 across all refs). Per author, record commit count, date range, top files, and representative subjects: an ownership map of who owns which area. Branch-only authors (never on main) still count.
 
 ```bash
 git log --all --no-merges --format="%an <%ae>" | grep -vE '\[bot\]|dependabot|renovate|github-actions' | sort | uniq -c | sort -rn
@@ -120,16 +107,11 @@ git for-each-ref --format="%(refname:short) | %(committerdate:short) | %(authorn
 ```
 Note email aliases belonging to the same person in `Authors` rather than splitting them, and on forks list fork-only author counts separately from upstream.
 
-Access ladder — record the level in the PACK and degrade, never guess:
-- **full**: local clone + `gh` access (PRs, issues, comments available).
-- **clone-only**: local clone, remote gone or unreachable (no PRs/issues; branches and log only).
-- **gh-only**: no local clone, `gh` reads work (PRs/issues available; no working-tree or session-log harvest).
-- **empty**: 0 commits — nothing to mine; record `skipped (empty)` in the sweep ledger, do not create a `STORE` folder.
-- **none**: no clone and no `gh` access — stop and report.
+Access ladder — record the level in the PACK and degrade, never guess: **full** = local clone + `gh` access; **clone-only** = local clone, remote gone/unreachable (no PRs/issues; branches and log only); **gh-only** = no local clone, `gh` reads work (no working-tree or session-log harvest); **empty** = 0 commits — record `skipped (empty)` in the sweep ledger, do not create a `STORE` folder; **none** = no clone and no `gh` access — stop and report.
 
 ### 1.3 Working tree (uncommitted work)
 
-If inspecting an existing local developer checkout, capture uncommitted work (skip this step and record `N/A — fresh temp clone` when harvesting a fresh remote clone):
+If inspecting an existing local developer checkout, capture uncommitted work (skip and record `N/A — fresh temp clone` for a fresh remote clone):
 
 ```bash
 git status --porcelain | wc -l
@@ -137,59 +119,20 @@ git diff --stat | tail -3
 git status --porcelain | grep "^??" | head -20
 ```
 
-- Record the diff stat and the untracked inventory (paths only, not file contents unless a file is the lesson itself, e.g. an analysis doc).
-- Flag every uncommitted item as machine-local: it exists only on that machine's clone until committed. Note which machine's tree was captured.
-- If clones exist on several machines, compare working trees: same HEAD with different dirt means divergent local work — record both.
-- A large uncommitted change (new modules, guides, test suites) is itself a finding: work that was never committed is work with no review trail.
+Record the diff stat and untracked inventory (paths only, not contents, unless a file is itself the lesson, e.g. an analysis doc). Flag every uncommitted item as machine-local — it exists only on that machine's clone until committed; note which machine's tree was captured. If clones exist on several machines, compare working trees: same HEAD with different dirt means divergent local work — record both. A large uncommitted change (new modules, guides, test suites) is itself a finding: work never committed is work with no review trail.
 
 ### 1.4 Agent Session Logs (Home Folders)
 
-Search agent session logs for mentions of `SOURCE`'s absolute path or folder name.
-Because session logs can be massive, use `rg` (ripgrep) or targeted file searches first.
-Do not read entire log files into context without filtering.
-
-#### Known Cross-Platform Locations
-
-| Agent | Linux / macOS | Windows |
-|---|---|---|
-| Claude Code | `~/.claude/projects/` | `%USERPROFILE%\.claude\projects\` |
-| Codex CLI | `~/.codex/sessions/` | `%USERPROFILE%\.codex\sessions\` |
-| Gemini CLI / Antigravity | `~/.gemini/` | `%USERPROFILE%\.gemini\` |
-| OpenCode | `~/.config/opencode/`, `~/.local/share/opencode/` | `%APPDATA%\opencode\`, `%LOCALAPPDATA%\opencode\` |
-| Other Agents | `~/.cursor/`, `~/.kimi/`, `~/.qwen/`, `~/.windsurf/` | `%USERPROFILE%\.<agent>\` |
-
-#### Fast Grep Patterns
-
-```bash
-# Linux / macOS — filter by repo path or owner/repo where possible to avoid short-name collisions and sweep meta-logs
-rg -l -F -e "<owner>/<repo>" -e "/<SOURCE_NAME>" ~/.claude/projects ~/.codex/sessions ~/.gemini ~/.local/share/opencode -g "*.json" -g "*.jsonl" -g "*.md" -g "!*transcript*" 2>/dev/null | head -20
-```
-
-```powershell
-# Windows PowerShell
-$logs = "$HOME\.claude\projects", "$HOME\.codex\sessions", "$HOME\.gemini"
-rg -l "SOURCE_NAME" $logs -g "*.json" -g "*.jsonl" -g "*.md"
-```
-
-From matched logs, extract surrounding context (3-5 lines). When inspecting matched `.jsonl` files, parse/truncate each matched line (`cut -c1-400`) instead of printing raw `rg -C 5` context, so single-line JSON records do not flood context. Ignore meta-logs from the current harvest sweep itself. If no local logs exist on this host, record `none on this host` rather than claiming none ever existed. Focus on:
-- **User corrections**: "no", "don't", "instead", "again", "I told you", "stop doing".
-- **Recurring errors**: The same compilation, lint, or runtime bug encountered multiple times.
-- **Loop-ending fixes**: The key breakthrough or fix that resolved a prolonged debugging session.
-- **Repeated manual steps**: Commands or setup steps the user repeatedly ran or asked the agent to execute.
+See [Session logs](reference/session-logs.md) for agent log locations and grep patterns.
 
 ### 1.5 Extract, Filter, and Generalize
 
 Apply a strict inclusion bar before keeping a candidate:
-- **Drop routine hygiene**: Standard `.gitignore` entries, boilerplate READMEs, default framework scaffolding, and unmotivated style configs are *not* lessons unless linked to a concrete bug, revert, review correction, or 2+ recurrences.
-- **Check staleness**: Verify the pattern is not contradicted or deleted later in `git log` and still applies (for archived/legacy repos, tag the era/version in `Intent` if tied to an old runtime).
-- **Budget**: Target 5–10 high-signal lessons for active repos, 1–4 for small/thin repos, and `0` (stop and skip `STORE` filing) if nothing passes the bar.
+- **Drop routine hygiene**: standard `.gitignore` entries, boilerplate READMEs, default framework scaffolding, unmotivated style configs are *not* lessons unless linked to a concrete bug, revert, review correction, or 2+ recurrences.
+- **Check staleness**: verify the pattern is not contradicted or deleted later in `git log` and still applies (archived/legacy repos: tag the era/version in `Intent` if tied to an old runtime).
+- **Budget**: target 5–10 high-signal lessons for active repos, 1–4 for small/thin repos, and `0` (stop and skip `STORE` filing) if nothing passes the bar.
 
-For every kept lesson, record four attributes:
-
-- **Intent**: What this rule prevents or makes easy. Generalize universal practices into stack-agnostic terms; keep concrete library/API gotchas explicitly named (e.g. rate limits, TLS/SDK quirks) rather than bleaching them into vague platitudes. Drop pure domain/business logic with no reusable engineering lesson.
-- **Original Form**: The concrete code snippet, config flag, script, or instruction from `SOURCE` (scrubbed of any secrets).
-- **Evidence**: Exact file path, `commit <sha>`, `PR #N`, `issue #N`, or session timestamp + recurrence count proving this was needed.
-- **Verification**: How an agent or tool can verify adherence in a target repository.
+For every kept lesson, record four attributes: **Intent** — what this rule prevents or makes easy; generalize universal practices into stack-agnostic terms, keep concrete library/API gotchas explicitly named (e.g. rate limits, TLS/SDK quirks) rather than bleaching them into vague platitudes; drop pure domain/business logic with no reusable engineering lesson. **Original Form** — the concrete code snippet, config flag, script, or instruction from `SOURCE` (scrubbed of any secrets). **Evidence** — exact file path, `commit <sha>`, `PR #N`, `issue #N`, or session timestamp + recurrence count proving this was needed. **Verification** — how an agent or tool can verify adherence in a target repository.
 
 ### 1.6 Classification Rubric
 
@@ -197,8 +140,8 @@ Categorize each generalized item into one of six standard types:
 
 | Category | Definition | Target Destination |
 |---|---|---|
-| `convention` | Style or architectural preference | `AGENTS.md` guidelines (TARGET) or filed learning (STORE) |
-| `procedure` | Step-by-step workflow used 2+ times | Agent skill (`.agents/skills/<name>/SKILL.md`) — in theprawnskills or TARGET, decided at review |
+| `convention` | Style or architectural preference | `AGENTS.md` (TARGET) or filed learning (STORE) |
+| `procedure` | Step-by-step workflow used 2+ times | Agent skill (`.agents/skills/<name>/SKILL.md`) — theprawnskills or TARGET, decided at review |
 | `rule` | Hard constraint that must never break | Automated check script or strict linter rule |
 | `hook` | Triggered event (pre-commit, tool hook) | Check script wired to agent hook / git hook |
 | `workflow` | CI, release, build, or review pipeline | CI action, Makefile, or runner recipe |
@@ -253,32 +196,25 @@ Present the summary table to the user and prompt them to review, modify, or prun
 
 ### 2.1 File into STORE
 
-After the user reviews the PACK, file it into `STORE` (default
-`hongyime/theprawnlearnings`):
+After the user reviews the PACK, file it into `STORE` (default `hongyime/theprawnlearnings`):
 
 1. Clone or update `STORE` (`git pull --ff-only` on `main`); verify clean working tree before editing.
 2. Folder per source repo: `<owner>-<repo>/` (e.g. `bchuminx-healthkaki-pov/`).
-3. Copy the reviewed PACK to `<owner>-<repo>/packs/<YYYY-MM-DD>-lessons.md`. If `<YYYY-MM-DD>-lessons.md` already exists from a same-day rerun, overwrite only if re-harvesting the same `HEAD`, or write `<YYYY-MM-DD>-r2-lessons.md`.
-4. Merge into `<owner>-<repo>/lessons.md`:
-   - Update header metadata (`Date`, `Source HEAD`, `History Inspected`, `Working Tree`).
-   - Match existing items by title/intent: add new items, update changed evidence/details with a `Updated <YYYY-MM-DD> (packs/<file>)` note, and for retired items keep the heading with status **`[SUPERSEDED <YYYY-MM-DD> — see packs/<file>: <reason>]`** instead of deleting it.
+3. Copy the reviewed PACK to `<owner>-<repo>/packs/<YYYY-MM-DD>-lessons.md`. Same-day rerun collision: overwrite only if re-harvesting the same `HEAD`, else write `<YYYY-MM-DD>-r2-lessons.md`.
+4. Merge into `<owner>-<repo>/lessons.md`: update header metadata (`Date`, `Source HEAD`, `History Inspected`, `Working Tree`); match existing items by title/intent — add new items, update changed evidence/details with an `Updated <YYYY-MM-DD> (packs/<file>)` note, and for retired items keep the heading with status **`[SUPERSEDED <YYYY-MM-DD> — see packs/<file>: <reason>]`** instead of deleting it.
 5. Commit and push. The commit message names the source repo and the PACK date.
 
 Filing needs no `TARGET`. If the user wants PACK-only (no filing), stop after 1.7. If the user wants STORE-filing only (no `TARGET`), stop here — do not inspect `TARGET` or run 2.2–2.6.
 
 ### 2.2 Inspect TARGET
 
-Before making any modifications:
-1. Identify `TARGET` stack: language, package managers, test runners, linters, CI systems, and task runners.
-2. Read existing instruction files: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.
-3. Check existing scripts (`scripts/`, `checks/`, `bin/`) and skills (`.agents/skills/`, `.claude/skills/`).
-4. Note which PACK items are already covered or partially addressed in `TARGET`.
+Before modifying: identify `TARGET` stack (language, package managers, test runners, linters, CI, task runners); read its instruction files, scripts (`scripts/`, `checks/`, `bin/`), and skills (`.agents/skills/`, `.claude/skills/`); note which PACK items are already covered or partially addressed.
 
 ### 2.3 Decide for Each Item: Adopt, Adapt, or Skip
 
 - **adopt**: Apply directly as-is (e.g. universal markdown guidelines, stack-independent git practices).
-- **adapt**: Translate the item's *intent* and *verification* into `TARGET`'s native tooling (e.g. convert a Python flake8 rule to an ESLint plugin, or a bash script to a PowerShell / npm script).
-- **skip**: Item is already satisfied by existing configuration or conflicts with `TARGET`'s explicit architecture. Document the reason.
+- **adapt**: Translate the item's *intent* and *verification* into `TARGET`'s native tooling (e.g. a Python flake8 rule → an ESLint plugin, or a bash script → a PowerShell / npm script).
+- **skip**: Already satisfied by existing configuration or conflicts with `TARGET`'s explicit architecture. Document the reason.
 
 Never copy raw syntax from `SOURCE` if `TARGET` uses a different paradigm. Translate the underlying intent.
 
@@ -294,34 +230,18 @@ Present a decision table to the user:
 
 Wait for user approval before writing. Once approved:
 
-1. **Rules & Conventions**:
-   - Append under `## Lessons from <source-folder>` in `TARGET/AGENTS.md`.
-   - If `CLAUDE.md` or `GEMINI.md` exist, add a reference pointing to `AGENTS.md` rather than duplicating content.
-2. **Skills (`procedure`)**:
-   - Save to `TARGET/.agents/skills/<name>/SKILL.md`.
-   - If Claude Code is used, notify the user that it reads `.claude/skills/`, and offer to create a symlink or copy.
-3. **Checks & Rules (`rule`, `hook`)**:
-   - Place executable scripts in `TARGET/checks/` (or the existing script directory).
-   - Wire checks into `package.json`, `Makefile`, or task runner.
-   - Add a notice to `TARGET/AGENTS.md`: `"Before finishing a task, run <check-command>."`
-4. **Hooks**:
-   - Configure only for specific agents requested by the user, having the hook invoke the check script.
-5. **Conflict Prevention**:
-   - Never overwrite existing files without confirmation. Merge additions cleanly.
+1. **Rules & Conventions**: append under `## Lessons from <source-folder>` in `TARGET/AGENTS.md`. If `CLAUDE.md` or `GEMINI.md` exist, add a reference pointing to `AGENTS.md` rather than duplicating content.
+2. **Skills (`procedure`)**: save to `TARGET/.agents/skills/<name>/SKILL.md`. If Claude Code is used, notify the user that it reads `.claude/skills/`, and offer to create a symlink or copy.
+3. **Checks & Rules (`rule`, `hook`)**: place executable scripts in `TARGET/checks/` (or the existing script directory); wire checks into `package.json`, `Makefile`, or task runner; add a notice to `TARGET/AGENTS.md`: `"Before finishing a task, run <check-command>."`
+4. **Hooks**: configure only for specific agents requested by the user, having the hook invoke the check script.
+5. **Conflict Prevention**: never overwrite existing files without confirmation. Merge additions cleanly.
 
 ### 2.5 Verification
 
-Execute each newly introduced check script once within `TARGET`:
-- Confirm the script runs and reports pass/fail without syntax errors.
-- Fix any environment setup issues.
-- Do not modify existing codebase logic in `TARGET` unless explicitly instructed.
+Execute each newly introduced check script once within `TARGET`: confirm it runs and reports pass/fail without syntax errors, fix any environment setup issues, and do not modify existing codebase logic in `TARGET` unless explicitly instructed.
 
 ### 2.6 Handoff Report
 
-Conclude with a clear adoption summary:
-- Files created and modified in `STORE` and `TARGET`.
-- Items adapted and their new locations.
-- Items skipped and reasons.
-- Next steps or manual decisions required from the user.
+Conclude with an adoption summary: files created/modified in `STORE` and `TARGET`, items adapted and their new locations, items skipped and reasons, and next steps / manual decisions required from the user.
 
 Also publish this PACK lessons as a hosted page: hand the finished file to `postplan-upload` and return the Postplan URL next to the local path. Confirm with the user before uploading — see the Postplan rule's gated list.

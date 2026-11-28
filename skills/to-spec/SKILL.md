@@ -1,11 +1,10 @@
 ---
 name: to-spec
 description: >-
-  Turn one clear feature, bug fix, or change request into an
-  implementation-ready spec. Use when the user says write a spec for this,
-  turn this into a spec, spec out this feature, make this buildable, or when a
-  discussed change needs precise requirements before coding. Produces or amends
-  SPEC.md-compatible output and hands off to tickets or direct implementation.
+  When to read: 'write a spec for this', 'spec out this feature', or 'make this buildable'. Use
+  for: turning one clear feature, bug fix, or change request into an implementation-ready spec.
+  Does: produces SPEC.md-compatible output and hands off to tickets or direct implementation.
+  Not for vague multi-direction initiatives (use wayfinder).
 license: MIT
 metadata:
   author: Local setup

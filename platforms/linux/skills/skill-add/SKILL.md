@@ -1,8 +1,9 @@
 ---
 name: skill-add
 description: >-
-  Add a skill to a standalone Prawn Skills Git clone from GitHub, a URL, pasted
-  instructions, or a described workflow. Use when asked to add or install a skill.
+  When to read: asked to add or install a skill. Use for: adding a skill to a standalone Prawn
+  Skills Git clone from GitHub, a URL, pasted instructions, or a described workflow. Does:
+  locates the clone, validates, installs, and wires the new skill in.
 license: MIT
 metadata:
   platform: "Codex, Antigravity (agy), OpenCode, Muse on Windows, macOS, Linux (Debian)"

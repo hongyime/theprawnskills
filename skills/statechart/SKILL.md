@@ -1,10 +1,10 @@
 ---
 name: statechart
 description: >-
-  Check a TLA+ model of a system that moves between states, such as a product
-  flow, a protocol, or a service, and draw it as a Mermaid statechart. The
-  report gives the shortest path to each state that breaks a rule. Use for
-  /statechart, or to show a bug as a path through states.
+  When to read: /statechart, or showing a bug as a path through states. Use for: checking a TLA+
+  model of a system that moves between states — a product flow, protocol, or service — and
+  drawing it as a Mermaid statechart. Does: reports the shortest path to each state that breaks
+  a rule.
 license: MIT
 metadata:
   author: Local setup

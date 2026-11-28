@@ -1,12 +1,9 @@
 ---
 name: domain-modeling
 description: >-
-  Extract and refine the conceptual model of a problem space: entities,
-  relationships, invariants, and ubiquitous language, then map it to code. Use
-  when the user says model this domain, what are the core entities, design the
-  data model, untangle these concepts, or when code fights the business logic
-  because concepts are muddled (god objects, boolean-flag entities, duplicated
-  meanings).
+  When to read: 'model this domain', 'what are the core entities', or code fighting the business
+  logic. Use for: extracting and refining the conceptual model of a problem space. Does: makes
+  entities, relationships, invariants, and ubiquitous language explicit, then maps them to code.
 license: MIT
 metadata:
   author: Local setup

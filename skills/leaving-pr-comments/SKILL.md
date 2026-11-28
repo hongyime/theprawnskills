@@ -1,7 +1,10 @@
 ---
 name: leaving-pr-comments
 description: >-
-  Adds required attribution callouts naming the model responding on behalf of the user, and formatting, to agent-authored comments on GitHub PRs. Use whenever leaving comments on GitHub PRs or code reviews.
+  When to read: leaving comments on GitHub PRs or code reviews. Use for: adding required
+  attribution callouts to agent-authored PR comments. Does: prefixes every agent-authored
+  comment left on the user's behalf with the GitHub note callout naming the model responding,
+  plus formatting.
 license: MIT
 metadata:
   author: Local setup

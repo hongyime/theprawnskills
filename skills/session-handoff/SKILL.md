@@ -1,10 +1,10 @@
 ---
 name: session-handoff
 description: >-
-  Save and resume project work across agents or machines using verified Markdown
-  handoffs. Use for create handoff, save state, pause this task, load handoff,
-  resume from, or continue where we left off. Includes portable draft, validation,
-  listing, and staleness helpers; Git transfer remains a separate action.
+  When to read: 'create handoff', 'save state', 'pause this task', or 'resume from' / 'continue
+  where we left off'. Use for: saving and resuming project work across agents or machines using
+  verified Markdown handoffs. Does: includes portable draft, validation, listing, and staleness
+  helpers; Git transfer remains a separate action.
 license: MIT
 metadata:
   author: Local setup

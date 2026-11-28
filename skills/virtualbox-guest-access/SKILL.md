@@ -1,11 +1,11 @@
 ---
 name: virtualbox-guest-access
 description: >-
-  Operate a VirtualBox Linux guest VM from its host over SSH or VBoxManage
-  guestcontrol. Use for guest VM access, "cannot SSH into the VM", host-only
-  networking, guestcontrol command patterns, a VPN killswitch blocking the
-  host subnet, Guest Additions health, and installing tooling inside a guest.
-  Applies to any CLI agent, not one specific harness.
+  When to read: guest VM access, 'cannot SSH into the VM', host-only networking, or a VPN
+  killswitch blocking the host subnet. Use for: operating a VirtualBox Linux guest VM from its
+  host over SSH or VBoxManage guestcontrol. Does: two channels — SSH (fast, depends on guest
+  networking) and guestcontrol (slow, survives a broken network); covers Guest Additions health
+  and installing tooling inside a guest.
 license: MIT
 metadata:
   author: Local setup

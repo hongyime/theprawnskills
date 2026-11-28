@@ -1,11 +1,10 @@
 ---
 name: codebase-design
 description: >-
-  Design how a change should be organized in the codebase: module boundaries,
-  dependency direction, file layout, and seams for testing. Use when the user
-  says where should this go, how should we structure this, design the
-  architecture for this feature, split these modules, or when a repo/feature is
-  growing tangled and needs structural decisions before more code lands.
+  When to read: 'where should this go', 'how should we structure this', or a repo growing
+  tangled. Use for: designing how a change should be organized in the codebase. Does: decides
+  module boundaries, dependency direction, file layout, and seams for testing before more code
+  lands.
 license: MIT
 metadata:
   author: Local setup

@@ -1,8 +1,10 @@
 ---
 name: takeover
 description: >-
-  Take over existing work. Use when the user asks to take over a PR, branch,
-  or agent thread, or requests a takeover.
+  When to read: the user asks to take over a PR, branch, or agent thread. Use for: taking over
+  existing work. Does: takes responsibility for finishing the original goal while preserving the
+  original contributors' credit; never defends an implementation just because another agent
+  built it.
 license: MIT
 metadata:
   author: Local setup

@@ -1,11 +1,12 @@
 ---
 name: opencode-bedrock-config
 description: >-
-  Configure OpenCode to use AWS Bedrock models, and fix subagents pinned to a
-  dead or unfunded provider. Use for "SigV4 authentication requires AWS
-  credentials", Bedrock provider setup, region pinning for global inference
-  profiles, per-agent model overrides, "no credits remaining" from a subagent,
-  and replicating an OpenCode Bedrock setup onto a new machine.
+  When to read: 'SigV4 authentication requires AWS credentials', a Bedrock provider setup, or a
+  subagent pinned to a dead provider. Use for: configuring OpenCode to use AWS Bedrock models.
+  Does: fixes the missing profile and unpinned region that cause most Bedrock failures, handles
+  per-agent model overrides, and replicates a Bedrock setup onto a new machine. Note:
+  opencode+Bedrock auth is discontinued (Bryan's call) — this skill remains for existing setups
+  only.
 license: MIT
 metadata:
   author: Local setup

@@ -1,10 +1,9 @@
 ---
 name: unslop
 description: >-
-  Removes AI tells from any writing: superficial -ing phrases, vague
-  attributions, AI vocabulary, and forced rule-of-three structure, preserving
-  meaning and tone. Use when editing docs, PR descriptions, READMEs, or any
-  text that reads AI-generated.
+  When to read: editing docs, PR descriptions, or READMEs that read AI-generated. Use for:
+  removing AI tells from any writing. Does: strips superficial -ing phrases, vague attributions,
+  AI vocabulary, and forced rule-of-three structure, preserving meaning and tone.
 license: MIT
 metadata:
   author: Local setup

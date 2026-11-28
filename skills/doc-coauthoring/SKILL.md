@@ -1,6 +1,9 @@
 ---
 name: doc-coauthoring
-description: Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.
+description: >-
+  When to read: writing docs, proposals, technical specs, or decision docs with the user. Use
+  for: a structured workflow for co-authoring documentation. Does: guides three stages — Context
+  Gathering, Refinement & Structure, Reader Testing — so the doc works for its readers.
 metadata:
   author: Local setup
   version: "1.0.0"

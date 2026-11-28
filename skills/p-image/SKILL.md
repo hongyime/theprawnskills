@@ -1,6 +1,10 @@
 ---
 name: p-image
-description: "Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA styles, multi-image compositing, fast inference. Pruna optimizes models for speed without quality loss. Triggers: pruna, p-image, pruna image, fast image generation, optimized flux, pruna ai, p image, fast ai image, economic image generation, cheap image generation"
+description: >-
+  When to read: fast or cheap image generation, or a LoRA style image. Use for: generating
+  images with Pruna P-Image models via inference.sh CLI. Does: text-to-image, image editing,
+  LoRA styles, and multi-image compositing with P-Image, P-Image-LoRA, P-Image-Edit, and
+  P-Image-Edit-LoRA; Pruna optimizes for speed without quality loss.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

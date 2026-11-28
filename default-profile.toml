@@ -23,6 +23,7 @@ skills = [
   # Core coding workflow
   "build",
   "check",
+  "verify-before-claiming",
   "bug-diagnosis",
   "to-spec",
   "to-tickets",
@@ -58,6 +59,7 @@ skills = [
   "agents-sdk",
   "mcp-builder",
   "mcp-health-repair",
+  "fleet-config-verification",
   "mcp-security-hygiene",
   "postgres-mcp-onboarding",
   "project-db-autodetect",

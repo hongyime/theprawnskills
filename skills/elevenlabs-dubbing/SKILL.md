@@ -1,6 +1,10 @@
 ---
 name: elevenlabs-dubbing
-description: "ElevenLabs automatic dubbing - translate and dub audio/video into 29 languages while preserving speaker voice via inference.sh CLI. Capabilities: auto speaker detection, voice-preserving translation, video dubbing, audio localization. Use for: content localization, video translation, multilingual content, international distribution. Triggers: dubbing, dub video, translate audio, video translation, audio translation, localize content, elevenlabs dubbing, eleven labs dub, multilingual dub, voice translation, auto dub, language dub, content localization"
+description: >-
+  When to read: dubbing, translating audio/video, or localizing content into other languages.
+  Use for: ElevenLabs automatic dubbing via inference.sh CLI — translate and dub audio/video
+  into 29 languages while preserving speaker voice. Does: auto speaker detection,
+  voice-preserving translation, video dubbing, and audio localization.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

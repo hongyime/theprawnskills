@@ -1,6 +1,9 @@
 ---
 name: product-hunt-launch
-description: "Product Hunt launch optimization with specific specs, timing, and gallery strategy. Covers taglines, gallery images, maker comments, and launch day tactics. Use for: product launches, startup launches, side project launches, Product Hunt optimization. Triggers: product hunt, ph launch, product hunt launch, launch strategy, product launch, startup launch, product hunt tips, product hunt gallery, ph optimization, launch day, product hunt maker"
+description: >-
+  When to read: a Product Hunt launch, startup launch, or side project launch. Use for: Product
+  Hunt launch optimization with specs, timing, and gallery strategy. Does: covers taglines,
+  gallery images, maker comments, and launch day tactics.
 allowed-tools: Bash(belt *)
 metadata:
   author: Local setup

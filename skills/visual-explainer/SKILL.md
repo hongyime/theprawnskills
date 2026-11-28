@@ -1,13 +1,12 @@
 ---
 name: visual-explainer
 description: >-
-  Explain ideas, plans, architecture, code changes, comparisons, audits, and
-  workflows with consistent standalone HTML and useful diagrams. Use proactively
-  for most answers where a visual improves understanding, even short answers;
-  trigger for explain how it works, show the flow, compare options, diagram,
-  UML, Mermaid, C4, HTML report, visual explanation, or a clickable plan.
-  Uses a restrained dark theme, one cyan accent, and visual overview, details,
-  next steps. Works with postplan-upload for hosted delivery.
+  When to read: most answers where a visual improves understanding — explain how it works, show
+  the flow, compare options, diagram, UML, Mermaid, C4, or an HTML report. Use for: explaining
+  ideas, plans, architecture, code changes, comparisons, audits, and workflows with consistent
+  standalone HTML and useful diagrams. Does: uses a restrained dark theme with one cyan accent
+  and a visual overview, details, next steps structure; works with postplan-upload for hosted
+  delivery.
 license: MIT
 metadata:
   version: "1.0.0"

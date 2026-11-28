@@ -1,12 +1,10 @@
 ---
 name: bug-diagnosis
 description: >-
-  Structured bug diagnosis producing a written diagnosis document before any
-  fix is attempted. Use when the user reports a bug, asks to investigate why
-  something fails, says diagnose this bug, find the root cause, figure out why
-  X broke, or when a bug is non-obvious, intermittent, or survived previous fix
-  attempts. Pairs with systematic-debugging (the discipline) and backprop
-  (recurrence prevention).
+  When to read: a bug is reported, non-obvious, intermittent, or survived previous fixes. Use
+  for: structured bug diagnosis producing a written diagnosis document before any fix. Does:
+  diagnoses from evidence and defers fixing to a separate decision; pairs with
+  systematic-debugging and backprop.
 license: MIT
 metadata:
   author: Local setup

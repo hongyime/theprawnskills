@@ -1,13 +1,10 @@
 ---
 name: build
-description: |
-  Plan-then-execute implementation against SPEC.md. Native single-thread
-  loop, no sub-agents. On test or build failure, auto-invokes the backprop
-  skill before retrying — a failed verification always considers whether
-  a new §I invariant would prevent recurrence. Triggers when the user asks
-  to build, implement, execute the spec, or tackle a specific §T task
-  (`build §T.3`, `build --next`, `implement next task`, `run the build`).
-  Expects SPEC.md to exist; if not, defers to the spec skill.
+description: >-
+  When to read: asked to build, implement, execute the spec, or tackle a SPEC.md task. Use for:
+  plan-then-execute implementation against SPEC.md in a single-thread loop, no sub-agents. Does:
+  implements, tests, and on failure auto-invokes backprop before retrying; expects SPEC.md to
+  exist, otherwise defers to the spec skill.
 metadata:
   author: Local setup
   version: "1.0.0"

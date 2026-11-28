@@ -1,11 +1,10 @@
 ---
 name: merge-conflict-resolution
 description: >-
-  Resolve git merge/rebase conflicts systematically without losing either
-  side's intent. Use when the user says fix this merge conflict, resolve the
-  rebase, there are conflicts, git is stuck on a conflict, or after pulling/
-  rebasing/merging when markers appear. Covers reading both sides' intent,
-  semantic (not just textual) resolution, and verification before continuing.
+  When to read: 'fix this merge conflict', 'resolve the rebase', or markers appear after
+  pulling/merging. Use for: resolving git merge/rebase conflicts systematically without losing
+  either side's intent. Does: reads both sides' intent, resolves semantically (not just
+  textually), and verifies before continuing.
 license: MIT
 metadata:
   author: Local setup

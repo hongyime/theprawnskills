@@ -1,6 +1,9 @@
 ---
 name: security-passwords
-description: "Use when testing credentials during authorized security testing, password spraying, or password policy validation. Provides curated SecLists password wordlists covering common passwords, darkweb breach leaks, and worst passwords."
+description: >-
+  When to read: testing credentials, password spraying, or password policy validation during
+  authorized security testing. Use for: curated SecLists password wordlists. Does: provides
+  common passwords, darkweb breach leaks, and worst passwords (curated essentials, under 10MB).
 license: MIT
 metadata:
   author: Local setup

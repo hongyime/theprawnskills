@@ -1,12 +1,10 @@
 ---
 name: wayfinder
 description: >-
-  Navigate large, ambiguous initiatives where the destination or path is
-  unclear. Use when the user says figure out how to approach this, this is too
-  vague to spec, help me find a path, map the territory, we need a plan for a
-  big messy project, or when to-spec/wayfinder routing keeps failing because
-  scope itself is unknown. Produces a wayfinding map: knowns, unknowns,
-  options, and a first concrete step.
+  When to read: 'figure out how to approach this', 'this is too vague to spec', or 'help me find
+  a path'. Use for: navigating large, ambiguous initiatives where the destination or path is
+  unclear. Does: produces a wayfinding map — knowns, unknowns, options, and a first concrete
+  step; makes the problem solvable without solving it.
 license: MIT
 metadata:
   author: Local setup
