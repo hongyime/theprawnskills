@@ -62,6 +62,8 @@ skills = [
   "fleet-config-verification",
   "gated-verifier",
   "fleet-parity",
+  "connector-health",
+  "flight-search",
   "mcp-security-hygiene",
   "postgres-mcp-onboarding",
   "project-db-autodetect",
@@ -91,6 +93,7 @@ skills = [
   "skill-creator",
   "skill-judge",
   "skill-reviewer",
+  "diary-learnings",
 ]
 
 [rules]
