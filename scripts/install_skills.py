@@ -40,16 +40,24 @@ def tree_digest(folder: Path) -> str:
     """Hash content and relative paths; the root ownership marker is excluded."""
     digest = hashlib.sha256()
     for path in sorted(folder.rglob("*")):
-        # OneDrive conflict copies of the marker (.prawn-install-<machine>.json)
-        # are installer metadata, not skill content; ignore them like the marker.
-        if path.parent == folder and path.name.startswith(".prawn-install"):
+        # OneDrive conflict copies (.prawn-install-<machine>.json,
+        # SKILL-<machine>.md, ...) are sync artifacts, not skill content;
+        # ignore them like the marker. Fleet Windows machines are named
+        # Prawn-*; no legitimate skill file contains that string.
+        if path.parent == folder and (path.name.startswith(".prawn-install") or "-Prawn-" in path.name):
             continue
         if is_redirect(path):
             raise ValueError(f"Copy mode does not follow linked content: {path}")
         relative = path.relative_to(folder).as_posix().encode("utf-8")
         digest.update((b"D" if path.is_dir() else b"F") + relative + b"\0")
         if path.is_file():
-            digest.update(hashlib.sha256(path.read_bytes()).digest())
+            try:
+                digest.update(hashlib.sha256(path.read_bytes()).digest())
+            except OSError as error:
+                raise ValueError(
+                    f"Cannot read {path} ({error}); if this is a OneDrive "
+                    "placeholder, let sync finish downloading it, then re-run."
+                ) from error
     return digest.hexdigest()
 
 

@@ -239,6 +239,36 @@ class CopyInstallerTests(Fixture):
         installer.apply_plan(plan)
         self.assertTrue((alpha / ".prawn-install.json").is_file())
 
+    def test_onedrive_content_conflict_copy_is_ignored(self) -> None:
+        installer.apply_plan(self.plan())
+        alpha = self.home / ".agents/skills/alpha"
+        (alpha / "SKILL-Prawn-E14.md").write_text("stale copy", encoding="utf-8")
+        self.assertEqual(installer.tree_digest(alpha), installer.tree_digest(self.repo / "skills/alpha"))
+        plan = self.plan()
+        self.assertTrue(all(item.exists for item in plan.links))
+        installer.apply_plan(plan)
+
+    def test_sync_overwrite_with_conflict_copy_is_repaired(self) -> None:
+        installer.apply_plan(self.plan())
+        router = self.home / ".agents/skills/skill-router"
+        canonical = self.repo / "skills/skill-router/SKILL.md"
+        (router / "SKILL.md").write_text(canonical.read_text(encoding="utf-8"), encoding="utf-8")
+        (router / "SKILL-Prawn-E14.md").write_text("stale copy", encoding="utf-8")
+        plan = self.plan()
+        link = next(item for item in plan.links if item.destination.name == "skill-router")
+        self.assertFalse(link.exists)
+        self.assertIsNotNone(link.backup)
+        installer.apply_plan(plan)
+        self.assertEqual((router / "SKILL.md").read_text(), "Linux router")
+        self.assertFalse((router / "SKILL-Prawn-E14.md").exists())
+        self.assertTrue(all(item.exists for item in self.plan().links))
+
+    def test_unreadable_file_reports_a_clear_error(self) -> None:
+        installer.apply_plan(self.plan())
+        with mock.patch.object(Path, "read_bytes", side_effect=OSError(22, "Invalid argument")):
+            with self.assertRaisesRegex(ValueError, "Cannot read"):
+                self.plan()
+
     def test_unmanaged_copy_is_preserved(self) -> None:
         existing = self.home / ".agents/skills/alpha"
         existing.mkdir(parents=True)
