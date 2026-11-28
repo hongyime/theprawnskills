@@ -108,6 +108,12 @@ Run in this order, one JSONL file per machine (name it `<machine>.jsonl`):
    `python3 scripts/check-fresh-session.py --machine <m> --pane <p>
    --agent <agy|codex|opencode> --expected-model <m> --reported-model <r>`
    A file-check-only report never claims runtime proof.
+   Ruling (Bryan 2026-11-29, V2 finding 1): the record's `value` is the
+   RESOLVED config model — pass `--reported-model` the resolved model
+   from step 3, not the agent's verbatim reply. Capture the verbatim
+   reply in the run report as a finding; an imprecise self-report never
+   decides the verdict. Passing the verbatim reply as the value and
+   silently passing a mismatch is circular and forbidden.
 6. Diff — `python3 scripts/diff-reports.py [--expected expected.json]
    vm.jsonl l390.jsonl 3410.jsonl t14.jsonl e14.jsonl`.
    Cross-machine diff (baseline = most common value, outliers named by
