@@ -161,7 +161,7 @@ Skill loading has three layers: Layer 1 Metadata (always in memory — only name
 
 **The loading problem**: too little — references sit unused, agent doesn't know when to load, knowledge never accessed; too much — wasted context, irrelevant info dilutes key content.
 
-**Good loading trigger** (embedded in workflow): "### Creating New Document — **MANDATORY - READ ENTIRE FILE**: Before proceeding, you MUST read [`docx-js.md`](docx-js.md) (~500 lines) completely. **NEVER set any range limits.** **Do NOT load** `ooxml.md` or `redlining.md` for this task." **Bad trigger** (just listed): "## References — docx-js.md - for creating documents; ooxml.md - for editing; redlining.md - for tracking changes".
+**Good loading trigger** (embedded in workflow): "### Creating New Document — **MANDATORY - READ ENTIRE FILE**: Before proceeding, you MUST read the relevant document-creation reference (~500 lines) completely. **NEVER set any range limits.** **Do NOT load** unrelated references for this task." **Bad trigger** (just listed): "## References — document-creation reference - for creating documents; document-editing reference - for editing; change-tracking reference - for tracking changes".
 
 **For simple Skills** (no references, <100 lines): score on conciseness and self-containment.
 
