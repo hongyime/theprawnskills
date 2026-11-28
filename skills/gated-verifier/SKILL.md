@@ -65,7 +65,10 @@ never PASS.
    NOT given the implementer's summary or its "done" claim. If the evidence
    file contains a verdict or summary judgement, Muse strips it before handing
    the file to the verifier, and notes the strip in the packet's ASSUMPTION
-   section.
+   section. Evidence describes the work at handoff time; the repo may have
+   moved since (rebase, recommit during fleet work). The verifier verifies
+   the CURRENT commit and files live — re-read every cited file and commit —
+   and notes any drift between evidence and current state in the packet.
 6. **Three-seat loop.** The verifier runs: 1 position (its own assessment of
    the work against the plan), 1 challenge (the strongest case the work is
    wrong / incomplete / unverified), 1 verdict (PASS / FAIL / BLOCKED).
@@ -116,6 +119,10 @@ Per `verification-loop`: use PASS, FAIL, SKIPPED (reason), UNAVAILABLE
 
 - Start the verifier pane through Herdr Core (`hc`) only, named pane, correct
   workspace — never an unlabeled pane, never the cargo `herdr` server.
+- Create verifier panes with `--keep`, so the pane survives an agent-process
+  restart (a pane started with `keep: false` dies when its process is killed).
+  If the verifier pane is stuck at sign-in (auth), do not wait on it — start
+  a fresh pane with the same name and role.
 - Proof follows the `herdr_auto_driver` dispatch-proof rule: fresh `hc ls` +
   `hc get` + short screen-tail read, recorded in the dispatch log. Visibility
   is claimed only after the proof check; `unknown` status is never proof.
