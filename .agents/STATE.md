@@ -1,3 +1,10 @@
+# Installer cross-machine tolerance — 2026-11-28 (built, tested, pushed)
+
+- Bryan DECIDED 2026-11-28: teach the installer to tolerate cross-machine markers (E14+T14 share one OneDrive folder; stale copies overwrote managed copies via sync). Design approved in chat, built Muse-direct.
+- Changes in scripts/install_skills.py: (1) tree_digest skips root-level `.prawn-install*` files (OneDrive conflict copies ignored like the marker); (2) marker stale but content == current source → re-stamp marker, no reinstall (new `restamp` Link field, RESTAMP print in apply); (3) content == canonical/variant bytes (sync overwrite) → backup + reinstall like a normal update. Genuine local edit still refused ("Local edits preserved").
+- Tests: 3 new in tests/test_install_skills.py (stale-marker restamp, sync-overwrite repair, conflict-copy ignored). Full suite 142 tests OK (skipped=9).
+- Fleet propagation + T14 OpenSSH check: in flight after push (subagent).
+
 # Spec 07 flat skill-router rewrite — 2026-11-27 (in progress, uncommitted)
 
 - T1 DONE: baseline measured with tiktoken cl100k_base at HEAD d47c6b5. Desc tokens 21,952 (top-level), body tokens 498,256. Routable 33.7%, actionable 15.1% (definitions in specs/07-baseline-audit.md). Research figures 26.5k/38.5%/26.4% NOT reproduced. Audit: ~/workspace/muse-upgrade-backlog/specs/07-baseline-audit.md + 07-baseline-data.json. Baseline is the COMMITTED tree (258+7=265); sibling item-01 skill verify-before-claiming/ is untracked and excluded.

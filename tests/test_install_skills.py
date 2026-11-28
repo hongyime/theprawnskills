@@ -196,6 +196,49 @@ class CopyInstallerTests(Fixture):
         self.assertEqual(target.read_text(), "my local changes")
         self.assertFalse((self.home / "Backups").exists())
 
+    def test_stale_marker_is_restamped_when_content_matches_source(self) -> None:
+        installer.apply_plan(self.plan())
+        alpha = self.home / ".agents/skills/alpha"
+        marker = alpha / ".prawn-install.json"
+        saved = json.loads(marker.read_text(encoding="utf-8"))
+        saved["digest"] = "0" * 64
+        marker.write_text(json.dumps(saved), encoding="utf-8")
+        plan = self.plan()
+        link = next(item for item in plan.links if item.destination.name == "alpha")
+        self.assertTrue(link.exists)
+        self.assertTrue(link.restamp)
+        self.assertIsNone(link.backup)
+        installer.apply_plan(plan)
+        restored = json.loads(marker.read_text(encoding="utf-8"))
+        self.assertEqual(restored["digest"], link.digest)
+        self.assertFalse((self.home / "Backups").exists())
+        self.assertTrue(all(item.exists for item in self.plan().links))
+
+    def test_sync_overwrite_with_canonical_bytes_is_repaired(self) -> None:
+        installer.apply_plan(self.plan())
+        router = self.home / ".agents/skills/skill-router"
+        canonical = self.repo / "skills/skill-router/SKILL.md"
+        (router / "SKILL.md").write_text(canonical.read_text(encoding="utf-8"), encoding="utf-8")
+        plan = self.plan()
+        link = next(item for item in plan.links if item.destination.name == "skill-router")
+        self.assertFalse(link.exists)
+        self.assertIsNotNone(link.backup)
+        installer.apply_plan(plan)
+        self.assertEqual((router / "SKILL.md").read_text(), "Linux router")
+        self.assertEqual((link.backup / "SKILL.md").read_text(), canonical.read_text(encoding="utf-8"))
+        self.assertTrue(all(item.exists for item in self.plan().links))
+
+    def test_onedrive_marker_conflict_copy_is_ignored(self) -> None:
+        installer.apply_plan(self.plan())
+        alpha = self.home / ".agents/skills/alpha"
+        conflict = alpha / ".prawn-install-Prawn-T14.json"
+        conflict.write_text('{"version": 1, "source": "stale", "digest": "0"}', encoding="utf-8")
+        self.assertEqual(installer.tree_digest(alpha), installer.tree_digest(self.repo / "skills/alpha"))
+        plan = self.plan()
+        self.assertTrue(all(item.exists for item in plan.links))
+        installer.apply_plan(plan)
+        self.assertTrue((alpha / ".prawn-install.json").is_file())
+
     def test_unmanaged_copy_is_preserved(self) -> None:
         existing = self.home / ".agents/skills/alpha"
         existing.mkdir(parents=True)

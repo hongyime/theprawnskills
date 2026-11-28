@@ -40,7 +40,9 @@ def tree_digest(folder: Path) -> str:
     """Hash content and relative paths; the root ownership marker is excluded."""
     digest = hashlib.sha256()
     for path in sorted(folder.rglob("*")):
-        if path == folder / COPY_MARKER:
+        # OneDrive conflict copies of the marker (.prawn-install-<machine>.json)
+        # are installer metadata, not skill content; ignore them like the marker.
+        if path.parent == folder and path.name.startswith(".prawn-install"):
             continue
         if is_redirect(path):
             raise ValueError(f"Copy mode does not follow linked content: {path}")
@@ -60,6 +62,7 @@ class Link:
     digest: str | None = None
     previous_digest: str | None = None
     backup: Path | None = None
+    restamp: bool = False
 
 
 @dataclass(frozen=True)
@@ -144,6 +147,7 @@ def make_plan(library: Path, home: Path, agents: list[str], profile: Path | None
             source_digest = source_digest or tree_digest(source)
             previous_digest = None
             backup = None
+            restamp = False
             if managed_copy:
                 if is_redirect(marker):
                     raise ValueError(f"Installation marker is a link: {marker}")
@@ -152,12 +156,25 @@ def make_plan(library: Path, home: Path, agents: list[str], profile: Path | None
                     raise ValueError(f"Existing skill preserved; ownership does not match: {destination}")
                 previous_digest = tree_digest(destination)
                 if previous_digest != saved.get("digest"):
-                    raise ValueError(f"Local edits preserved; review before updating: {destination}")
+                    if previous_digest == source_digest:
+                        # Cross-machine sync already delivered the current
+                        # content; only the marker holds a stale digest.
+                        restamp = True
+                    else:
+                        known_digests = {
+                            tree_digest(candidate)
+                            for candidate in (canonical, variant)
+                            if (candidate / "SKILL.md").is_file()
+                        }
+                        if previous_digest not in known_digests:
+                            raise ValueError(f"Local edits preserved; review before updating: {destination}")
+                        # Sync overwrote this copy with the other machine's
+                        # bytes; repair it like a normal update (backed up).
                 exists = previous_digest == source_digest
                 if not exists:
                     backup = backup_root / destination.relative_to(home)
                     validate_parent(backup.parent, home)
-            links.append(Link(source, destination, exists, "copy", source_digest, previous_digest, backup))
+            links.append(Link(source, destination, exists, "copy", source_digest, previous_digest, backup, restamp))
 
     # Codex can also see legacy user installs. Avoid adding another copy.
     if "codex" in agents:
@@ -188,6 +205,12 @@ def apply_plan(plan: Plan) -> None:
                 if is_redirect(link.destination) or tree_digest(link.destination) != link.previous_digest:
                     raise ValueError(f"Local edits preserved; skill changed since preview: {link.destination}")
                 if link.exists:
+                    if link.restamp:
+                        marker_path = link.destination / COPY_MARKER
+                        with marker_path.open("w", encoding="utf-8") as stream:
+                            json.dump({"version": 1, "source": str(link.source), "digest": link.digest}, stream, indent=2)
+                            stream.write("\n")
+                        print(f"RESTAMP {marker_path}")
                     continue
                 if link.backup is None:
                     raise ValueError(f"Managed copy update requires a backup: {link.destination}")
