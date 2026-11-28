@@ -60,6 +60,8 @@ skills = [
   "mcp-builder",
   "mcp-health-repair",
   "fleet-config-verification",
+  "gated-verifier",
+  "fleet-parity",
   "mcp-security-hygiene",
   "postgres-mcp-onboarding",
   "project-db-autodetect",
