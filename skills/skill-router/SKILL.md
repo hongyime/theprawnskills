@@ -123,6 +123,9 @@ Use these as starting points, then verify by reading the actual `SKILL.md`.
 | Write tests by behavior first, regression test before the fix | `tdd` |
 | Sharpen writing, strip slop, structure state machines and technical docs | `unslop`, `sharpen`, `technical-writing`, `statechart` |
 | Reflect on a session, write down what worked, harvest a reusable lesson | `reflect` |
+| Check connector health, which connectors need re-login | `connector-health` |
+| Find the cheapest flight for a route and date | `flight-search` |
+| Record a correction or mistake the same day, keep the diary/learnings loop | `diary-learnings` |
 | Python fixtures, mocks, boundary cases, unittest or pytest | `python-testing`; `python-sdk` specifically for inference.sh |
 | React component, hook or form tests | `react-testing`; `webapp-testing` for real browser flows |
 | React or TypeScript engineering patterns | `react-dev`, `react-useeffect`, `typescript-advanced-types`, `vercel-composition-patterns`, `vercel-react-view-transitions`; `vercel-react-native-skills` for React Native |

@@ -1,3 +1,9 @@
+# Three missing router skills — 2026-11-28 (built, uncommitted)
+
+- Bryan approved in chat ("yes to the write 3 missing skills"). Router check 2026-11-28 found 2/5 fit, 3/5 miss because NO skill existed: connector-health, flight-search, diary-learnings.
+- New: skills/connector-health/SKILL.md (128 lines; source: ~/workspace/connector-health/check_connectors.sh + state.json + cron connector-health-check; Stripe NEEDS_RELOGIN until re-login + vaulted, tg_osint_5 @txuanning NEEDS_RELOGIN), skills/flight-search/SKILL.md (96 lines; thin router over system flight-booking skill + Google Flights; SD-001 ShopBack estimates are NOT the stored low), skills/diary-learnings/SKILL.md (111 lines; WRONG/CAUSE/OWED/RULE same-day entries, 3-corroboration promotion gate, weekly check manual — do NOT create the cron).
+- Also: INDEX.md regenerated (265 top-level, daily profile 72, --check green — was stale pre-existing at 262/70); skill-router Common Routes +3 rows. NOT added to default-profile.toml (tell-first rule — Bryan's call). No --apply run, no commits, no pushes.
+
 # Installer cross-machine tolerance — 2026-11-28 (built, tested, pushed)
 
 - Bryan DECIDED 2026-11-28: teach the installer to tolerate cross-machine markers (E14+T14 share one OneDrive folder; stale copies overwrote managed copies via sync). Design approved in chat, built Muse-direct.

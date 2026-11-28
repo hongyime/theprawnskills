@@ -8,10 +8,10 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 
 | Source inventory | Count |
 |---|---:|
-| Top-level skills | 262 |
-| All definitions, including nested skills and portable variants | 269 |
+| Top-level skills | 265 |
+| All definitions, including nested skills and portable variants | 272 |
 | Portable variants | 7 |
-| Daily profile | 70 |
+| Daily profile | 72 |
 
 ## Skills
 
@@ -73,6 +73,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `commit-work` | When to read: the user asks to commit, stage changes, or split work into multiple commits. Use for: creating high-quality git commits. Does: reviews/stages intended changes, spl... | DAILY |
 | `competitive-upgrade` | When to read: 'compare this project with competitors', 'what features are missing', or 'find what we should build next'. Use for: comparing the current repo, app, or product aga... | ON-DEMAND |
 | `competitor-teardown` | When to read: market research, competitive intelligence, or a competitor comparison. Use for: structured competitive analysis with feature matrices, SWOT, positioning maps, and ... | ON-DEMAND |
+| `connector-health` | When to read: 'check connector health', 'which connectors need re-login', 'is Gmail still connected', or a digest flags a connector. Use for: running the live connector health c... | ON-DEMAND |
 | `content-repurposing` | When to read: turning one piece of content into many formats. Use for: content atomization — blog-to-thread, blog-to-carousel, podcast-to-blog, video-to-quotes, and more. Does: ... | ON-DEMAND |
 | `correct` | When to read: /correct, or the operator keeps correcting the same mistake. Use for: finding mistakes agents keep repeating in this repo and making each one impossible. Does: tri... | ON-DEMAND |
 | `cross-harness-state` | When to read: starting or ending significant work, 'update the state', 'resume from state', or switching agents/machines mid-task. Use for: maintaining MOLT-style persistent age... | DAILY |
@@ -94,6 +95,7 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `deploy-to-vercel` | When to read: 'deploy my app', 'deploy and give me the link', or 'push this live'. Use for: deploying applications and websites to Vercel. Does: always deploys as preview unless... | ON-DEMAND |
 | `design-taste-frontend` | When to read: building, designing, redesigning, or reviewing a landing page, company, product, or SaaS site — or a page looks generic, templated, or 'AI-made'. Use for: anti-slo... | ON-DEMAND |
 | `dialogue-audio` | When to read: multi-speaker dialogue, conversation audio, or podcast audio is needed. Use for: multi-speaker dialogue audio creation with Dia TTS (fal.ai). Does: speaker tags, e... | ON-DEMAND |
+| `diary-learnings` | When to read: Bryan corrects something, says 'that was wrong', or a mistake needs recording the same day. Use for: writing the same-day diary entry and keeping the learnings loo... | ON-DEMAND |
 | `doc-coauthoring` | When to read: writing docs, proposals, technical specs, or decision docs with the user. Use for: a structured workflow for co-authoring documentation. Does: guides three stages ... | ON-DEMAND |
 | `docker-expert` | When to read: 'Dockerfile', 'containerize this app', 'docker build fails', or 'optimize docker image'. Use for: Docker containerization — multi-stage builds, image optimization,... | DAILY |
 | `docx` | When to read: creating, reading, editing, or manipulating Word documents (.docx/.dotx). Use for: Word document work — formatting, tables of contents, headings, page numbers, let... | ON-DEMAND |
@@ -119,13 +121,14 @@ See [README.md](README.md) for installation and [standalone conventions](platfor
 | `find-skills` | When to read: 'how do I do X', 'find a skill for X', or 'is there a skill that can...'. Use for: helping users discover and install agent skills. Does: finds functionality that ... | DAILY |
 | `fix-security-vulnerabilities-with-strix` | When to read: a Strix scan reports findings, or the user asks to remediate, patch, or fix security issues. Use for: fixing vulnerabilities found by a Strix pentest (open-source ... | ON-DEMAND |
 | `fleet-config-verification` | Verify a fleet configuration change with deterministic scripts, not LLM judgement: host identity, Herdr live state, tool versions, config-file hashes, live resolved models, git ... | DAILY |
-| `fleet-parity` | Turn any fleet configuration change into the same three-part proof before reporting it done: cross-machine diff, live resolved-config check, and fresh-session end-to-end check p... | ON-DEMAND |
+| `fleet-parity` | Turn any fleet configuration change into the same three-part proof before reporting it done: cross-machine diff, live resolved-config check, and fresh-session end-to-end check p... | DAILY |
 | `fleet-skill-audit` | When to read: 'audit fleet skills', 'check all machine skills', or 'verify agent skills across machines'. Use for: a generic, fault-tolerant audit of agent skill discovery and h... | ON-DEMAND |
+| `flight-search` | When to read: 'cheapest flight', 'find a flight', 'direct flight from X to Y', or a fare for a trip. Use for: searching flights for a route, date, and party and comparing delive... | ON-DEMAND |
 | `flux-image` | When to read: 'generate an image with FLUX', or a LoRA style image. Use for: generating images with FLUX models (Black Forest Labs) via inference.sh CLI. Does: text-to-image, im... | ON-DEMAND |
 | `frontend-design` | When to read: designing a UI, making a page look better, or choosing typography and visual direction. Use for: guidance for distinctive, intentional visual design when building ... | ON-DEMAND |
 | `full-send` | When to read: ONLY when the user explicitly says 'full send'. Use for: taking a change to a merged PR with nobody watching. Does: proves it, reviews it, files it, babysits it, a... | ON-DEMAND |
 | `full-stop` | When to read: the user says 'full stop', 'stop everything', or 'halt'. Use for: stopping all work immediately. Does: halts the current task, starts no new work, and summarizes w... | ON-DEMAND |
-| `gated-verifier` | When to read: a delegated task finished executing and needs its verifier gate before merge, close-out, or DONE. Use for: running the fresh-context verifier pane, writing the evi... | ON-DEMAND |
+| `gated-verifier` | When to read: a delegated task finished executing and needs its verifier gate before merge, close-out, or DONE. Use for: running the fresh-context verifier pane, writing the evi... | DAILY |
 | `git-commit` | When to read: the user asks to commit changes, create a git commit, or mentions /commit. Use for: executing a single git commit with conventional commit message analysis. Does: ... | DAILY |
 | `google-veo` | When to read: 'generate a video with Veo', or cinematic text-to-video. Use for: generating videos with Google Veo models via inference.sh CLI. Does: text-to-video with Veo 3.1, ... | ON-DEMAND |
 | `gpt-image` | When to read: generating or editing images with GPT-Image-2. Use for: generating and editing images with OpenAI GPT-Image-2 via inference.sh CLI. Does: text-to-image, image edit... | ON-DEMAND |
